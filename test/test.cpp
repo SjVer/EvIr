@@ -4,7 +4,7 @@
 int main()
 {
 	eviir::IRBuilder* builder = new eviir::IRBuilder(new eviir::Module("test"));
-	std::cout << builder->get_module()->to_string();
+	std::cout << builder->get_module()->generate_ir();
 
 	return 0;
 }

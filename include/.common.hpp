@@ -13,7 +13,8 @@
 namespace eviir
 {
 
-typedef std::string string;
+typedef std::string 		string;
+typedef std::stringstream 	sstream;
 
 }
 #pragma endregion
