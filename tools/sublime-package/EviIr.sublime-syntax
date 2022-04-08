@@ -1,0 +1,257 @@
+%YAML 1.2
+
+---
+
+name: EviIr
+file_extensions: .eviir]
+fileTypes: [.eviir]
+scope: source.eviir
+
+variables:
+  ident: "[A-Za-z_][A-Za-z_0-9]*"
+
+  # numbers
+  decimal: '\b[0-9]+(\.[0-9]*)?\b'
+  binary: '\b0b[0-1]+\b'
+  octal: '\b0c[0-7]+\b'
+  hexadecimal: '\b0x[0-9a-fA-F]+\b'
+  number: '{{decimal}}|{{binary}}|{{octal}}|{{hexadecimal}}'
+
+  # types
+  inttype: i\.(s|u)\.[0-9]+
+  floattype: f\.(1|2)\.[0-9]+
+  voidtype: v
+  type: '(?:{{inttype}}|{{floattype}}|{{voidtype}})\**'
+
+contexts:
+  prototype:
+    # just comments
+    - include: comment
+
+  main:
+    - include: comment
+    - include: property
+    - include: statement
+
+  type:
+    - match: '{{type}}'
+      scope: storage.type.eviir
+
+  property:
+    - match: (\!)\s*({{ident}}\s*\/\s*)*({{ident}})
+      captures:
+        1: keyword.operator.assignment.eviir
+        0: variable.language.eviir
+      push:
+        - include: newline-terminator
+        - include: object
+        - include: expression
+
+  object:
+    - match: \{
+      scope: punctuation.section.block.begin.eviir
+      push:
+        - include: type
+        - match: ':'
+          scope: punctuation.separator.key-value.eviir
+        - match: \,
+          scope: punctuation.separator.continuation.eviir
+        - match: \}
+          scope: punctuation.section.block.end.eviir
+          pop: true
+        - include: expression
+
+  # STATEMENTS
+
+  statement:
+    - include: comment
+
+    - include: declaration
+    - include: label
+    - include: keyword
+    - include: storage
+
+    - include: newline-terminator
+
+    - include: invalid
+
+  declaration:
+    - match: \@
+      scope: keyword.declaration.eviir
+      push:
+        - match: '{{ident}}'
+          scope: entity.name.function.eviir
+          set:
+          - match: '{{type}}'
+            scope: storage.type.eviir
+            set:
+
+            # function
+            - match: \(
+              scope: punctuation.section.parens.begin.eviir
+              set:
+                - match: '{{type}}'
+                  scope: variable.parameter.eviir markup.italic.eviir
+                - match: \)
+                  scope: punctuation.section.parens.end.evi
+                  pop: true
+
+                - include: invalid
+
+            #  variable
+            - include: terminated-expression
+
+            - include: invalid
+          - include: invalid
+        - include: invalid
+
+  label:
+    - match: '#({{ident}}|{{number}})'
+      scope: keyword.operator.label.eviir
+      push:
+        - match: ->
+          scope: keyword.operator.label.eviir
+          pop: true
+        - include: invalid
+
+  keyword:
+    - match: ~br
+      scope: keyword.control.flow.goto.eviir
+      push: terminated-expression
+    - match: ~condbr
+      scope: keyword.control.conditional.if.eviir
+      push: terminated-expression
+    - match: ~ret
+      scope: keyword.control.flow.return.eviir
+      push: terminated-expression
+
+  storage:
+    - match: =disp
+      scope: punctuation.definition.keyword.eviir
+      push: terminated-expression
+    - match: =store
+      scope: punctuation.definition.keyword.eviir
+      push: terminated-expression
+
+  terminated-expression:
+    - include: newline-terminator
+    - include: expression
+
+  # EXPRESSION
+
+  expression:
+    - include: comment
+
+    - include: operator
+    - include: array
+    - include: number
+    - include: label-ref
+    - include: variable
+    - include: constant
+    - include: string-char
+
+    - include: invalid
+
+  array:
+    - match: \[
+      scope: punctuation.section.brackets.begin.eviir
+      push:
+      - meta_scope: meta.array-elements.eviir
+      - match: \]
+        scope: punctuation.section.brackets.end.eviir
+        pop: true
+      - match: \,
+        scope: punctuation.separator.continuation.eviir
+      - include: comment
+      - include: expression
+      - include: invalid
+
+  number:
+    - match: \b{{number}}\b
+      scope: constant.numeric.eviir
+
+  string-char:
+    - match: '\"'
+      push:
+        - meta_scope: string.quoted.double
+        - match: '\"'
+          pop: true
+        - include: escaped-char
+        - include: format-specifier
+
+    - match: "'"
+      push:
+        - meta_scope: string.quoted.single
+        - match: "'"
+          pop: true
+        - include: escaped-char
+
+  operator:
+    - match: \$sh(l|r)
+      scope: keyword.operator.bitwise.shift.eviir
+    - match: \$cmp(eq|neq|le|ge|l|g|nz)
+      scope: keyword.operator.comparison.eviir
+    - match: \$l(not|and|or|xor)
+      scope: keyword.operator.logical.eviir
+    - match: \$b(and|or|xor|not)
+      scope: keyword.operator.bitwise.eviir
+    - match: \$decr
+      scope: keyword.operator.decrement.eviir
+    - match: \$incr
+      scope: keyword.operator.increment.eviir
+    - match: \$(mul|div|sub|add|mod)
+      scope: keyword.operator.arithmetic.eviir
+    - match: \$(ref|deref)
+      scope: keyword.operator.eviir
+    - match: \$call
+      scope: keyword.call.eviir
+
+  label-ref:
+    - match: '&({{ident}}|{{number}})'
+      scope: keyword.operator.label-ref.evi
+
+  variable:
+    - match: '%{{ident}}'
+      scope: variable.eviir
+    - match: '%[0-9]+'
+      scope: variable.parameter.eviir
+
+  constant:
+    - match: ':{{ident}}'
+      scope: variable.annotation.eviir
+
+  # MISC
+
+  newline-terminator:
+    - match: $\n*
+      pop: true
+
+  invalid:
+    - match: \S
+      scope: invalid.misplaced.eviir
+
+  comment:
+    - match: ';'
+      scope: punctuation.definition.comment.eviir
+      push:
+        - meta_scope: comment.line.eviir
+        - include: newline-terminator
+
+  escaped-char:
+    # - match: \\(?:\\|[abefnrtv\'"?]|[0-3][0-9]{0,2}|[4-7][0-9]?|x[a-fA-F0-9]+|u[a-fA-F0-9]{4}|U[a-fA-F0-9]{8})
+    - match: \\(?:a|b|e|f|n|r|t|v|\\|\'|\"|0)
+      scope: constant.character.escape.c
+    - match: \\.
+      scope: invalid.illegal.unknown-escape.c
+
+  format-specifier:
+      - match: |-
+          (?x)%
+            (\d+\$)?                                      # field (argument #)
+            [#0\- +']*                                    # flags
+            [,;:_]?                                       # separator character (AltiVec)
+            ((-?\d+)|\*(-?\d+\$)?)?                       # minimum field width
+            (\.((-?\d+)|\*(-?\d+\$)?)?)?                  # precision
+            (hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)?          # length modifier
+            (\[[^\]]+\]|[am]s|[diouxXDOUeEfFgGaACcSspn%]) # conversion type
+        scope: constant.other.placeholder.eviir
