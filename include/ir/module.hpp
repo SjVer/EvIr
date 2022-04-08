@@ -17,9 +17,14 @@ class Module
 	string name;
 
 public:
+
+	/// Constructs a new module
+	/// @param module_name the name of the module
 	Module(string module_name);
 
-	string to_string();
+	/// Generates the IR of the current module and 
+	/// returns it as a string
+	string generate_ir();
 };
 
 }

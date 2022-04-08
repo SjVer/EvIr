@@ -1,4 +1,4 @@
-; =========== module properties ==========
+; =========== module metadata ==========
 !module/name "hello world"
 !module/entrypoint %main
 
@@ -38,14 +38,14 @@
 	#1 ->		=disp $call %puts "uneven!\n"
 				~ret 1						; from: main
 
-; ========== target properties ==========
+; ========== target metadata ==========
 !target/machine "x86-64-linux-gnu"
 !target/triple :auto
 !target/datalayout :auto
 !target/cputype "generic"
 !target/optimization :O3
 
-; ======== debug info properties ========
+; ======== debug info metadata ========
 !debug/generate 1
 !debug/includesource 1
 !debug/sourcelocation :modulefile

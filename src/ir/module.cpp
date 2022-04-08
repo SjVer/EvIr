@@ -7,7 +7,7 @@ Module::Module(string name): name(name)
 	
 }
 
-string Module::to_string()
+string Module::generate_ir()
 {
-	return ("!module/name \"" + name) + "\"\n";
+	
 }

@@ -13,13 +13,18 @@
 namespace eviir
 {
 
+/// A class for building an managing modules
 class IRBuilder
 {
 	Module* module;
 
 public:
+
+	/// Constructs a new IR Builder
+	/// @param module the builder's current module (optional)
 	IRBuilder(Module* module = nullptr);
 
+	/// @return a pointer to the builder's current module
 	Module* get_module();
 };
 
