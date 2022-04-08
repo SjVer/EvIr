@@ -127,10 +127,10 @@ contexts:
 
   storage:
     - match: =disp
-      scope: punctuation.definition.keyword.eviir
+      scope: keyword.eviir
       push: terminated-expression
     - match: =store
-      scope: punctuation.definition.keyword.eviir
+      scope: keyword.eviir
       push: terminated-expression
 
   terminated-expression:

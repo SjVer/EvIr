@@ -1,6 +1,10 @@
 ########################################################################
 ####################### Makefile Template ##############################
 ########################################################################
+# UNIX-based OS variables & settings
+RM = rm
+MKDIR = mkdir
+SHELL := /bin/bash
 
 # Compiler settings - Can be customized.
 CC = clang++
@@ -21,26 +25,20 @@ BINDIR = bin
 OBJDIR = $(BINDIR)/obj
 
 ############## Do not change anything from here downwards! #############
-SRC = $(wildcard $(SRCDIR)/*$(EXT))
+SRC = $(shell find $(SRCDIR)/ -type f -name '*$(EXT)')
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 APP = $(BINDIR)/$(APPNAME)
 DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
 
-PCH = $(HEADERDIR)/.pch.hpp
-PCHFLAGS = $(CXXFLAGS) -x c++-header $(PCH)
-INC_PCH_FLAG = -include-pch $(PCH).gch
+PCH = .base_pch.hpp
+PCHFLAGS = $(CXXFLAGS) $(addprefix -x c++-header $(HEADERDIR)/,$(PCH))
+INC_PCH_FLAG = -include-pch $(addsuffix .gch,$(addprefix $(HEADERDIR)/,$(PCH)))
 
 DEBUGDEFS = -DDEBUG -ggdb
 
 OBJCOUNT_NOPAD = $(shell v=`echo $(OBJ) | wc -w`; echo `seq 1 $$(expr $$v)`)
 OBJCOUNT = $(foreach v,$(OBJCOUNT_NOPAD),$(shell printf '%02d' $(v)))
 
-
-# UNIX-based OS variables & settings
-RM = rm
-MKDIR = mkdir
-DELOBJ = $(OBJ)
-SHELL := /bin/bash
 
 ########################################################################
 ####################### Targets beginning here #########################
@@ -62,13 +60,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT) | makedirs
 	@printf "\b\b done!\n"
 	$(eval OBJCOUNT = $(filter-out $(word 1,$(OBJCOUNT)),$(OBJCOUNT)))
 
-pch: $(PCH)
+pchs: $(addprefix $(HEADERDIR)/,$(PCH))
 	@printf "[pch] compiling $(PCH)..."
 	@$(CC) $(PCHFLAGS)
 	@printf "\b\b done!\n"
-
-stdlib: makedirs
-	@$(MAKE) --no-print-directory -f $(STDLIB_SRC_DIR)/Makefile stdlib
 
 ############################################################################
 
@@ -81,6 +76,7 @@ clean:
 makedirs:
 	@$(MKDIR) -p $(BINDIR)
 	@$(MKDIR) -p $(OBJDIR)
+	@$(MKDIR) -p $(OBJDIR)/ir
 
 .PHONY: remake
 remake: clean $(APP)
@@ -89,9 +85,8 @@ remake: clean $(APP)
 
 .PHONY: test
 test: $(APP)
-	LD_LIBRARY_PATH = $$LD_LIBRARY_PATH:$(BINDIR)
 	@echo ================== COMPILING ==================
-	$(CC) test/test.cpp -o $(BINDIR)/test -L$(BINDIR) -leviir
+	$(CC) -I$(HEADERDIR) test/test.cpp -o $(BINDIR)/test -L$(BINDIR) -leviir
 	@echo =================== RUNNING ===================
 	@bin/test
 	@echo ==================== DONE =====================

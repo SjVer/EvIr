@@ -1,7 +1,10 @@
-#include "../include/irbuilder.hpp"
+#include "ir/irbuilder.hpp"
+#include <iostream>
 
 int main()
 {
-	test();
+	eviir::IRBuilder* builder = new eviir::IRBuilder(new eviir::Module("test"));
+	std::cout << builder->get_module()->to_string();
+
 	return 0;
 }

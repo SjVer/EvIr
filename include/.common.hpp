@@ -1,5 +1,5 @@
-#ifndef EVIIR_COMMON_H
-#define EVIIR_COMMON_H
+#ifndef EVIIR__COMMON_H
+#define EVIIR__COMMON_H
 
 #if defined(_WIN32) || defined(_WIN64)
 #	define API __declspec(dllexport)
@@ -7,4 +7,15 @@
 #	define API
 #endif
 
-#endif // EVIIR_COMMON_H
+#include ".base_pch.hpp"
+
+#pragma region types
+namespace eviir
+{
+
+typedef std::string string;
+
+}
+#pragma endregion
+
+#endif // EVIIR__COMMON_H
