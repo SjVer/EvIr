@@ -10,6 +10,7 @@
 #include ".base_pch.hpp"
 #include "tools.hpp"
 
+#pragma endregion
 #pragma region types
 namespace eviir
 {
@@ -23,6 +24,7 @@ using vector = std::vector<T>;
 }
 #pragma endregion
 
+#pragma endregion
 #pragma region macros
 
 #define STRINGIFY(value) #value
@@ -32,6 +34,7 @@ using vector = std::vector<T>;
 
 #pragma endregion
 
+#pragma endregion
 #pragma region debug macros
 #ifdef DEBUG
 

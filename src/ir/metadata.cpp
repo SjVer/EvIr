@@ -3,60 +3,55 @@
 
 using namespace eviir;
 
-/// @section Constructors
-
-Metadata::Metadata(BuiltinProperty type, Value* value): property_type(type), property_value(value) 
+Metadata::path Metadata::create_path(string full_path)
 {
-	switch(property_type)
+	// just split the string
+	// a correct path is the user's responsibility
+	return (path)tools::split_string(full_path, "/");
+}
+
+#pragma endregion
+#pragma region Constructors
+
+Metadata::Metadata(builtin_property_type type, Value* value)
+{
+	p_type = (property_type)type;
+
+	switch(p_type)
 	{
-		// #define CASE(type, takes_value, ...) case type: \
-		// 	ASSERT(takes_value ? (bool)value : !(bool)value, "property " STRINGIFY(type) " does not take a value!"); \
-		// 	property_path = vector<string>{__VA_ARGS__}; break
-		#define CASE(type, ...) case type: property_path = vector<string>{__VA_ARGS__}; break
+		#define CASE(type, ...) case type: p_path = vector<string>{__VA_ARGS__}; break
 
 		CASE(META_MODULE_NAME, "module", "name");
 		CASE(META_MODULE_ENTRYPOINT, "module", "entrypoint");
 
 		#undef CASE
-		default: property_path = vector<string>{"<no path>"};
+		default: ASSERT(0, "Invalid built-in metadata property type '" STRINGIFY(type) "'!");
 	}
-	property_value = value;
+	
+
+	p_value = value;
 }
 
-Metadata::Metadata(vector<string> path, Value* value): property_value(value)
+Metadata::Metadata(vector<string> path, Value* value)
 {
-	property_type = META_CUSTOM;
-	property_path = vector<string>(path);
+	p_type = META_CUSTOM_;
+	p_path = vector<string>(path);
+	p_value = value;
 }
 
-/// @section IR Generation
+#pragma endregion
+#pragma region IR Generation
 
 string Metadata::generate_ir()
 {
-	/*
-	ASSERT(property_type >= 0 && property_type < META_NONE, tools::fstr("Invalid metadata type '%d'!", property_type));
-	
-	Value* value;
-	switch(property_type)
-	{
-		#define CASE(type, val) case type: value = val; break
-	
-		CASE(META_MODULE_NAME, new StringValue(module->name));
-		CASE(META_CUSTOM, property_value);
-	
-		#undef CASE
-		default: ASSERT(false, "Invalid metadata type!");
-	}
-	*/
-
 	sstream stream = sstream();
 	stream << "!";
 	
-	for(string& segment : property_path)
-		stream << segment << (segment != property_path.back() ? "/" : "");
+	for(string& segment : p_path)
+		stream << segment << (segment != p_path.back() ? "/" : "");
 	
-	if(property_value) stream << " " << property_value->generate_ir() << std::endl;
-	else stream << " <no value>" << std::endl;
+	if(p_value) stream << " " << p_value->generate_ir();
+	else stream << " <no value>";
 	
 	return stream.str();
 }

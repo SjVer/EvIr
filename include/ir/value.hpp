@@ -37,7 +37,8 @@ protected:
 
 public:
 
-	/// @section Constructors
+	#pragma endregion
+	#pragma region Constructors
 
 	/// Constructs a new string value
 	/// @param value the string
@@ -47,7 +48,8 @@ public:
 	/// @param name the name of the reference
 	static ReferenceValue* new_reference(string name);
 
-	/// @section Virtual members
+	#pragma endregion
+	#pragma region Virtual members
 
 	/// Generates the IR for the value
 	/// @return the IR as a string (without newline)

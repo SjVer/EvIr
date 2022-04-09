@@ -2,7 +2,8 @@
 
 using namespace eviir;
 
-/// @section Constructors
+#pragma endregion
+#pragma region Constructors
 
 StringValue* Value::new_string(string value)
 {
@@ -14,7 +15,8 @@ ReferenceValue* Value::new_reference(string name)
 	return new ReferenceValue(name);
 }
 
-/// @section IR Generation
+#pragma endregion
+#pragma region IR Generation
 
 string StringValue::generate_ir()
 {

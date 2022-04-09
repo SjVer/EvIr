@@ -18,34 +18,53 @@
 namespace eviir
 {
 
+/// A Class representing a single stand-alone IR module
+/// Has the following metadata by default:
+///		module/name (META_MODULE_NAME) = <module name>
+/// 	module/entrypoint (META_MODULE_ENTRYPOINT) = %main
 class Module
 {
 	friend class Metadata;
 
-	/// @section Private members
+	#pragma endregion
+	#pragma region Private members
 
 	string name;
 	vector<Metadata*> metadata;
 
 public:
 
-	/// @section Constructors
+	#pragma endregion
+	#pragma region Constructors
 
 	/// Constructs a new module
 	/// @param module_name the name of the module
 	Module(string module_name);
 
-	/// @section Manipulation
+	#pragma endregion
+	#pragma region Metadata manipulation
 
 	/// Checks if the module has metadata with the given path
-	bool has_metadata(vector<string> path);
+	bool has_metadata(Metadata::path path);
 
 	/// Adds metadata to the module
 	/// @param mdata the metadata to add
-	/// @warning aborts if the module already has metadata with the same path
+	/// @warning if the module already has metadata with the same path
 	void add_metadata(Metadata* mdata);
 
-	/// @section IR generation
+	/// Sets a metadata property with the given path
+	/// @param path the path of the metadata property
+	/// @param value the value to set the property to
+	/// @warning if the module doesn't have metadata with the given path
+	void set_metadata(Metadata::path path, Value* value);
+
+	/// Gets the requested metadata property
+	/// @param path the path of the metadata property
+	/// @return a pointer to the metadata, or null if it isn't found
+	Metadata* get_metadata(Metadata::path path);
+
+	#pragma endregion
+	#pragma region IR generation
 
 	/// Generates an IR comment
 	/// @param text the text of the comment
