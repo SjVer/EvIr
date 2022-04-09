@@ -53,8 +53,10 @@ string Module::generate_ir_comment(string text, bool header)
 			sstream stream = sstream();
 			for(const string& sentence : sentences)
 			{
-				int end_whitespaces = __IR_HCOMMENT_LENGTH - (__IR_HCOMMENT_MIN_SURROUND
-										+ 1 + sentence.length()); 
+				int end_whitespaces = __IR_HCOMMENT_LENGTH - (
+					__IR_HCOMMENT_MIN_SURROUND + 1 + sentence.length()); 
+				DEBUG_PRINT_F_MSG("%d - (%d + %d + %d) = %d",
+					__IR_HCOMMENT_LENGTH, __IR_HCOMMENT_MIN_SURROUND, 1, sentence.length(), end_whitespaces);
 
 				stream << "; " + string(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
 				stream << ' ' + sentence + string(end_whitespaces, ' ');
