@@ -7,6 +7,7 @@ using namespace eviir;
 Module::Module(string name): name(name)
 {
 	add_metadata(new Metadata(Metadata::META_MODULE_NAME, new StringValue(name)));
+	add_metadata(new Metadata(Metadata::META_MODULE_ENTRYPOINT, new ReferenceValue("main")));
 }
 
 /// @section Manipulation

@@ -23,8 +23,13 @@ protected:
 		VALUE_INTEGER,
 		VALUE_FLOAT,
 		VALUE_STRING,
+
 		VALUE_LIST,
 		VALUE_OBJECT,
+
+		VALUE_EXPRESSION,
+		VALUE_REFERENCE,
+		VALUE_OPTION,
 
 		VALUE_NONE
 	} value_type = VALUE_NONE;
@@ -36,6 +41,10 @@ public:
 	/// Constructs a new string value
 	/// @param value the string
 	static StringValue* new_string(string value);
+
+	/// Constructs a new reference value
+	/// @param name the name of the reference
+	static ReferenceValue* new_reference(string name);
 
 	/// @section Virtual members
 
@@ -52,6 +61,17 @@ class StringValue : public Value
 public:
 
 	StringValue(string value): value(value) {}
+	string generate_ir();
+};
+
+class ReferenceValue : public Value
+{
+	static const ValueType value_type = VALUE_REFERENCE;
+	string name;
+
+public:
+
+	ReferenceValue(string name): name(name) {}
 	string generate_ir();
 };
 
