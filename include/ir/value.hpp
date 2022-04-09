@@ -13,6 +13,7 @@ namespace eviir
 {
 
 class StringValue;
+class ReferenceValue;
 
 class Value
 {

@@ -15,6 +15,7 @@ Metadata::Metadata(BuiltinProperty type, Value* value): property_type(type), pro
 		#define CASE(type, ...) case type: property_path = vector<string>{__VA_ARGS__}; break
 
 		CASE(META_MODULE_NAME, "module", "name");
+		CASE(META_MODULE_ENTRYPOINT, "module", "entrypoint");
 
 		#undef CASE
 		default: property_path = vector<string>{"<no path>"};
@@ -54,7 +55,8 @@ string Metadata::generate_ir()
 	for(string& segment : property_path)
 		stream << segment << (segment != property_path.back() ? "/" : "");
 	
-	// stream << " " << value->generate_ir() << std::endl;
-	stream << " " << property_value->generate_ir() << std::endl;
+	if(property_value) stream << " " << property_value->generate_ir() << std::endl;
+	else stream << " <no value>" << std::endl;
+	
 	return stream.str();
 }
