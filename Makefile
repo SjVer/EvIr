@@ -10,7 +10,7 @@ SHELL := /bin/bash
 CC = clang++
 LLVMVERSION = 12
 
-MUTE = # varargs write-strings sign-compare unused-function comment dangling-gsl unknown-warning-option c++17-extensions
+MUTE = varargs # write-strings sign-compare unused-function comment dangling-gsl unknown-warning-option c++17-extensions
 LLVMFLAGS = llvm-config-$(LLVMVERSION) --cxxflags
 DEFS = 
 CXXFLAGS = -Wall $(addprefix -Wno-,$(MUTE)) $(addprefix -D,$(DEFS)) -fPIC # `$(LLVMFLAGS)`
@@ -88,7 +88,9 @@ test: $(APP)
 	@echo ================== COMPILING ==================
 	$(CC) -I$(HEADERDIR) test/test.cpp -o $(BINDIR)/test -L$(BINDIR) -leviir
 	@echo =================== RUNNING ===================
+	@echo
 	@bin/test
+	@echo
 	@echo ==================== DONE =====================
 
 

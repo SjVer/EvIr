@@ -1,6 +1,9 @@
-; =========== module metadata ==========
+; ================ module metadata =================
 !module/name "hello world"
 !module/entrypoint %main
+
+; === some header comment that is waaaaay too ===
+; === long to fit in one line 				  ===
 
 !module/source/filename "hello_world.evi"
 !module/source/directory "/home/sjoerdv/test/"
@@ -10,7 +13,7 @@
 !module/producer/version [1, 0, 0]
 !module/producer/type :compiler
 
-; =========== module contents ===========
+; ================ module contents ================
 
 ; props: external, declared
 @puts i.u.8 (i.u.8**)
@@ -38,14 +41,14 @@
 	#1 ->		=disp $call %puts "uneven!\n"
 				~ret 1						; from: main
 
-; ========== target metadata ==========
+; =============== target metadata ===============
 !target/machine "x86-64-linux-gnu"
 !target/triple :auto
 !target/datalayout :auto
 !target/cputype "generic"
 !target/optimization :O3
 
-; ======== debug info metadata ========
+; ============= debug info metadata =============
 !debug/generate 1
 !debug/includesource 1
 !debug/sourcelocation :modulefile

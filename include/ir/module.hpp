@@ -10,31 +10,43 @@
 #include ".common.hpp"
 #include "ir/metadata.hpp"
 
+#define __IR_COMMENT_LENGTH 49
+#define __IR_HCOMMENT_LENGTH 50
+#define __IR_HCOMMENT_SURROUND_CHAR '='
+#define __IR_HCOMMENT_MIN_SURROUND 3
+
 namespace eviir
 {
 
 class Module
 {
-	string name;
+	/// @section Private members
+
+	string name; // The module's name
 	// Metadata* metadata;
 
-	// TODO:
-	//	- generate_comment function
-	//  - metadata shit
-	//  - everything else lmao
-
 public:
+
+	/// @section Constructors
 
 	/// Constructs a new module
 	/// @param module_name the name of the module
 	Module(string module_name);
 
-	/// Generates the IR of the current module's
-	/// metadata and returns it as a string
+	/// @section IR generation
+
+	/// Generates an IR comment
+	/// @param text the text of the comment
+	/// @param header if true, the comment is formatted as a header comment
+	/// @return the IR as a string
+	string generate_ir_comment(string text, bool header = false);
+
+	/// Generates the IR of the current module's metadata
+	/// @return the IR as a string
 	string generate_metadata_ir();
 
-	/// Generates the IR of the current module and 
-	/// returns it as a string
+	/// Generates the IR of the current module
+	/// @return the IR as a string
 	string generate_ir();
 };
 
