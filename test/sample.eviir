@@ -2,9 +2,6 @@
 !module/name "hello world"
 !module/entrypoint %main
 
-; === some header comment that is waaaaay too ===
-; === long to fit in one line 				  ===
-
 !module/source/filename "hello_world.evi"
 !module/source/directory "/home/sjoerdv/test/"
 !module/source/language "Evi"
@@ -42,10 +39,9 @@
 				~ret 1						; from: main
 
 ; =============== target metadata ===============
-!target/machine "x86-64-linux-gnu"
-!target/triple :auto
+!target/triple "x86-64-linux-gnu"
+!target/cpu "generic"
 !target/datalayout :auto
-!target/cputype "generic"
 !target/optimization :O3
 
 ; ============= debug info metadata =============

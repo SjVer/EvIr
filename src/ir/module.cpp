@@ -42,8 +42,8 @@ string Module::generate_ir_comment(string text, bool header)
 			int start_surround_chars = surround_chars / 2;
 			int end_surround_chars = surround_chars - start_surround_chars;
 
-			stream << "; " + string(start_surround_chars, __IR_HCOMMENT_SURROUND_CHAR);
-			stream << " " + sentence + " ";
+			stream << "; " << string(start_surround_chars, __IR_HCOMMENT_SURROUND_CHAR);
+			stream << " " << sentence << " ";
 			stream << string(end_surround_chars, __IR_HCOMMENT_SURROUND_CHAR) << std::endl;
 
 			return stream.str();
@@ -54,36 +54,51 @@ string Module::generate_ir_comment(string text, bool header)
 			for(const string& sentence : sentences)
 			{
 				int end_whitespaces = __IR_HCOMMENT_LENGTH - (
-					__IR_HCOMMENT_MIN_SURROUND + 1 + sentence.length()); 
-				DEBUG_PRINT_F_MSG("%d - (%d + %d + %d) = %d",
-					__IR_HCOMMENT_LENGTH, __IR_HCOMMENT_MIN_SURROUND, 1, sentence.length(), end_whitespaces);
+					2 * __IR_HCOMMENT_MIN_SURROUND + 1 + sentence.length()); 
 
-				stream << "; " + string(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
-				stream << ' ' + sentence + string(end_whitespaces, ' ');
-				stream << string(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR) << std::endl;
+				stream << "; " << string(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
+				stream << ' ' << sentence << string(end_whitespaces, ' ');
+				stream << string(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
+				stream << std::endl;
 			}
 			return stream.str();
 		}
 	}
 	else
 	{
-		return "; " + text;
+		if(sentences.size() == 1) return "; " + sentence;
+		else
+		{
+			sstream stream = sstream();
+			for(const string& sentence : sentences)
+			{
+				stream << "; " << sentence;
+				stream << std::endl;
+			}
+			return stream.str();
+		}
 	}
 }
 
 string Module::generate_metadata_ir()
 {
-	return "!module/name \"" + name + "\"";
+	sstream stream = sstream();
+
+	// module metadata
+	stream << generate_ir_comment("module metadata", true);
+	for(auto md : metadata) md->generate_ir(this);
+
+	stream << std::endl;
+	return stream.str(); 
 }
 
 string Module::generate_ir()
 {
 	sstream stream = sstream();
+	metadata.push_back(new Metadata(Metadata::META_MODULE_NAME));
 
 	// generate metata ir
-	stream << generate_ir_comment("module metadata", true) << std::endl;
-	stream << generate_metadata_ir() << std::endl;
-	stream << generate_ir_comment("some header comment that is waaaaay too long to fit in one line", true) << std::endl;
+	stream << generate_metadata_ir();
 
 	// return string
 	return stream.str();

@@ -20,10 +20,12 @@ namespace eviir
 
 class Module
 {
+	friend class Metadata;
+
 	/// @section Private members
 
-	string name; // The module's name
-	// Metadata* metadata;
+	string name;
+	vector<Metadata*> metadata;
 
 public:
 
@@ -34,6 +36,7 @@ public:
 	Module(string module_name);
 
 	/// @section IR generation
+	/// @warning the newline is always included
 
 	/// Generates an IR comment
 	/// @param text the text of the comment
