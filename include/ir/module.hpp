@@ -35,21 +35,30 @@ public:
 	/// @param module_name the name of the module
 	Module(string module_name);
 
+	/// @section Manipulation
+
+	/// Checks if the module has metadata with the given path
+	bool has_metadata(vector<string> path);
+
+	/// Adds metadata to the module
+	/// @param mdata the metadata to add
+	/// @warning aborts if the module already has metadata with the same path
+	void add_metadata(Metadata* mdata);
+
 	/// @section IR generation
-	/// @warning the newline is always included
 
 	/// Generates an IR comment
 	/// @param text the text of the comment
 	/// @param header if true, the comment is formatted as a header comment
-	/// @return the IR as a string
+	/// @return the IR as a string (with newline)
 	string generate_ir_comment(string text, bool header = false);
 
 	/// Generates the IR of the current module's metadata
-	/// @return the IR as a string
+	/// @return the IR as a string (with newline)
 	string generate_metadata_ir();
 
 	/// Generates the IR of the current module
-	/// @return the IR as a string
+	/// @return the IR as a string (with newline)
 	string generate_ir();
 };
 

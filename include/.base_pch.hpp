@@ -6,6 +6,6 @@
 
 #include <vector>
 
-#include <cassert>
+#include <csignal>
 
 #endif // EVIIR__BASE_PCH_H

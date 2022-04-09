@@ -6,7 +6,22 @@ using namespace eviir;
 
 Module::Module(string name): name(name)
 {
-	
+	add_metadata(new Metadata(Metadata::META_MODULE_NAME, new StringValue(name)));
+}
+
+/// @section Manipulation
+
+bool Module::has_metadata(vector<string> path)
+{
+	// TODO?: improve?
+	for(auto md : metadata) if(md->property_path == path) return true;
+	return false;
+}
+
+void Module::add_metadata(Metadata* mdata)
+{
+	ASSERT(!has_metadata(mdata->property_path), "Module already has metadata with similar path!");
+	metadata.push_back(mdata);
 }
 
 /// @section IR generation
@@ -86,7 +101,7 @@ string Module::generate_metadata_ir()
 
 	// module metadata
 	stream << generate_ir_comment("module metadata", true);
-	for(auto md : metadata) md->generate_ir(this);
+	for(auto md : metadata) stream << md->generate_ir();
 
 	stream << std::endl;
 	return stream.str(); 
@@ -95,7 +110,6 @@ string Module::generate_metadata_ir()
 string Module::generate_ir()
 {
 	sstream stream = sstream();
-	metadata.push_back(new Metadata(Metadata::META_MODULE_NAME));
 
 	// generate metata ir
 	stream << generate_metadata_ir();

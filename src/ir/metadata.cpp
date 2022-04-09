@@ -3,41 +3,58 @@
 
 using namespace eviir;
 
-Metadata::Metadata(BuiltinProperty property): property_type(property) 
+/// @section Constructors
+
+Metadata::Metadata(BuiltinProperty type, Value* value): property_type(type), property_value(value) 
 {
-	switch(property)
+	switch(property_type)
 	{
-		#define CASE(type, ...) case type: property_path = vector<string>((string[]){__VA_ARGS__}); break
+		// #define CASE(type, takes_value, ...) case type: \
+		// 	ASSERT(takes_value ? (bool)value : !(bool)value, "property " STRINGIFY(type) " does not take a value!"); \
+		// 	property_path = vector<string>{__VA_ARGS__}; break
+		#define CASE(type, ...) case type: property_path = vector<string>{__VA_ARGS__}; break
 
 		CASE(META_MODULE_NAME, "module", "name");
 
 		#undef CASE
-		default: property_path = vector<string>("<no path>");
+		default: property_path = vector<string>{"<no path>"};
 	}
+	property_value = value;
 }
 
-string Metadata::generate_ir(Module* module)
+Metadata::Metadata(vector<string> path, Value* value): property_value(value)
 {
-	ASSERT(property_type >= 0 && property_type < META_NONE, "Invalid metadata type!");
+	property_type = META_CUSTOM;
+	property_path = vector<string>(path);
+}
 
-	// Value* value;
-	string value;
+/// @section IR Generation
 
+string Metadata::generate_ir()
+{
+	/*
+	ASSERT(property_type >= 0 && property_type < META_NONE, tools::fstr("Invalid metadata type '%d'!", property_type));
+	
+	Value* value;
 	switch(property_type)
 	{
 		#define CASE(type, val) case type: value = val; break
-
-		CASE(META_MODULE_NAME, module->name);
-		CASE(META_CUSTOM, "<no value>" /* property_value->generate_ir() */);
-
+	
+		CASE(META_MODULE_NAME, new StringValue(module->name));
+		CASE(META_CUSTOM, property_value);
+	
 		#undef CASE
 		default: ASSERT(false, "Invalid metadata type!");
 	}
+	*/
 
-	sstream stream = sstream("!");
+	sstream stream = sstream();
+	stream << "!";
+	
 	for(string& segment : property_path)
 		stream << segment << (segment != property_path.back() ? "/" : "");
 	
-	stream << " " << value /* value->generate_ir() */ << std::endl;
+	// stream << " " << value->generate_ir() << std::endl;
+	stream << " " << property_value->generate_ir() << std::endl;
 	return stream.str();
 }

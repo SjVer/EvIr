@@ -13,11 +13,11 @@
 namespace eviir
 {
 
-class Module;
-
 class Metadata
 {
 public:
+
+	friend class Module;
 
 	/// The built-in metadata types
 	typedef enum
@@ -57,15 +57,23 @@ private:
 
 public:
 
-	/// Constructs a new metadata instance
+	/// @section Constructors
+
+	/// Constructs a new metadata instance defining a built-in property
 	/// @param property the built-in property that this metadata defines
-	Metadata(BuiltinProperty property);
+	/// @param value the value of this metadata property (optional)
+	Metadata(BuiltinProperty property_type, Value* value = nullptr);
+
+	/// Constructs a new metadata instance defining a custom property
+	/// @param path the path of the property that this metadata defines
+	/// @param value the value of this metadata property (optional)
+	Metadata(vector<string> path, Value* value = nullptr);
+	
+	/// @section IR generation
 
 	/// Generates the IR for this metadata property
-	/// @param module the module owning this metadata (optional)
 	/// @return the ir as a string (including a newline)
-	string generate_ir(Module* module = nullptr);
-
+	string generate_ir();
 };
 
 };

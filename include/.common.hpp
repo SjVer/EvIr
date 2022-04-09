@@ -27,7 +27,8 @@ using vector = std::vector<T>;
 
 #define STRINGIFY(value) #value
 
-#define ASSERT(condition, whatwentwrong) assert(condition && whatwentwrong)
+#define ASSERT(condition, whatwentwrong) if(!(condition)) { \
+	std::cerr << "EviIr Assertion failed: " << whatwentwrong << std::endl; raise(SIGABRT); }
 
 #pragma endregion
 
