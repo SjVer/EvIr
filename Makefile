@@ -114,7 +114,6 @@ debug-no-fold: debug
 ############################################################################
 
 git:
-	@cd doc && $(MAKE) --no-print-directory git || true
 	git add --all
 	git commit -m $$(test "$(msg)" && echo '$(msg)' || echo upload)
 	git push origin main
@@ -123,5 +122,9 @@ newfile:
 	@test $(name) || ( echo "basename not given! ('make newfile name=BASENAME')"; false )
 	touch $(SRCDIR)/$(name).cpp
 	touch $(HEADERDIR)/$(name).hpp
+
+.PHONY: doc
+doc:
+	@cd doc && doxygen
 
 ############################################################################
