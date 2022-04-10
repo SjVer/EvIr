@@ -1,0 +1,107 @@
+.TH "eviir::Metadata" 3 "Sun Apr 10 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+eviir::Metadata \- A Class defining metadata for modules\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <metadata\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBbuiltin_property_type\fP { \fBMETA_MODULE_NAME\fP = property_type::_META_MODULE_NAME, \fBMETA_MODULE_ENTRYPOINT\fP = property_type::_META_MODULE_ENTRYPOINT, \fBMETA_MODULE_SOURCE_FILENAME\fP = property_type::_META_MODULE_SOURCE_FILENAME, \fBMETA_MODULE_SOURCE_DIRECTORY\fP = property_type::_META_MODULE_SOURCE_DIRECTORY, \fBMETA_MODULE_SOURCE_LANGUAGE\fP = property_type::_META_MODULE_SOURCE_LANGUAGE, \fBMETA_MODULE_PRODUCER_NAME\fP = property_type::_META_MODULE_PRODUCER_NAME, \fBMETA_MODULE_PRODUCER_VERSION\fP = property_type::_META_MODULE_PRODUCER_VERSION, \fBMETA_MODULE_PRODUCER_TYPE\fP = property_type::_META_MODULE_PRODUCER_TYPE, \fBMETA_TARGET_TRIPLE\fP = property_type::_META_TARGET_TRIPLE, \fBMETA_TARGET_CPU\fP = property_type::_META_TARGET_CPU, \fBMETA_TARGET_DATALAYOUT\fP = property_type::_META_TARGET_DATALAYOUT, \fBMETA_TARGET_OPTIMIZATION\fP = property_type::_META_TARGET_OPTIMIZATION, \fBMETA_DEBUG_GENERATE\fP = property_type::_META_DEBUG_GENERATE, \fBMETA_DEBUG_INCLUDESOURCE\fP = property_type::_META_DEBUG_INCLUDESOURCE, \fBMETA_DEBUG_SOURCELOCATION\fP = property_type::_META_DEBUG_SOURCELOCATION, \fBMETA_DEBUG_SOURCECHECKSUM\fP = property_type::_META_DEBUG_SOURCECHECKSUM, \fBMETA_DEBUG_DWARFVERSION\fP = property_type::_META_DEBUG_DWARFVERSION, \fBMETA_DEBUG_TYPENAMES\fP = property_type::_META_DEBUG_TYPENAMES }"
+.br
+.RI "The built-in metadata property types\&. "
+.ti -1c
+.RI "enum \fBcustom_property_type\fP { \fBMETA_MODULE\fP = property_type::_META_MODULE_, \fBMETA_MODULE_SOURCE\fP = property_type::_META_MODULE_SOURCE_, \fBMETA_MODULE_PRODUCER\fP = property_type::_META_MODULE_PRODUCER_, \fBMETA_TARGET\fP = property_type::_META_TARGET_, \fBMETA_DEBUG\fP = property_type::_META_DEBUG_, \fBMETA_CUSTOM\fP = property_type::_META_CUSTOM_ }"
+.br
+.RI "The custom metadata property types\&. "
+.ti -1c
+.RI "typedef vector< string > \fBpath\fP"
+.br
+.RI "A metadata path\&. "
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMetadata\fP (\fBbuiltin_property_type\fP type, \fBValue\fP *value=nullptr)"
+.br
+.ti -1c
+.RI "\fBMetadata\fP (\fBcustom_property_type\fP type, \fBpath\fP \fBpath\fP, \fBValue\fP *value=nullptr)"
+.br
+.ti -1c
+.RI "string \fBgenerate_ir\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBpath\fP \fBcreate_path\fP (string full_path)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBModule\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A Class defining metadata for modules\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "eviir::Metadata::Metadata (\fBbuiltin_property_type\fP type, \fBValue\fP * value = \fCnullptr\fP)"
+Constructs a new metadata instance defining a built-in property 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP the built-in property type that this metadata defines 
+.br
+\fIvalue\fP the value of this metadata property (optional) 
+.RE
+.PP
+
+.SS "eviir::Metadata::Metadata (\fBcustom_property_type\fP type, \fBpath\fP path, \fBValue\fP * value = \fCnullptr\fP)"
+Constructs a new metadata instance defining a custom property 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP the built-in type that this metadata defines a property of 
+.br
+\fIpath\fP the rest of the path of the property that this metadata defines 
+.br
+\fIvalue\fP the value of this metadata property (optional) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBpath\fP eviir::Metadata::create_path (string full_path)\fC [static]\fP"
+Creates a \fBMetadata\fP path 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfull_path\fP the path to use (e\&.g\&. 'base/sub') 
+.RE
+.PP
+
+.SS "string eviir::Metadata::generate_ir ()"
+Generates the IR for this metadata property 
+.PP
+\fBReturns\fP
+.RS 4
+the ir as a string (without a newline) 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EviIr from the source code\&.
