@@ -10,7 +10,7 @@ SHELL := /bin/bash
 CC = clang++
 LLVMVERSION = 12
 
-MUTE = varargs # write-strings sign-compare unused-function comment dangling-gsl unknown-warning-option c++17-extensions
+MUTE = varargs c99-designator # write-strings sign-compare unused-function comment dangling-gsl unknown-warning-option c++17-extensions
 LLVMFLAGS = llvm-config-$(LLVMVERSION) --cxxflags
 DEFS = 
 CXXFLAGS = -Wall $(addprefix -Wno-,$(MUTE)) $(addprefix -D,$(DEFS)) -fPIC # `$(LLVMFLAGS)`
@@ -85,14 +85,12 @@ remake: clean $(APP)
 
 .PHONY: test
 test: $(APP)
-	@echo ================== COMPILING ==================
+	@printf ">>> COMPILING "
 	$(CC) -I$(HEADERDIR) test/test.cpp -o $(BINDIR)/test -L$(BINDIR) -leviir
-	@echo =================== RUNNING ===================
-	@echo
-	@bin/test
-	@echo
-	@echo ==================== DONE =====================
-
+	@printf ">>> RUNNING "
+	bin/test > test/out.eviir
+	@printf ">>> DONE "
+	cat test/out.eviir
 
 .PHONY: test-debug
 test-debug: debug $(APP)
@@ -116,7 +114,7 @@ debug-no-fold: debug
 ############################################################################
 
 git:
-# 	@cd wiki && $(MAKE) --no-print-directory git || true
+	@cd doc && $(MAKE) --no-print-directory git || true
 	git add --all
 	git commit -m $$(test "$(msg)" && echo '$(msg)' || echo upload)
 	git push origin main

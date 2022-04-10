@@ -18,53 +18,56 @@ class Metadata
 {
 	friend class Module;
 
-	enum class property_type
+	typedef enum
 	{
 		_META_start_module,
-		META_MODULE_,					// module/...
-		META_MODULE_NAME,				// module/name
-		META_MODULE_ENTRYPOINT,			// module/entrypoint
+		_META_MODULE_NAME,				// module/name
+		_META_MODULE_ENTRYPOINT,		// module/entrypoint
+		_META_MODULE_,					// module/...
 		_META_end_module,
 
 		_META_start_module_source,
-		META_MODULE_SOURCE_,			// module/source/...
-		META_MODULE_SOURCE_FILENAME,	// module/source/filename
-		META_MODULE_SOURCE_DIRECTORY,	// module/source/directory
-		META_MODULE_SOURCE_LANGUAGE,	// module/source/language
+		_META_MODULE_SOURCE_FILENAME,	// module/source/filename
+		_META_MODULE_SOURCE_DIRECTORY,	// module/source/directory
+		_META_MODULE_SOURCE_LANGUAGE,	// module/source/language
+		_META_MODULE_SOURCE_,			// module/source/...
 		_META_end_module_source,
 
 		_META_start_module_producer,
-		META_MODULE_PRODUCER_,			// module/producer/...
-		META_MODULE_PRODUCER_NAME,		// module/producer/name
-		META_MODULE_PRODUCER_VERSION,	// module/producer/version
-		META_MODULE_PRODUCER_TYPE,		// module/producer/type
+		_META_MODULE_PRODUCER_NAME,		// module/producer/name
+		_META_MODULE_PRODUCER_VERSION,	// module/producer/version
+		_META_MODULE_PRODUCER_TYPE,		// module/producer/type
+		_META_MODULE_PRODUCER_,			// module/producer/...
 		_META_end_module_producer,
 
 		_META_start_target,
-		META_TARGET_,					// target/...
-		META_TARGET_TRIPLE,				// target/triple
-		META_TARGET_CPU,				// target/cpu
-		META_TARGET_DATALAYOUT,			// target/datalayout
-		META_TARGET_OPTIMIZATION,		// target/optimization
+		_META_TARGET_TRIPLE,			// target/triple
+		_META_TARGET_CPU,				// target/cpu
+		_META_TARGET_DATALAYOUT,		// target/datalayout
+		_META_TARGET_OPTIMIZATION,		// target/optimization
+		_META_TARGET_,					// target/...
 		_META_end_target,
 
 		_META_start_debug,
-		META_DEBUG_,					// debug/...
-		META_DEBUG_GENERATE,			// debug/generate
-		META_DEBUG_INCLUDESOURCE,		// debug/includesource
-		META_DEBUG_SOURCELOCATION,		// debug/sourcelocation
-		META_DEBUG_SOURCECHECKSUM,		// debug/sourcechecksum
-		META_DEBUG_DWARFVERSION,		// debug/dwarfversion
-		META_DEBUG_TYPENAMES,			// debug/typenames
+		_META_DEBUG_GENERATE,			// debug/generate
+		_META_DEBUG_INCLUDESOURCE,		// debug/includesource
+		_META_DEBUG_SOURCELOCATION,		// debug/sourcelocation
+		_META_DEBUG_SOURCECHECKSUM,		// debug/sourcechecksum
+		_META_DEBUG_DWARFVERSION,		// debug/dwarfversion
+		_META_DEBUG_TYPENAMES,			// debug/typenames
+		_META_DEBUG_,					// debug/...
 		_META_end_debug,
 
-		META_CUSTOM_,					// ...
-		META_NONE,
-	};
+		_META_CUSTOM_,					// ...
+
+		_META_none,
+	} property_type;
+
+	static const char* property_type_formats[_META_none];
 
 public:
 
-// TODO: Typecast overload?
+	#pragma region types
 
 	/// A metadata path
 	typedef vector<string> path;
@@ -72,7 +75,7 @@ public:
 	/// The built-in metadata property types
 	typedef enum
 	{
-		#define META(name) META_##name = property_type::META_##name
+		#define META(name) META_##name = property_type::_META_##name
 
 		META(MODULE_NAME),
 		META(MODULE_ENTRYPOINT),
@@ -97,23 +100,25 @@ public:
 		META(DEBUG_DWARFVERSION),
 		META(DEBUG_TYPENAMES),
 
-		#undef METAs
+		#undef META
 	} builtin_property_type;
 	
 	/// The custom metadata property types
 	typedef enum
 	{
-		#define META(name) META_##name = property_type::META_##name##_
+		#define META(name) META_##name = property_type::_META_##name##_
 
 		META(MODULE),
 		META(MODULE_SOURCE),
 		META(MODULE_PRODUCER),
 		META(TARGET),
 		META(DEBUG),
-		META_CUSTOM = property_type::META_CUSTOM_,
+		META(CUSTOM),
 
 		#undef META
 	} custom_property_type;
+
+	#pragma endregion
 
 private:
 
@@ -127,25 +132,26 @@ public:
 	/// @param full_path the path to use (e.g. "base/sub")
 	static path create_path(string full_path);
 
-	#pragma endregion
 	#pragma region Constructors
 
 	/// Constructs a new metadata instance defining a built-in property
-	/// @param property the built-in property that this metadata defines
+	/// @param type the built-in property type that this metadata defines
 	/// @param value the value of this metadata property (optional)
-	Metadata(builtin_property_type p_type, Value* value = nullptr);
+	Metadata(builtin_property_type type, Value* value = nullptr);
 
 	/// Constructs a new metadata instance defining a custom property
-	/// @param path the path of the property that this metadata defines
+	/// @param type the built-in type that this metadata defines a property of
+	/// @param path the rest of the path of the property that this metadata defines
 	/// @param value the value of this metadata property (optional)
-	Metadata(path path, Value* value = nullptr);
+	Metadata(custom_property_type type, path path, Value* value = nullptr);
 	
 	#pragma endregion
-	#pragma region IR generation
 
 	/// Generates the IR for this metadata property
 	/// @return the ir as a string (without a newline)
 	string generate_ir();
+
+	#pragma endregion
 };
 
 };

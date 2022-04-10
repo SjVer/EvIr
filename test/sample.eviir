@@ -1,8 +1,8 @@
 ; ================ module metadata =================
-!module/name "hello world"
+!module/name "test"
 !module/entrypoint %main
 
-!module/source/filename "hello_world.evi"
+!module/source/filename "test.evi"
 !module/source/directory "/home/sjoerdv/test/"
 !module/source/language "Evi"
 
@@ -39,7 +39,7 @@
 				~ret 1						; from: main
 
 ; =============== target metadata ===============
-!target/triple "x86-64-linux-gnu"
+!target/triple "x86_64-pc-linux-gnu"
 !target/cpu "generic"
 !target/datalayout :auto
 !target/optimization :O3

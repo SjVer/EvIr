@@ -18,12 +18,12 @@ namespace tools {
     string escstr(string str);
     string unescstr(string str, bool ign_s_quotes = false, bool ign_d_quotes = false);
 
-    void ltrim(string &s);
-    void rtrim(string &s);
-    void trim(string &s);
-    string ltrim_copy(string s);
-    string rtrim_copy(string s);
-    string trim_copy(string s);
+    void ltrim(string &s, char delim = ' ');
+    void rtrim(string &s, char delim = ' ');
+    void trim(string &s, char delim = ' ');
+    string ltrimc(string s, char delim = ' ');
+    string rtrimc(string s, char delim = ' ');
+    string trimc(string s, char delim = ' ');
 
     string readf(string path);
     void writef(string path, string text);

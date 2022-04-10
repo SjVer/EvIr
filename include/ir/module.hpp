@@ -20,6 +20,7 @@ namespace eviir
 
 /// A Class representing a single stand-alone IR module
 /// Has the following metadata by default:
+///
 ///		module/name (META_MODULE_NAME) = <module name>
 /// 	module/entrypoint (META_MODULE_ENTRYPOINT) = %main
 class Module
@@ -47,6 +48,9 @@ public:
 	/// Checks if the module has metadata with the given path
 	bool has_metadata(Metadata::path path);
 
+	/// Checks if the module has metadata with the given type
+	bool has_metadata(Metadata::builtin_property_type type);
+
 	/// Adds metadata to the module
 	/// @param mdata the metadata to add
 	/// @warning if the module already has metadata with the same path
@@ -58,10 +62,21 @@ public:
 	/// @warning if the module doesn't have metadata with the given path
 	void set_metadata(Metadata::path path, Value* value);
 
+	/// Sets a metadata property with the built-in type
+	/// @param type the type of the metadata property
+	/// @param value the value to set the property to
+	/// @warning if the module doesn't have metadata with the given type
+	void set_metadata(Metadata::builtin_property_type type, Value* value);
+
 	/// Gets the requested metadata property
 	/// @param path the path of the metadata property
 	/// @return a pointer to the metadata, or null if it isn't found
 	Metadata* get_metadata(Metadata::path path);
+
+	/// Gets the requested metadata property
+	/// @param type the built-in type of the metadata property
+	/// @return a pointer to the metadata, or null if it isn't found
+	Metadata* get_metadata(Metadata::builtin_property_type type);
 
 	#pragma endregion
 	#pragma region IR generation
@@ -72,13 +87,19 @@ public:
 	/// @return the IR as a string (with newline)
 	string generate_ir_comment(string text, bool header = false);
 
-	/// Generates the IR of the current module's metadata
+	/// Generates the IR of the current module's metadata.
+	/// If before_contents is true, the metadata that comes before 
+	/// the module's is generated, otherwise the metadata that
+	/// comes after the module's contents is generated
+	/// @param before_contents see description
 	/// @return the IR as a string (with newline)
-	string generate_metadata_ir();
+	string generate_metadata_ir(bool before_contents);
 
 	/// Generates the IR of the current module
 	/// @return the IR as a string (with newline)
 	string generate_ir();
+
+	#pragma endregion
 };
 
 }

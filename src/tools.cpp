@@ -168,54 +168,45 @@ string tools::escstr(string str)
     return ret.str();
 }
 
-
-#include <algorithm> 
-#include <cctype>
-#include <locale>
-
 // trim from start (in place)
-void tools::ltrim(std::string &s)
+void tools::ltrim(std::string &s, char delim)
 {
-    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch)
-    {
-        return !std::isspace(ch);
-    }));
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [delim](unsigned char ch)
+    { return ch != delim; }));
 }
 
 // trim from end (in place)
-void tools::rtrim(std::string &s)
+void tools::rtrim(std::string &s, char delim)
 {
-    s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch)
-    {
-        return !std::isspace(ch);
-    }).base(), s.end());
+    s.erase(std::find_if(s.rbegin(), s.rend(), [delim](unsigned char ch)
+    { return ch != delim; }).base(), s.end());
 }
 
 // trim from both ends (in place)
-void tools::trim(std::string &s)
+void tools::trim(std::string &s, char delim)
 {
-    ltrim(s);
-    rtrim(s);
+    ltrim(s, delim);
+    rtrim(s, delim);
 }
 
 // trim from start (copying)
-std::string tools::ltrim_copy(std::string s)
+std::string tools::ltrimc(std::string s, char delim)
 {
-    ltrim(s);
+    ltrim(s, delim);
     return s;
 }
 
 // trim from end (copying)
-std::string tools::rtrim_copy(std::string s)
+std::string tools::rtrimc(std::string s, char delim)
 {
-    rtrim(s);
+    rtrim(s, delim);
     return s;
 }
 
 // trim from both ends (copying)
-std::string tools::trim_copy(std::string s)
+std::string tools::trimc(std::string s, char delim)
 {
-    trim(s);
+    trim(s, delim);
     return s;
 }
 

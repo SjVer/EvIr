@@ -12,8 +12,13 @@
 namespace eviir
 {
 
+class IntegerValue;
+class FloatValue;
 class StringValue;
+class ListValue;
+class ObjectValue;
 class ReferenceValue;
+class OptionValue;
 
 class Value
 {
@@ -37,46 +42,67 @@ protected:
 
 public:
 
-	#pragma endregion
 	#pragma region Constructors
+	#define SIMPLE_VALUE_CONTRUCTOR(classname, lowercasename, membertype, membername) \
+		static classname* new_##lowercasename(membertype membername);
+
+	/// Constructs a new integer value
+	/// @param value the integer
+	SIMPLE_VALUE_CONTRUCTOR(IntegerValue, integer, int64, value);
+
+	/// Constructs a new float value
+	/// @param value the float
+	SIMPLE_VALUE_CONTRUCTOR(FloatValue, float, float2, value);
 
 	/// Constructs a new string value
 	/// @param value the string
-	static StringValue* new_string(string value);
+	SIMPLE_VALUE_CONTRUCTOR(StringValue, string, string, value);
+
+	/// Constructs a new list value
+	/// @param elements the elements of the list
+	SIMPLE_VALUE_CONTRUCTOR(ListValue, list, vector<Value*>, elements);
+
+	/// Constructs a new object value
+	/// @param pair the key-value pairs of the object
+	SIMPLE_VALUE_CONTRUCTOR(ObjectValue, object, map<Value* COMMA Value*>, pairs);
 
 	/// Constructs a new reference value
 	/// @param name the name of the reference
-	static ReferenceValue* new_reference(string name);
+	SIMPLE_VALUE_CONTRUCTOR(ReferenceValue, reference, string, name);
 
+	/// Constructs a new option value
+	/// @param name the name of the option
+	SIMPLE_VALUE_CONTRUCTOR(OptionValue, option, string, name);
+
+	#undef SIMPLE_VALUE_CONTRUCTOR
 	#pragma endregion
-	#pragma region Virtual members
 
 	/// Generates the IR for the value
 	/// @return the IR as a string (without newline)
-	virtual string generate_ir() = 0;
+	virtual string generate_ir(const char* format = nullptr) = 0;
 };
 
-class StringValue : public Value
-{
-	static const ValueType value_type = VALUE_STRING;
-	string value;
+#pragma region macros
+#define MEMBERS(type) \
+	private: static const ValueType value_type = type; \
+	public: string generate_ir(const char* format = nullptr);
+#define SIMPLE_VALUE(name, valuetype, membername, membertype) \
+	class name : public Value { MEMBERS(valuetype); \
+	name(membertype membername): membername(membername) {}; membertype membername; }
+#pragma endregion
 
-public:
+SIMPLE_VALUE(IntegerValue, VALUE_INTEGER, value, int64);
+SIMPLE_VALUE(FloatValue, VALUE_FLOAT, value, float2);
+SIMPLE_VALUE(StringValue, VALUE_STRING, value, string);
 
-	StringValue(string value): value(value) {}
-	string generate_ir();
-};
+SIMPLE_VALUE(ListValue, VALUE_LIST, elements, vector<Value*>);
+SIMPLE_VALUE(ObjectValue, VALUE_OBJECT, pairs, map<Value* COMMA Value*>);
 
-class ReferenceValue : public Value
-{
-	static const ValueType value_type = VALUE_REFERENCE;
-	string name;
+SIMPLE_VALUE(ReferenceValue, VALUE_REFERENCE, name, string);
+SIMPLE_VALUE(OptionValue, VALUE_OPTION, name, string);
 
-public:
-
-	ReferenceValue(string name): name(name) {}
-	string generate_ir();
-};
+#undef MEMBERS
+#undef SIMPLE_VALUE
 
 };
 

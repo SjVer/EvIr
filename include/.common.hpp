@@ -15,11 +15,19 @@
 namespace eviir
 {
 
+typedef int64_t				int64;
+typedef double				float2;
 typedef std::string 		string;
 typedef std::stringstream 	sstream;
 
 template<typename T>
 using vector = std::vector<T>;
+
+template<typename T1, typename T2>
+using pair = std::pair<T1, T2>;
+
+template<typename K, typename V>
+using map = std::map<K, V>;
 
 }
 #pragma endregion
@@ -27,10 +35,15 @@ using vector = std::vector<T>;
 #pragma endregion
 #pragma region macros
 
+#define endl ((char)'\n')
+#define tab ((char)'\t')
+
 #define STRINGIFY(value) #value
+#define COMMA ,
 
 #define ASSERT(condition, whatwentwrong) if(!(condition)) { \
-	std::cerr << "EviIr Assertion failed: " << whatwentwrong << std::endl; raise(SIGABRT); }
+	std::cerr << "EviIr Assertion failed: " << whatwentwrong << endl; raise(SIGABRT); }
+#define ASSERT_F(condition, whatwentwrong, ...) ASSERT(condition, tools::fstr(whatwentwrong, __VA_ARGS__))
 
 #pragma endregion
 
@@ -41,12 +54,12 @@ using vector = std::vector<T>;
 #define __DEBUG_MARKER(file, line) "[debug:" file ":" STRINGIFY(line) "]"
 #define DEBUG_MARKER __DEBUG_MARKER(__FILE__, __LINE__)
 #define DEBUG_PRINT_LINE() std::cout << tools::fstr(\
-	DEBUG_MARKER " line %d passed!",__LINE__) << std::endl
+	DEBUG_MARKER " line %d passed!",__LINE__) << endl
 #define DEBUG_PRINT_VAR(value, formatspec) std::cout << tools::fstr(\
-	DEBUG_MARKER " var %s = " #formatspec, #value, value) << std::endl
-#define DEBUG_PRINT_MSG(msg) std::cout << DEBUG_MARKER " " msg << std::endl;
+	DEBUG_MARKER " var %s = " #formatspec, #value, value) << endl
+#define DEBUG_PRINT_MSG(msg) std::cout << DEBUG_MARKER " " msg << endl;
 #define DEBUG_PRINT_F_MSG(format, ...) std::cout <<  tools::fstr( \
-	DEBUG_MARKER " " format, __VA_ARGS__) << std::endl
+	DEBUG_MARKER " " format, __VA_ARGS__) << endl
 
 #else
 
