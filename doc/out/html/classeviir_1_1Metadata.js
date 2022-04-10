@@ -31,6 +31,5 @@ var classeviir_1_1Metadata =
     ] ],
     [ "Metadata", "classeviir_1_1Metadata.html#a932b55404878eeef14ad7d4e7ed98f9e", null ],
     [ "Metadata", "classeviir_1_1Metadata.html#afd2f484427fcdf9aa777d6471251b3ea", null ],
-    [ "generate_ir", "classeviir_1_1Metadata.html#ab4ac3feef2692e4ae984842224787934", null ],
-    [ "Module", "classeviir_1_1Metadata.html#a21f639900c480510650969df9c74d17d", null ]
+    [ "generate_ir", "classeviir_1_1Metadata.html#ab4ac3feef2692e4ae984842224787934", null ]
 ];

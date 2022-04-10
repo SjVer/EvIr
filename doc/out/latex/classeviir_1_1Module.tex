@@ -10,10 +10,10 @@
 \mbox{\hyperlink{classeviir_1_1Module_ab7ce8b6952df04e8c7f4daf6deb37df6}{Module}} (string module\+\_\+name)
 \item 
 \mbox{\Hypertarget{classeviir_1_1Module_a5467d8522ecb35604210b9637e92fb67}\label{classeviir_1_1Module_a5467d8522ecb35604210b9637e92fb67}} 
-bool \mbox{\hyperlink{classeviir_1_1Module_a5467d8522ecb35604210b9637e92fb67}{has\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{Metadata\+::path}} path)
+bool {\bfseries has\+\_\+metadata} (\mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{Metadata\+::path}} path)
 \begin{DoxyCompactList}\small\item\em Checks if the module has metadata with the given path. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classeviir_1_1Module_a8c2584009d7f44563025dd56e73796de}\label{classeviir_1_1Module_a8c2584009d7f44563025dd56e73796de}} 
-bool \mbox{\hyperlink{classeviir_1_1Module_a8c2584009d7f44563025dd56e73796de}{has\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{Metadata\+::builtin\+\_\+property\+\_\+type}} type)
+bool {\bfseries has\+\_\+metadata} (\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{Metadata\+::builtin\+\_\+property\+\_\+type}} type)
 \begin{DoxyCompactList}\small\item\em Checks if the module has metadata with the given type. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classeviir_1_1Module_a9e4bc38ac7d619c039a0bb0559589399}{add\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}} $\ast$mdata)
 \item 
@@ -21,9 +21,9 @@ void \mbox{\hyperlink{classeviir_1_1Module_ad074a2b8807d4d4e2aeefa4c09756a07}{se
 \item 
 void \mbox{\hyperlink{classeviir_1_1Module_a595290ae9c03680340e20ba068f845de}{set\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{Metadata\+::builtin\+\_\+property\+\_\+type}} type, \mbox{\hyperlink{classeviir_1_1Value}{Value}} $\ast$value)
 \item 
-\mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}} $\ast$ \mbox{\hyperlink{classeviir_1_1Module_a99eddf2af67228eff3d92ec073fa4941}{get\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{Metadata\+::path}} path)
+\mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}} $\ast$ \mbox{\hyperlink{classeviir_1_1Module_a5c0460c28afcf1ccb31dc8aca81d1580}{get\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{Metadata\+::path}} path)
 \item 
-\mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}} $\ast$ \mbox{\hyperlink{classeviir_1_1Module_a75d08de493ea90b6d41b3c53ad856012}{get\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{Metadata\+::builtin\+\_\+property\+\_\+type}} type)
+\mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}} $\ast$ \mbox{\hyperlink{classeviir_1_1Module_a550cc851e6e90e6d4d4557c46d6ebf42}{get\+\_\+metadata}} (\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{Metadata\+::builtin\+\_\+property\+\_\+type}} type)
 \item 
 string \mbox{\hyperlink{classeviir_1_1Module_af0b137a091f26e141482a37904ea069e}{generate\+\_\+ir\+\_\+comment}} (string text, bool header=false)
 \item 
@@ -113,11 +113,11 @@ Generates the IR of the current module\textquotesingle{}s metadata. If before\+\
 \begin{DoxyReturn}{Returns}
 the IR as a string (with newline) 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classeviir_1_1Module_a75d08de493ea90b6d41b3c53ad856012}\label{classeviir_1_1Module_a75d08de493ea90b6d41b3c53ad856012}} 
+\mbox{\Hypertarget{classeviir_1_1Module_a550cc851e6e90e6d4d4557c46d6ebf42}\label{classeviir_1_1Module_a550cc851e6e90e6d4d4557c46d6ebf42}} 
 \index{eviir::Module@{eviir::Module}!get\_metadata@{get\_metadata}}
 \index{get\_metadata@{get\_metadata}!eviir::Module@{eviir::Module}}
 \doxysubsubsection{\texorpdfstring{get\_metadata()}{get\_metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}}$\ast$ eviir\+::\+Module\+::get\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{Metadata\+::builtin\+\_\+property\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}} $\ast$ eviir\+::\+Module\+::get\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{Metadata\+::builtin\+\_\+property\+\_\+type}}}]{type }\end{DoxyParamCaption})}
 
 Gets the requested metadata property 
 \begin{DoxyParams}{Parameters}
@@ -127,11 +127,11 @@ Gets the requested metadata property
 \begin{DoxyReturn}{Returns}
 a pointer to the metadata, or null if it isn\textquotesingle{}t found 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classeviir_1_1Module_a99eddf2af67228eff3d92ec073fa4941}\label{classeviir_1_1Module_a99eddf2af67228eff3d92ec073fa4941}} 
+\mbox{\Hypertarget{classeviir_1_1Module_a5c0460c28afcf1ccb31dc8aca81d1580}\label{classeviir_1_1Module_a5c0460c28afcf1ccb31dc8aca81d1580}} 
 \index{eviir::Module@{eviir::Module}!get\_metadata@{get\_metadata}}
 \index{get\_metadata@{get\_metadata}!eviir::Module@{eviir::Module}}
 \doxysubsubsection{\texorpdfstring{get\_metadata()}{get\_metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}}$\ast$ eviir\+::\+Module\+::get\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{Metadata\+::path}}}]{path }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}} $\ast$ eviir\+::\+Module\+::get\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{Metadata\+::path}}}]{path }\end{DoxyParamCaption})}
 
 Gets the requested metadata property 
 \begin{DoxyParams}{Parameters}

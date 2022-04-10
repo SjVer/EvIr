@@ -66,8 +66,8 @@ the IR as a string (without newline)
 .PP
 
 .PP
-Implemented in \fBeviir::OptionValue\fP, \fBeviir::ReferenceValue\fP, \fBeviir::ObjectValue\fP, \fBeviir::ListValue\fP, \fBeviir::StringValue\fP, \fBeviir::FloatValue\fP, and \fBeviir::IntegerValue\fP\&.
-.SS "static \fBFloatValue\fP* eviir::Value::new_float (float2 value)\fC [static]\fP"
+Implemented in \fBeviir::IntegerValue\fP, \fBeviir::FloatValue\fP, \fBeviir::StringValue\fP, \fBeviir::ListValue\fP, \fBeviir::ObjectValue\fP, \fBeviir::ReferenceValue\fP, and \fBeviir::OptionValue\fP\&.
+.SS "static \fBFloatValue\fP * eviir::Value::new_float (float2 value)\fC [static]\fP"
 Constructs a new float value 
 .PP
 \fBParameters\fP
@@ -76,7 +76,7 @@ Constructs a new float value
 .RE
 .PP
 
-.SS "static \fBIntegerValue\fP* eviir::Value::new_integer (int64 value)\fC [static]\fP"
+.SS "static \fBIntegerValue\fP * eviir::Value::new_integer (int64 value)\fC [static]\fP"
 Constructs a new integer value 
 .PP
 \fBParameters\fP
@@ -85,7 +85,7 @@ Constructs a new integer value
 .RE
 .PP
 
-.SS "static \fBListValue\fP* eviir::Value::new_list (vector< \fBValue\fP * > elements)\fC [static]\fP"
+.SS "static \fBListValue\fP * eviir::Value::new_list (vector< \fBValue\fP * > elements)\fC [static]\fP"
 Constructs a new list value 
 .PP
 \fBParameters\fP
@@ -94,7 +94,7 @@ Constructs a new list value
 .RE
 .PP
 
-.SS "static \fBObjectValue\fP* eviir::Value::new_object (map< \fBValue\fP *COMMA \fBValue\fP * > pairs)\fC [static]\fP"
+.SS "static \fBObjectValue\fP * eviir::Value::new_object (map< \fBValue\fP *COMMA \fBValue\fP * > pairs)\fC [static]\fP"
 Constructs a new object value 
 .PP
 \fBParameters\fP
@@ -103,7 +103,7 @@ Constructs a new object value
 .RE
 .PP
 
-.SS "static \fBOptionValue\fP* eviir::Value::new_option (string name)\fC [static]\fP"
+.SS "static \fBOptionValue\fP * eviir::Value::new_option (string name)\fC [static]\fP"
 Constructs a new option value 
 .PP
 \fBParameters\fP
@@ -112,7 +112,7 @@ Constructs a new option value
 .RE
 .PP
 
-.SS "static \fBReferenceValue\fP* eviir::Value::new_reference (string name)\fC [static]\fP"
+.SS "static \fBReferenceValue\fP * eviir::Value::new_reference (string name)\fC [static]\fP"
 Constructs a new reference value 
 .PP
 \fBParameters\fP
@@ -121,7 +121,7 @@ Constructs a new reference value
 .RE
 .PP
 
-.SS "static \fBStringValue\fP* eviir::Value::new_string (string value)\fC [static]\fP"
+.SS "static \fBStringValue\fP * eviir::Value::new_string (string value)\fC [static]\fP"
 Constructs a new string value 
 .PP
 \fBParameters\fP

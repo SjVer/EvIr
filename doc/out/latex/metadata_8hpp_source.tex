@@ -1,0 +1,150 @@
+\hypertarget{metadata_8hpp_source}{}\doxysection{metadata.\+hpp}
+\label{metadata_8hpp_source}\index{/home/sjoerd/Coding/Languages/EviIr/include/ir/metadata.hpp@{/home/sjoerd/Coding/Languages/EviIr/include/ir/metadata.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ ir/metadata.hpp -\/-\/-\/ C++ -\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EviIr library}}
+\DoxyCodeLine{3 \textcolor{comment}{// MIT License -\/ Sjoerd Vermeulen (2022)}}
+\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EviIr}}
+\DoxyCodeLine{5 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIIR\_IR\_METADATA\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIIR\_IR\_METADATA\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/value.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }eviir}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classeviir_1_1Module}{Module}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         \_META\_start\_module,}
+\DoxyCodeLine{24         \_META\_MODULE\_NAME,              \textcolor{comment}{// module/name}}
+\DoxyCodeLine{25         \_META\_MODULE\_ENTRYPOINT,        \textcolor{comment}{// module/entrypoint}}
+\DoxyCodeLine{26         \_META\_MODULE\_,                  \textcolor{comment}{// module/...}}
+\DoxyCodeLine{27         \_META\_end\_module,}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \_META\_start\_module\_source,}
+\DoxyCodeLine{30         \_META\_MODULE\_SOURCE\_FILENAME,   \textcolor{comment}{// module/source/filename}}
+\DoxyCodeLine{31         \_META\_MODULE\_SOURCE\_DIRECTORY,  \textcolor{comment}{// module/source/directory}}
+\DoxyCodeLine{32         \_META\_MODULE\_SOURCE\_LANGUAGE,   \textcolor{comment}{// module/source/language}}
+\DoxyCodeLine{33         \_META\_MODULE\_SOURCE\_,           \textcolor{comment}{// module/source/...}}
+\DoxyCodeLine{34         \_META\_end\_module\_source,}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \_META\_start\_module\_producer,}
+\DoxyCodeLine{37         \_META\_MODULE\_PRODUCER\_NAME,     \textcolor{comment}{// module/producer/name}}
+\DoxyCodeLine{38         \_META\_MODULE\_PRODUCER\_VERSION,  \textcolor{comment}{// module/producer/version}}
+\DoxyCodeLine{39         \_META\_MODULE\_PRODUCER\_TYPE,     \textcolor{comment}{// module/producer/type}}
+\DoxyCodeLine{40         \_META\_MODULE\_PRODUCER\_,         \textcolor{comment}{// module/producer/...}}
+\DoxyCodeLine{41         \_META\_end\_module\_producer,}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \_META\_start\_target,}
+\DoxyCodeLine{44         \_META\_TARGET\_TRIPLE,            \textcolor{comment}{// target/triple}}
+\DoxyCodeLine{45         \_META\_TARGET\_CPU,               \textcolor{comment}{// target/cpu}}
+\DoxyCodeLine{46         \_META\_TARGET\_DATALAYOUT,        \textcolor{comment}{// target/datalayout}}
+\DoxyCodeLine{47         \_META\_TARGET\_OPTIMIZATION,      \textcolor{comment}{// target/optimization}}
+\DoxyCodeLine{48         \_META\_TARGET\_,                  \textcolor{comment}{// target/...}}
+\DoxyCodeLine{49         \_META\_end\_target,}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \_META\_start\_debug,}
+\DoxyCodeLine{52         \_META\_DEBUG\_GENERATE,           \textcolor{comment}{// debug/generate}}
+\DoxyCodeLine{53         \_META\_DEBUG\_INCLUDESOURCE,      \textcolor{comment}{// debug/includesource}}
+\DoxyCodeLine{54         \_META\_DEBUG\_SOURCELOCATION,     \textcolor{comment}{// debug/sourcelocation}}
+\DoxyCodeLine{55         \_META\_DEBUG\_SOURCECHECKSUM,     \textcolor{comment}{// debug/sourcechecksum}}
+\DoxyCodeLine{56         \_META\_DEBUG\_DWARFVERSION,       \textcolor{comment}{// debug/dwarfversion}}
+\DoxyCodeLine{57         \_META\_DEBUG\_TYPENAMES,          \textcolor{comment}{// debug/typenames}}
+\DoxyCodeLine{58         \_META\_DEBUG\_,                   \textcolor{comment}{// debug/...}}
+\DoxyCodeLine{59         \_META\_end\_debug,}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         \_META\_CUSTOM\_,                  \textcolor{comment}{// ...}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \_META\_none,}
+\DoxyCodeLine{64     \} property\_type;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* property\_type\_formats[\_META\_none];}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{public}:}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{    \#pragma region types}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{73     \textcolor{keyword}{typedef} vector<string> \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76     \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78 \textcolor{preprocessor}{        \#define META(name) META\_\#\#name = property\_type::\_META\_\#\#name}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         META(MODULE\_NAME),}
+\DoxyCodeLine{81         META(MODULE\_ENTRYPOINT),}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83         META(MODULE\_SOURCE\_FILENAME),}
+\DoxyCodeLine{84         META(MODULE\_SOURCE\_DIRECTORY),}
+\DoxyCodeLine{85         META(MODULE\_SOURCE\_LANGUAGE),}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         META(MODULE\_PRODUCER\_NAME),}
+\DoxyCodeLine{88         META(MODULE\_PRODUCER\_VERSION),}
+\DoxyCodeLine{89         META(MODULE\_PRODUCER\_TYPE),}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         META(TARGET\_TRIPLE),}
+\DoxyCodeLine{92         META(TARGET\_CPU),}
+\DoxyCodeLine{93         META(TARGET\_DATALAYOUT),}
+\DoxyCodeLine{94         META(TARGET\_OPTIMIZATION),}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96         META(DEBUG\_GENERATE),}
+\DoxyCodeLine{97         META(DEBUG\_INCLUDESOURCE),}
+\DoxyCodeLine{98         META(DEBUG\_SOURCELOCATION),}
+\DoxyCodeLine{99         META(DEBUG\_SOURCECHECKSUM),}
+\DoxyCodeLine{100         META(DEBUG\_DWARFVERSION),}
+\DoxyCodeLine{101         META(DEBUG\_TYPENAMES),}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{        \#undef META}}
+\DoxyCodeLine{104     \} \mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{builtin\_property\_type}};}
+\DoxyCodeLine{105     }
+\DoxyCodeLine{107     \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{108     \{}
+\DoxyCodeLine{109 \textcolor{preprocessor}{        \#define META(name) META\_\#\#name = property\_type::\_META\_\#\#name\#\#\_}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         META(MODULE),}
+\DoxyCodeLine{112         META(MODULE\_SOURCE),}
+\DoxyCodeLine{113         META(MODULE\_PRODUCER),}
+\DoxyCodeLine{114         META(TARGET),}
+\DoxyCodeLine{115         META(DEBUG),}
+\DoxyCodeLine{116         META(CUSTOM),}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{        \#undef META}}
+\DoxyCodeLine{119     \} \mbox{\hyperlink{classeviir_1_1Metadata_a890ce3566bd1dc49d5b1da4abb9b8490}{custom\_property\_type}};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{keyword}{private}:}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     property\_type p\_type;}
+\DoxyCodeLine{126     \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}} p\_path;}
+\DoxyCodeLine{127     \mbox{\hyperlink{classeviir_1_1Value}{Value}}* p\_value;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{keyword}{public}:}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{133     \textcolor{keyword}{static} \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}} \mbox{\hyperlink{classeviir_1_1Metadata_a39b71a74731f3357b5f0888c6b3ba3e4}{create\_path}}(\textcolor{keywordtype}{string} full\_path);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{preprocessor}{    \#pragma region Constructors}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{140     \mbox{\hyperlink{classeviir_1_1Metadata_a932b55404878eeef14ad7d4e7ed98f9e}{Metadata}}(\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{builtin\_property\_type}} type, \mbox{\hyperlink{classeviir_1_1Value}{Value}}* value = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{146     \mbox{\hyperlink{classeviir_1_1Metadata_afd2f484427fcdf9aa777d6471251b3ea}{Metadata}}(\mbox{\hyperlink{classeviir_1_1Metadata_a890ce3566bd1dc49d5b1da4abb9b8490}{custom\_property\_type}} type, \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}} \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}}, \mbox{\hyperlink{classeviir_1_1Value}{Value}}* value = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{147     }
+\DoxyCodeLine{148 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{152     \textcolor{keywordtype}{string} \mbox{\hyperlink{classeviir_1_1Metadata_ab4ac3feef2692e4ae984842224787934}{generate\_ir}}();}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{155 \};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \};}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIIR\_IR\_METADATA\_H}}
+
+\end{DoxyCode}
