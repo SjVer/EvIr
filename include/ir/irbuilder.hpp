@@ -13,19 +13,18 @@
 namespace eviir
 {
 
-/// A class for building an managing modules
+/// @brief A class for creating and managing instructions
+/// 
+/// Instructions will be inserted in a @link BasicBlock @endlink. \n
+/// Note that this API does not fully expose the uses of instructions.
 class IRBuilder
 {
-	Module* module;
 
 public:
 
 	/// Constructs a new IR Builder
-	/// @param module the builder's current module (optional)
-	IRBuilder(Module* module = nullptr);
+	IRBuilder();
 
-	/// @return a pointer to the builder's current module
-	Module* get_module();
 };
 
 }

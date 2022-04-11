@@ -1,8 +1,9 @@
-.TH "eviir::Module" 3 "Sun Apr 10 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
+.TH "eviir::Module" 3 "Mon Apr 11 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-eviir::Module
+eviir::Module \- A Class representing a single stand-alone IR module\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -56,15 +57,17 @@ eviir::Module
 .in -1c
 .SH "Detailed Description"
 .PP 
-A Class representing a single stand-alone IR module Has the following metadata by default: 
-.PP
-.nf
-module/name (META_MODULE_NAME) = <module name>
-module/entrypoint (META_MODULE_ENTRYPOINT) = %main 
+A Class representing a single stand-alone IR module\&. 
 
-.fi
-.PP
+Has the following metadata by default:
+.IP "\(bu" 2
+\fBMetadata::builtin_property_type::META_MODULE_NAME\fP
+.IP "\(bu" 2
+\fBMetadata::builtin_property_type::META_MODULE_ENTRYPOINT\fP 
+.br
  
+.PP
+
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "eviir::Module::Module (string module_name)"

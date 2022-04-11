@@ -4,7 +4,8 @@ var indexSectionsWithContent =
   1: "filmorsv",
   2: "acghimns",
   3: "p",
-  4: "bc"
+  4: "bc",
+  5: "m"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "functions",
   3: "typedefs",
-  4: "enums"
+  4: "enums",
+  5: "enumvalues"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "Classes",
   2: "Functions",
   3: "Typedefs",
-  4: "Enumerations"
+  4: "Enumerations",
+  5: "Enumerator"
 };
 

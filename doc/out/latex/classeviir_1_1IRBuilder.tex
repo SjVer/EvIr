@@ -2,7 +2,7 @@
 \label{classeviir_1_1IRBuilder}\index{eviir::IRBuilder@{eviir::IRBuilder}}
 
 
-A class for building an managing modules.  
+A class for creating and managing instructions.  
 
 
 
@@ -12,40 +12,16 @@ A class for building an managing modules.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classeviir_1_1IRBuilder_a99a5527e6977699445fda3d4748eb245}{IRBuilder}} (\mbox{\hyperlink{classeviir_1_1Module}{Module}} $\ast$module=nullptr)
-\item 
-\mbox{\hyperlink{classeviir_1_1Module}{Module}} $\ast$ \mbox{\hyperlink{classeviir_1_1IRBuilder_affa029fdbaee135f274f25823d5906ac}{get\+\_\+module}} ()
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classeviir_1_1IRBuilder_aaf6a6fb0af47e52dc6f2f16f90a7a62e}\label{classeviir_1_1IRBuilder_aaf6a6fb0af47e52dc6f2f16f90a7a62e}} 
+{\bfseries IRBuilder} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new IR Builder. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-A class for building an managing modules. 
+A class for creating and managing instructions. 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classeviir_1_1IRBuilder_a99a5527e6977699445fda3d4748eb245}\label{classeviir_1_1IRBuilder_a99a5527e6977699445fda3d4748eb245}} 
-\index{eviir::IRBuilder@{eviir::IRBuilder}!IRBuilder@{IRBuilder}}
-\index{IRBuilder@{IRBuilder}!eviir::IRBuilder@{eviir::IRBuilder}}
-\doxysubsubsection{\texorpdfstring{IRBuilder()}{IRBuilder()}}
-{\footnotesize\ttfamily eviir\+::\+IRBuilder\+::\+IRBuilder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classeviir_1_1Module}{Module}} $\ast$}]{module = {\ttfamily nullptr} }\end{DoxyParamCaption})}
-
-Constructs a new IR Builder 
-\begin{DoxyParams}{Parameters}
-{\em module} & the builder\textquotesingle{}s current module (optional) \\
-\hline
-\end{DoxyParams}
-
-
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classeviir_1_1IRBuilder_affa029fdbaee135f274f25823d5906ac}\label{classeviir_1_1IRBuilder_affa029fdbaee135f274f25823d5906ac}} 
-\index{eviir::IRBuilder@{eviir::IRBuilder}!get\_module@{get\_module}}
-\index{get\_module@{get\_module}!eviir::IRBuilder@{eviir::IRBuilder}}
-\doxysubsubsection{\texorpdfstring{get\_module()}{get\_module()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classeviir_1_1Module}{Module}} $\ast$ eviir\+::\+IRBuilder\+::get\+\_\+module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\begin{DoxyReturn}{Returns}
-a pointer to the builder\textquotesingle{}s current module 
-\end{DoxyReturn}
-
+Instructions will be inserted in a \mbox{\hyperlink{}{Basic\+Block}}. ~\newline
+Note that this API does not fully expose the uses of instructions. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

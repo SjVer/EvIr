@@ -18,11 +18,11 @@
 namespace eviir
 {
 
-/// A Class representing a single stand-alone IR module
-/// Has the following metadata by default:
+/// @brief A Class representing a single stand-alone IR module
 ///
-///		module/name (META_MODULE_NAME) = <module name>
-/// 	module/entrypoint (META_MODULE_ENTRYPOINT) = %main
+/// Has the following metadata by default:
+/// - @link Metadata::builtin_property_type::META_MODULE_NAME @endlink 
+/// - @link Metadata::builtin_property_type::META_MODULE_ENTRYPOINT @endlink 
 class Module
 {
 	friend class Metadata;

@@ -1,8 +1,8 @@
-.TH "eviir::IRBuilder" 3 "Sun Apr 10 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
+.TH "eviir::IRBuilder" 3 "Mon Apr 11 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-eviir::IRBuilder \- A class for building an managing modules\&.  
+eviir::IRBuilder \- A class for creating and managing instructions\&.  
 
 .SH SYNOPSIS
 .br
@@ -13,37 +13,17 @@ eviir::IRBuilder \- A class for building an managing modules\&.
 
 .in +1c
 .ti -1c
-.RI "\fBIRBuilder\fP (\fBModule\fP *module=nullptr)"
+.RI "\fBIRBuilder\fP ()"
 .br
-.ti -1c
-.RI "\fBModule\fP * \fBget_module\fP ()"
-.br
+.RI "Constructs a new IR Builder\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-A class for building an managing modules\&. 
-.SH "Constructor & Destructor Documentation"
-.PP 
-.SS "eviir::IRBuilder::IRBuilder (\fBModule\fP * module = \fCnullptr\fP)"
-Constructs a new IR Builder 
-.PP
-\fBParameters\fP
-.RS 4
-\fImodule\fP the builder's current module (optional) 
-.RE
-.PP
+A class for creating and managing instructions\&. 
 
-.SH "Member Function Documentation"
-.PP 
-.SS "\fBModule\fP * eviir::IRBuilder::get_module ()"
-
-.PP
-\fBReturns\fP
-.RS 4
-a pointer to the builder's current module 
-.RE
-.PP
-
+Instructions will be inserted in a \fBBasicBlock\fP\&. 
+.br
+Note that this API does not fully expose the uses of instructions\&. 
 
 .SH "Author"
 .PP 

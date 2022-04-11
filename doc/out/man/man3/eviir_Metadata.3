@@ -1,8 +1,8 @@
-.TH "eviir::Metadata" 3 "Sun Apr 10 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
+.TH "eviir::Metadata" 3 "Mon Apr 11 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-eviir::Metadata \- A Class defining metadata for modules\&.  
+eviir::Metadata \- A class defining the metadata of a \fBModule\fP\&.  
 
 .SH SYNOPSIS
 .br
@@ -13,13 +13,13 @@ eviir::Metadata \- A Class defining metadata for modules\&.
 
 .in +1c
 .ti -1c
-.RI "enum \fBbuiltin_property_type\fP { \fBMETA_MODULE_NAME\fP = property_type::_META_MODULE_NAME, \fBMETA_MODULE_ENTRYPOINT\fP = property_type::_META_MODULE_ENTRYPOINT, \fBMETA_MODULE_SOURCE_FILENAME\fP = property_type::_META_MODULE_SOURCE_FILENAME, \fBMETA_MODULE_SOURCE_DIRECTORY\fP = property_type::_META_MODULE_SOURCE_DIRECTORY, \fBMETA_MODULE_SOURCE_LANGUAGE\fP = property_type::_META_MODULE_SOURCE_LANGUAGE, \fBMETA_MODULE_PRODUCER_NAME\fP = property_type::_META_MODULE_PRODUCER_NAME, \fBMETA_MODULE_PRODUCER_VERSION\fP = property_type::_META_MODULE_PRODUCER_VERSION, \fBMETA_MODULE_PRODUCER_TYPE\fP = property_type::_META_MODULE_PRODUCER_TYPE, \fBMETA_TARGET_TRIPLE\fP = property_type::_META_TARGET_TRIPLE, \fBMETA_TARGET_CPU\fP = property_type::_META_TARGET_CPU, \fBMETA_TARGET_DATALAYOUT\fP = property_type::_META_TARGET_DATALAYOUT, \fBMETA_TARGET_OPTIMIZATION\fP = property_type::_META_TARGET_OPTIMIZATION, \fBMETA_DEBUG_GENERATE\fP = property_type::_META_DEBUG_GENERATE, \fBMETA_DEBUG_INCLUDESOURCE\fP = property_type::_META_DEBUG_INCLUDESOURCE, \fBMETA_DEBUG_SOURCELOCATION\fP = property_type::_META_DEBUG_SOURCELOCATION, \fBMETA_DEBUG_SOURCECHECKSUM\fP = property_type::_META_DEBUG_SOURCECHECKSUM, \fBMETA_DEBUG_DWARFVERSION\fP = property_type::_META_DEBUG_DWARFVERSION, \fBMETA_DEBUG_TYPENAMES\fP = property_type::_META_DEBUG_TYPENAMES }"
+.RI "enum \fBbuiltin_property_type\fP { \fBMETA_MODULE_NAME\fP, \fBMETA_MODULE_ENTRYPOINT\fP, \fBMETA_MODULE_SOURCE_FILENAME\fP, \fBMETA_MODULE_SOURCE_DIRECTORY\fP, \fBMETA_MODULE_SOURCE_LANGUAGE\fP, \fBMETA_MODULE_PRODUCER_NAME\fP, \fBMETA_MODULE_PRODUCER_VERSION\fP, \fBMETA_MODULE_PRODUCER_TYPE\fP, \fBMETA_TARGET_TRIPLE\fP, \fBMETA_TARGET_CPU\fP, \fBMETA_TARGET_DATALAYOUT\fP, \fBMETA_TARGET_OPTIMIZATION\fP, \fBMETA_DEBUG_GENERATE\fP, \fBMETA_DEBUG_INCLUDESOURCE\fP, \fBMETA_DEBUG_SOURCELOCATION\fP, \fBMETA_DEBUG_SOURCECHECKSUM\fP, \fBMETA_DEBUG_DWARFVERSION\fP, \fBMETA_DEBUG_TYPENAMES\fP }"
 .br
-.RI "The built-in metadata property types\&. "
+.RI "built-in metadata property types\&. "
 .ti -1c
-.RI "enum \fBcustom_property_type\fP { \fBMETA_MODULE\fP = property_type::_META_MODULE_, \fBMETA_MODULE_SOURCE\fP = property_type::_META_MODULE_SOURCE_, \fBMETA_MODULE_PRODUCER\fP = property_type::_META_MODULE_PRODUCER_, \fBMETA_TARGET\fP = property_type::_META_TARGET_, \fBMETA_DEBUG\fP = property_type::_META_DEBUG_, \fBMETA_CUSTOM\fP = property_type::_META_CUSTOM_ }"
+.RI "enum \fBcustom_property_type\fP { \fBMETA_MODULE\fP, \fBMETA_MODULE_SOURCE\fP, \fBMETA_MODULE_PRODUCER\fP, \fBMETA_TARGET\fP, \fBMETA_DEBUG\fP, \fBMETA_CUSTOM\fP }"
 .br
-.RI "The custom metadata property types\&. "
+.RI "custom metadata property types\&. "
 .ti -1c
 .RI "typedef vector< string > \fBpath\fP"
 .br
@@ -54,7 +54,73 @@ eviir::Metadata \- A Class defining metadata for modules\&.
 .in -1c
 .SH "Detailed Description"
 .PP 
-A Class defining metadata for modules\&. 
+A class defining the metadata of a \fBModule\fP\&. 
+
+Can be added to a module using \fBModule::add_metadata\fP\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBeviir::Metadata::builtin_property_type\fP"
+
+.PP
+built-in metadata property types\&. Used by \fBMetadata::(builtin_property_type type, Value* value = nullptr)\fP\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMETA_MODULE_ENTRYPOINT \fP\fP
+metadata property path: \fC!module/name\fP 
+.TP
+\fB\fIMETA_MODULE_SOURCE_FILENAME \fP\fP
+metadata property path: \fC!module/entrypoint\fP 
+.TP
+\fB\fIMETA_MODULE_SOURCE_DIRECTORY \fP\fP
+metadata property path: \fC!module/source/filename\fP 
+.TP
+\fB\fIMETA_MODULE_SOURCE_LANGUAGE \fP\fP
+metadata property path: \fC!module/source/directory\fP 
+.TP
+\fB\fIMETA_MODULE_PRODUCER_NAME \fP\fP
+metadata property path: \fC!module/source/language\fP 
+.TP
+\fB\fIMETA_MODULE_PRODUCER_VERSION \fP\fP
+whoop 
+.TP
+\fB\fIMETA_MODULE_PRODUCER_TYPE \fP\fP
+whoop 
+.TP
+\fB\fIMETA_TARGET_TRIPLE \fP\fP
+whoop 
+.TP
+\fB\fIMETA_TARGET_CPU \fP\fP
+whoop 
+.TP
+\fB\fIMETA_TARGET_DATALAYOUT \fP\fP
+whoop 
+.TP
+\fB\fIMETA_TARGET_OPTIMIZATION \fP\fP
+whoop 
+.TP
+\fB\fIMETA_DEBUG_GENERATE \fP\fP
+whoop 
+.TP
+\fB\fIMETA_DEBUG_INCLUDESOURCE \fP\fP
+whoop 
+.TP
+\fB\fIMETA_DEBUG_SOURCELOCATION \fP\fP
+whoop 
+.TP
+\fB\fIMETA_DEBUG_SOURCECHECKSUM \fP\fP
+whoop 
+.TP
+\fB\fIMETA_DEBUG_DWARFVERSION \fP\fP
+whoop 
+.TP
+\fB\fIMETA_DEBUG_TYPENAMES \fP\fP
+whoop 
+.SS "enum \fBeviir::Metadata::custom_property_type\fP"
+
+.PP
+custom metadata property types\&. Used by \fBMetadata::Metadata(custom_property_type type, path path, Value* value = nullptr)\fP\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "eviir::Metadata::Metadata (\fBbuiltin_property_type\fP type, \fBValue\fP * value = \fCnullptr\fP)"
@@ -84,7 +150,7 @@ Constructs a new metadata instance defining a custom property
 .SH "Member Function Documentation"
 .PP 
 .SS "static \fBpath\fP eviir::Metadata::create_path (string full_path)\fC [static]\fP"
-Creates a \fBMetadata\fP path 
+Creates a Metadata path 
 .PP
 \fBParameters\fP
 .RS 4

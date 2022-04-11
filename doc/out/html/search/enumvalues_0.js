@@ -16,7 +16,5 @@ var searchData=
   ['meta_5ftarget_5fcpu_13',['META_TARGET_CPU',['../classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfa845ae2876378e855322c36ce699361d9',1,'eviir::Metadata']]],
   ['meta_5ftarget_5fdatalayout_14',['META_TARGET_DATALAYOUT',['../classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfae559dded6278c6b59450355d624ed813',1,'eviir::Metadata']]],
   ['meta_5ftarget_5foptimization_15',['META_TARGET_OPTIMIZATION',['../classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfa30de1275b1bd0bbd22f4152125165d64',1,'eviir::Metadata']]],
-  ['meta_5ftarget_5ftriple_16',['META_TARGET_TRIPLE',['../classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfac19b0a19dd8bf62ea2590c1e66e2ad29',1,'eviir::Metadata']]],
-  ['metadata_17',['Metadata',['../classeviir_1_1Metadata.html',1,'eviir::Metadata'],['../classeviir_1_1Metadata.html#a932b55404878eeef14ad7d4e7ed98f9e',1,'eviir::Metadata::Metadata(builtin_property_type type, Value *value=nullptr)'],['../classeviir_1_1Metadata.html#afd2f484427fcdf9aa777d6471251b3ea',1,'eviir::Metadata::Metadata(custom_property_type type, path path, Value *value=nullptr)']]],
-  ['module_18',['Module',['../classeviir_1_1Module.html',1,'eviir::Module'],['../classeviir_1_1Module.html#ab7ce8b6952df04e8c7f4daf6deb37df6',1,'eviir::Module::Module()']]]
+  ['meta_5ftarget_5ftriple_16',['META_TARGET_TRIPLE',['../classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfac19b0a19dd8bf62ea2590c1e66e2ad29',1,'eviir::Metadata']]]
 ];

@@ -50,6 +50,7 @@ var menudata={children:[
 {text:"n",url:"functions_func.html#index_n"},
 {text:"s",url:"functions_func.html#index_s"}]},
 {text:"Typedefs",url:"functions_type.html"},
-{text:"Enumerations",url:"functions_enum.html"}]}]},
+{text:"Enumerations",url:"functions_enum.html"},
+{text:"Enumerator",url:"functions_eval.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"}]}]}

@@ -308,7 +308,7 @@ TOC_INCLUDE_HEADINGS   = 5
 # globally by setting AUTOLINK_SUPPORT to NO.
 # The default value is: YES.
 
-AUTOLINK_SUPPORT       = YES
+AUTOLINK_SUPPORT       = NO
 
 # If you use STL classes (i.e. std::string, std::vector, etc.) but do not want
 # to include (a tag file for) the STL sources as input, then you should set this
@@ -655,7 +655,7 @@ ENABLED_SECTIONS       =
 # documentation regardless of this setting.
 # Minimum value: 0, maximum value: 10000, default value: 30.
 
-MAX_INITIALIZER_LINES  = 30
+MAX_INITIALIZER_LINES  = 0
 
 # Set the SHOW_USED_FILES tag to NO to disable the list of files generated at
 # the bottom of the documentation of classes and structs. If set to YES, the
@@ -769,7 +769,7 @@ WARN_AS_ERROR          = NO
 # FILE_VERSION_FILTER)
 # The default value is: $file:$line: $text.
 
-WARN_FORMAT            = "$file:$line: $text"
+WARN_FORMAT            = "!!! $file:$line: $text"
 
 # The WARN_LOGFILE tag can be used to specify a file to which warning and error
 # messages should be written. If left blank the output is written to standard
@@ -1182,7 +1182,7 @@ HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css \
 
 HTML_EXTRA_FILES       = doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js \
                          doxygen-awesome-css/doxygen-awesome-fragment-copy-button.js \
-                         doxygen-awesome-css/doxygen-awesome-paragraph-links.js
+                         doxygen-awesome-css/doxygen-awesome-paragraph-link.js
 
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
 # will adjust the colors in the style sheet and background images according to
@@ -1475,7 +1475,7 @@ GENERATE_TREEVIEW      = YES
 # Minimum value: 0, maximum value: 20, default value: 4.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-ENUM_VALUES_PER_LINE   = 4
+ENUM_VALUES_PER_LINE   = 1
 
 # If the treeview is enabled (see GENERATE_TREEVIEW) then this tag can be used
 # to set the initial width (in pixels) of the frame in which the tree is shown.
@@ -1796,7 +1796,7 @@ PREDEFINED             =
 # definition found in the source code.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-EXPAND_AS_DEFINED      =
+EXPAND_AS_DEFINED      = 
 
 # If the SKIP_FUNCTION_MACROS tag is set to YES then doxygen's preprocessor will
 # remove all references to function-like macros that are alone on a line, have
@@ -1806,7 +1806,7 @@ EXPAND_AS_DEFINED      =
 # The default value is: YES.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-SKIP_FUNCTION_MACROS   = YES
+SKIP_FUNCTION_MACROS   = NO
 
 #---------------------------------------------------------------------------
 # Configuration options related to external references

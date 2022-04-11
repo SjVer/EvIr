@@ -161,51 +161,68 @@ $(document).ready(function(){initNavTree('classeviir_1_1Metadata.html',''); init
 </div><!--header-->
 <div class="contents">
 
-<p>A Class defining metadata for modules.  
+<p>A class defining the metadata of a <a class="el" href="classeviir_1_1Module.html">Module</a>.  
  <a href="classeviir_1_1Metadata.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="metadata_8hpp_source.html">metadata.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a372fe4af91ebc18a6d02354e8bcf23cf"><td class="memItemLeft" align="right" valign="top"><a id="a372fe4af91ebc18a6d02354e8bcf23cf" name="a372fe4af91ebc18a6d02354e8bcf23cf"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cf">builtin_property_type</a> { <br />
-&#160;&#160;<b>META_MODULE_NAME</b> = property_type::_META_MODULE_NAME
-, <b>META_MODULE_ENTRYPOINT</b> = property_type::_META_MODULE_ENTRYPOINT
-, <b>META_MODULE_SOURCE_FILENAME</b> = property_type::_META_MODULE_SOURCE_FILENAME
-, <b>META_MODULE_SOURCE_DIRECTORY</b> = property_type::_META_MODULE_SOURCE_DIRECTORY
+<tr class="memitem:a372fe4af91ebc18a6d02354e8bcf23cf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cf">builtin_property_type</a> { <br />
+&#160;&#160;<b>META_MODULE_NAME</b>
 , <br />
-&#160;&#160;<b>META_MODULE_SOURCE_LANGUAGE</b> = property_type::_META_MODULE_SOURCE_LANGUAGE
-, <b>META_MODULE_PRODUCER_NAME</b> = property_type::_META_MODULE_PRODUCER_NAME
-, <b>META_MODULE_PRODUCER_VERSION</b> = property_type::_META_MODULE_PRODUCER_VERSION
-, <b>META_MODULE_PRODUCER_TYPE</b> = property_type::_META_MODULE_PRODUCER_TYPE
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfabe2badced095f48ee8e7c2c7d67dd076">META_MODULE_ENTRYPOINT</a>
 , <br />
-&#160;&#160;<b>META_TARGET_TRIPLE</b> = property_type::_META_TARGET_TRIPLE
-, <b>META_TARGET_CPU</b> = property_type::_META_TARGET_CPU
-, <b>META_TARGET_DATALAYOUT</b> = property_type::_META_TARGET_DATALAYOUT
-, <b>META_TARGET_OPTIMIZATION</b> = property_type::_META_TARGET_OPTIMIZATION
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfaa4c98efe507cf0505d60cdb343adf91d">META_MODULE_SOURCE_FILENAME</a>
 , <br />
-&#160;&#160;<b>META_DEBUG_GENERATE</b> = property_type::_META_DEBUG_GENERATE
-, <b>META_DEBUG_INCLUDESOURCE</b> = property_type::_META_DEBUG_INCLUDESOURCE
-, <b>META_DEBUG_SOURCELOCATION</b> = property_type::_META_DEBUG_SOURCELOCATION
-, <b>META_DEBUG_SOURCECHECKSUM</b> = property_type::_META_DEBUG_SOURCECHECKSUM
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfad817637faca96aa70195396a0c6c3c4e">META_MODULE_SOURCE_DIRECTORY</a>
 , <br />
-&#160;&#160;<b>META_DEBUG_DWARFVERSION</b> = property_type::_META_DEBUG_DWARFVERSION
-, <b>META_DEBUG_TYPENAMES</b> = property_type::_META_DEBUG_TYPENAMES
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfacf7fdcaa5ed555d3d97fc79276417234">META_MODULE_SOURCE_LANGUAGE</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfaa665ac35c0944d7bccca7f7430b6947f">META_MODULE_PRODUCER_NAME</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfac60c0ed594013e96d929a33813f62773">META_MODULE_PRODUCER_VERSION</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfa92111e61fcb0fbda98d3da2d5e43017c">META_MODULE_PRODUCER_TYPE</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfac19b0a19dd8bf62ea2590c1e66e2ad29">META_TARGET_TRIPLE</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfa845ae2876378e855322c36ce699361d9">META_TARGET_CPU</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfae559dded6278c6b59450355d624ed813">META_TARGET_DATALAYOUT</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfa30de1275b1bd0bbd22f4152125165d64">META_TARGET_OPTIMIZATION</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfa56c810f16183314052f2835e34a6d4c0">META_DEBUG_GENERATE</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfad4a9ef6cce5a2a91449e2d55a9803f24">META_DEBUG_INCLUDESOURCE</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfaf7e6f8402e6d613f5f66f9dc01616476">META_DEBUG_SOURCELOCATION</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfabc019a6c020745255aec2bc76c4b88b6">META_DEBUG_SOURCECHECKSUM</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfa29269f7064f3dd0aa1875f810931ce35">META_DEBUG_DWARFVERSION</a>
+, <br />
+&#160;&#160;<a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cfaaf03cdca11331e82463a7168a9dca2e5">META_DEBUG_TYPENAMES</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a372fe4af91ebc18a6d02354e8bcf23cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The built-in metadata property types. <br /></td></tr>
+<tr class="memdesc:a372fe4af91ebc18a6d02354e8bcf23cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">built-in metadata property types.  <a href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cf">More...</a><br /></td></tr>
 <tr class="separator:a372fe4af91ebc18a6d02354e8bcf23cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a890ce3566bd1dc49d5b1da4abb9b8490"><td class="memItemLeft" align="right" valign="top"><a id="a890ce3566bd1dc49d5b1da4abb9b8490" name="a890ce3566bd1dc49d5b1da4abb9b8490"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeviir_1_1Metadata.html#a890ce3566bd1dc49d5b1da4abb9b8490">custom_property_type</a> { <br />
-&#160;&#160;<b>META_MODULE</b> = property_type::_META_MODULE_
-, <b>META_MODULE_SOURCE</b> = property_type::_META_MODULE_SOURCE_
-, <b>META_MODULE_PRODUCER</b> = property_type::_META_MODULE_PRODUCER_
-, <b>META_TARGET</b> = property_type::_META_TARGET_
+<tr class="memitem:a890ce3566bd1dc49d5b1da4abb9b8490"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeviir_1_1Metadata.html#a890ce3566bd1dc49d5b1da4abb9b8490">custom_property_type</a> { <br />
+&#160;&#160;<b>META_MODULE</b>
 , <br />
-&#160;&#160;<b>META_DEBUG</b> = property_type::_META_DEBUG_
-, <b>META_CUSTOM</b> = property_type::_META_CUSTOM_
+&#160;&#160;<b>META_MODULE_SOURCE</b>
+, <br />
+&#160;&#160;<b>META_MODULE_PRODUCER</b>
+, <br />
+&#160;&#160;<b>META_TARGET</b>
+, <br />
+&#160;&#160;<b>META_DEBUG</b>
+, <br />
+&#160;&#160;<b>META_CUSTOM</b>
 <br />
  }</td></tr>
-<tr class="memdesc:a890ce3566bd1dc49d5b1da4abb9b8490"><td class="mdescLeft">&#160;</td><td class="mdescRight">The custom metadata property types. <br /></td></tr>
+<tr class="memdesc:a890ce3566bd1dc49d5b1da4abb9b8490"><td class="mdescLeft">&#160;</td><td class="mdescRight">custom metadata property types.  <a href="classeviir_1_1Metadata.html#a890ce3566bd1dc49d5b1da4abb9b8490">More...</a><br /></td></tr>
 <tr class="separator:a890ce3566bd1dc49d5b1da4abb9b8490"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac613e5de0552301f9b7969d14eb5dffa"><td class="memItemLeft" align="right" valign="top"><a id="ac613e5de0552301f9b7969d14eb5dffa" name="ac613e5de0552301f9b7969d14eb5dffa"></a>
 typedef vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>path</b></td></tr>
@@ -233,8 +250,80 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Module</b></td></tr>
 <tr class="separator:a21f639900c480510650969df9c74d17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A Class defining metadata for modules. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p >A class defining the metadata of a <a class="el" href="classeviir_1_1Module.html">Module</a>. </p>
+<p >Can be added to a module using <a class="el" href="classeviir_1_1Module.html#a9e4bc38ac7d619c039a0bb0559589399">Module::add_metadata</a>. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a372fe4af91ebc18a6d02354e8bcf23cf" name="a372fe4af91ebc18a6d02354e8bcf23cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a372fe4af91ebc18a6d02354e8bcf23cf">&#9670;&nbsp;</a></span>builtin_property_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classeviir_1_1Metadata.html#a372fe4af91ebc18a6d02354e8bcf23cf">eviir::Metadata::builtin_property_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>built-in metadata property types. </p>
+<p >Used by <a class="el" href="">Metadata::(builtin_property_type type, Value* value = nullptr)</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfabe2badced095f48ee8e7c2c7d67dd076" name="a372fe4af91ebc18a6d02354e8bcf23cfabe2badced095f48ee8e7c2c7d67dd076"></a>META_MODULE_ENTRYPOINT&#160;</td><td class="fielddoc"><p >metadata property path: <code>!module/name</code> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfaa4c98efe507cf0505d60cdb343adf91d" name="a372fe4af91ebc18a6d02354e8bcf23cfaa4c98efe507cf0505d60cdb343adf91d"></a>META_MODULE_SOURCE_FILENAME&#160;</td><td class="fielddoc"><p >metadata property path: <code>!module/entrypoint</code> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfad817637faca96aa70195396a0c6c3c4e" name="a372fe4af91ebc18a6d02354e8bcf23cfad817637faca96aa70195396a0c6c3c4e"></a>META_MODULE_SOURCE_DIRECTORY&#160;</td><td class="fielddoc"><p >metadata property path: <code>!module/source/filename</code> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfacf7fdcaa5ed555d3d97fc79276417234" name="a372fe4af91ebc18a6d02354e8bcf23cfacf7fdcaa5ed555d3d97fc79276417234"></a>META_MODULE_SOURCE_LANGUAGE&#160;</td><td class="fielddoc"><p >metadata property path: <code>!module/source/directory</code> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfaa665ac35c0944d7bccca7f7430b6947f" name="a372fe4af91ebc18a6d02354e8bcf23cfaa665ac35c0944d7bccca7f7430b6947f"></a>META_MODULE_PRODUCER_NAME&#160;</td><td class="fielddoc"><p >metadata property path: <code>!module/source/language</code> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfac60c0ed594013e96d929a33813f62773" name="a372fe4af91ebc18a6d02354e8bcf23cfac60c0ed594013e96d929a33813f62773"></a>META_MODULE_PRODUCER_VERSION&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfa92111e61fcb0fbda98d3da2d5e43017c" name="a372fe4af91ebc18a6d02354e8bcf23cfa92111e61fcb0fbda98d3da2d5e43017c"></a>META_MODULE_PRODUCER_TYPE&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfac19b0a19dd8bf62ea2590c1e66e2ad29" name="a372fe4af91ebc18a6d02354e8bcf23cfac19b0a19dd8bf62ea2590c1e66e2ad29"></a>META_TARGET_TRIPLE&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfa845ae2876378e855322c36ce699361d9" name="a372fe4af91ebc18a6d02354e8bcf23cfa845ae2876378e855322c36ce699361d9"></a>META_TARGET_CPU&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfae559dded6278c6b59450355d624ed813" name="a372fe4af91ebc18a6d02354e8bcf23cfae559dded6278c6b59450355d624ed813"></a>META_TARGET_DATALAYOUT&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfa30de1275b1bd0bbd22f4152125165d64" name="a372fe4af91ebc18a6d02354e8bcf23cfa30de1275b1bd0bbd22f4152125165d64"></a>META_TARGET_OPTIMIZATION&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfa56c810f16183314052f2835e34a6d4c0" name="a372fe4af91ebc18a6d02354e8bcf23cfa56c810f16183314052f2835e34a6d4c0"></a>META_DEBUG_GENERATE&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfad4a9ef6cce5a2a91449e2d55a9803f24" name="a372fe4af91ebc18a6d02354e8bcf23cfad4a9ef6cce5a2a91449e2d55a9803f24"></a>META_DEBUG_INCLUDESOURCE&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfaf7e6f8402e6d613f5f66f9dc01616476" name="a372fe4af91ebc18a6d02354e8bcf23cfaf7e6f8402e6d613f5f66f9dc01616476"></a>META_DEBUG_SOURCELOCATION&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfabc019a6c020745255aec2bc76c4b88b6" name="a372fe4af91ebc18a6d02354e8bcf23cfabc019a6c020745255aec2bc76c4b88b6"></a>META_DEBUG_SOURCECHECKSUM&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfa29269f7064f3dd0aa1875f810931ce35" name="a372fe4af91ebc18a6d02354e8bcf23cfa29269f7064f3dd0aa1875f810931ce35"></a>META_DEBUG_DWARFVERSION&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a372fe4af91ebc18a6d02354e8bcf23cfaaf03cdca11331e82463a7168a9dca2e5" name="a372fe4af91ebc18a6d02354e8bcf23cfaaf03cdca11331e82463a7168a9dca2e5"></a>META_DEBUG_TYPENAMES&#160;</td><td class="fielddoc"><p >whoop </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a890ce3566bd1dc49d5b1da4abb9b8490" name="a890ce3566bd1dc49d5b1da4abb9b8490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890ce3566bd1dc49d5b1da4abb9b8490">&#9670;&nbsp;</a></span>custom_property_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classeviir_1_1Metadata.html#a890ce3566bd1dc49d5b1da4abb9b8490">eviir::Metadata::custom_property_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>custom metadata property types. </p>
+<p >Used by <a class="el" href="classeviir_1_1Metadata.html#afd2f484427fcdf9aa777d6471251b3ea">Metadata::Metadata(custom_property_type type, path path, Value* value = nullptr)</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a932b55404878eeef14ad7d4e7ed98f9e" name="a932b55404878eeef14ad7d4e7ed98f9e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a932b55404878eeef14ad7d4e7ed98f9e">&#9670;&nbsp;</a></span>Metadata() <span class="overload">[1/2]</span></h2>
 
@@ -336,7 +425,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Module</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Creates a <a class="el" href="classeviir_1_1Metadata.html" title="A Class defining metadata for modules.">Metadata</a> path </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Creates a Metadata path </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">full_path</td><td>the path to use (e.g. "base/sub") </td></tr>
   </table>
