@@ -44,6 +44,7 @@ eviir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 .ti -1c
 .RI "static \fBpath\fP \fBcreate_path\fP (string full_path)"
 .br
+.RI "Creates a Metadata path\&. "
 .in -1c
 .SS "Friends"
 
@@ -67,60 +68,84 @@ built-in metadata property types\&. Used by \fBMetadata::(builtin_property_type 
 \fBEnumerator\fP
 .in +1c
 .TP
-\fB\fIMETA_MODULE_ENTRYPOINT \fP\fP
+\fB\fIMETA_MODULE_NAME \fP\fP
 metadata property path: \fC!module/name\fP 
 .TP
-\fB\fIMETA_MODULE_SOURCE_FILENAME \fP\fP
+\fB\fIMETA_MODULE_ENTRYPOINT \fP\fP
 metadata property path: \fC!module/entrypoint\fP 
 .TP
-\fB\fIMETA_MODULE_SOURCE_DIRECTORY \fP\fP
+\fB\fIMETA_MODULE_SOURCE_FILENAME \fP\fP
 metadata property path: \fC!module/source/filename\fP 
 .TP
-\fB\fIMETA_MODULE_SOURCE_LANGUAGE \fP\fP
+\fB\fIMETA_MODULE_SOURCE_DIRECTORY \fP\fP
 metadata property path: \fC!module/source/directory\fP 
 .TP
-\fB\fIMETA_MODULE_PRODUCER_NAME \fP\fP
+\fB\fIMETA_MODULE_SOURCE_LANGUAGE \fP\fP
 metadata property path: \fC!module/source/language\fP 
 .TP
+\fB\fIMETA_MODULE_PRODUCER_NAME \fP\fP
+metadata property path: \fC!module/producer/name\fP 
+.TP
 \fB\fIMETA_MODULE_PRODUCER_VERSION \fP\fP
-whoop 
+metadata property path: \fC!module/producer/version\fP 
 .TP
 \fB\fIMETA_MODULE_PRODUCER_TYPE \fP\fP
-whoop 
+metadata property path: \fC!module/producer/type\fP 
 .TP
 \fB\fIMETA_TARGET_TRIPLE \fP\fP
-whoop 
+metadata property path: \fC!target/triple\fP 
 .TP
 \fB\fIMETA_TARGET_CPU \fP\fP
-whoop 
+metadata property path: \fC!target/cpu\fP 
 .TP
 \fB\fIMETA_TARGET_DATALAYOUT \fP\fP
-whoop 
+metadata property path: \fC!target/datalayout\fP 
 .TP
 \fB\fIMETA_TARGET_OPTIMIZATION \fP\fP
-whoop 
+metadata property path: \fC!target/optimization\fP 
 .TP
 \fB\fIMETA_DEBUG_GENERATE \fP\fP
-whoop 
+metadata property path: \fC!debug/generate\fP 
 .TP
 \fB\fIMETA_DEBUG_INCLUDESOURCE \fP\fP
-whoop 
+metadata property path: \fC!debug/includesource\fP 
 .TP
 \fB\fIMETA_DEBUG_SOURCELOCATION \fP\fP
-whoop 
+metadata property path: \fC!debug/sourcelocation\fP 
 .TP
 \fB\fIMETA_DEBUG_SOURCECHECKSUM \fP\fP
-whoop 
+metadata property path: \fC!debug/sourcechecksum\fP 
 .TP
 \fB\fIMETA_DEBUG_DWARFVERSION \fP\fP
-whoop 
+metadata property path: \fC!debug/dwarfversion\fP 
 .TP
 \fB\fIMETA_DEBUG_TYPENAMES \fP\fP
-whoop 
+metadata property path: \fC!debug/typenames\fP 
 .SS "enum \fBeviir::Metadata::custom_property_type\fP"
 
 .PP
 custom metadata property types\&. Used by \fBMetadata::Metadata(custom_property_type type, path path, Value* value = nullptr)\fP\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMETA_MODULE \fP\fP
+metadata property path: \fC!module/\&.\&.\&.\fP 
+.TP
+\fB\fIMETA_MODULE_SOURCE \fP\fP
+metadata property path: \fC!module/source/\&.\&.\&.\fP 
+.TP
+\fB\fIMETA_MODULE_PRODUCER \fP\fP
+metadata property path: \fC!module/producer/\&.\&.\&.\fP 
+.TP
+\fB\fIMETA_TARGET \fP\fP
+metadata property path: \fC!target/\&.\&.\&.\fP 
+.TP
+\fB\fIMETA_DEBUG \fP\fP
+metadata property path: \fC!debug/\&.\&.\&.\fP 
+.TP
+\fB\fIMETA_CUSTOM \fP\fP
+metadata property path: \fC!\&.\&.\&.\fP 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "eviir::Metadata::Metadata (\fBbuiltin_property_type\fP type, \fBValue\fP * value = \fCnullptr\fP)"
@@ -150,7 +175,9 @@ Constructs a new metadata instance defining a custom property
 .SH "Member Function Documentation"
 .PP 
 .SS "static \fBpath\fP eviir::Metadata::create_path (string full_path)\fC [static]\fP"
-Creates a Metadata path 
+
+.PP
+Creates a Metadata path\&. Splits the given string into segments using \fC/\fP delimeters and returns that as a path 
 .PP
 \fBParameters\fP
 .RS 4

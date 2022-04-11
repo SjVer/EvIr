@@ -24,62 +24,43 @@ class Metadata
 	{
 		_META_start_module,
 		_META_MODULE_NAME,
-		_META_MODULE_ENTRYPOINT,		
-		/// module/...
-		_META_MODULE_,					
+		_META_MODULE_ENTRYPOINT,
+		_META_MODULE_,
 		_META_end_module,
 
 		_META_start_module_source,
 		_META_MODULE_SOURCE_FILENAME,
 		_META_MODULE_SOURCE_DIRECTORY,
-		_META_MODULE_SOURCE_LANGUAGE,	
-		/// module/source/...
-		_META_MODULE_SOURCE_,			
+		_META_MODULE_SOURCE_LANGUAGE,
+		_META_MODULE_SOURCE_,
 		_META_end_module_source,
 
 		_META_start_module_producer,
-		/// module/producer/name
-		_META_MODULE_PRODUCER_NAME,		
-		/// module/producer/version
-		_META_MODULE_PRODUCER_VERSION,	
-		/// module/producer/type
-		_META_MODULE_PRODUCER_TYPE,		
-		/// module/producer/...
-		_META_MODULE_PRODUCER_,			
+		_META_MODULE_PRODUCER_NAME,
+		_META_MODULE_PRODUCER_VERSION,
+		_META_MODULE_PRODUCER_TYPE,
+		_META_MODULE_PRODUCER_,
 		_META_end_module_producer,
 
 		_META_start_target,
-		/// target/triple
-		_META_TARGET_TRIPLE,			
-		/// target/cpu
-		_META_TARGET_CPU,				
-		/// target/datalayout
-		_META_TARGET_DATALAYOUT,		
-		/// target/optimization
-		_META_TARGET_OPTIMIZATION,		
-		/// target/...
-		_META_TARGET_,					
+		_META_TARGET_TRIPLE,
+		_META_TARGET_CPU,
+		_META_TARGET_DATALAYOUT,
+		_META_TARGET_OPTIMIZATION,
+		_META_TARGET_,
 		_META_end_target,
 
 		_META_start_debug,
-		/// debug/generate
-		_META_DEBUG_GENERATE,			
-		/// debug/includesource
-		_META_DEBUG_INCLUDESOURCE,		
-		/// debug/sourcelocation
-		_META_DEBUG_SOURCELOCATION,		
-		/// debug/sourcechecksum
-		_META_DEBUG_SOURCECHECKSUM,		
-		/// debug/dwarfversion
-		_META_DEBUG_DWARFVERSION,		
-		/// debug/typenames
-		_META_DEBUG_TYPENAMES,			
-		/// debug/...
-		_META_DEBUG_,					
+		_META_DEBUG_GENERATE,
+		_META_DEBUG_INCLUDESOURCE,
+		_META_DEBUG_SOURCELOCATION,
+		_META_DEBUG_SOURCECHECKSUM,
+		_META_DEBUG_DWARFVERSION,
+		_META_DEBUG_TYPENAMES,
+		_META_DEBUG_,
 		_META_end_debug,
 
-		/// ...
-		_META_CUSTOM_,					
+		_META_CUSTOM_,
 
 		_META_none,
 	} property_type;
@@ -99,28 +80,28 @@ public:
 	{
 		#define META(name) META_##name = property_type::_META_##name
 
-		META(MODULE_NAME), 				/// metadata property path: `!module/name`
-		META(MODULE_ENTRYPOINT), 		/// metadata property path: `!module/entrypoint`
+		META(MODULE_NAME), 				///< metadata property path: `!module/name`
+		META(MODULE_ENTRYPOINT), 		///< metadata property path: `!module/entrypoint`
 
-		META(MODULE_SOURCE_FILENAME), 	/// metadata property path: `!module/source/filename`
-		META(MODULE_SOURCE_DIRECTORY), 	/// metadata property path: `!module/source/directory`
-		META(MODULE_SOURCE_LANGUAGE), 	/// metadata property path: `!module/source/language`
+		META(MODULE_SOURCE_FILENAME), 	///< metadata property path: `!module/source/filename`
+		META(MODULE_SOURCE_DIRECTORY), 	///< metadata property path: `!module/source/directory`
+		META(MODULE_SOURCE_LANGUAGE), 	///< metadata property path: `!module/source/language`
 
-		META(MODULE_PRODUCER_NAME), 	/// whoop 
-		META(MODULE_PRODUCER_VERSION), 	/// whoop 
-		META(MODULE_PRODUCER_TYPE), 	/// whoop 
+		META(MODULE_PRODUCER_NAME), 	///< metadata property path: `!module/producer/name`
+		META(MODULE_PRODUCER_VERSION), 	///< metadata property path: `!module/producer/version`
+		META(MODULE_PRODUCER_TYPE), 	///< metadata property path: `!module/producer/type`
 
-		META(TARGET_TRIPLE), 			/// whoop 
-		META(TARGET_CPU), 				/// whoop 
-		META(TARGET_DATALAYOUT), 		/// whoop 
-		META(TARGET_OPTIMIZATION), 		/// whoop 
+		META(TARGET_TRIPLE), 			///< metadata property path: `!target/triple`
+		META(TARGET_CPU), 				///< metadata property path: `!target/cpu`
+		META(TARGET_DATALAYOUT), 		///< metadata property path: `!target/datalayout`
+		META(TARGET_OPTIMIZATION), 		///< metadata property path: `!target/optimization`
 
-		META(DEBUG_GENERATE), 			/// whoop 
-		META(DEBUG_INCLUDESOURCE), 		/// whoop 
-		META(DEBUG_SOURCELOCATION), 	/// whoop 
-		META(DEBUG_SOURCECHECKSUM), 	/// whoop 
-		META(DEBUG_DWARFVERSION), 		/// whoop 
-		META(DEBUG_TYPENAMES), 			/// whoop 
+		META(DEBUG_GENERATE), 			///< metadata property path: `!debug/generate`
+		META(DEBUG_INCLUDESOURCE), 		///< metadata property path: `!debug/includesource`
+		META(DEBUG_SOURCELOCATION), 	///< metadata property path: `!debug/sourcelocation`
+		META(DEBUG_SOURCECHECKSUM), 	///< metadata property path: `!debug/sourcechecksum`
+		META(DEBUG_DWARFVERSION), 		///< metadata property path: `!debug/dwarfversion`
+		META(DEBUG_TYPENAMES), 			///< metadata property path: `!debug/typenames`
 
 		#undef META
 	} builtin_property_type;
@@ -131,12 +112,12 @@ public:
 	{
 		#define META(name) META_##name = property_type::_META_##name##_
 
-		META(MODULE),
-		META(MODULE_SOURCE),
-		META(MODULE_PRODUCER),
-		META(TARGET),
-		META(DEBUG),
-		META(CUSTOM),
+		META(MODULE),			///< metadata property path: `!module/...`
+		META(MODULE_SOURCE),	///< metadata property path: `!module/source/...`
+		META(MODULE_PRODUCER),	///< metadata property path: `!module/producer/...`
+		META(TARGET),			///< metadata property path: `!target/...`
+		META(DEBUG),			///< metadata property path: `!debug/...`
+		META(CUSTOM),			///< metadata property path: `!...`
 
 		#undef META
 	} custom_property_type;
@@ -151,7 +132,8 @@ private:
 
 public:
 
-	/// Creates a Metadata path
+	/// @brief Creates a Metadata path
+	/// @details Splits the given string into segments using `/` delimeters and returns that as a path
 	/// @param full_path the path to use (e.g. "base/sub")
 	static path create_path(string full_path);
 
@@ -159,13 +141,13 @@ public:
 
 	/// Constructs a new metadata instance defining a built-in property
 	/// @param type the built-in property type that this metadata defines
-	/// @param value the value of this metadata property (optional)
+	/// @param value the value of this metadata property
 	Metadata(builtin_property_type type, Value* value = nullptr);
 
 	/// Constructs a new metadata instance defining a custom property
 	/// @param type the built-in type that this metadata defines a property of
 	/// @param path the rest of the path of the property that this metadata defines
-	/// @param value the value of this metadata property (optional)
+	/// @param value the value of this metadata property
 	Metadata(custom_property_type type, path path, Value* value = nullptr);
 	
 	#pragma endregion
