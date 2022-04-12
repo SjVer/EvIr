@@ -4,7 +4,7 @@ using namespace evir;
 
 #pragma region Constructors
 
-Module::Module(string name): name(name)
+Module::Module(String name): name(name)
 {
 	add_metadata(new Metadata(Metadata::META_MODULE_NAME, new StringValue(name)));
 	add_metadata(new Metadata(Metadata::META_MODULE_ENTRYPOINT, new ReferenceValue("main")));
@@ -13,13 +13,13 @@ Module::Module(string name): name(name)
 #pragma endregion
 #pragma region Metadata manipulation
 
-bool Module::has_metadata(Metadata::path path)
+bool Module::has_metadata(Metadata::Path path)
 {
 	// get it, and if it's null it isn't found
 	return (bool)get_metadata(path);
 }
 
-bool Module::has_metadata(Metadata::builtin_property_type type)
+bool Module::has_metadata(Metadata::BuiltinPropertyType type)
 {
 	// get it, and if it's null it isn't found
 	return (bool)get_metadata(type);
@@ -31,23 +31,23 @@ void Module::add_metadata(Metadata* mdata)
 	metadata.push_back(mdata);
 }
 
-void Module::set_metadata(Metadata::path path, Value* value)
+void Module::set_metadata(Metadata::Path path, Value* value)
 {
 	Metadata* mdata = get_metadata(path);
 	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
 
-	mdata->p_value = value;
+	mdata->p_object = value;
 }
 
-void Module::set_metadata(Metadata::builtin_property_type type, Value* value)
+void Module::set_metadata(Metadata::BuiltinPropertyType type, Value* value)
 {
 	Metadata* mdata = get_metadata(type);
 	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
 
-	mdata->p_value = value;
+	mdata->p_object = value;
 }
 
-Metadata* Module::get_metadata(Metadata::path path)
+Metadata* Module::get_metadata(Metadata::Path path)
 {
 	// TODO?: improve?
 
@@ -55,25 +55,25 @@ Metadata* Module::get_metadata(Metadata::path path)
 	return nullptr;
 }
 
-Metadata* Module::get_metadata(Metadata::builtin_property_type type)
+Metadata* Module::get_metadata(Metadata::BuiltinPropertyType type)
 {
 	// TODO?: improve?
 
-	for(auto md : metadata) if(md->p_type == (Metadata::property_type)type) return md;
+	for(auto md : metadata) if(md->p_type == (Metadata::PropertyType)type) return md;
 	return nullptr;
 }
 
 #pragma endregion
 #pragma region IR generation
 
-string Module::generate_ir_comment(string text, bool header)
+String Module::generate_ir_comment(String text, bool header)
 {
 	int max_sentence_size = header ? __IR_HCOMMENT_LENGTH - 2 * __IR_HCOMMENT_MIN_SURROUND - 2
 								   : __IR_COMMENT_LENGTH;
 
 	// separate text in sentences
-	vector<string> sentences = vector<string>();
-	string sentence = text;
+	Vector<String> sentences = Vector<String>();
+	String sentence = text;
 	while(sentence.length() > max_sentence_size)
 	{
 		// too long, find whitespace to split sentences
@@ -90,30 +90,30 @@ string Module::generate_ir_comment(string text, bool header)
 	{
 		if(sentences.size() == 1)
 		{
-			sstream stream = sstream();
+			SStream stream = SStream();
 
 			int len = sentence.length() + 2;
 			int surround_chars = __IR_HCOMMENT_LENGTH - len;
 			int start_surround_chars = surround_chars / 2;
 			int end_surround_chars = surround_chars - start_surround_chars;
 
-			stream << "; " << string(start_surround_chars, __IR_HCOMMENT_SURROUND_CHAR);
+			stream << "; " << String(start_surround_chars, __IR_HCOMMENT_SURROUND_CHAR);
 			stream << " " << sentence << " ";
-			stream << string(end_surround_chars, __IR_HCOMMENT_SURROUND_CHAR) << endl;
+			stream << String(end_surround_chars, __IR_HCOMMENT_SURROUND_CHAR) << endl;
 
 			return stream.str();
 		}
 		else
 		{
-			sstream stream = sstream();
-			for(const string& sentence : sentences)
+			SStream stream = SStream();
+			for(const String& sentence : sentences)
 			{
 				int end_whitespaces = __IR_HCOMMENT_LENGTH - (
 					2 * __IR_HCOMMENT_MIN_SURROUND + 1 + sentence.length()); 
 
-				stream << "; " << string(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
-				stream << ' ' << sentence << string(end_whitespaces, ' ');
-				stream << string(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
+				stream << "; " << String(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
+				stream << ' ' << sentence << String(end_whitespaces, ' ');
+				stream << String(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
 				stream << endl;
 			}
 			return stream.str();
@@ -124,8 +124,8 @@ string Module::generate_ir_comment(string text, bool header)
 		if(sentences.size() == 1) return "; " + sentence + endl;
 		else
 		{
-			sstream stream = sstream();
-			for(const string& sentence : sentences)
+			SStream stream = SStream();
+			for(const String& sentence : sentences)
 			{
 				stream << "; " << sentence;
 				stream << endl;
@@ -135,9 +135,9 @@ string Module::generate_ir_comment(string text, bool header)
 	}
 }
 
-string Module::generate_metadata_ir(bool before_contents)
+String Module::generate_metadata_ir(bool before_contents)
 {
-	#define STREAM(name) sstream s_##name = sstream()
+	#define STREAM(name) SStream s_##name = SStream()
 
 	STREAM(module);
 	STREAM(module_source);
@@ -174,7 +174,7 @@ string Module::generate_metadata_ir(bool before_contents)
 	#define EMIT_STREAM(name) if(!EMPTY(name)) stream << s_##name.str() << endl
 
 	// concat all streams in correct order
-	sstream stream = sstream();
+	SStream stream = SStream();
 	if(before_contents)
 	{
 		// module/...
@@ -202,14 +202,14 @@ string Module::generate_metadata_ir(bool before_contents)
 	#undef EMIT_STREAM
 
 	// clean up and return
-	string ir = stream.str();
+	String ir = stream.str();
 	if(*ir.end() == endl) ir.erase(ir.end() - 1);
 	return ir; 
 }
 
-string Module::generate_ir()
+String Module::generate_ir()
 {
-	sstream stream = sstream();
+	SStream stream = SStream();
 
 	// generate metata ir before contents
 	stream << generate_metadata_ir(true);

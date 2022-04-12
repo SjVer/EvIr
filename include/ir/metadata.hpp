@@ -8,7 +8,7 @@
 #define EVIR_IR_METADATA_H
 
 #include ".common.hpp"
-#include "ir/value.hpp"
+#include "ir/object/object.hpp"
 
 namespace evir
 {
@@ -63,7 +63,7 @@ class Metadata
 		_META_CUSTOM_,
 
 		_META_none,
-	} property_type;
+	} PropertyType;
 
 	static const char* property_type_formats[_META_none];
 
@@ -72,13 +72,13 @@ public:
 	#pragma region types
 
 	/// A metadata path
-	typedef vector<string> path;
+	typedef Vector<String> Path;
 
 	/// @brief built-in metadata property types.
-	/// @details Used by @link Metadata::(builtin_property_type type, Value* value = nullptr) @endlink.
+	/// @details Used by @link Metadata::(BuiltinPropertyType type, Value* value = nullptr) @endlink.
 	typedef enum
 	{
-		#define META(name) META_##name = property_type::_META_##name
+		#define META(name) META_##name = PropertyType::_META_##name
 
 		META(MODULE_NAME), 				///< metadata property path: `!module/name`
 		META(MODULE_ENTRYPOINT), 		///< metadata property path: `!module/entrypoint`
@@ -104,13 +104,13 @@ public:
 		META(DEBUG_TYPENAMES), 			///< metadata property path: `!debug/typenames`
 
 		#undef META
-	} builtin_property_type;
+	} BuiltinPropertyType;
 	
 	/// @brief custom metadata property types.
-	/// @details Used by @link Metadata::Metadata(custom_property_type type, path path, Value* value = nullptr) @endlink.
+	/// @details Used by @link Metadata::Metadata(CustomPropertyType type, path path, Value* value = nullptr) @endlink.
 	typedef enum
 	{
-		#define META(name) META_##name = property_type::_META_##name##_
+		#define META(name) META_##name = PropertyType::_META_##name##_
 
 		META(MODULE),			///< metadata property path: `!module/...`
 		META(MODULE_SOURCE),	///< metadata property path: `!module/source/...`
@@ -120,41 +120,41 @@ public:
 		META(CUSTOM),			///< metadata property path: `!...`
 
 		#undef META
-	} custom_property_type;
+	} CustomPropertyType;
 
 	#pragma endregion
 
 private:
 
-	property_type p_type;
-	path p_path;
-	Value* p_value;
+	PropertyType p_type;
+	Path p_path;
+	Object* p_object;
 
 public:
 
 	/// @brief Creates a Metadata path
 	/// @details Splits the given string into segments using `/` delimeters and returns that as a path
 	/// @param full_path the path to use (e.g. "base/sub")
-	static path create_path(string full_path);
+	static Path create_path(String full_path);
 
 	#pragma region Constructors
 
 	/// Constructs a new metadata instance defining a built-in property
 	/// @param type the built-in property type that this metadata defines
-	/// @param value the value of this metadata property
-	Metadata(builtin_property_type type, Value* value = nullptr);
+	/// @param object the value of this metadata property
+	Metadata(BuiltinPropertyType type, Object* object = nullptr);
 
 	/// Constructs a new metadata instance defining a custom property
 	/// @param type the built-in type that this metadata defines a property of
 	/// @param path the rest of the path of the property that this metadata defines
-	/// @param value the value of this metadata property
-	Metadata(custom_property_type type, path path, Value* value = nullptr);
+	/// @param object the value of this metadata property
+	Metadata(CustomPropertyType type, Path path, Object* object = nullptr);
 	
 	#pragma endregion
 
 	/// Generates the IR for this metadata property
 	/// @return the ir as a string (without a newline)
-	string generate_ir();
+	String generate_ir();
 
 	#pragma endregion
 };

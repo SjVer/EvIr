@@ -1,10 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classevir_1_1Value.html" title="evir::Value" alt="" coords="5,157,103,184"/>
-<area shape="rect" id="node2" href="$classevir_1_1FloatValue.html" title="evir::FloatValue" alt="" coords="168,5,297,32"/>
-<area shape="rect" id="node3" href="$classevir_1_1IntegerValue.html" title="evir::IntegerValue" alt="" coords="160,56,305,83"/>
-<area shape="rect" id="node4" href="$classevir_1_1ListValue.html" title="evir::ListValue" alt="" coords="173,107,293,133"/>
-<area shape="rect" id="node5" href="$classevir_1_1ObjectValue.html" title="evir::ObjectValue" alt="" coords="163,157,302,184"/>
-<area shape="rect" id="node6" href="$classevir_1_1OptionValue.html" title="evir::OptionValue" alt="" coords="163,208,303,235"/>
-<area shape="rect" id="node7" href="$classevir_1_1ReferenceValue.html" title="evir::ReferenceValue" alt="" coords="151,259,315,285"/>
-<area shape="rect" id="node8" href="$classevir_1_1StringValue.html" title="evir::StringValue" alt="" coords="164,309,301,336"/>
+<area shape="rect" id="node1" href="$classevir_1_1Object.html" title=" " alt="" coords="5,157,103,184"/>
+<area shape="rect" id="node2" href="$classevir_1_1Value.html" title=" " alt="" coords="151,157,241,184"/>
+<area shape="rect" id="node3" href="$classevir_1_1FloatValue.html" title=" " alt="" coords="306,5,430,32"/>
+<area shape="rect" id="node4" href="$classevir_1_1IntegerValue.html" title=" " alt="" coords="299,56,437,83"/>
+<area shape="rect" id="node5" href="$classevir_1_1ListValue.html" title=" " alt="" coords="311,107,425,133"/>
+<area shape="rect" id="node6" href="$classevir_1_1MapValue.html" title=" " alt="" coords="309,157,427,184"/>
+<area shape="rect" id="node7" href="$classevir_1_1OptionValue.html" title=" " alt="" coords="301,208,435,235"/>
+<area shape="rect" id="node8" href="$classevir_1_1ReferenceValue.html" title=" " alt="" coords="289,259,447,285"/>
+<area shape="rect" id="node9" href="$classevir_1_1StringValue.html" title=" " alt="" coords="303,309,433,336"/>
 </map>

@@ -1,25 +1,25 @@
 \hypertarget{metadata_8hpp_source}{}\doxysection{metadata.\+hpp}
-\label{metadata_8hpp_source}\index{/home/sjoerd/Coding/Languages/EviIr/include/ir/metadata.hpp@{/home/sjoerd/Coding/Languages/EviIr/include/ir/metadata.hpp}}
+\label{metadata_8hpp_source}\index{include/ir/metadata.hpp@{include/ir/metadata.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ ir/metadata.hpp -\/-\/-\/ C++ -\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
-\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EviIr library}}
+\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EvIr library}}
 \DoxyCodeLine{3 \textcolor{comment}{// MIT License -\/ Sjoerd Vermeulen (2022)}}
-\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EviIr}}
+\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EvIr}}
 \DoxyCodeLine{5 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIIR\_IR\_METADATA\_H}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIIR\_IR\_METADATA\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_METADATA\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_METADATA\_H}}
 \DoxyCodeLine{9 }
 \DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/value.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/object/object.hpp"{}}}
 \DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{namespace }eviir}
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir}
 \DoxyCodeLine{14 \{}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classeviir_1_1Metadata}{Metadata}}}
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}}
 \DoxyCodeLine{20 \{}
-\DoxyCodeLine{21     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classeviir_1_1Module}{Module}};}
+\DoxyCodeLine{21     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}};}
 \DoxyCodeLine{22 }
 \DoxyCodeLine{23     \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
 \DoxyCodeLine{24     \{}
@@ -64,7 +64,7 @@
 \DoxyCodeLine{63         \_META\_CUSTOM\_,}
 \DoxyCodeLine{64 }
 \DoxyCodeLine{65         \_META\_none,}
-\DoxyCodeLine{66     \} property\_type;}
+\DoxyCodeLine{66     \} PropertyType;}
 \DoxyCodeLine{67 }
 \DoxyCodeLine{68     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* property\_type\_formats[\_META\_none];}
 \DoxyCodeLine{69 }
@@ -72,11 +72,11 @@
 \DoxyCodeLine{71 }
 \DoxyCodeLine{72 \textcolor{preprocessor}{    \#pragma region types}}
 \DoxyCodeLine{73 }
-\DoxyCodeLine{75     \textcolor{keyword}{typedef} vector<string> \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}};}
+\DoxyCodeLine{75     \textcolor{keyword}{typedef} Vector<String> \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}};}
 \DoxyCodeLine{76 }
 \DoxyCodeLine{79     \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
 \DoxyCodeLine{80     \{}
-\DoxyCodeLine{81 \textcolor{preprocessor}{        \#define META(name) META\_\#\#name = property\_type::\_META\_\#\#name}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{        \#define META(name) META\_\#\#name = PropertyType::\_META\_\#\#name}}
 \DoxyCodeLine{82 }
 \DoxyCodeLine{83         META(MODULE\_NAME),              }
 \DoxyCodeLine{84         META(MODULE\_ENTRYPOINT),        }
@@ -102,11 +102,11 @@
 \DoxyCodeLine{104         META(DEBUG\_TYPENAMES),          }
 \DoxyCodeLine{105 }
 \DoxyCodeLine{106 \textcolor{preprocessor}{        \#undef META}}
-\DoxyCodeLine{107     \} \mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{builtin\_property\_type}};}
+\DoxyCodeLine{107     \} \mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{BuiltinPropertyType}};}
 \DoxyCodeLine{108     }
 \DoxyCodeLine{111     \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
 \DoxyCodeLine{112     \{}
-\DoxyCodeLine{113 \textcolor{preprocessor}{        \#define META(name) META\_\#\#name = property\_type::\_META\_\#\#name\#\#\_}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{        \#define META(name) META\_\#\#name = PropertyType::\_META\_\#\#name\#\#\_}}
 \DoxyCodeLine{114 }
 \DoxyCodeLine{115         META(MODULE),           }
 \DoxyCodeLine{116         META(MODULE\_SOURCE),    }
@@ -116,35 +116,35 @@
 \DoxyCodeLine{120         META(CUSTOM),           }
 \DoxyCodeLine{121 }
 \DoxyCodeLine{122 \textcolor{preprocessor}{        \#undef META}}
-\DoxyCodeLine{123     \} \mbox{\hyperlink{classeviir_1_1Metadata_a890ce3566bd1dc49d5b1da4abb9b8490}{custom\_property\_type}};}
+\DoxyCodeLine{123     \} \mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{CustomPropertyType}};}
 \DoxyCodeLine{124 }
 \DoxyCodeLine{125 \textcolor{preprocessor}{    \#pragma endregion}}
 \DoxyCodeLine{126 }
 \DoxyCodeLine{127 \textcolor{keyword}{private}:}
 \DoxyCodeLine{128 }
-\DoxyCodeLine{129     property\_type p\_type;}
-\DoxyCodeLine{130     \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}} p\_path;}
-\DoxyCodeLine{131     \mbox{\hyperlink{classeviir_1_1Value}{Value}}* p\_value;}
+\DoxyCodeLine{129     PropertyType p\_type;}
+\DoxyCodeLine{130     \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} p\_path;}
+\DoxyCodeLine{131     \mbox{\hyperlink{classevir_1_1Object}{Object}}* p\_object;}
 \DoxyCodeLine{132 }
 \DoxyCodeLine{133 \textcolor{keyword}{public}:}
 \DoxyCodeLine{134 }
-\DoxyCodeLine{138     \textcolor{keyword}{static} \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}} \mbox{\hyperlink{classeviir_1_1Metadata_a39b71a74731f3357b5f0888c6b3ba3e4}{create\_path}}(\textcolor{keywordtype}{string} full\_path);}
+\DoxyCodeLine{138     \textcolor{keyword}{static} \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} \mbox{\hyperlink{classevir_1_1Metadata_a3738a45ea3dce32ebee865e7949c0233}{create\_path}}(String full\_path);}
 \DoxyCodeLine{139 }
 \DoxyCodeLine{140 \textcolor{preprocessor}{    \#pragma region Constructors}}
 \DoxyCodeLine{141 }
-\DoxyCodeLine{145     \mbox{\hyperlink{classeviir_1_1Metadata_a932b55404878eeef14ad7d4e7ed98f9e}{Metadata}}(\mbox{\hyperlink{classeviir_1_1Metadata_a372fe4af91ebc18a6d02354e8bcf23cf}{builtin\_property\_type}} type, \mbox{\hyperlink{classeviir_1_1Value}{Value}}* value = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{145     \mbox{\hyperlink{classevir_1_1Metadata_a145b68fd380c206a272983c7be03a5cc}{Metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{BuiltinPropertyType}} type, \mbox{\hyperlink{classevir_1_1Object}{Object}}* \textcolor{keywordtype}{object} = \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{146 }
-\DoxyCodeLine{151     \mbox{\hyperlink{classeviir_1_1Metadata_afd2f484427fcdf9aa777d6471251b3ea}{Metadata}}(\mbox{\hyperlink{classeviir_1_1Metadata_a890ce3566bd1dc49d5b1da4abb9b8490}{custom\_property\_type}} type, \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}} \mbox{\hyperlink{classeviir_1_1Metadata_ac613e5de0552301f9b7969d14eb5dffa}{path}}, \mbox{\hyperlink{classeviir_1_1Value}{Value}}* value = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{151     \mbox{\hyperlink{classevir_1_1Metadata_a6dd2f73e63f123fe7f4e6dbcea66c7fb}{Metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{CustomPropertyType}} type, \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} path, \mbox{\hyperlink{classevir_1_1Object}{Object}}* \textcolor{keywordtype}{object} = \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{152     }
 \DoxyCodeLine{153 \textcolor{preprocessor}{    \#pragma endregion}}
 \DoxyCodeLine{154 }
-\DoxyCodeLine{157     \textcolor{keywordtype}{string} \mbox{\hyperlink{classeviir_1_1Metadata_ab4ac3feef2692e4ae984842224787934}{generate\_ir}}();}
+\DoxyCodeLine{157     String \mbox{\hyperlink{classevir_1_1Metadata_ab8b6fc9bc47d7f1e8260c250ecbff96f}{generate\_ir}}();}
 \DoxyCodeLine{158 }
 \DoxyCodeLine{159 \textcolor{preprocessor}{    \#pragma endregion}}
 \DoxyCodeLine{160 \};}
 \DoxyCodeLine{161 }
 \DoxyCodeLine{162 \};}
 \DoxyCodeLine{163 }
-\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIIR\_IR\_METADATA\_H}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_METADATA\_H}}
 
 \end{DoxyCode}

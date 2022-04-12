@@ -1,13 +1,13 @@
 #include "ir/irbuilder.hpp"
 #include <iostream>
 
-using namespace eviir;
+using namespace evir;
 
 int main()
 {
 	// create module
 	Module* module = new Module("test");
-	IRBuilder* builder = new IRBuilder(module);
+	IRBuilder* builder = new IRBuilder();
 	
 	// set metadata
 	module->add_metadata(new Metadata(Metadata::META_MODULE_SOURCE_FILENAME, Value::new_string("test.evi")));
@@ -30,7 +30,7 @@ int main()
 	module->add_metadata(new Metadata(Metadata::META_DEBUG_SOURCECHECKSUM, Value::new_integer(0x2fa0d9)));
 	module->add_metadata(new Metadata(Metadata::META_DEBUG_DWARFVERSION, Value::new_integer(5)));
 
-	module->add_metadata(new Metadata(Metadata::META_DEBUG_TYPENAMES, Value::new_object(map<Value*, Value*>{
+	module->add_metadata(new Metadata(Metadata::META_DEBUG_TYPENAMES, Value::new_map(Map<Value*, Value*>{
 		{Value::new_string("bln"), Value::new_string("i.u.1")},
 		{Value::new_string("chr"), Value::new_string("i.u.8")},
 		{Value::new_string("flt"), Value::new_string("f.1.32")},
@@ -38,7 +38,7 @@ int main()
 	})));
 
 
-	std::cout << builder->get_module()->generate_ir();
+	std::cout << module->generate_ir();
 
 	return 0;
 }

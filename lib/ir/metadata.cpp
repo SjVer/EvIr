@@ -11,22 +11,22 @@ const char* Metadata::property_type_formats[_META_none] = {
 	#undef FMT
 };
 
-Metadata::path Metadata::create_path(string full_path)
+Metadata::Path Metadata::create_path(String full_path)
 {
 	// just split the string
 	// a correct path is the user's responsibility
-	return (path)tools::split_string(full_path, "/");
+	return (Path)tools::split_string(full_path, "/");
 }
 
 #pragma region Constructors
 
-Metadata::Metadata(builtin_property_type type, Value* value)
+Metadata::Metadata(BuiltinPropertyType type, Object* object)
 {
-	p_type = (property_type)type;
+	p_type = (PropertyType)type;
 
 	switch(type)
 	{
-		#define CASE(type, ...) case type: p_path = vector<string>{__VA_ARGS__}; break
+		#define CASE(type, ...) case type: p_path = Path{__VA_ARGS__}; break
 
 		CASE(META_MODULE_NAME, "module", "name");
 		CASE(META_MODULE_ENTRYPOINT, "module", "entrypoint");
@@ -55,19 +55,18 @@ Metadata::Metadata(builtin_property_type type, Value* value)
 		#undef CASE
 		default: ASSERT_F(0, "Invalid built-in metadata property type %d!", type);
 	}
-	
 
-	p_value = value;
+	p_object = object;
 }
 
-Metadata::Metadata(custom_property_type type, vector<string> path, Value* value)
+Metadata::Metadata(CustomPropertyType type, Path path, Object* object)
 {
-	p_type = (property_type)type;
+	p_type = (PropertyType)type;
 	
 	// find base path
 	switch(type)
 	{
-		#define CASE(type, ...) case type: p_path = vector<string>{__VA_ARGS__}; break
+		#define CASE(type, ...) case type: p_path = Path{__VA_ARGS__}; break
 
 		CASE(META_MODULE, "module");
 		CASE(META_MODULE_SOURCE, "module", "source");
@@ -83,21 +82,21 @@ Metadata::Metadata(custom_property_type type, vector<string> path, Value* value)
 	// concat paths
 	p_path.insert(p_path.end(), path.begin(), path.end());
 
-	p_value = value;
+	p_object = object;
 }
 
 #pragma endregion
 
-string Metadata::generate_ir()
+String Metadata::generate_ir()
 {
-	sstream stream = sstream();
+	SStream stream = SStream();
 	stream << "!";
 	
-	for(string& segment : p_path)
+	for(String& segment : p_path)
 		stream << segment << (segment != p_path.back() ? "/" : "");
 	
-	if(p_value) stream << " " << p_value->generate_ir(property_type_formats[p_type]);
-	else stream << " <no value>";
+	if(p_object) stream << " " << p_object->generate_ir(property_type_formats[p_type]);
+	else stream << " <no object>";
 	
 	return stream.str();
 }

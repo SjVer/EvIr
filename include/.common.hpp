@@ -1,5 +1,5 @@
-#ifndef EVIIR__COMMON_H
-#define EVIIR__COMMON_H
+#ifndef EVIR__COMMON_H
+#define EVIR__COMMON_H
 
 #if defined(_WIN32) || defined(_WIN64)
 #define API __declspec(dllexport)
@@ -12,22 +12,22 @@
 
 #pragma endregion
 #pragma region types
-namespace eviir
+namespace evir
 {
 
 typedef int64_t				int64;
 typedef double				float2;
-typedef std::string 		string;
-typedef std::stringstream 	sstream;
+typedef std::string 		String;
+typedef std::stringstream 	SStream;
 
 template<typename T>
-using vector = std::vector<T>;
+using Vector = std::vector<T>;
 
 template<typename T1, typename T2>
-using pair = std::pair<T1, T2>;
+using Pair = std::pair<T1, T2>;
 
 template<typename K, typename V>
-using map = std::map<K, V>;
+using Map = std::map<K, V>;
 
 }
 #pragma endregion
@@ -42,7 +42,7 @@ using map = std::map<K, V>;
 #define COMMA ,
 
 #define ASSERT(condition, whatwentwrong) if(!(condition)) { \
-	std::cerr << "EviIr Assertion failed: " << whatwentwrong << endl; raise(SIGABRT); }
+	std::cerr << "EvIr Assertion failed: " << whatwentwrong << endl; raise(SIGABRT); }
 #define ASSERT_F(condition, whatwentwrong, ...) ASSERT(condition, tools::fstr(whatwentwrong, __VA_ARGS__))
 
 #pragma endregion
@@ -72,4 +72,4 @@ using map = std::map<K, V>;
 #endif
 #pragma endregion
 
-#endif // EVIIR__COMMON_H
+#endif // EVIR__COMMON_H

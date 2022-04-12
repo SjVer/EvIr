@@ -17,7 +17,7 @@ CXXFLAGS = -Wall $(addprefix -Wno-,$(MUTE)) $(addprefix -D,$(DEFS)) -fPIC # `$(L
 LDFLAGS = -shared #`$(LLVMFLAGS) --ldflags --system-libs --libs`
 
 # Makefile settings - Can be customized.
-APPNAME = libeviir.so
+APPNAME = libevir.so
 EXT = .cpp
 SRCDIR = lib
 HEADERDIR = include
@@ -30,8 +30,8 @@ OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 APP = $(BINDIR)/$(APPNAME)
 DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
 
-
 PCHS = .base_pch.hpp
+
 PCH_OUT_DIR = $(BINDIR)/pch
 PCH_SRC = $(addprefix $(HEADERDIR)/,$(PCHS))
 PCH_OUT = $(PCH_SRC:$(HEADERDIR)/%=$(PCH_OUT_DIR)/%.gch)
@@ -58,7 +58,8 @@ $(APP): $(OBJ) | makedirs
 	@$(CC) $(CXXFLAGS) -I$(HEADERDIR)/$(TARGET) -o $@ $^ $(LDFLAGS)
 	@printf "\b\b done!\n"
 
-$(OBJDIR)/%.o: $(SRCDIR)/%$(EXT) | makedirs
+$(OBJDIR)/%.o: $(SRCDIR)/%$(EXT) | pchs makedirs
+	@mkdir -p $(dir $@)
 	@printf "[$(word 1,$(OBJCOUNT))/$(words $(OBJ))] compiling $(notdir $<) into $(notdir $@)..."
 	@$(CC) $(CXXFLAGS) -I$(HEADERDIR)/$(TARGET) $(INC_PCH_FLAG) -I $(HEADERDIR) -o $@ -c $<
 	@printf "\b\b done!\n"
@@ -81,7 +82,6 @@ clean:
 makedirs:
 	@$(MKDIR) -p $(BINDIR)
 	@$(MKDIR) -p $(OBJDIR)
-	@$(MKDIR) -p $(OBJDIR)/ir
 	@$(MKDIR) -p $(PCH_OUT_DIR)
 
 .PHONY: remake
@@ -92,7 +92,7 @@ remake: clean $(APP)
 .PHONY: test
 test: $(APP)
 	@printf ">>> COMPILING "
-	$(CC) -I$(HEADERDIR) test/test.cpp -o $(BINDIR)/test -L$(BINDIR) -leviir
+	$(CC) -I$(HEADERDIR) test/test.cpp -o $(BINDIR)/test -L$(BINDIR) -levir
 	@printf ">>> RUNNING "
 	bin/test > test/out.eviir
 	@printf ">>> DONE "

@@ -1,4 +1,4 @@
-#include "ir/value.hpp"
+#include "ir/object/value.hpp"
 
 using namespace evir;
 
@@ -10,17 +10,17 @@ using namespace evir;
 
 SIMPLE_VALUE_CONTRUCTOR(IntegerValue, integer, int64, value);
 SIMPLE_VALUE_CONTRUCTOR(FloatValue, float, float2, value);
-SIMPLE_VALUE_CONTRUCTOR(StringValue, string, string, value);
-SIMPLE_VALUE_CONTRUCTOR(ListValue, list, vector<Value*>, elements);
-SIMPLE_VALUE_CONTRUCTOR(ObjectValue, object, map<Value* COMMA Value*>, pairs);
-SIMPLE_VALUE_CONTRUCTOR(ReferenceValue, reference, string, name);
-SIMPLE_VALUE_CONTRUCTOR(OptionValue, option, string, name);
+SIMPLE_VALUE_CONTRUCTOR(StringValue, string, String, value);
+SIMPLE_VALUE_CONTRUCTOR(ListValue, list, Vector<Value*>, elements);
+SIMPLE_VALUE_CONTRUCTOR(MapValue, map, Map<Value* COMMA Value*>, pairs);
+SIMPLE_VALUE_CONTRUCTOR(ReferenceValue, reference, String, name);
+SIMPLE_VALUE_CONTRUCTOR(OptionValue, option, String, name);
 
 #undef SIMPLE_VALUE_CONTRUCTOR
 
 #pragma endregion
 #pragma region IR Generation
-#define GENERATE_IR(classname) string classname::generate_ir(const char* format)
+#define GENERATE_IR(classname) String classname::generate_ir(const char* format)
 
 GENERATE_IR(IntegerValue)
 {
@@ -42,7 +42,7 @@ GENERATE_IR(StringValue)
 
 GENERATE_IR(ListValue)
 {
-	sstream stream = sstream();
+	SStream stream = SStream();
 	stream << "[";
 	for(auto element : elements)
 	{
@@ -53,7 +53,7 @@ GENERATE_IR(ListValue)
 	return stream.str();
 }
 
-GENERATE_IR(ObjectValue)
+GENERATE_IR(MapValue)
 {
 	if(pairs.size() == 1)
 	{
@@ -62,7 +62,7 @@ GENERATE_IR(ObjectValue)
 		return "{ " + k->generate_ir(format) + ": " + v->generate_ir(format) + " }";
 	}
 
-	sstream stream = sstream();
+	SStream stream = SStream();
 	stream << "{" << endl;
 	for(auto it = pairs.begin(); it != pairs.end(); it++)
 	{

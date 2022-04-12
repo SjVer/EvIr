@@ -1,231 +1,235 @@
-\hypertarget{classevir_1_1Metadata}{}\section{evir\+:\+:Metadata Class Reference}
-\label{classevir_1_1Metadata}\index{evir\+::\+Metadata@{evir\+::\+Metadata}}
+\hypertarget{classevir_1_1Metadata}{}\doxysection{evir\+::Metadata Class Reference}
+\label{classevir_1_1Metadata}\index{evir::Metadata@{evir::Metadata}}
 
 
-A class defining the metadata of a \hyperlink{classevir_1_1Module}{Module}.  
+A class defining the metadata of a \mbox{\hyperlink{classevir_1_1Module}{Module}}.  
 
 
-\subsection*{Public Types}
+
+
+{\ttfamily \#include $<$include/ir/metadata.\+hpp$>$}
+
+\doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum \hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0}{builtin\+\_\+property\+\_\+type} \{ \newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a043ad4ab5db7545ce1e5f68f392e4a87}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+N\+A\+ME}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a6214ab10011d915c858a295d4fce43a4}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+E\+N\+T\+R\+Y\+P\+O\+I\+NT}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a6a3358b2453de5814fb1303ccdffb0d1}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+N\+A\+ME}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a809beaad6fca6ec64b61a3a32df451c8}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a04e7bc9c5d4d56c652abbce665803799}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+L\+A\+N\+G\+U\+A\+GE}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a1d00cd63ff852d8f813396ea650a558d}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+N\+A\+ME}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a233194bfc98afdb26b2842af7b1f8394}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a51ab342bdfd6c1b78e0d536832d002fa}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+T\+Y\+PE}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a5991898f8f5af4a9fe3f6282af692cc0}{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+T\+R\+I\+P\+LE}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a7f488be475f84b1b122db86296ed1cd7}{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+PU}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a0a5eb82f79545bbd09048581b425f6e7}{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+D\+A\+T\+A\+L\+A\+Y\+O\+UT}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a0a52141a0e9e2746d9a73b4c6a8bedb6}{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+A\+T\+I\+ON}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a275eff47a587f2589a63d33f253519ad}{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+G\+E\+N\+E\+R\+A\+TE}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0adbe6020a4e25d855a55d955c49d58518}{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+O\+U\+R\+CE}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0aeb281b4637aa1e74fe5885d7565c2837}{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+L\+O\+C\+A\+T\+I\+ON}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a5a1731d19c350961ae70eb3a2e2b67f1}{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+C\+H\+E\+C\+K\+S\+UM}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0af1da53fed8e342f34a382bc44d8346f4}{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+D\+W\+A\+R\+F\+V\+E\+R\+S\+I\+ON}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0add040935fc7447b467728558a200753d}{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+Y\+P\+E\+N\+A\+M\+ES}
- \}\begin{DoxyCompactList}\small\item\em built-\/in metadata property types. \end{DoxyCompactList}
-\item 
-enum \hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3a}{custom\+\_\+property\+\_\+type} \{ \newline
-\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aa2e301f0107d9eeec9b89cbe651b938c9}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+LE}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aa0573f0d1ed472f569a560896ac2f3191}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+CE}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aae87fa9c17efc349460ad189c7befda31}{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+ER}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aae95c2f2abaeccace9798c006d8a46cef}{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+ET}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aaaf1fc29999b24aab0e1b44f45a7e08b9}{M\+E\+T\+A\+\_\+\+D\+E\+B\+UG}, 
-\newline
-\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aacf006a02fadcd158c073c8d75627569c}{M\+E\+T\+A\+\_\+\+C\+U\+S\+T\+OM}
- \}\begin{DoxyCompactList}\small\item\em custom metadata property types. \end{DoxyCompactList}
-\item 
-\mbox{\Hypertarget{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}\label{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}} 
-typedef vector$<$ string $>$ \hyperlink{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}{path}
+enum \mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{Builtin\+Property\+Type}} \{ \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba043ad4ab5db7545ce1e5f68f392e4a87}{META\+\_\+\+MODULE\+\_\+\+NAME}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba6214ab10011d915c858a295d4fce43a4}{META\+\_\+\+MODULE\+\_\+\+ENTRYPOINT}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba6a3358b2453de5814fb1303ccdffb0d1}{META\+\_\+\+MODULE\+\_\+\+SOURCE\+\_\+\+FILENAME}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba809beaad6fca6ec64b61a3a32df451c8}{META\+\_\+\+MODULE\+\_\+\+SOURCE\+\_\+\+DIRECTORY}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba04e7bc9c5d4d56c652abbce665803799}{META\+\_\+\+MODULE\+\_\+\+SOURCE\+\_\+\+LANGUAGE}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba1d00cd63ff852d8f813396ea650a558d}{META\+\_\+\+MODULE\+\_\+\+PRODUCER\+\_\+\+NAME}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba233194bfc98afdb26b2842af7b1f8394}{META\+\_\+\+MODULE\+\_\+\+PRODUCER\+\_\+\+VERSION}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba51ab342bdfd6c1b78e0d536832d002fa}{META\+\_\+\+MODULE\+\_\+\+PRODUCER\+\_\+\+TYPE}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba5991898f8f5af4a9fe3f6282af692cc0}{META\+\_\+\+TARGET\+\_\+\+TRIPLE}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba7f488be475f84b1b122db86296ed1cd7}{META\+\_\+\+TARGET\+\_\+\+CPU}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba0a5eb82f79545bbd09048581b425f6e7}{META\+\_\+\+TARGET\+\_\+\+DATALAYOUT}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba0a52141a0e9e2746d9a73b4c6a8bedb6}{META\+\_\+\+TARGET\+\_\+\+OPTIMIZATION}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba275eff47a587f2589a63d33f253519ad}{META\+\_\+\+DEBUG\+\_\+\+GENERATE}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83badbe6020a4e25d855a55d955c49d58518}{META\+\_\+\+DEBUG\+\_\+\+INCLUDESOURCE}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83baeb281b4637aa1e74fe5885d7565c2837}{META\+\_\+\+DEBUG\+\_\+\+SOURCELOCATION}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba5a1731d19c350961ae70eb3a2e2b67f1}{META\+\_\+\+DEBUG\+\_\+\+SOURCECHECKSUM}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83baf1da53fed8e342f34a382bc44d8346f4}{META\+\_\+\+DEBUG\+\_\+\+DWARFVERSION}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83badd040935fc7447b467728558a200753d}{META\+\_\+\+DEBUG\+\_\+\+TYPENAMES}}
+ \}
+\begin{DoxyCompactList}\small\item\em built-\/in metadata property types. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}} \{ \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba2e301f0107d9eeec9b89cbe651b938c9}{META\+\_\+\+MODULE}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba0573f0d1ed472f569a560896ac2f3191}{META\+\_\+\+MODULE\+\_\+\+SOURCE}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bae87fa9c17efc349460ad189c7befda31}{META\+\_\+\+MODULE\+\_\+\+PRODUCER}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bae95c2f2abaeccace9798c006d8a46cef}{META\+\_\+\+TARGET}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5baaf1fc29999b24aab0e1b44f45a7e08b9}{META\+\_\+\+DEBUG}}
+, \newline
+\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bacf006a02fadcd158c073c8d75627569c}{META\+\_\+\+CUSTOM}}
+ \}
+\begin{DoxyCompactList}\small\item\em custom metadata property types. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}\label{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}} 
+typedef Vector$<$ String $>$ {\bfseries Path}
 \begin{DoxyCompactList}\small\item\em A metadata path. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classevir_1_1Metadata_ad16e0a606fc5daa81fc505633aab9c90}{Metadata} (\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0}{builtin\+\_\+property\+\_\+type} type, \hyperlink{classevir_1_1Value}{Value} $\ast$value=nullptr)
+\mbox{\hyperlink{classevir_1_1Metadata_a145b68fd380c206a272983c7be03a5cc}{Metadata}} (\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{Builtin\+Property\+Type}} type, \mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$object=nullptr)
 \item 
-\hyperlink{classevir_1_1Metadata_a6f3e02e9cfe01368e1f8eba1947de4e6}{Metadata} (\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3a}{custom\+\_\+property\+\_\+type} type, \hyperlink{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}{path} \hyperlink{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}{path}, \hyperlink{classevir_1_1Value}{Value} $\ast$value=nullptr)
+\mbox{\hyperlink{classevir_1_1Metadata_a6dd2f73e63f123fe7f4e6dbcea66c7fb}{Metadata}} (\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}} type, \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} path, \mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$object=nullptr)
 \item 
-string \hyperlink{classevir_1_1Metadata_a4fe174d10ee934c0eb531f38bbb8b4df}{generate\+\_\+ir} ()
+String \mbox{\hyperlink{classevir_1_1Metadata_ab8b6fc9bc47d7f1e8260c250ecbff96f}{generate\+\_\+ir}} ()
 \end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \hyperlink{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}{path} \hyperlink{classevir_1_1Metadata_aa9244492c6a37b8b23191cc52c6b7e67}{create\+\_\+path} (string full\+\_\+path)
+static \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} \mbox{\hyperlink{classevir_1_1Metadata_a3738a45ea3dce32ebee865e7949c0233}{create\+\_\+path}} (String full\+\_\+path)
 \begin{DoxyCompactList}\small\item\em Creates a Metadata path. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-A class defining the metadata of a \hyperlink{classevir_1_1Module}{Module}. 
+\doxysubsection{Detailed Description}
+A class defining the metadata of a \mbox{\hyperlink{classevir_1_1Module}{Module}}. 
 
-Can be added to a module using \hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{Module\+::add\+\_\+metadata}. 
+Can be added to a module using \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{Module\+::add\+\_\+metadata}}. 
 
-\subsection{Member Enumeration Documentation}
-\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0}} 
-\index{evir\+::\+Metadata@{evir\+::\+Metadata}!builtin\+\_\+property\+\_\+type@{builtin\+\_\+property\+\_\+type}}
-\index{builtin\+\_\+property\+\_\+type@{builtin\+\_\+property\+\_\+type}!evir\+::\+Metadata@{evir\+::\+Metadata}}
-\subsubsection{\texorpdfstring{builtin\+\_\+property\+\_\+type}{builtin\_property\_type}}
-{\footnotesize\ttfamily enum \hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0}{evir\+::\+Metadata\+::builtin\+\_\+property\+\_\+type}}
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}} 
+\index{evir::Metadata@{evir::Metadata}!BuiltinPropertyType@{BuiltinPropertyType}}
+\index{BuiltinPropertyType@{BuiltinPropertyType}!evir::Metadata@{evir::Metadata}}
+\doxysubsubsection{\texorpdfstring{BuiltinPropertyType}{BuiltinPropertyType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{evir\+::\+Metadata\+::\+Builtin\+Property\+Type}}}
 
 
 
 built-\/in metadata property types. 
 
-Used by \hyperlink{}{Metadata\+::(builtin\+\_\+property\+\_\+type type, Value$\ast$ value = nullptr)}. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+N\+A\+ME@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+N\+A\+ME}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+N\+A\+ME@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+N\+A\+ME}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a043ad4ab5db7545ce1e5f68f392e4a87}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a043ad4ab5db7545ce1e5f68f392e4a87}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+N\+A\+ME&metadata property path\+: {\ttfamily !module/name} \\
+Used by \mbox{\hyperlink{}{Metadata\+::(\+Builtin\+Property\+Type type, Value$\ast$ value = nullptr)}}. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_NAME@{META\_MODULE\_NAME}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_NAME@{META\_MODULE\_NAME}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba043ad4ab5db7545ce1e5f68f392e4a87}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba043ad4ab5db7545ce1e5f68f392e4a87}} 
+META\+\_\+\+MODULE\+\_\+\+NAME&metadata property path\+: {\ttfamily !module/name} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+E\+N\+T\+R\+Y\+P\+O\+I\+NT@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+E\+N\+T\+R\+Y\+P\+O\+I\+NT}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+E\+N\+T\+R\+Y\+P\+O\+I\+NT@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+E\+N\+T\+R\+Y\+P\+O\+I\+NT}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a6214ab10011d915c858a295d4fce43a4}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a6214ab10011d915c858a295d4fce43a4}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+E\+N\+T\+R\+Y\+P\+O\+I\+NT&metadata property path\+: {\ttfamily !module/entrypoint} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_ENTRYPOINT@{META\_MODULE\_ENTRYPOINT}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_ENTRYPOINT@{META\_MODULE\_ENTRYPOINT}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba6214ab10011d915c858a295d4fce43a4}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba6214ab10011d915c858a295d4fce43a4}} 
+META\+\_\+\+MODULE\+\_\+\+ENTRYPOINT&metadata property path\+: {\ttfamily !module/entrypoint} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+N\+A\+ME}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+N\+A\+ME}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a6a3358b2453de5814fb1303ccdffb0d1}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a6a3358b2453de5814fb1303ccdffb0d1}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+F\+I\+L\+E\+N\+A\+ME&metadata property path\+: {\ttfamily !module/source/filename} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_SOURCE\_FILENAME@{META\_MODULE\_SOURCE\_FILENAME}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_SOURCE\_FILENAME@{META\_MODULE\_SOURCE\_FILENAME}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba6a3358b2453de5814fb1303ccdffb0d1}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba6a3358b2453de5814fb1303ccdffb0d1}} 
+META\+\_\+\+MODULE\+\_\+\+SOURCE\+\_\+\+FILENAME&metadata property path\+: {\ttfamily !module/source/filename} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a809beaad6fca6ec64b61a3a32df451c8}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a809beaad6fca6ec64b61a3a32df451c8}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY&metadata property path\+: {\ttfamily !module/source/directory} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_SOURCE\_DIRECTORY@{META\_MODULE\_SOURCE\_DIRECTORY}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_SOURCE\_DIRECTORY@{META\_MODULE\_SOURCE\_DIRECTORY}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba809beaad6fca6ec64b61a3a32df451c8}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba809beaad6fca6ec64b61a3a32df451c8}} 
+META\+\_\+\+MODULE\+\_\+\+SOURCE\+\_\+\+DIRECTORY&metadata property path\+: {\ttfamily !module/source/directory} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+L\+A\+N\+G\+U\+A\+GE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+L\+A\+N\+G\+U\+A\+GE}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+L\+A\+N\+G\+U\+A\+GE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+L\+A\+N\+G\+U\+A\+GE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a04e7bc9c5d4d56c652abbce665803799}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a04e7bc9c5d4d56c652abbce665803799}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+L\+A\+N\+G\+U\+A\+GE&metadata property path\+: {\ttfamily !module/source/language} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_SOURCE\_LANGUAGE@{META\_MODULE\_SOURCE\_LANGUAGE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_SOURCE\_LANGUAGE@{META\_MODULE\_SOURCE\_LANGUAGE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba04e7bc9c5d4d56c652abbce665803799}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba04e7bc9c5d4d56c652abbce665803799}} 
+META\+\_\+\+MODULE\+\_\+\+SOURCE\+\_\+\+LANGUAGE&metadata property path\+: {\ttfamily !module/source/language} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+N\+A\+ME@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+N\+A\+ME}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+N\+A\+ME@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+N\+A\+ME}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a1d00cd63ff852d8f813396ea650a558d}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a1d00cd63ff852d8f813396ea650a558d}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+N\+A\+ME&metadata property path\+: {\ttfamily !module/producer/name} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_PRODUCER\_NAME@{META\_MODULE\_PRODUCER\_NAME}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_PRODUCER\_NAME@{META\_MODULE\_PRODUCER\_NAME}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba1d00cd63ff852d8f813396ea650a558d}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba1d00cd63ff852d8f813396ea650a558d}} 
+META\+\_\+\+MODULE\+\_\+\+PRODUCER\+\_\+\+NAME&metadata property path\+: {\ttfamily !module/producer/name} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a233194bfc98afdb26b2842af7b1f8394}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a233194bfc98afdb26b2842af7b1f8394}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON&metadata property path\+: {\ttfamily !module/producer/version} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_PRODUCER\_VERSION@{META\_MODULE\_PRODUCER\_VERSION}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_PRODUCER\_VERSION@{META\_MODULE\_PRODUCER\_VERSION}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba233194bfc98afdb26b2842af7b1f8394}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba233194bfc98afdb26b2842af7b1f8394}} 
+META\+\_\+\+MODULE\+\_\+\+PRODUCER\+\_\+\+VERSION&metadata property path\+: {\ttfamily !module/producer/version} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+T\+Y\+PE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+T\+Y\+PE}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+T\+Y\+PE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+T\+Y\+PE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a51ab342bdfd6c1b78e0d536832d002fa}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a51ab342bdfd6c1b78e0d536832d002fa}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+E\+R\+\_\+\+T\+Y\+PE&metadata property path\+: {\ttfamily !module/producer/type} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_PRODUCER\_TYPE@{META\_MODULE\_PRODUCER\_TYPE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_PRODUCER\_TYPE@{META\_MODULE\_PRODUCER\_TYPE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba51ab342bdfd6c1b78e0d536832d002fa}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba51ab342bdfd6c1b78e0d536832d002fa}} 
+META\+\_\+\+MODULE\+\_\+\+PRODUCER\+\_\+\+TYPE&metadata property path\+: {\ttfamily !module/producer/type} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+T\+R\+I\+P\+LE@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+T\+R\+I\+P\+LE}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+T\+R\+I\+P\+LE@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+T\+R\+I\+P\+LE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a5991898f8f5af4a9fe3f6282af692cc0}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a5991898f8f5af4a9fe3f6282af692cc0}} 
-M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+T\+R\+I\+P\+LE&metadata property path\+: {\ttfamily !target/triple} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_TARGET\_TRIPLE@{META\_TARGET\_TRIPLE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_TARGET\_TRIPLE@{META\_TARGET\_TRIPLE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba5991898f8f5af4a9fe3f6282af692cc0}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba5991898f8f5af4a9fe3f6282af692cc0}} 
+META\+\_\+\+TARGET\+\_\+\+TRIPLE&metadata property path\+: {\ttfamily !target/triple} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+PU@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+PU}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+PU@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+PU}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a7f488be475f84b1b122db86296ed1cd7}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a7f488be475f84b1b122db86296ed1cd7}} 
-M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+PU&metadata property path\+: {\ttfamily !target/cpu} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_TARGET\_CPU@{META\_TARGET\_CPU}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_TARGET\_CPU@{META\_TARGET\_CPU}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba7f488be475f84b1b122db86296ed1cd7}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba7f488be475f84b1b122db86296ed1cd7}} 
+META\+\_\+\+TARGET\+\_\+\+CPU&metadata property path\+: {\ttfamily !target/cpu} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+D\+A\+T\+A\+L\+A\+Y\+O\+UT@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+D\+A\+T\+A\+L\+A\+Y\+O\+UT}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+D\+A\+T\+A\+L\+A\+Y\+O\+UT@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+D\+A\+T\+A\+L\+A\+Y\+O\+UT}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a0a5eb82f79545bbd09048581b425f6e7}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a0a5eb82f79545bbd09048581b425f6e7}} 
-M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+D\+A\+T\+A\+L\+A\+Y\+O\+UT&metadata property path\+: {\ttfamily !target/datalayout} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_TARGET\_DATALAYOUT@{META\_TARGET\_DATALAYOUT}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_TARGET\_DATALAYOUT@{META\_TARGET\_DATALAYOUT}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba0a5eb82f79545bbd09048581b425f6e7}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba0a5eb82f79545bbd09048581b425f6e7}} 
+META\+\_\+\+TARGET\+\_\+\+DATALAYOUT&metadata property path\+: {\ttfamily !target/datalayout} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+A\+T\+I\+ON@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+A\+T\+I\+ON}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+A\+T\+I\+ON@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+A\+T\+I\+ON}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a0a52141a0e9e2746d9a73b4c6a8bedb6}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a0a52141a0e9e2746d9a73b4c6a8bedb6}} 
-M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+A\+T\+I\+ON&metadata property path\+: {\ttfamily !target/optimization} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_TARGET\_OPTIMIZATION@{META\_TARGET\_OPTIMIZATION}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_TARGET\_OPTIMIZATION@{META\_TARGET\_OPTIMIZATION}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba0a52141a0e9e2746d9a73b4c6a8bedb6}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba0a52141a0e9e2746d9a73b4c6a8bedb6}} 
+META\+\_\+\+TARGET\+\_\+\+OPTIMIZATION&metadata property path\+: {\ttfamily !target/optimization} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+G\+E\+N\+E\+R\+A\+TE@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+G\+E\+N\+E\+R\+A\+TE}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+G\+E\+N\+E\+R\+A\+TE@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+G\+E\+N\+E\+R\+A\+TE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a275eff47a587f2589a63d33f253519ad}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a275eff47a587f2589a63d33f253519ad}} 
-M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+G\+E\+N\+E\+R\+A\+TE&metadata property path\+: {\ttfamily !debug/generate} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_DEBUG\_GENERATE@{META\_DEBUG\_GENERATE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_DEBUG\_GENERATE@{META\_DEBUG\_GENERATE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba275eff47a587f2589a63d33f253519ad}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba275eff47a587f2589a63d33f253519ad}} 
+META\+\_\+\+DEBUG\+\_\+\+GENERATE&metadata property path\+: {\ttfamily !debug/generate} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+O\+U\+R\+CE@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+O\+U\+R\+CE}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+O\+U\+R\+CE@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+O\+U\+R\+CE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0adbe6020a4e25d855a55d955c49d58518}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0adbe6020a4e25d855a55d955c49d58518}} 
-M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+O\+U\+R\+CE&metadata property path\+: {\ttfamily !debug/includesource} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_DEBUG\_INCLUDESOURCE@{META\_DEBUG\_INCLUDESOURCE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_DEBUG\_INCLUDESOURCE@{META\_DEBUG\_INCLUDESOURCE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83badbe6020a4e25d855a55d955c49d58518}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83badbe6020a4e25d855a55d955c49d58518}} 
+META\+\_\+\+DEBUG\+\_\+\+INCLUDESOURCE&metadata property path\+: {\ttfamily !debug/includesource} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+L\+O\+C\+A\+T\+I\+ON@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+L\+O\+C\+A\+T\+I\+ON}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+L\+O\+C\+A\+T\+I\+ON@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+L\+O\+C\+A\+T\+I\+ON}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0aeb281b4637aa1e74fe5885d7565c2837}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0aeb281b4637aa1e74fe5885d7565c2837}} 
-M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+L\+O\+C\+A\+T\+I\+ON&metadata property path\+: {\ttfamily !debug/sourcelocation} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_DEBUG\_SOURCELOCATION@{META\_DEBUG\_SOURCELOCATION}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_DEBUG\_SOURCELOCATION@{META\_DEBUG\_SOURCELOCATION}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83baeb281b4637aa1e74fe5885d7565c2837}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83baeb281b4637aa1e74fe5885d7565c2837}} 
+META\+\_\+\+DEBUG\+\_\+\+SOURCELOCATION&metadata property path\+: {\ttfamily !debug/sourcelocation} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+C\+H\+E\+C\+K\+S\+UM@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+C\+H\+E\+C\+K\+S\+UM}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+C\+H\+E\+C\+K\+S\+UM@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+C\+H\+E\+C\+K\+S\+UM}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a5a1731d19c350961ae70eb3a2e2b67f1}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0a5a1731d19c350961ae70eb3a2e2b67f1}} 
-M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+S\+O\+U\+R\+C\+E\+C\+H\+E\+C\+K\+S\+UM&metadata property path\+: {\ttfamily !debug/sourcechecksum} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_DEBUG\_SOURCECHECKSUM@{META\_DEBUG\_SOURCECHECKSUM}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_DEBUG\_SOURCECHECKSUM@{META\_DEBUG\_SOURCECHECKSUM}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba5a1731d19c350961ae70eb3a2e2b67f1}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba5a1731d19c350961ae70eb3a2e2b67f1}} 
+META\+\_\+\+DEBUG\+\_\+\+SOURCECHECKSUM&metadata property path\+: {\ttfamily !debug/sourcechecksum} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+D\+W\+A\+R\+F\+V\+E\+R\+S\+I\+ON@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+D\+W\+A\+R\+F\+V\+E\+R\+S\+I\+ON}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+D\+W\+A\+R\+F\+V\+E\+R\+S\+I\+ON@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+D\+W\+A\+R\+F\+V\+E\+R\+S\+I\+ON}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0af1da53fed8e342f34a382bc44d8346f4}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0af1da53fed8e342f34a382bc44d8346f4}} 
-M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+D\+W\+A\+R\+F\+V\+E\+R\+S\+I\+ON&metadata property path\+: {\ttfamily !debug/dwarfversion} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_DEBUG\_DWARFVERSION@{META\_DEBUG\_DWARFVERSION}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_DEBUG\_DWARFVERSION@{META\_DEBUG\_DWARFVERSION}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83baf1da53fed8e342f34a382bc44d8346f4}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83baf1da53fed8e342f34a382bc44d8346f4}} 
+META\+\_\+\+DEBUG\+\_\+\+DWARFVERSION&metadata property path\+: {\ttfamily !debug/dwarfversion} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+Y\+P\+E\+N\+A\+M\+ES@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+Y\+P\+E\+N\+A\+M\+ES}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+Y\+P\+E\+N\+A\+M\+ES@{M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+Y\+P\+E\+N\+A\+M\+ES}}}\mbox{\Hypertarget{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0add040935fc7447b467728558a200753d}\label{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0add040935fc7447b467728558a200753d}} 
-M\+E\+T\+A\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+Y\+P\+E\+N\+A\+M\+ES&metadata property path\+: {\ttfamily !debug/typenames} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_DEBUG\_TYPENAMES@{META\_DEBUG\_TYPENAMES}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_DEBUG\_TYPENAMES@{META\_DEBUG\_TYPENAMES}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83badd040935fc7447b467728558a200753d}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83badd040935fc7447b467728558a200753d}} 
+META\+\_\+\+DEBUG\+\_\+\+TYPENAMES&metadata property path\+: {\ttfamily !debug/typenames} \\
 \hline
 
 \end{DoxyEnumFields}
-\mbox{\Hypertarget{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3a}\label{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3a}} 
-\index{evir\+::\+Metadata@{evir\+::\+Metadata}!custom\+\_\+property\+\_\+type@{custom\+\_\+property\+\_\+type}}
-\index{custom\+\_\+property\+\_\+type@{custom\+\_\+property\+\_\+type}!evir\+::\+Metadata@{evir\+::\+Metadata}}
-\subsubsection{\texorpdfstring{custom\+\_\+property\+\_\+type}{custom\_property\_type}}
-{\footnotesize\ttfamily enum \hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3a}{evir\+::\+Metadata\+::custom\+\_\+property\+\_\+type}}
+\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}} 
+\index{evir::Metadata@{evir::Metadata}!CustomPropertyType@{CustomPropertyType}}
+\index{CustomPropertyType@{CustomPropertyType}!evir::Metadata@{evir::Metadata}}
+\doxysubsubsection{\texorpdfstring{CustomPropertyType}{CustomPropertyType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{evir\+::\+Metadata\+::\+Custom\+Property\+Type}}}
 
 
 
 custom metadata property types. 
 
-Used by \hyperlink{classevir_1_1Metadata_a6f3e02e9cfe01368e1f8eba1947de4e6}{Metadata\+::\+Metadata(custom\+\_\+property\+\_\+type type, path path, Value$\ast$ value = nullptr)}. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+LE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+LE}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+LE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+LE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aa2e301f0107d9eeec9b89cbe651b938c9}\label{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aa2e301f0107d9eeec9b89cbe651b938c9}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+LE&metadata property path\+: {\ttfamily !module/...} \\
+Used by \mbox{\hyperlink{}{Metadata\+::\+Metadata(\+Custom\+Property\+Type type, path path, Value$\ast$ value = nullptr)}}. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE@{META\_MODULE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE@{META\_MODULE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba2e301f0107d9eeec9b89cbe651b938c9}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba2e301f0107d9eeec9b89cbe651b938c9}} 
+META\+\_\+\+MODULE&metadata property path\+: {\ttfamily !module/...} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+CE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+CE}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+CE@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+CE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aa0573f0d1ed472f569a560896ac2f3191}\label{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aa0573f0d1ed472f569a560896ac2f3191}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+O\+U\+R\+CE&metadata property path\+: {\ttfamily !module/source/...} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_SOURCE@{META\_MODULE\_SOURCE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_SOURCE@{META\_MODULE\_SOURCE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba0573f0d1ed472f569a560896ac2f3191}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba0573f0d1ed472f569a560896ac2f3191}} 
+META\+\_\+\+MODULE\+\_\+\+SOURCE&metadata property path\+: {\ttfamily !module/source/...} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+ER@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+ER}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+ER@{M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+ER}}}\mbox{\Hypertarget{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aae87fa9c17efc349460ad189c7befda31}\label{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aae87fa9c17efc349460ad189c7befda31}} 
-M\+E\+T\+A\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+P\+R\+O\+D\+U\+C\+ER&metadata property path\+: {\ttfamily !module/producer/...} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_PRODUCER@{META\_MODULE\_PRODUCER}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_PRODUCER@{META\_MODULE\_PRODUCER}}}\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bae87fa9c17efc349460ad189c7befda31}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bae87fa9c17efc349460ad189c7befda31}} 
+META\+\_\+\+MODULE\+\_\+\+PRODUCER&metadata property path\+: {\ttfamily !module/producer/...} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+ET@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+ET}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+ET@{M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+ET}}}\mbox{\Hypertarget{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aae95c2f2abaeccace9798c006d8a46cef}\label{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aae95c2f2abaeccace9798c006d8a46cef}} 
-M\+E\+T\+A\+\_\+\+T\+A\+R\+G\+ET&metadata property path\+: {\ttfamily !target/...} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_TARGET@{META\_TARGET}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_TARGET@{META\_TARGET}}}\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bae95c2f2abaeccace9798c006d8a46cef}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bae95c2f2abaeccace9798c006d8a46cef}} 
+META\+\_\+\+TARGET&metadata property path\+: {\ttfamily !target/...} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+D\+E\+B\+UG@{M\+E\+T\+A\+\_\+\+D\+E\+B\+UG}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+D\+E\+B\+UG@{M\+E\+T\+A\+\_\+\+D\+E\+B\+UG}}}\mbox{\Hypertarget{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aaaf1fc29999b24aab0e1b44f45a7e08b9}\label{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aaaf1fc29999b24aab0e1b44f45a7e08b9}} 
-M\+E\+T\+A\+\_\+\+D\+E\+B\+UG&metadata property path\+: {\ttfamily !debug/...} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_DEBUG@{META\_DEBUG}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_DEBUG@{META\_DEBUG}}}\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5baaf1fc29999b24aab0e1b44f45a7e08b9}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5baaf1fc29999b24aab0e1b44f45a7e08b9}} 
+META\+\_\+\+DEBUG&metadata property path\+: {\ttfamily !debug/...} \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+E\+T\+A\+\_\+\+C\+U\+S\+T\+OM@{M\+E\+T\+A\+\_\+\+C\+U\+S\+T\+OM}!evir\+::\+Metadata@{evir\+::\+Metadata}}\index{evir\+::\+Metadata@{evir\+::\+Metadata}!M\+E\+T\+A\+\_\+\+C\+U\+S\+T\+OM@{M\+E\+T\+A\+\_\+\+C\+U\+S\+T\+OM}}}\mbox{\Hypertarget{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aacf006a02fadcd158c073c8d75627569c}\label{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3aacf006a02fadcd158c073c8d75627569c}} 
-M\+E\+T\+A\+\_\+\+C\+U\+S\+T\+OM&metadata property path\+: {\ttfamily !...} \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{META\_CUSTOM@{META\_CUSTOM}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_CUSTOM@{META\_CUSTOM}}}\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bacf006a02fadcd158c073c8d75627569c}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bacf006a02fadcd158c073c8d75627569c}} 
+META\+\_\+\+CUSTOM&metadata property path\+: {\ttfamily !...} \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classevir_1_1Metadata_ad16e0a606fc5daa81fc505633aab9c90}\label{classevir_1_1Metadata_ad16e0a606fc5daa81fc505633aab9c90}} 
-\index{evir\+::\+Metadata@{evir\+::\+Metadata}!Metadata@{Metadata}}
-\index{Metadata@{Metadata}!evir\+::\+Metadata@{evir\+::\+Metadata}}
-\subsubsection{\texorpdfstring{Metadata()}{Metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\hyperlink{classevir_1_1Metadata_a292423b7a2d93f70382d1da4929f55a0}{builtin\+\_\+property\+\_\+type}}]{type,  }\item[{\hyperlink{classevir_1_1Value}{Value} $\ast$}]{value = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classevir_1_1Metadata_a145b68fd380c206a272983c7be03a5cc}\label{classevir_1_1Metadata_a145b68fd380c206a272983c7be03a5cc}} 
+\index{evir::Metadata@{evir::Metadata}!Metadata@{Metadata}}
+\index{Metadata@{Metadata}!evir::Metadata@{evir::Metadata}}
+\doxysubsubsection{\texorpdfstring{Metadata()}{Metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{Builtin\+Property\+Type}}}]{type,  }\item[{\mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$}]{object = {\ttfamily nullptr} }\end{DoxyParamCaption})}
 
 Constructs a new metadata instance defining a built-\/in property 
 \begin{DoxyParams}{Parameters}
 {\em type} & the built-\/in property type that this metadata defines \\
 \hline
-{\em value} & the value of this metadata property \\
+{\em object} & the value of this metadata property \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classevir_1_1Metadata_a6f3e02e9cfe01368e1f8eba1947de4e6}\label{classevir_1_1Metadata_a6f3e02e9cfe01368e1f8eba1947de4e6}} 
-\index{evir\+::\+Metadata@{evir\+::\+Metadata}!Metadata@{Metadata}}
-\index{Metadata@{Metadata}!evir\+::\+Metadata@{evir\+::\+Metadata}}
-\subsubsection{\texorpdfstring{Metadata()}{Metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\hyperlink{classevir_1_1Metadata_a6ccc55dee8a150a9917bc1204fdf4c3a}{custom\+\_\+property\+\_\+type}}]{type,  }\item[{\hyperlink{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}{path}}]{path,  }\item[{\hyperlink{classevir_1_1Value}{Value} $\ast$}]{value = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classevir_1_1Metadata_a6dd2f73e63f123fe7f4e6dbcea66c7fb}\label{classevir_1_1Metadata_a6dd2f73e63f123fe7f4e6dbcea66c7fb}} 
+\index{evir::Metadata@{evir::Metadata}!Metadata@{Metadata}}
+\index{Metadata@{Metadata}!evir::Metadata@{evir::Metadata}}
+\doxysubsubsection{\texorpdfstring{Metadata()}{Metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}}}]{type,  }\item[{\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}}}]{path,  }\item[{\mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$}]{object = {\ttfamily nullptr} }\end{DoxyParamCaption})}
 
 Constructs a new metadata instance defining a custom property 
 \begin{DoxyParams}{Parameters}
@@ -233,17 +237,17 @@ Constructs a new metadata instance defining a custom property
 \hline
 {\em path} & the rest of the path of the property that this metadata defines \\
 \hline
-{\em value} & the value of this metadata property \\
+{\em object} & the value of this metadata property \\
 \hline
 \end{DoxyParams}
 
 
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classevir_1_1Metadata_aa9244492c6a37b8b23191cc52c6b7e67}\label{classevir_1_1Metadata_aa9244492c6a37b8b23191cc52c6b7e67}} 
-\index{evir\+::\+Metadata@{evir\+::\+Metadata}!create\+\_\+path@{create\+\_\+path}}
-\index{create\+\_\+path@{create\+\_\+path}!evir\+::\+Metadata@{evir\+::\+Metadata}}
-\subsubsection{\texorpdfstring{create\+\_\+path()}{create\_path()}}
-{\footnotesize\ttfamily static \hyperlink{classevir_1_1Metadata_a0a3a8f0c937238fae5262283bac6286a}{path} evir\+::\+Metadata\+::create\+\_\+path (\begin{DoxyParamCaption}\item[{string}]{full\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevir_1_1Metadata_a3738a45ea3dce32ebee865e7949c0233}\label{classevir_1_1Metadata_a3738a45ea3dce32ebee865e7949c0233}} 
+\index{evir::Metadata@{evir::Metadata}!create\_path@{create\_path}}
+\index{create\_path@{create\_path}!evir::Metadata@{evir::Metadata}}
+\doxysubsubsection{\texorpdfstring{create\_path()}{create\_path()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} evir\+::\+Metadata\+::create\+\_\+path (\begin{DoxyParamCaption}\item[{String}]{full\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -254,11 +258,11 @@ Splits the given string into segments using {\ttfamily /} delimeters and returns
 {\em full\+\_\+path} & the path to use (e.\+g. \char`\"{}base/sub\char`\"{}) \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classevir_1_1Metadata_a4fe174d10ee934c0eb531f38bbb8b4df}\label{classevir_1_1Metadata_a4fe174d10ee934c0eb531f38bbb8b4df}} 
-\index{evir\+::\+Metadata@{evir\+::\+Metadata}!generate\+\_\+ir@{generate\+\_\+ir}}
-\index{generate\+\_\+ir@{generate\+\_\+ir}!evir\+::\+Metadata@{evir\+::\+Metadata}}
-\subsubsection{\texorpdfstring{generate\+\_\+ir()}{generate\_ir()}}
-{\footnotesize\ttfamily string evir\+::\+Metadata\+::generate\+\_\+ir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classevir_1_1Metadata_ab8b6fc9bc47d7f1e8260c250ecbff96f}\label{classevir_1_1Metadata_ab8b6fc9bc47d7f1e8260c250ecbff96f}} 
+\index{evir::Metadata@{evir::Metadata}!generate\_ir@{generate\_ir}}
+\index{generate\_ir@{generate\_ir}!evir::Metadata@{evir::Metadata}}
+\doxysubsubsection{\texorpdfstring{generate\_ir()}{generate\_ir()}}
+{\footnotesize\ttfamily String evir\+::\+Metadata\+::generate\+\_\+ir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Generates the IR for this metadata property \begin{DoxyReturn}{Returns}
 the ir as a string (without a newline) 

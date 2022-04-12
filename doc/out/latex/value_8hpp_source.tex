@@ -1,0 +1,117 @@
+\hypertarget{value_8hpp_source}{}\doxysection{value.\+hpp}
+\label{value_8hpp_source}\index{include/ir/object/value.hpp@{include/ir/object/value.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ ir/value.hpp -\/-\/-\/ C++ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EvIr library}}
+\DoxyCodeLine{3 \textcolor{comment}{// MIT License -\/ Sjoerd Vermeulen (2022)}}
+\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EvIr}}
+\DoxyCodeLine{5 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_VALUE\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_VALUE\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/object/object.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }IntegerValue;}
+\DoxyCodeLine{17 \textcolor{keyword}{class }FloatValue;}
+\DoxyCodeLine{18 \textcolor{keyword}{class }StringValue;}
+\DoxyCodeLine{19 \textcolor{keyword}{class }ListValue;}
+\DoxyCodeLine{20 \textcolor{keyword}{class }MapValue;}
+\DoxyCodeLine{21 \textcolor{keyword}{class }ReferenceValue;}
+\DoxyCodeLine{22 \textcolor{keyword}{class }OptionValue;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Value}{Value}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Object}{Object}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{static} \textcolor{keyword}{const} ObjectType object\_type = OBJECT\_VALUE;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} ValueType}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         VALUE\_INTEGER,}
+\DoxyCodeLine{34         VALUE\_FLOAT,}
+\DoxyCodeLine{35         VALUE\_STRING,}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         VALUE\_LIST,}
+\DoxyCodeLine{38         VALUE\_MAP,}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         VALUE\_EXPRESSION,}
+\DoxyCodeLine{41         VALUE\_REFERENCE,}
+\DoxyCodeLine{42         VALUE\_OPTION,}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         VALUE\_none}
+\DoxyCodeLine{45     \} value\_type = VALUE\_none;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{48 \textcolor{keyword}{public}:}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{    \#pragma region Constructors}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{    \#define SIMPLE\_VALUE\_CONTRUCTOR(classname, lowercasename, membertype, membername) \(\backslash\)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{        static classname* new\_\#\#lowercasename(membertype membername);}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{56     SIMPLE\_VALUE\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1IntegerValue}{IntegerValue}}, integer, int64, value);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{60     SIMPLE\_VALUE\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1FloatValue}{FloatValue}}, \textcolor{keywordtype}{float}, float2, value);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{64     SIMPLE\_VALUE\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1StringValue}{StringValue}}, \textcolor{keywordtype}{string}, String, value);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{68     SIMPLE\_VALUE\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1ListValue}{ListValue}}, list, Vector<Value*>, elements);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{72     SIMPLE\_VALUE\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1MapValue}{MapValue}}, map, Map<Value* COMMA Value*>, pairs);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{76     SIMPLE\_VALUE\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1ReferenceValue}{ReferenceValue}}, reference, String, name);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{80     SIMPLE\_VALUE\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1OptionValue}{OptionValue}}, option, String, name);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{    \#undef SIMPLE\_VALUE\_CONTRUCTOR}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{preprocessor}{    \#pragma region Value type checkers}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(typename, type) \(\backslash\)}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{        bool is\_\#\#typename() \{ return value\_type == VALUE\_\#\#type; \}}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     IS\_TYPE\_METHOD(integer, INTEGER);}
+\DoxyCodeLine{90     IS\_TYPE\_METHOD(\textcolor{keywordtype}{float}, FLOAT);}
+\DoxyCodeLine{91     IS\_TYPE\_METHOD(\textcolor{keywordtype}{string}, STRING);}
+\DoxyCodeLine{92     IS\_TYPE\_METHOD(list, LIST);}
+\DoxyCodeLine{93     IS\_TYPE\_METHOD(map, MAP);}
+\DoxyCodeLine{94     IS\_TYPE\_METHOD(reference, REFERENCE);}
+\DoxyCodeLine{95     IS\_TYPE\_METHOD(option, OPTION);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{102     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Value_a343e306225c2ba058a6caee56024d115}{generate\_ir}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* format = \textcolor{keyword}{nullptr}) = 0;}
+\DoxyCodeLine{103 \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#pragma region Value classes}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define MEMBERS(type) \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{    private: static const ValueType value\_type = type; \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{    public: String generate\_ir(const char* format = nullptr);}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define SIMPLE\_VALUE(name, valuetype, membername, membertype) \(\backslash\)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{    class name : public Value \{ MEMBERS(valuetype); \(\backslash\)}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{    name(membertype membername): membername(membername) \{\}; membertype membername; \}}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 SIMPLE\_VALUE(\mbox{\hyperlink{classevir_1_1IntegerValue}{IntegerValue}}, VALUE\_INTEGER, value, int64);}
+\DoxyCodeLine{114 SIMPLE\_VALUE(\mbox{\hyperlink{classevir_1_1FloatValue}{FloatValue}}, VALUE\_FLOAT, value, float2);}
+\DoxyCodeLine{115 SIMPLE\_VALUE(\mbox{\hyperlink{classevir_1_1StringValue}{StringValue}}, VALUE\_STRING, value, String);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 SIMPLE\_VALUE(\mbox{\hyperlink{classevir_1_1ListValue}{ListValue}}, VALUE\_LIST, elements, Vector<Value*>);}
+\DoxyCodeLine{118 SIMPLE\_VALUE(\mbox{\hyperlink{classevir_1_1MapValue}{MapValue}}, VALUE\_MAP, pairs, Map<Value* COMMA Value*>);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 SIMPLE\_VALUE(\mbox{\hyperlink{classevir_1_1ReferenceValue}{ReferenceValue}}, VALUE\_REFERENCE, name, String);}
+\DoxyCodeLine{121 SIMPLE\_VALUE(\mbox{\hyperlink{classevir_1_1OptionValue}{OptionValue}}, VALUE\_OPTION, name, String);}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#undef MEMBERS}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#undef SIMPLE\_VALUE}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_VALUE\_H}}
+
+\end{DoxyCode}
