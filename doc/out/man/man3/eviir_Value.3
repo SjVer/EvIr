@@ -12,46 +12,28 @@ Inherited by \fBeviir::FloatValue\fP, \fBeviir::IntegerValue\fP, \fBeviir::ListV
 
 .in +1c
 .ti -1c
+.RI "\fBSIMPLE_VALUE_CONTRUCTOR\fP (\fBIntegerValue\fP, integer, int64, value)"
+.br
+.ti -1c
+.RI "\fBSIMPLE_VALUE_CONTRUCTOR\fP (\fBFloatValue\fP, float, float2, value)"
+.br
+.ti -1c
+.RI "\fBSIMPLE_VALUE_CONTRUCTOR\fP (\fBStringValue\fP, string, string, value)"
+.br
+.ti -1c
+.RI "\fBSIMPLE_VALUE_CONTRUCTOR\fP (\fBListValue\fP, list, vector< \fBValue\fP *>, elements)"
+.br
+.ti -1c
+.RI "\fBSIMPLE_VALUE_CONTRUCTOR\fP (\fBObjectValue\fP, object, map< \fBValue\fP *COMMA \fBValue\fP *>, pairs)"
+.br
+.ti -1c
+.RI "\fBSIMPLE_VALUE_CONTRUCTOR\fP (\fBReferenceValue\fP, reference, string, name)"
+.br
+.ti -1c
+.RI "\fBSIMPLE_VALUE_CONTRUCTOR\fP (\fBOptionValue\fP, option, string, name)"
+.br
+.ti -1c
 .RI "virtual string \fBgenerate_ir\fP (const char *format=nullptr)=0"
-.br
-.in -1c
-.SS "Static Public Member Functions"
-
-.in +1c
-.ti -1c
-.RI "static \fBIntegerValue\fP * \fBnew_integer\fP (int64 value)"
-.br
-.ti -1c
-.RI "static \fBFloatValue\fP * \fBnew_float\fP (float2 value)"
-.br
-.ti -1c
-.RI "static \fBStringValue\fP * \fBnew_string\fP (string value)"
-.br
-.ti -1c
-.RI "static \fBListValue\fP * \fBnew_list\fP (vector< \fBValue\fP *> elements)"
-.br
-.ti -1c
-.RI "static \fBObjectValue\fP * \fBnew_object\fP (map< \fBValue\fP *COMMA \fBValue\fP *> pairs)"
-.br
-.ti -1c
-.RI "static \fBReferenceValue\fP * \fBnew_reference\fP (string name)"
-.br
-.ti -1c
-.RI "static \fBOptionValue\fP * \fBnew_option\fP (string name)"
-.br
-.in -1c
-.SS "Protected Types"
-
-.in +1c
-.ti -1c
-.RI "enum \fBValueType\fP { \fBVALUE_INTEGER\fP, \fBVALUE_FLOAT\fP, \fBVALUE_STRING\fP, \fBVALUE_LIST\fP, \fBVALUE_OBJECT\fP, \fBVALUE_EXPRESSION\fP, \fBVALUE_REFERENCE\fP, \fBVALUE_OPTION\fP, \fBVALUE_NONE\fP }"
-.br
-.in -1c
-.SS "Static Protected Attributes"
-
-.in +1c
-.ti -1c
-.RI "static enum eviir::Value::ValueType \fBvalue_type\fP"
 .br
 .in -1c
 .SH "Member Function Documentation"
@@ -67,16 +49,7 @@ the IR as a string (without newline)
 
 .PP
 Implemented in \fBeviir::OptionValue\fP, \fBeviir::ReferenceValue\fP, \fBeviir::ObjectValue\fP, \fBeviir::ListValue\fP, \fBeviir::StringValue\fP, \fBeviir::FloatValue\fP, and \fBeviir::IntegerValue\fP\&.
-.SS "static \fBFloatValue\fP* eviir::Value::new_float (float2 value)\fC [static]\fP"
-Constructs a new float value 
-.PP
-\fBParameters:\fP
-.RS 4
-\fIvalue\fP the float 
-.RE
-.PP
-
-.SS "static \fBIntegerValue\fP* eviir::Value::new_integer (int64 value)\fC [static]\fP"
+.SS "eviir::Value::SIMPLE_VALUE_CONTRUCTOR (\fBIntegerValue\fP, integer, int64, value)"
 Constructs a new integer value 
 .PP
 \fBParameters:\fP
@@ -85,7 +58,25 @@ Constructs a new integer value
 .RE
 .PP
 
-.SS "static \fBListValue\fP* eviir::Value::new_list (vector< \fBValue\fP *> elements)\fC [static]\fP"
+.SS "eviir::Value::SIMPLE_VALUE_CONTRUCTOR (\fBFloatValue\fP, float, float2, value)"
+Constructs a new float value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP the float 
+.RE
+.PP
+
+.SS "eviir::Value::SIMPLE_VALUE_CONTRUCTOR (\fBStringValue\fP, string, string, value)"
+Constructs a new string value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP the string 
+.RE
+.PP
+
+.SS "eviir::Value::SIMPLE_VALUE_CONTRUCTOR (\fBListValue\fP, list, vector< \fBValue\fP *>, elements)"
 Constructs a new list value 
 .PP
 \fBParameters:\fP
@@ -94,7 +85,7 @@ Constructs a new list value
 .RE
 .PP
 
-.SS "static \fBObjectValue\fP* eviir::Value::new_object (map< \fBValue\fP *COMMA \fBValue\fP *> pairs)\fC [static]\fP"
+.SS "eviir::Value::SIMPLE_VALUE_CONTRUCTOR (\fBObjectValue\fP, object, map< \fBValue\fP *COMMA \fBValue\fP *>, pairs)"
 Constructs a new object value 
 .PP
 \fBParameters:\fP
@@ -103,16 +94,7 @@ Constructs a new object value
 .RE
 .PP
 
-.SS "static \fBOptionValue\fP* eviir::Value::new_option (string name)\fC [static]\fP"
-Constructs a new option value 
-.PP
-\fBParameters:\fP
-.RS 4
-\fIname\fP the name of the option 
-.RE
-.PP
-
-.SS "static \fBReferenceValue\fP* eviir::Value::new_reference (string name)\fC [static]\fP"
+.SS "eviir::Value::SIMPLE_VALUE_CONTRUCTOR (\fBReferenceValue\fP, reference, string, name)"
 Constructs a new reference value 
 .PP
 \fBParameters:\fP
@@ -121,12 +103,12 @@ Constructs a new reference value
 .RE
 .PP
 
-.SS "static \fBStringValue\fP* eviir::Value::new_string (string value)\fC [static]\fP"
-Constructs a new string value 
+.SS "eviir::Value::SIMPLE_VALUE_CONTRUCTOR (\fBOptionValue\fP, option, string, name)"
+Constructs a new option value 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvalue\fP the string 
+\fIname\fP the name of the option 
 .RE
 .PP
 

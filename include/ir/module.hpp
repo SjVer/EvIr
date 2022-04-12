@@ -1,11 +1,11 @@
 //===---------- ir/module.hpp --- C++ -----------===
-// This header is part of the EviIr library 		
+// This header is part of the EvIr library 		
 // MIT License - Sjoerd Vermeulen (2022)			
-// For more info see https://github.com/SjVer/EviIr	
+// For more info see https://github.com/SjVer/EvIr	
 //===--------------------------------------------===
 
-#ifndef EVIIR_IR_MODULE_H
-#define EVIIR_IR_MODULE_H
+#ifndef EVIR_IR_MODULE_H
+#define EVIR_IR_MODULE_H
 
 #include ".common.hpp"
 #include "ir/metadata.hpp"
@@ -15,7 +15,7 @@
 #define __IR_HCOMMENT_SURROUND_CHAR '='
 #define __IR_HCOMMENT_MIN_SURROUND 3
 
-namespace eviir
+namespace evir
 {
 
 /// @brief A Class representing a single stand-alone IR module
@@ -104,4 +104,4 @@ public:
 
 }
 
-#endif // EVIIR_IR_MODULE_H
+#endif // EVIR_IR_MODULE_H

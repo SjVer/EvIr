@@ -1,6 +1,6 @@
 #include "ir/module.hpp"
 
-using namespace eviir;
+using namespace evir;
 
 #pragma region Constructors
 
@@ -223,7 +223,7 @@ string Module::generate_ir()
 
 	// generate credit comments
 	stream << generate_ir_comment("module generated with:");
-	stream << generate_ir_comment("\tlibeviir version 0.0.1");
+	stream << generate_ir_comment("\tlibevir version 0.0.1");
 	stream << generate_ir_comment("\tby Sjoerd Vermeulen");
 	stream << generate_ir_comment("\tMIT license (2022)");
 

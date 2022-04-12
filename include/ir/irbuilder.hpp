@@ -1,16 +1,16 @@
 //===---------- ir/irbuilder.hpp --- C++ --------===
-// This header is part of the EviIr library
+// This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
-// For more info see https://github.com/SjVer/EviIr
+// For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-#ifndef EVIIR_IR_IRBUILDER_H
-#define EVIIR_IR_IRBUILDER_H
+#ifndef EVIR_IR_IRBUILDER_H
+#define EVIR_IR_IRBUILDER_H
 
 #include ".common.hpp"
 #include "ir/module.hpp"
 
-namespace eviir
+namespace evir
 {
 
 /// @brief A class for creating and managing instructions
@@ -29,4 +29,4 @@ public:
 
 }
 
-#endif // EVIIR_IR_IRBUILDER_H
+#endif // EVIR_IR_IRBUILDER_H

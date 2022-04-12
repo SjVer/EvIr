@@ -1,6 +1,6 @@
 #include "ir/value.hpp"
 
-using namespace eviir;
+using namespace evir;
 
 #pragma region Constructors
 

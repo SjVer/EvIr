@@ -1,15 +1,15 @@
 //===---------- ir/value.hpp --- C++ -----------===
-// This header is part of the EviIr library
+// This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
-// For more info see https://github.com/SjVer/EviIr
+// For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-#ifndef EVIIR_IR_VALUE_H
-#define EVIIR_IR_VALUE_H
+#ifndef EVIR_IR_VALUE_H
+#define EVIR_IR_VALUE_H
 
 #include ".common.hpp"
 
-namespace eviir
+namespace evir
 {
 
 class IntegerValue;
@@ -23,6 +23,7 @@ class OptionValue;
 class Value
 {
 protected:
+	/// @cond
 
 	static const enum ValueType
 	{
@@ -40,6 +41,7 @@ protected:
 		VALUE_NONE
 	} value_type = VALUE_NONE;
 
+	/// @endcond
 public:
 
 	#pragma region Constructors
@@ -106,4 +108,4 @@ SIMPLE_VALUE(OptionValue, VALUE_OPTION, name, string);
 
 };
 
-#endif // EVIIR_IR_VALUE_H
+#endif // EVIR_IR_VALUE_H

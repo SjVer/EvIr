@@ -1,16 +1,16 @@
 //===---------- ir/metadata.hpp --- C++ ---------===
-// This header is part of the EviIr library
+// This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
-// For more info see https://github.com/SjVer/EviIr
+// For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-#ifndef EVIIR_IR_METADATA_H
-#define EVIIR_IR_METADATA_H
+#ifndef EVIR_IR_METADATA_H
+#define EVIR_IR_METADATA_H
 
 #include ".common.hpp"
 #include "ir/value.hpp"
 
-namespace eviir
+namespace evir
 {
 
 /// @brief A class defining the metadata of a @link Module @endlink.
@@ -161,4 +161,4 @@ public:
 
 };
 
-#endif // EVIIR_IR_METADATA_H
+#endif // EVIR_IR_METADATA_H

@@ -12,54 +12,21 @@ Inheritance diagram for eviir\+:\+:Value\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classeviir_1_1Value_a6870e847f6b19c002b34ad62f2b09da0}{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR} (\hyperlink{classeviir_1_1IntegerValue}{Integer\+Value}, integer, int64, value)
+\item 
+\hyperlink{classeviir_1_1Value_a3617c67c6a086ea32d6c555a57120003}{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR} (\hyperlink{classeviir_1_1FloatValue}{Float\+Value}, float, float2, value)
+\item 
+\hyperlink{classeviir_1_1Value_ae1a5aed10e2b2c0a7b76a06a74cf00cf}{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR} (\hyperlink{classeviir_1_1StringValue}{String\+Value}, string, string, value)
+\item 
+\hyperlink{classeviir_1_1Value_aaa32965c6f0535817b09cacd75b30c67}{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR} (\hyperlink{classeviir_1_1ListValue}{List\+Value}, list, vector$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$, elements)
+\item 
+\hyperlink{classeviir_1_1Value_a89848fcdb3d649a6a7f0813c6e38c904}{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR} (\hyperlink{classeviir_1_1ObjectValue}{Object\+Value}, object, map$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$C\+O\+M\+MA \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$, pairs)
+\item 
+\hyperlink{classeviir_1_1Value_a2e213dc1ba72a82016c3d8d6f4db4afb}{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR} (\hyperlink{classeviir_1_1ReferenceValue}{Reference\+Value}, reference, string, name)
+\item 
+\hyperlink{classeviir_1_1Value_ad872325f078f87de60adbeae6eab8f98}{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR} (\hyperlink{classeviir_1_1OptionValue}{Option\+Value}, option, string, name)
+\item 
 virtual string \hyperlink{classeviir_1_1Value_a0613bf660425df31e230681555f64dea}{generate\+\_\+ir} (const char $\ast$format=nullptr)=0
-\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static \hyperlink{classeviir_1_1IntegerValue}{Integer\+Value} $\ast$ \hyperlink{classeviir_1_1Value_a4ca31d3ac1118e0d7c055f76b1b79316}{new\+\_\+integer} (int64 value)
-\item 
-static \hyperlink{classeviir_1_1FloatValue}{Float\+Value} $\ast$ \hyperlink{classeviir_1_1Value_ad3079cc26bb4f64b00b88d9c6e98bad2}{new\+\_\+float} (float2 value)
-\item 
-static \hyperlink{classeviir_1_1StringValue}{String\+Value} $\ast$ \hyperlink{classeviir_1_1Value_a78aff0da1e6cf71d2ecb26117b7479a8}{new\+\_\+string} (string value)
-\item 
-static \hyperlink{classeviir_1_1ListValue}{List\+Value} $\ast$ \hyperlink{classeviir_1_1Value_a285f3fcf2b610578bbf8c9d02460cb3f}{new\+\_\+list} (vector$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$ elements)
-\item 
-static \hyperlink{classeviir_1_1ObjectValue}{Object\+Value} $\ast$ \hyperlink{classeviir_1_1Value_a876b8c35f35e3fe2c28fcac56a69ee3d}{new\+\_\+object} (map$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$C\+O\+M\+MA \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$ pairs)
-\item 
-static \hyperlink{classeviir_1_1ReferenceValue}{Reference\+Value} $\ast$ \hyperlink{classeviir_1_1Value_ae74ab52631f7ca2289a3b7c66f36a2c7}{new\+\_\+reference} (string name)
-\item 
-static \hyperlink{classeviir_1_1OptionValue}{Option\+Value} $\ast$ \hyperlink{classeviir_1_1Value_ab52c6c549453d60104515e2f8e68967a}{new\+\_\+option} (string name)
-\end{DoxyCompactItemize}
-\subsection*{Protected Types}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classeviir_1_1Value_a5dd9affe8c2a568969eeabea66f12492}\label{classeviir_1_1Value_a5dd9affe8c2a568969eeabea66f12492}} 
-enum {\bfseries Value\+Type} \{ \newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+I\+N\+T\+E\+G\+ER}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+F\+L\+O\+AT}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+S\+T\+R\+I\+NG}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+L\+I\+ST}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+O\+B\+J\+E\+CT}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+E\+X\+P\+R\+E\+S\+S\+I\+ON}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+R\+E\+F\+E\+R\+E\+N\+CE}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+O\+P\+T\+I\+ON}, 
-\newline
-{\bfseries V\+A\+L\+U\+E\+\_\+\+N\+O\+NE}
- \}
-\end{DoxyCompactItemize}
-\subsection*{Static Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classeviir_1_1Value_abe5d48ea672eba21c188c91c46cf048c}\label{classeviir_1_1Value_abe5d48ea672eba21c188c91c46cf048c}} 
-static enum eviir\+::\+Value\+::\+Value\+Type {\bfseries value\+\_\+type}
 \end{DoxyCompactItemize}
 
 
@@ -77,81 +44,81 @@ the IR as a string (without newline)
 
 Implemented in \hyperlink{classeviir_1_1OptionValue_abb9e9cbaa9f6c0af697e5cbea035f56a}{eviir\+::\+Option\+Value}, \hyperlink{classeviir_1_1ReferenceValue_a7b03ad70c7253d44fb7061a91751f9f6}{eviir\+::\+Reference\+Value}, \hyperlink{classeviir_1_1ObjectValue_a72adc8371c09638a785ed3823516e817}{eviir\+::\+Object\+Value}, \hyperlink{classeviir_1_1ListValue_ad12dee3774ad443ad0e27354909e8dc9}{eviir\+::\+List\+Value}, \hyperlink{classeviir_1_1StringValue_ab8c17f9426e993cd01bd67958aba0038}{eviir\+::\+String\+Value}, \hyperlink{classeviir_1_1FloatValue_a8713d6eb43445ba56c4104bce8fe7070}{eviir\+::\+Float\+Value}, and \hyperlink{classeviir_1_1IntegerValue_a7f2653e23a8165a0eb43109d152cc0a2}{eviir\+::\+Integer\+Value}.
 
-\mbox{\Hypertarget{classeviir_1_1Value_ad3079cc26bb4f64b00b88d9c6e98bad2}\label{classeviir_1_1Value_ad3079cc26bb4f64b00b88d9c6e98bad2}} 
-\index{eviir\+::\+Value@{eviir\+::\+Value}!new\+\_\+float@{new\+\_\+float}}
-\index{new\+\_\+float@{new\+\_\+float}!eviir\+::\+Value@{eviir\+::\+Value}}
-\subsubsection{\texorpdfstring{new\+\_\+float()}{new\_float()}}
-{\footnotesize\ttfamily static \hyperlink{classeviir_1_1FloatValue}{Float\+Value}$\ast$ eviir\+::\+Value\+::new\+\_\+float (\begin{DoxyParamCaption}\item[{float2}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-Constructs a new float value 
-\begin{DoxyParams}{Parameters}
-{\em value} & the float \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classeviir_1_1Value_a4ca31d3ac1118e0d7c055f76b1b79316}\label{classeviir_1_1Value_a4ca31d3ac1118e0d7c055f76b1b79316}} 
-\index{eviir\+::\+Value@{eviir\+::\+Value}!new\+\_\+integer@{new\+\_\+integer}}
-\index{new\+\_\+integer@{new\+\_\+integer}!eviir\+::\+Value@{eviir\+::\+Value}}
-\subsubsection{\texorpdfstring{new\+\_\+integer()}{new\_integer()}}
-{\footnotesize\ttfamily static \hyperlink{classeviir_1_1IntegerValue}{Integer\+Value}$\ast$ eviir\+::\+Value\+::new\+\_\+integer (\begin{DoxyParamCaption}\item[{int64}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{classeviir_1_1Value_a6870e847f6b19c002b34ad62f2b09da0}\label{classeviir_1_1Value_a6870e847f6b19c002b34ad62f2b09da0}} 
+\index{eviir\+::\+Value@{eviir\+::\+Value}!S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}}
+\index{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}!eviir\+::\+Value@{eviir\+::\+Value}}
+\subsubsection{\texorpdfstring{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+O\+R()}{SIMPLE\_VALUE\_CONTRUCTOR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily eviir\+::\+Value\+::\+S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR (\begin{DoxyParamCaption}\item[{\hyperlink{classeviir_1_1IntegerValue}{Integer\+Value}}]{,  }\item[{integer}]{,  }\item[{int64}]{,  }\item[{value}]{ }\end{DoxyParamCaption})}
 
 Constructs a new integer value 
 \begin{DoxyParams}{Parameters}
 {\em value} & the integer \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classeviir_1_1Value_a285f3fcf2b610578bbf8c9d02460cb3f}\label{classeviir_1_1Value_a285f3fcf2b610578bbf8c9d02460cb3f}} 
-\index{eviir\+::\+Value@{eviir\+::\+Value}!new\+\_\+list@{new\+\_\+list}}
-\index{new\+\_\+list@{new\+\_\+list}!eviir\+::\+Value@{eviir\+::\+Value}}
-\subsubsection{\texorpdfstring{new\+\_\+list()}{new\_list()}}
-{\footnotesize\ttfamily static \hyperlink{classeviir_1_1ListValue}{List\+Value}$\ast$ eviir\+::\+Value\+::new\+\_\+list (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$}]{elements }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{classeviir_1_1Value_a3617c67c6a086ea32d6c555a57120003}\label{classeviir_1_1Value_a3617c67c6a086ea32d6c555a57120003}} 
+\index{eviir\+::\+Value@{eviir\+::\+Value}!S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}}
+\index{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}!eviir\+::\+Value@{eviir\+::\+Value}}
+\subsubsection{\texorpdfstring{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+O\+R()}{SIMPLE\_VALUE\_CONTRUCTOR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily eviir\+::\+Value\+::\+S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR (\begin{DoxyParamCaption}\item[{\hyperlink{classeviir_1_1FloatValue}{Float\+Value}}]{,  }\item[{float}]{,  }\item[{float2}]{,  }\item[{value}]{ }\end{DoxyParamCaption})}
+
+Constructs a new float value 
+\begin{DoxyParams}{Parameters}
+{\em value} & the float \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classeviir_1_1Value_ae1a5aed10e2b2c0a7b76a06a74cf00cf}\label{classeviir_1_1Value_ae1a5aed10e2b2c0a7b76a06a74cf00cf}} 
+\index{eviir\+::\+Value@{eviir\+::\+Value}!S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}}
+\index{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}!eviir\+::\+Value@{eviir\+::\+Value}}
+\subsubsection{\texorpdfstring{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+O\+R()}{SIMPLE\_VALUE\_CONTRUCTOR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily eviir\+::\+Value\+::\+S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR (\begin{DoxyParamCaption}\item[{\hyperlink{classeviir_1_1StringValue}{String\+Value}}]{,  }\item[{string}]{,  }\item[{string}]{,  }\item[{value}]{ }\end{DoxyParamCaption})}
+
+Constructs a new string value 
+\begin{DoxyParams}{Parameters}
+{\em value} & the string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classeviir_1_1Value_aaa32965c6f0535817b09cacd75b30c67}\label{classeviir_1_1Value_aaa32965c6f0535817b09cacd75b30c67}} 
+\index{eviir\+::\+Value@{eviir\+::\+Value}!S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}}
+\index{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}!eviir\+::\+Value@{eviir\+::\+Value}}
+\subsubsection{\texorpdfstring{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+O\+R()}{SIMPLE\_VALUE\_CONTRUCTOR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily eviir\+::\+Value\+::\+S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR (\begin{DoxyParamCaption}\item[{\hyperlink{classeviir_1_1ListValue}{List\+Value}}]{,  }\item[{list}]{,  }\item[{vector$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$}]{,  }\item[{elements}]{ }\end{DoxyParamCaption})}
 
 Constructs a new list value 
 \begin{DoxyParams}{Parameters}
 {\em elements} & the elements of the list \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classeviir_1_1Value_a876b8c35f35e3fe2c28fcac56a69ee3d}\label{classeviir_1_1Value_a876b8c35f35e3fe2c28fcac56a69ee3d}} 
-\index{eviir\+::\+Value@{eviir\+::\+Value}!new\+\_\+object@{new\+\_\+object}}
-\index{new\+\_\+object@{new\+\_\+object}!eviir\+::\+Value@{eviir\+::\+Value}}
-\subsubsection{\texorpdfstring{new\+\_\+object()}{new\_object()}}
-{\footnotesize\ttfamily static \hyperlink{classeviir_1_1ObjectValue}{Object\+Value}$\ast$ eviir\+::\+Value\+::new\+\_\+object (\begin{DoxyParamCaption}\item[{map$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$C\+O\+M\+MA \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$}]{pairs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{classeviir_1_1Value_a89848fcdb3d649a6a7f0813c6e38c904}\label{classeviir_1_1Value_a89848fcdb3d649a6a7f0813c6e38c904}} 
+\index{eviir\+::\+Value@{eviir\+::\+Value}!S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}}
+\index{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}!eviir\+::\+Value@{eviir\+::\+Value}}
+\subsubsection{\texorpdfstring{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+O\+R()}{SIMPLE\_VALUE\_CONTRUCTOR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily eviir\+::\+Value\+::\+S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR (\begin{DoxyParamCaption}\item[{\hyperlink{classeviir_1_1ObjectValue}{Object\+Value}}]{,  }\item[{object}]{,  }\item[{map$<$ \hyperlink{classeviir_1_1Value}{Value} $\ast$C\+O\+M\+MA \hyperlink{classeviir_1_1Value}{Value} $\ast$$>$}]{,  }\item[{pairs}]{ }\end{DoxyParamCaption})}
 
 Constructs a new object value 
 \begin{DoxyParams}{Parameters}
 {\em pair} & the key-\/value pairs of the object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classeviir_1_1Value_ab52c6c549453d60104515e2f8e68967a}\label{classeviir_1_1Value_ab52c6c549453d60104515e2f8e68967a}} 
-\index{eviir\+::\+Value@{eviir\+::\+Value}!new\+\_\+option@{new\+\_\+option}}
-\index{new\+\_\+option@{new\+\_\+option}!eviir\+::\+Value@{eviir\+::\+Value}}
-\subsubsection{\texorpdfstring{new\+\_\+option()}{new\_option()}}
-{\footnotesize\ttfamily static \hyperlink{classeviir_1_1OptionValue}{Option\+Value}$\ast$ eviir\+::\+Value\+::new\+\_\+option (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-Constructs a new option value 
-\begin{DoxyParams}{Parameters}
-{\em name} & the name of the option \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classeviir_1_1Value_ae74ab52631f7ca2289a3b7c66f36a2c7}\label{classeviir_1_1Value_ae74ab52631f7ca2289a3b7c66f36a2c7}} 
-\index{eviir\+::\+Value@{eviir\+::\+Value}!new\+\_\+reference@{new\+\_\+reference}}
-\index{new\+\_\+reference@{new\+\_\+reference}!eviir\+::\+Value@{eviir\+::\+Value}}
-\subsubsection{\texorpdfstring{new\+\_\+reference()}{new\_reference()}}
-{\footnotesize\ttfamily static \hyperlink{classeviir_1_1ReferenceValue}{Reference\+Value}$\ast$ eviir\+::\+Value\+::new\+\_\+reference (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{classeviir_1_1Value_a2e213dc1ba72a82016c3d8d6f4db4afb}\label{classeviir_1_1Value_a2e213dc1ba72a82016c3d8d6f4db4afb}} 
+\index{eviir\+::\+Value@{eviir\+::\+Value}!S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}}
+\index{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}!eviir\+::\+Value@{eviir\+::\+Value}}
+\subsubsection{\texorpdfstring{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+O\+R()}{SIMPLE\_VALUE\_CONTRUCTOR()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily eviir\+::\+Value\+::\+S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR (\begin{DoxyParamCaption}\item[{\hyperlink{classeviir_1_1ReferenceValue}{Reference\+Value}}]{,  }\item[{reference}]{,  }\item[{string}]{,  }\item[{name}]{ }\end{DoxyParamCaption})}
 
 Constructs a new reference value 
 \begin{DoxyParams}{Parameters}
 {\em name} & the name of the reference \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classeviir_1_1Value_a78aff0da1e6cf71d2ecb26117b7479a8}\label{classeviir_1_1Value_a78aff0da1e6cf71d2ecb26117b7479a8}} 
-\index{eviir\+::\+Value@{eviir\+::\+Value}!new\+\_\+string@{new\+\_\+string}}
-\index{new\+\_\+string@{new\+\_\+string}!eviir\+::\+Value@{eviir\+::\+Value}}
-\subsubsection{\texorpdfstring{new\+\_\+string()}{new\_string()}}
-{\footnotesize\ttfamily static \hyperlink{classeviir_1_1StringValue}{String\+Value}$\ast$ eviir\+::\+Value\+::new\+\_\+string (\begin{DoxyParamCaption}\item[{string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{classeviir_1_1Value_ad872325f078f87de60adbeae6eab8f98}\label{classeviir_1_1Value_ad872325f078f87de60adbeae6eab8f98}} 
+\index{eviir\+::\+Value@{eviir\+::\+Value}!S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}}
+\index{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR@{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR}!eviir\+::\+Value@{eviir\+::\+Value}}
+\subsubsection{\texorpdfstring{S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+O\+R()}{SIMPLE\_VALUE\_CONTRUCTOR()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily eviir\+::\+Value\+::\+S\+I\+M\+P\+L\+E\+\_\+\+V\+A\+L\+U\+E\+\_\+\+C\+O\+N\+T\+R\+U\+C\+T\+OR (\begin{DoxyParamCaption}\item[{\hyperlink{classeviir_1_1OptionValue}{Option\+Value}}]{,  }\item[{option}]{,  }\item[{string}]{,  }\item[{name}]{ }\end{DoxyParamCaption})}
 
-Constructs a new string value 
+Constructs a new option value 
 \begin{DoxyParams}{Parameters}
-{\em value} & the string \\
+{\em name} & the name of the option \\
 \hline
 \end{DoxyParams}
 

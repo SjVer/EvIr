@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['new_5ffloat',['new_float',['../classeviir_1_1Value.html#ad3079cc26bb4f64b00b88d9c6e98bad2',1,'eviir::Value']]],
-  ['new_5finteger',['new_integer',['../classeviir_1_1Value.html#a4ca31d3ac1118e0d7c055f76b1b79316',1,'eviir::Value']]],
-  ['new_5flist',['new_list',['../classeviir_1_1Value.html#a285f3fcf2b610578bbf8c9d02460cb3f',1,'eviir::Value']]],
-  ['new_5fobject',['new_object',['../classeviir_1_1Value.html#a876b8c35f35e3fe2c28fcac56a69ee3d',1,'eviir::Value']]],
-  ['new_5foption',['new_option',['../classeviir_1_1Value.html#ab52c6c549453d60104515e2f8e68967a',1,'eviir::Value']]],
-  ['new_5freference',['new_reference',['../classeviir_1_1Value.html#ae74ab52631f7ca2289a3b7c66f36a2c7',1,'eviir::Value']]],
-  ['new_5fstring',['new_string',['../classeviir_1_1Value.html#a78aff0da1e6cf71d2ecb26117b7479a8',1,'eviir::Value']]]
+  ['set_5fmetadata',['set_metadata',['../classeviir_1_1Module.html#ad074a2b8807d4d4e2aeefa4c09756a07',1,'eviir::Module::set_metadata(Metadata::path path, Value *value)'],['../classeviir_1_1Module.html#a595290ae9c03680340e20ba068f845de',1,'eviir::Module::set_metadata(Metadata::builtin_property_type type, Value *value)']]],
+  ['simple_5fvalue_5fcontructor',['SIMPLE_VALUE_CONTRUCTOR',['../classeviir_1_1Value.html#a6870e847f6b19c002b34ad62f2b09da0',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(IntegerValue, integer, int64, value)'],['../classeviir_1_1Value.html#a3617c67c6a086ea32d6c555a57120003',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(FloatValue, float, float2, value)'],['../classeviir_1_1Value.html#ae1a5aed10e2b2c0a7b76a06a74cf00cf',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(StringValue, string, string, value)'],['../classeviir_1_1Value.html#aaa32965c6f0535817b09cacd75b30c67',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(ListValue, list, vector&lt; Value *&gt;, elements)'],['../classeviir_1_1Value.html#a89848fcdb3d649a6a7f0813c6e38c904',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(ObjectValue, object, map&lt; Value *COMMA Value *&gt;, pairs)'],['../classeviir_1_1Value.html#a2e213dc1ba72a82016c3d8d6f4db4afb',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(ReferenceValue, reference, string, name)'],['../classeviir_1_1Value.html#ad872325f078f87de60adbeae6eab8f98',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(OptionValue, option, string, name)']]]
 ];

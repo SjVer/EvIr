@@ -1,13 +1,8 @@
 #include "ir/irbuilder.hpp"
 
-using namespace eviir;
+using namespace evir;
 
-IRBuilder::IRBuilder(Module* module): module(module)
+IRBuilder::IRBuilder()
 {
 
-}
-
-Module* IRBuilder::get_module()
-{
-	return module;
 }

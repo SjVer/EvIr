@@ -1,7 +1,7 @@
 #include "ir/metadata.hpp"
 #include "ir/module.hpp"
 
-using namespace eviir;
+using namespace evir;
 
 const char* Metadata::property_type_formats[_META_none] = {
 	#define FMT(type, fmt) [Metadata::_META_##type] = fmt
