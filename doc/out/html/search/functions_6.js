@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['set_5fmetadata',['set_metadata',['../classeviir_1_1Module.html#ad074a2b8807d4d4e2aeefa4c09756a07',1,'eviir::Module::set_metadata(Metadata::path path, Value *value)'],['../classeviir_1_1Module.html#a595290ae9c03680340e20ba068f845de',1,'eviir::Module::set_metadata(Metadata::builtin_property_type type, Value *value)']]],
-  ['simple_5fvalue_5fcontructor',['SIMPLE_VALUE_CONTRUCTOR',['../classeviir_1_1Value.html#a6870e847f6b19c002b34ad62f2b09da0',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(IntegerValue, integer, int64, value)'],['../classeviir_1_1Value.html#a3617c67c6a086ea32d6c555a57120003',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(FloatValue, float, float2, value)'],['../classeviir_1_1Value.html#ae1a5aed10e2b2c0a7b76a06a74cf00cf',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(StringValue, string, string, value)'],['../classeviir_1_1Value.html#aaa32965c6f0535817b09cacd75b30c67',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(ListValue, list, vector&lt; Value *&gt;, elements)'],['../classeviir_1_1Value.html#a89848fcdb3d649a6a7f0813c6e38c904',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(ObjectValue, object, map&lt; Value *COMMA Value *&gt;, pairs)'],['../classeviir_1_1Value.html#a2e213dc1ba72a82016c3d8d6f4db4afb',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(ReferenceValue, reference, string, name)'],['../classeviir_1_1Value.html#ad872325f078f87de60adbeae6eab8f98',1,'eviir::Value::SIMPLE_VALUE_CONTRUCTOR(OptionValue, option, string, name)']]]
+  ['new_5ffloat',['new_float',['../classevir_1_1Value.html#a90a29b6a33606b8ada904688ce0a302f',1,'evir::Value']]],
+  ['new_5finteger',['new_integer',['../classevir_1_1Value.html#a086f7932417f5b1fa47f627c175d1c65',1,'evir::Value']]],
+  ['new_5flist',['new_list',['../classevir_1_1Value.html#a0936d4b3ac1b972fc784dc6b71ca0ca2',1,'evir::Value']]],
+  ['new_5fobject',['new_object',['../classevir_1_1Value.html#a4afc4919cf8f686d97a8f59ea7719ac1',1,'evir::Value']]],
+  ['new_5foption',['new_option',['../classevir_1_1Value.html#af0e8e17cc7ab9c0907ba4c8994ef169a',1,'evir::Value']]],
+  ['new_5freference',['new_reference',['../classevir_1_1Value.html#a550b2d56a46a357282ad167821fedbe5',1,'evir::Value']]],
+  ['new_5fstring',['new_string',['../classevir_1_1Value.html#a56a75d435ff168c8d3f104018f9b58a5',1,'evir::Value']]]
 ];

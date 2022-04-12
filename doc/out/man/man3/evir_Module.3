@@ -1,0 +1,196 @@
+.TH "evir::Module" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+evir::Module \- A Class representing a single stand-alone IR module\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBModule\fP (string module_name)"
+.br
+.ti -1c
+.RI "bool \fBhas_metadata\fP (\fBMetadata::path\fP path)"
+.br
+.RI "Checks if the module has metadata with the given path\&. "
+.ti -1c
+.RI "bool \fBhas_metadata\fP (\fBMetadata::builtin_property_type\fP type)"
+.br
+.RI "Checks if the module has metadata with the given type\&. "
+.ti -1c
+.RI "void \fBadd_metadata\fP (\fBMetadata\fP *mdata)"
+.br
+.ti -1c
+.RI "void \fBset_metadata\fP (\fBMetadata::path\fP path, \fBValue\fP *value)"
+.br
+.ti -1c
+.RI "void \fBset_metadata\fP (\fBMetadata::builtin_property_type\fP type, \fBValue\fP *value)"
+.br
+.ti -1c
+.RI "\fBMetadata\fP * \fBget_metadata\fP (\fBMetadata::path\fP path)"
+.br
+.ti -1c
+.RI "\fBMetadata\fP * \fBget_metadata\fP (\fBMetadata::builtin_property_type\fP type)"
+.br
+.ti -1c
+.RI "string \fBgenerate_ir_comment\fP (string text, bool header=false)"
+.br
+.ti -1c
+.RI "string \fBgenerate_metadata_ir\fP (bool before_contents)"
+.br
+.ti -1c
+.RI "string \fBgenerate_ir\fP ()"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBMetadata\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A Class representing a single stand-alone IR module\&. 
+
+Has the following metadata by default:
+.IP "\(bu" 2
+\fBMetadata::builtin_property_type\fP::\fCMETA_MODULE_NAME\fP
+.IP "\(bu" 2
+\fBMetadata::builtin_property_type\fP::\fCMETA_MODULE_ENTRYPOINT\fP 
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "evir::Module::Module (string module_name)"
+Constructs a new module 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodule_name\fP the name of the module 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void evir::Module::add_metadata (\fBMetadata\fP * mdata)"
+Adds metadata to the module 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImdata\fP the metadata to add 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+if the module already has metadata with the same path 
+.RE
+.PP
+
+.SS "string evir::Module::generate_ir ()"
+Generates the IR of the current module 
+.PP
+\fBReturns:\fP
+.RS 4
+the IR as a string (with newline) 
+.RE
+.PP
+
+.SS "string evir::Module::generate_ir_comment (string text, bool header = \fCfalse\fP)"
+Generates an IR comment 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItext\fP the text of the comment 
+.br
+\fIheader\fP if true, the comment is formatted as a header comment 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the IR as a string (with newline) 
+.RE
+.PP
+
+.SS "string evir::Module::generate_metadata_ir (bool before_contents)"
+Generates the IR of the current module's metadata\&. If before_contents is true, the metadata that comes before the module's is generated, otherwise the metadata that comes after the module's contents is generated 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore_contents\fP see description 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the IR as a string (with newline) 
+.RE
+.PP
+
+.SS "\fBMetadata\fP* evir::Module::get_metadata (\fBMetadata::path\fP path)"
+Gets the requested metadata property 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP the path of the metadata property 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a pointer to the metadata, or null if it isn't found 
+.RE
+.PP
+
+.SS "\fBMetadata\fP* evir::Module::get_metadata (\fBMetadata::builtin_property_type\fP type)"
+Gets the requested metadata property 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP the built-in type of the metadata property 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a pointer to the metadata, or null if it isn't found 
+.RE
+.PP
+
+.SS "void evir::Module::set_metadata (\fBMetadata::path\fP path, \fBValue\fP * value)"
+Sets a metadata property with the given path 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP the path of the metadata property 
+.br
+\fIvalue\fP the value to set the property to 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+if the module doesn't have metadata with the given path 
+.RE
+.PP
+
+.SS "void evir::Module::set_metadata (\fBMetadata::builtin_property_type\fP type, \fBValue\fP * value)"
+Sets a metadata property with the built-in type 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP the type of the metadata property 
+.br
+\fIvalue\fP the value to set the property to 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+if the module doesn't have metadata with the given type 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EvIr from the source code\&.

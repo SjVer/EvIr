@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['has_5fmetadata',['has_metadata',['../classeviir_1_1Module.html#a5467d8522ecb35604210b9637e92fb67',1,'eviir::Module::has_metadata(Metadata::path path)'],['../classeviir_1_1Module.html#a8c2584009d7f44563025dd56e73796de',1,'eviir::Module::has_metadata(Metadata::builtin_property_type type)']]]
+  ['has_5fmetadata',['has_metadata',['../classevir_1_1Module.html#a58ff41e503d751030f0caf6bf6eb0f2e',1,'evir::Module::has_metadata(Metadata::path path)'],['../classevir_1_1Module.html#a72bdd3953f5ab0d41c5184fffea74107',1,'evir::Module::has_metadata(Metadata::builtin_property_type type)']]]
 ];

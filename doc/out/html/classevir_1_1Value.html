@@ -1,0 +1,459 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="generator" content="Doxygen 1.8.13" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BEGIN opengraph metadata -->
+    <!-- <meta property="og:title" content="EvIr" />
+    <meta property="og:image"
+        content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+    <meta property="og:description"
+        content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+    <meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" /> -->
+    <!-- END opengraph metadata -->
+    <!-- BEGIN twitter metadata -->
+    <!-- <meta name="twitter:image:src"
+        content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+    <meta name="twitter:title" content="Doxygen Awesome" />
+    <meta name="twitter:description"
+        content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." /> -->
+    <!-- END twitter metadata -->
+    <title>EvIr: evir::Value Class Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/svg+xml" href="logo.drawio.svg" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/SjVer/EvIr" class="github-corner" title="View source on GitHub" target="_blank">
+        <svg viewBox="0 0 250 250" width="40" height="40"
+            style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                fill="currentColor" class="octo-body"></path>
+        </svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave {
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+    <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr style="height: 56px;">
+                        <td id="projectalign" style="padding-left: 0.5em;">
+                            <div id="projectname">EvIr
+                                &#160;<span id="projectnumber">0.0.1</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end header part --><!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classevir_1_1Value.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="classevir_1_1Value-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">evir::Value Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for evir::Value:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1Value__inherit__graph.svg" width="320" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3e7e5bc634fd5bba528324076fe2a763"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#a3e7e5bc634fd5bba528324076fe2a763">generate_ir</a> (const char *format=nullptr)=0</td></tr>
+<tr class="separator:a3e7e5bc634fd5bba528324076fe2a763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a086f7932417f5b1fa47f627c175d1c65"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classevir_1_1IntegerValue.html">IntegerValue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#a086f7932417f5b1fa47f627c175d1c65">new_integer</a> (int64 value)</td></tr>
+<tr class="separator:a086f7932417f5b1fa47f627c175d1c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90a29b6a33606b8ada904688ce0a302f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classevir_1_1FloatValue.html">FloatValue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#a90a29b6a33606b8ada904688ce0a302f">new_float</a> (float2 value)</td></tr>
+<tr class="separator:a90a29b6a33606b8ada904688ce0a302f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56a75d435ff168c8d3f104018f9b58a5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classevir_1_1StringValue.html">StringValue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#a56a75d435ff168c8d3f104018f9b58a5">new_string</a> (string value)</td></tr>
+<tr class="separator:a56a75d435ff168c8d3f104018f9b58a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0936d4b3ac1b972fc784dc6b71ca0ca2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classevir_1_1ListValue.html">ListValue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#a0936d4b3ac1b972fc784dc6b71ca0ca2">new_list</a> (vector&lt; <a class="el" href="classevir_1_1Value.html">Value</a> *&gt; elements)</td></tr>
+<tr class="separator:a0936d4b3ac1b972fc784dc6b71ca0ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4afc4919cf8f686d97a8f59ea7719ac1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classevir_1_1ObjectValue.html">ObjectValue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#a4afc4919cf8f686d97a8f59ea7719ac1">new_object</a> (map&lt; <a class="el" href="classevir_1_1Value.html">Value</a> *COMMA <a class="el" href="classevir_1_1Value.html">Value</a> *&gt; pairs)</td></tr>
+<tr class="separator:a4afc4919cf8f686d97a8f59ea7719ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550b2d56a46a357282ad167821fedbe5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classevir_1_1ReferenceValue.html">ReferenceValue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#a550b2d56a46a357282ad167821fedbe5">new_reference</a> (string name)</td></tr>
+<tr class="separator:a550b2d56a46a357282ad167821fedbe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0e8e17cc7ab9c0907ba4c8994ef169a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classevir_1_1OptionValue.html">OptionValue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Value.html#af0e8e17cc7ab9c0907ba4c8994ef169a">new_option</a> (string name)</td></tr>
+<tr class="separator:af0e8e17cc7ab9c0907ba4c8994ef169a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3e7e5bc634fd5bba528324076fe2a763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e7e5bc634fd5bba528324076fe2a763">&#9670;&nbsp;</a></span>generate_ir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual string evir::Value::generate_ir </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Generates the IR for the value </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (without newline) </dd></dl>
+
+<p>Implemented in <a class="el" href="classevir_1_1OptionValue.html#a8bd21c46fc29805637eed4473f1fa371">evir::OptionValue</a>, <a class="el" href="classevir_1_1ReferenceValue.html#ad669613befab66578629de2ccfb8c2c3">evir::ReferenceValue</a>, <a class="el" href="classevir_1_1ObjectValue.html#a1058f47731ab800327893e388fc2b2d0">evir::ObjectValue</a>, <a class="el" href="classevir_1_1ListValue.html#aebd962d9117d8cd22d35bf217975dcff">evir::ListValue</a>, <a class="el" href="classevir_1_1StringValue.html#ae635609dfe7acf237b71bdb48625712e">evir::StringValue</a>, <a class="el" href="classevir_1_1FloatValue.html#a775e25d41c34aca73ed9418963bb652b">evir::FloatValue</a>, and <a class="el" href="classevir_1_1IntegerValue.html#a586411c365b2afc18fbd5960dd053d94">evir::IntegerValue</a>.</p>
+
+</div>
+</div>
+<a id="a90a29b6a33606b8ada904688ce0a302f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90a29b6a33606b8ada904688ce0a302f">&#9670;&nbsp;</a></span>new_float()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classevir_1_1FloatValue.html">FloatValue</a>* evir::Value::new_float </td>
+          <td>(</td>
+          <td class="paramtype">float2&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new float value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>the float </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a086f7932417f5b1fa47f627c175d1c65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086f7932417f5b1fa47f627c175d1c65">&#9670;&nbsp;</a></span>new_integer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classevir_1_1IntegerValue.html">IntegerValue</a>* evir::Value::new_integer </td>
+          <td>(</td>
+          <td class="paramtype">int64&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new integer value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>the integer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0936d4b3ac1b972fc784dc6b71ca0ca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0936d4b3ac1b972fc784dc6b71ca0ca2">&#9670;&nbsp;</a></span>new_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classevir_1_1ListValue.html">ListValue</a>* evir::Value::new_list </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="classevir_1_1Value.html">Value</a> *&gt;&#160;</td>
+          <td class="paramname"><em>elements</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new list value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elements</td><td>the elements of the list </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4afc4919cf8f686d97a8f59ea7719ac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4afc4919cf8f686d97a8f59ea7719ac1">&#9670;&nbsp;</a></span>new_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classevir_1_1ObjectValue.html">ObjectValue</a>* evir::Value::new_object </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; <a class="el" href="classevir_1_1Value.html">Value</a> *COMMA <a class="el" href="classevir_1_1Value.html">Value</a> *&gt;&#160;</td>
+          <td class="paramname"><em>pairs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new object value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pair</td><td>the key-value pairs of the object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af0e8e17cc7ab9c0907ba4c8994ef169a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0e8e17cc7ab9c0907ba4c8994ef169a">&#9670;&nbsp;</a></span>new_option()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classevir_1_1OptionValue.html">OptionValue</a>* evir::Value::new_option </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new option value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the option </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a550b2d56a46a357282ad167821fedbe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a550b2d56a46a357282ad167821fedbe5">&#9670;&nbsp;</a></span>new_reference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classevir_1_1ReferenceValue.html">ReferenceValue</a>* evir::Value::new_reference </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new reference value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the reference </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a56a75d435ff168c8d3f104018f9b58a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56a75d435ff168c8d3f104018f9b58a5">&#9670;&nbsp;</a></span>new_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classevir_1_1StringValue.html">StringValue</a>* evir::Value::new_string </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a new string value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>the string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/ir/<a class="el" href="value_8hpp_source.html">value.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>evir</b></li><li class="navelem"><a class="el" href="classevir_1_1Value.html">Value</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

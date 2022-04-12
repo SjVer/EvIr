@@ -1,0 +1,471 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="generator" content="Doxygen 1.8.13" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BEGIN opengraph metadata -->
+    <!-- <meta property="og:title" content="EvIr" />
+    <meta property="og:image"
+        content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+    <meta property="og:description"
+        content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+    <meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" /> -->
+    <!-- END opengraph metadata -->
+    <!-- BEGIN twitter metadata -->
+    <!-- <meta name="twitter:image:src"
+        content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+    <meta name="twitter:title" content="Doxygen Awesome" />
+    <meta name="twitter:description"
+        content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." /> -->
+    <!-- END twitter metadata -->
+    <title>EvIr: evir::Module Class Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/svg+xml" href="logo.drawio.svg" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeParagraphLink.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/SjVer/EvIr" class="github-corner" title="View source on GitHub" target="_blank">
+        <svg viewBox="0 0 250 250" width="40" height="40"
+            style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                fill="currentColor" class="octo-body"></path>
+        </svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave {
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+    <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr style="height: 56px;">
+                        <td id="projectalign" style="padding-left: 0.5em;">
+                            <div id="projectname">EvIr
+                                &#160;<span id="projectnumber">0.0.1</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end header part --><!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classevir_1_1Module.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="classevir_1_1Module-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">evir::Module Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>A Class representing a single stand-alone IR module.  
+ <a href="classevir_1_1Module.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afb986e24396120d52ecd28c793948750"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#afb986e24396120d52ecd28c793948750">Module</a> (string module_name)</td></tr>
+<tr class="separator:afb986e24396120d52ecd28c793948750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58ff41e503d751030f0caf6bf6eb0f2e"><td class="memItemLeft" align="right" valign="top"><a id="a58ff41e503d751030f0caf6bf6eb0f2e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a58ff41e503d751030f0caf6bf6eb0f2e">has_metadata</a> (<a class="el" href="classevir_1_1Metadata.html#a0a3a8f0c937238fae5262283bac6286a">Metadata::path</a> path)</td></tr>
+<tr class="memdesc:a58ff41e503d751030f0caf6bf6eb0f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the module has metadata with the given path. <br /></td></tr>
+<tr class="separator:a58ff41e503d751030f0caf6bf6eb0f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72bdd3953f5ab0d41c5184fffea74107"><td class="memItemLeft" align="right" valign="top"><a id="a72bdd3953f5ab0d41c5184fffea74107"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a72bdd3953f5ab0d41c5184fffea74107">has_metadata</a> (<a class="el" href="classevir_1_1Metadata.html#a292423b7a2d93f70382d1da4929f55a0">Metadata::builtin_property_type</a> type)</td></tr>
+<tr class="memdesc:a72bdd3953f5ab0d41c5184fffea74107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the module has metadata with the given type. <br /></td></tr>
+<tr class="separator:a72bdd3953f5ab0d41c5184fffea74107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8193a7ab86fb626058bd6135f8e2f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a8e8193a7ab86fb626058bd6135f8e2f8">add_metadata</a> (<a class="el" href="classevir_1_1Metadata.html">Metadata</a> *mdata)</td></tr>
+<tr class="separator:a8e8193a7ab86fb626058bd6135f8e2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab245cceb132496f9c9ce5701158b5bab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#ab245cceb132496f9c9ce5701158b5bab">set_metadata</a> (<a class="el" href="classevir_1_1Metadata.html#a0a3a8f0c937238fae5262283bac6286a">Metadata::path</a> path, <a class="el" href="classevir_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="separator:ab245cceb132496f9c9ce5701158b5bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0522ae8c24fce527c2de575fc0550773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a0522ae8c24fce527c2de575fc0550773">set_metadata</a> (<a class="el" href="classevir_1_1Metadata.html#a292423b7a2d93f70382d1da4929f55a0">Metadata::builtin_property_type</a> type, <a class="el" href="classevir_1_1Value.html">Value</a> *value)</td></tr>
+<tr class="separator:a0522ae8c24fce527c2de575fc0550773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12fd1df72d4f47cec6a5f30b17100451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classevir_1_1Metadata.html">Metadata</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a12fd1df72d4f47cec6a5f30b17100451">get_metadata</a> (<a class="el" href="classevir_1_1Metadata.html#a0a3a8f0c937238fae5262283bac6286a">Metadata::path</a> path)</td></tr>
+<tr class="separator:a12fd1df72d4f47cec6a5f30b17100451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f28d71d6f1b187505539bb81501010"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classevir_1_1Metadata.html">Metadata</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a37f28d71d6f1b187505539bb81501010">get_metadata</a> (<a class="el" href="classevir_1_1Metadata.html#a292423b7a2d93f70382d1da4929f55a0">Metadata::builtin_property_type</a> type)</td></tr>
+<tr class="separator:a37f28d71d6f1b187505539bb81501010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a970b46de00ba0d01c8c1ed8356a64428"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a970b46de00ba0d01c8c1ed8356a64428">generate_ir_comment</a> (string text, bool header=false)</td></tr>
+<tr class="separator:a970b46de00ba0d01c8c1ed8356a64428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3b147a4e5c9e26bdb62c59461de25c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#abd3b147a4e5c9e26bdb62c59461de25c">generate_metadata_ir</a> (bool before_contents)</td></tr>
+<tr class="separator:abd3b147a4e5c9e26bdb62c59461de25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0d16ffaa997fe034b89b476825ac51"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Module.html#a4f0d16ffaa997fe034b89b476825ac51">generate_ir</a> ()</td></tr>
+<tr class="separator:a4f0d16ffaa997fe034b89b476825ac51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:aba8d19a917c0bff3a0ab2c135b11b0a4"><td class="memItemLeft" align="right" valign="top"><a id="aba8d19a917c0bff3a0ab2c135b11b0a4"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Metadata</b></td></tr>
+<tr class="separator:aba8d19a917c0bff3a0ab2c135b11b0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A Class representing a single stand-alone IR module. </p>
+<p>Has the following metadata by default:</p><ul>
+<li><a class="el" href="classevir_1_1Metadata.html#a292423b7a2d93f70382d1da4929f55a0">Metadata::builtin_property_type</a>::<code>META_MODULE_NAME</code></li>
+<li><a class="el" href="classevir_1_1Metadata.html#a292423b7a2d93f70382d1da4929f55a0">Metadata::builtin_property_type</a>::<code>META_MODULE_ENTRYPOINT</code> </li>
+</ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afb986e24396120d52ecd28c793948750"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb986e24396120d52ecd28c793948750">&#9670;&nbsp;</a></span>Module()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">evir::Module::Module </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>module_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructs a new module </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module_name</td><td>the name of the module </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8e8193a7ab86fb626058bd6135f8e2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8193a7ab86fb626058bd6135f8e2f8">&#9670;&nbsp;</a></span>add_metadata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void evir::Module::add_metadata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Metadata.html">Metadata</a> *&#160;</td>
+          <td class="paramname"><em>mdata</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds metadata to the module </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mdata</td><td>the metadata to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>if the module already has metadata with the same path </dd></dl>
+
+</div>
+</div>
+<a id="a4f0d16ffaa997fe034b89b476825ac51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f0d16ffaa997fe034b89b476825ac51">&#9670;&nbsp;</a></span>generate_ir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string evir::Module::generate_ir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Generates the IR of the current module </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (with newline) </dd></dl>
+
+</div>
+</div>
+<a id="a970b46de00ba0d01c8c1ed8356a64428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a970b46de00ba0d01c8c1ed8356a64428">&#9670;&nbsp;</a></span>generate_ir_comment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string evir::Module::generate_ir_comment </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>header</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Generates an IR comment </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>the text of the comment </td></tr>
+    <tr><td class="paramname">header</td><td>if true, the comment is formatted as a header comment </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the IR as a string (with newline) </dd></dl>
+
+</div>
+</div>
+<a id="abd3b147a4e5c9e26bdb62c59461de25c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd3b147a4e5c9e26bdb62c59461de25c">&#9670;&nbsp;</a></span>generate_metadata_ir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string evir::Module::generate_metadata_ir </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>before_contents</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Generates the IR of the current module's metadata. If before_contents is true, the metadata that comes before the module's is generated, otherwise the metadata that comes after the module's contents is generated </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">before_contents</td><td>see description </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the IR as a string (with newline) </dd></dl>
+
+</div>
+</div>
+<a id="a12fd1df72d4f47cec6a5f30b17100451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12fd1df72d4f47cec6a5f30b17100451">&#9670;&nbsp;</a></span>get_metadata() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classevir_1_1Metadata.html">Metadata</a>* evir::Module::get_metadata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Metadata.html#a0a3a8f0c937238fae5262283bac6286a">Metadata::path</a>&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the requested metadata property </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>the path of the metadata property </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer to the metadata, or null if it isn't found </dd></dl>
+
+</div>
+</div>
+<a id="a37f28d71d6f1b187505539bb81501010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f28d71d6f1b187505539bb81501010">&#9670;&nbsp;</a></span>get_metadata() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classevir_1_1Metadata.html">Metadata</a>* evir::Module::get_metadata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Metadata.html#a292423b7a2d93f70382d1da4929f55a0">Metadata::builtin_property_type</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the requested metadata property </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the built-in type of the metadata property </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer to the metadata, or null if it isn't found </dd></dl>
+
+</div>
+</div>
+<a id="ab245cceb132496f9c9ce5701158b5bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab245cceb132496f9c9ce5701158b5bab">&#9670;&nbsp;</a></span>set_metadata() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void evir::Module::set_metadata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Metadata.html#a0a3a8f0c937238fae5262283bac6286a">Metadata::path</a>&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Value.html">Value</a> *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets a metadata property with the given path </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>the path of the metadata property </td></tr>
+    <tr><td class="paramname">value</td><td>the value to set the property to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>if the module doesn't have metadata with the given path </dd></dl>
+
+</div>
+</div>
+<a id="a0522ae8c24fce527c2de575fc0550773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0522ae8c24fce527c2de575fc0550773">&#9670;&nbsp;</a></span>set_metadata() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void evir::Module::set_metadata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Metadata.html#a292423b7a2d93f70382d1da4929f55a0">Metadata::builtin_property_type</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Value.html">Value</a> *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets a metadata property with the built-in type </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the metadata property </td></tr>
+    <tr><td class="paramname">value</td><td>the value to set the property to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>if the module doesn't have metadata with the given type </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/ir/<a class="el" href="module_8hpp_source.html">module.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>evir</b></li><li class="navelem"><a class="el" href="classevir_1_1Module.html">Module</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

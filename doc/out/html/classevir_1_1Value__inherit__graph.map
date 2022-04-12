@@ -1,0 +1,9 @@
+<map id="evir::Value" name="evir::Value">
+<area shape="rect" id="node2" href="$classevir_1_1FloatValue.html" title="evir::FloatValue" alt="" coords="168,5,297,32"/>
+<area shape="rect" id="node3" href="$classevir_1_1IntegerValue.html" title="evir::IntegerValue" alt="" coords="160,56,305,83"/>
+<area shape="rect" id="node4" href="$classevir_1_1ListValue.html" title="evir::ListValue" alt="" coords="173,107,293,133"/>
+<area shape="rect" id="node5" href="$classevir_1_1ObjectValue.html" title="evir::ObjectValue" alt="" coords="163,157,302,184"/>
+<area shape="rect" id="node6" href="$classevir_1_1OptionValue.html" title="evir::OptionValue" alt="" coords="163,208,303,235"/>
+<area shape="rect" id="node7" href="$classevir_1_1ReferenceValue.html" title="evir::ReferenceValue" alt="" coords="151,259,315,285"/>
+<area shape="rect" id="node8" href="$classevir_1_1StringValue.html" title="evir::StringValue" alt="" coords="164,309,301,336"/>
+</map>

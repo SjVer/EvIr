@@ -1,0 +1,132 @@
+\hypertarget{classevir_1_1Value}{}\section{evir\+:\+:Value Class Reference}
+\label{classevir_1_1Value}\index{evir\+::\+Value@{evir\+::\+Value}}
+
+
+Inheritance diagram for evir\+:\+:Value\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classevir_1_1Value__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual string \hyperlink{classevir_1_1Value_a3e7e5bc634fd5bba528324076fe2a763}{generate\+\_\+ir} (const char $\ast$format=nullptr)=0
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classevir_1_1IntegerValue}{Integer\+Value} $\ast$ \hyperlink{classevir_1_1Value_a086f7932417f5b1fa47f627c175d1c65}{new\+\_\+integer} (int64 value)
+\item 
+static \hyperlink{classevir_1_1FloatValue}{Float\+Value} $\ast$ \hyperlink{classevir_1_1Value_a90a29b6a33606b8ada904688ce0a302f}{new\+\_\+float} (float2 value)
+\item 
+static \hyperlink{classevir_1_1StringValue}{String\+Value} $\ast$ \hyperlink{classevir_1_1Value_a56a75d435ff168c8d3f104018f9b58a5}{new\+\_\+string} (string value)
+\item 
+static \hyperlink{classevir_1_1ListValue}{List\+Value} $\ast$ \hyperlink{classevir_1_1Value_a0936d4b3ac1b972fc784dc6b71ca0ca2}{new\+\_\+list} (vector$<$ \hyperlink{classevir_1_1Value}{Value} $\ast$$>$ elements)
+\item 
+static \hyperlink{classevir_1_1ObjectValue}{Object\+Value} $\ast$ \hyperlink{classevir_1_1Value_a4afc4919cf8f686d97a8f59ea7719ac1}{new\+\_\+object} (map$<$ \hyperlink{classevir_1_1Value}{Value} $\ast$C\+O\+M\+MA \hyperlink{classevir_1_1Value}{Value} $\ast$$>$ pairs)
+\item 
+static \hyperlink{classevir_1_1ReferenceValue}{Reference\+Value} $\ast$ \hyperlink{classevir_1_1Value_a550b2d56a46a357282ad167821fedbe5}{new\+\_\+reference} (string name)
+\item 
+static \hyperlink{classevir_1_1OptionValue}{Option\+Value} $\ast$ \hyperlink{classevir_1_1Value_af0e8e17cc7ab9c0907ba4c8994ef169a}{new\+\_\+option} (string name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classevir_1_1Value_a3e7e5bc634fd5bba528324076fe2a763}\label{classevir_1_1Value_a3e7e5bc634fd5bba528324076fe2a763}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!generate\+\_\+ir@{generate\+\_\+ir}}
+\index{generate\+\_\+ir@{generate\+\_\+ir}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{generate\+\_\+ir()}{generate\_ir()}}
+{\footnotesize\ttfamily virtual string evir\+::\+Value\+::generate\+\_\+ir (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Generates the IR for the value \begin{DoxyReturn}{Returns}
+the IR as a string (without newline) 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classevir_1_1OptionValue_a8bd21c46fc29805637eed4473f1fa371}{evir\+::\+Option\+Value}, \hyperlink{classevir_1_1ReferenceValue_ad669613befab66578629de2ccfb8c2c3}{evir\+::\+Reference\+Value}, \hyperlink{classevir_1_1ObjectValue_a1058f47731ab800327893e388fc2b2d0}{evir\+::\+Object\+Value}, \hyperlink{classevir_1_1ListValue_aebd962d9117d8cd22d35bf217975dcff}{evir\+::\+List\+Value}, \hyperlink{classevir_1_1StringValue_ae635609dfe7acf237b71bdb48625712e}{evir\+::\+String\+Value}, \hyperlink{classevir_1_1FloatValue_a775e25d41c34aca73ed9418963bb652b}{evir\+::\+Float\+Value}, and \hyperlink{classevir_1_1IntegerValue_a586411c365b2afc18fbd5960dd053d94}{evir\+::\+Integer\+Value}.
+
+\mbox{\Hypertarget{classevir_1_1Value_a90a29b6a33606b8ada904688ce0a302f}\label{classevir_1_1Value_a90a29b6a33606b8ada904688ce0a302f}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!new\+\_\+float@{new\+\_\+float}}
+\index{new\+\_\+float@{new\+\_\+float}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{new\+\_\+float()}{new\_float()}}
+{\footnotesize\ttfamily static \hyperlink{classevir_1_1FloatValue}{Float\+Value}$\ast$ evir\+::\+Value\+::new\+\_\+float (\begin{DoxyParamCaption}\item[{float2}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new float value 
+\begin{DoxyParams}{Parameters}
+{\em value} & the float \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Value_a086f7932417f5b1fa47f627c175d1c65}\label{classevir_1_1Value_a086f7932417f5b1fa47f627c175d1c65}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!new\+\_\+integer@{new\+\_\+integer}}
+\index{new\+\_\+integer@{new\+\_\+integer}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{new\+\_\+integer()}{new\_integer()}}
+{\footnotesize\ttfamily static \hyperlink{classevir_1_1IntegerValue}{Integer\+Value}$\ast$ evir\+::\+Value\+::new\+\_\+integer (\begin{DoxyParamCaption}\item[{int64}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new integer value 
+\begin{DoxyParams}{Parameters}
+{\em value} & the integer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Value_a0936d4b3ac1b972fc784dc6b71ca0ca2}\label{classevir_1_1Value_a0936d4b3ac1b972fc784dc6b71ca0ca2}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!new\+\_\+list@{new\+\_\+list}}
+\index{new\+\_\+list@{new\+\_\+list}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{new\+\_\+list()}{new\_list()}}
+{\footnotesize\ttfamily static \hyperlink{classevir_1_1ListValue}{List\+Value}$\ast$ evir\+::\+Value\+::new\+\_\+list (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{classevir_1_1Value}{Value} $\ast$$>$}]{elements }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new list value 
+\begin{DoxyParams}{Parameters}
+{\em elements} & the elements of the list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Value_a4afc4919cf8f686d97a8f59ea7719ac1}\label{classevir_1_1Value_a4afc4919cf8f686d97a8f59ea7719ac1}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!new\+\_\+object@{new\+\_\+object}}
+\index{new\+\_\+object@{new\+\_\+object}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{new\+\_\+object()}{new\_object()}}
+{\footnotesize\ttfamily static \hyperlink{classevir_1_1ObjectValue}{Object\+Value}$\ast$ evir\+::\+Value\+::new\+\_\+object (\begin{DoxyParamCaption}\item[{map$<$ \hyperlink{classevir_1_1Value}{Value} $\ast$C\+O\+M\+MA \hyperlink{classevir_1_1Value}{Value} $\ast$$>$}]{pairs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new object value 
+\begin{DoxyParams}{Parameters}
+{\em pair} & the key-\/value pairs of the object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Value_af0e8e17cc7ab9c0907ba4c8994ef169a}\label{classevir_1_1Value_af0e8e17cc7ab9c0907ba4c8994ef169a}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!new\+\_\+option@{new\+\_\+option}}
+\index{new\+\_\+option@{new\+\_\+option}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{new\+\_\+option()}{new\_option()}}
+{\footnotesize\ttfamily static \hyperlink{classevir_1_1OptionValue}{Option\+Value}$\ast$ evir\+::\+Value\+::new\+\_\+option (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new option value 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the option \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Value_a550b2d56a46a357282ad167821fedbe5}\label{classevir_1_1Value_a550b2d56a46a357282ad167821fedbe5}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!new\+\_\+reference@{new\+\_\+reference}}
+\index{new\+\_\+reference@{new\+\_\+reference}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{new\+\_\+reference()}{new\_reference()}}
+{\footnotesize\ttfamily static \hyperlink{classevir_1_1ReferenceValue}{Reference\+Value}$\ast$ evir\+::\+Value\+::new\+\_\+reference (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new reference value 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the reference \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Value_a56a75d435ff168c8d3f104018f9b58a5}\label{classevir_1_1Value_a56a75d435ff168c8d3f104018f9b58a5}} 
+\index{evir\+::\+Value@{evir\+::\+Value}!new\+\_\+string@{new\+\_\+string}}
+\index{new\+\_\+string@{new\+\_\+string}!evir\+::\+Value@{evir\+::\+Value}}
+\subsubsection{\texorpdfstring{new\+\_\+string()}{new\_string()}}
+{\footnotesize\ttfamily static \hyperlink{classevir_1_1StringValue}{String\+Value}$\ast$ evir\+::\+Value\+::new\+\_\+string (\begin{DoxyParamCaption}\item[{string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new string value 
+\begin{DoxyParams}{Parameters}
+{\em value} & the string \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ir/value.\+hpp\end{DoxyCompactItemize}
