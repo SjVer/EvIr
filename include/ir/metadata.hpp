@@ -75,7 +75,7 @@ public:
 	typedef Vector<String> Path;
 
 	/// @brief built-in metadata property types
-	/// @details Used by @link Metadata::(BuiltinPropertyType type, Value* value = nullptr) @endlink
+	/// @details Used by @link Metadata::Metadata(BuiltinPropertyType type, Value* value) @endlink
 	typedef enum
 	{
 		#define META(name) META_##name = PropertyType::_META_##name
@@ -107,7 +107,7 @@ public:
 	} BuiltinPropertyType;
 	
 	/// @brief custom metadata property types
-	/// @details Used by @link Metadata::Metadata(CustomPropertyType type, path path, Value* value = nullptr) @endlink
+	/// @details Used by @link Metadata::Metadata(CustomPropertyType type, Path path, Value* value) @endlink
 	typedef enum
 	{
 		#define META(name) META_##name = PropertyType::_META_##name##_

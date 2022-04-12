@@ -22,8 +22,8 @@ namespace evir
 /// @brief A Class representing a single stand-alone IR module
 ///
 /// Has the following metadata by default:
-/// - @link Metadata::builtin_property_type @endlink::`META_MODULE_NAME` 
-/// - @link Metadata::builtin_property_type @endlink::`META_MODULE_ENTRYPOINT` 
+/// - @link Metadata::BuiltinPropertyType @endlink::`META_MODULE_NAME` 
+/// - @link Metadata::BuiltinPropertyType @endlink::`META_MODULE_ENTRYPOINT` 
 class Module
 {
 	friend class Metadata;

@@ -59,7 +59,7 @@ Can be added to a module using \fBModule::add_metadata\fP
 .SS "enum \fBevir::Metadata::BuiltinPropertyType\fP"
 
 .PP
-built-in metadata property types Used by \fBMetadata::(BuiltinPropertyType type, Value* value = nullptr)\fP 
+built-in metadata property types Used by \fBMetadata::Metadata(BuiltinPropertyType type, Value* value)\fP 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -120,7 +120,7 @@ metadata property path: \fC!debug/typenames\fP
 .SS "enum \fBevir::Metadata::CustomPropertyType\fP"
 
 .PP
-custom metadata property types Used by \fBMetadata::Metadata(CustomPropertyType type, path path, Value* value = nullptr)\fP 
+custom metadata property types Used by \fBMetadata::Metadata(CustomPropertyType type, Path path, Value* value)\fP 
 .PP
 \fBEnumerator\fP
 .in +1c
