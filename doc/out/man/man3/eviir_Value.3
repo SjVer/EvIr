@@ -1,4 +1,4 @@
-.TH "eviir::Value" 3 "Mon Apr 11 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
+.TH "eviir::Value" 3 "Tue Apr 12 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -28,10 +28,10 @@ Inherited by \fBeviir::FloatValue\fP, \fBeviir::IntegerValue\fP, \fBeviir::ListV
 .RI "static \fBStringValue\fP * \fBnew_string\fP (string value)"
 .br
 .ti -1c
-.RI "static \fBListValue\fP * \fBnew_list\fP (vector< \fBValue\fP * > elements)"
+.RI "static \fBListValue\fP * \fBnew_list\fP (vector< \fBValue\fP *> elements)"
 .br
 .ti -1c
-.RI "static \fBObjectValue\fP * \fBnew_object\fP (map< \fBValue\fP *COMMA \fBValue\fP * > pairs)"
+.RI "static \fBObjectValue\fP * \fBnew_object\fP (map< \fBValue\fP *COMMA \fBValue\fP *> pairs)"
 .br
 .ti -1c
 .RI "static \fBReferenceValue\fP * \fBnew_reference\fP (string name)"
@@ -59,72 +59,72 @@ Inherited by \fBeviir::FloatValue\fP, \fBeviir::IntegerValue\fP, \fBeviir::ListV
 .SS "virtual string eviir::Value::generate_ir (const char * format = \fCnullptr\fP)\fC [pure virtual]\fP"
 Generates the IR for the value 
 .PP
-\fBReturns\fP
+\fBReturns:\fP
 .RS 4
 the IR as a string (without newline) 
 .RE
 .PP
 
 .PP
-Implemented in \fBeviir::IntegerValue\fP, \fBeviir::FloatValue\fP, \fBeviir::StringValue\fP, \fBeviir::ListValue\fP, \fBeviir::ObjectValue\fP, \fBeviir::ReferenceValue\fP, and \fBeviir::OptionValue\fP\&.
-.SS "static \fBFloatValue\fP * eviir::Value::new_float (float2 value)\fC [static]\fP"
+Implemented in \fBeviir::OptionValue\fP, \fBeviir::ReferenceValue\fP, \fBeviir::ObjectValue\fP, \fBeviir::ListValue\fP, \fBeviir::StringValue\fP, \fBeviir::FloatValue\fP, and \fBeviir::IntegerValue\fP\&.
+.SS "static \fBFloatValue\fP* eviir::Value::new_float (float2 value)\fC [static]\fP"
 Constructs a new float value 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIvalue\fP the float 
 .RE
 .PP
 
-.SS "static \fBIntegerValue\fP * eviir::Value::new_integer (int64 value)\fC [static]\fP"
+.SS "static \fBIntegerValue\fP* eviir::Value::new_integer (int64 value)\fC [static]\fP"
 Constructs a new integer value 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIvalue\fP the integer 
 .RE
 .PP
 
-.SS "static \fBListValue\fP * eviir::Value::new_list (vector< \fBValue\fP * > elements)\fC [static]\fP"
+.SS "static \fBListValue\fP* eviir::Value::new_list (vector< \fBValue\fP *> elements)\fC [static]\fP"
 Constructs a new list value 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIelements\fP the elements of the list 
 .RE
 .PP
 
-.SS "static \fBObjectValue\fP * eviir::Value::new_object (map< \fBValue\fP *COMMA \fBValue\fP * > pairs)\fC [static]\fP"
+.SS "static \fBObjectValue\fP* eviir::Value::new_object (map< \fBValue\fP *COMMA \fBValue\fP *> pairs)\fC [static]\fP"
 Constructs a new object value 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIpair\fP the key-value pairs of the object 
 .RE
 .PP
 
-.SS "static \fBOptionValue\fP * eviir::Value::new_option (string name)\fC [static]\fP"
+.SS "static \fBOptionValue\fP* eviir::Value::new_option (string name)\fC [static]\fP"
 Constructs a new option value 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIname\fP the name of the option 
 .RE
 .PP
 
-.SS "static \fBReferenceValue\fP * eviir::Value::new_reference (string name)\fC [static]\fP"
+.SS "static \fBReferenceValue\fP* eviir::Value::new_reference (string name)\fC [static]\fP"
 Constructs a new reference value 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIname\fP the name of the reference 
 .RE
 .PP
 
-.SS "static \fBStringValue\fP * eviir::Value::new_string (string value)\fC [static]\fP"
+.SS "static \fBStringValue\fP* eviir::Value::new_string (string value)\fC [static]\fP"
 Constructs a new string value 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIvalue\fP the string 
 .RE

@@ -1,4 +1,4 @@
-.TH "eviir::Metadata" 3 "Mon Apr 11 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
+.TH "eviir::Metadata" 3 "Tue Apr 12 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,19 +7,17 @@ eviir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 .SH SYNOPSIS
 .br
 .PP
-.PP
-\fC#include <metadata\&.hpp>\fP
 .SS "Public Types"
 
 .in +1c
 .ti -1c
-.RI "enum \fBbuiltin_property_type\fP { \fBMETA_MODULE_NAME\fP, \fBMETA_MODULE_ENTRYPOINT\fP, \fBMETA_MODULE_SOURCE_FILENAME\fP, \fBMETA_MODULE_SOURCE_DIRECTORY\fP, \fBMETA_MODULE_SOURCE_LANGUAGE\fP, \fBMETA_MODULE_PRODUCER_NAME\fP, \fBMETA_MODULE_PRODUCER_VERSION\fP, \fBMETA_MODULE_PRODUCER_TYPE\fP, \fBMETA_TARGET_TRIPLE\fP, \fBMETA_TARGET_CPU\fP, \fBMETA_TARGET_DATALAYOUT\fP, \fBMETA_TARGET_OPTIMIZATION\fP, \fBMETA_DEBUG_GENERATE\fP, \fBMETA_DEBUG_INCLUDESOURCE\fP, \fBMETA_DEBUG_SOURCELOCATION\fP, \fBMETA_DEBUG_SOURCECHECKSUM\fP, \fBMETA_DEBUG_DWARFVERSION\fP, \fBMETA_DEBUG_TYPENAMES\fP }"
+.RI "enum \fBbuiltin_property_type\fP { \fBMETA_MODULE_NAME\fP, \fBMETA_MODULE_ENTRYPOINT\fP, \fBMETA_MODULE_SOURCE_FILENAME\fP, \fBMETA_MODULE_SOURCE_DIRECTORY\fP, \fBMETA_MODULE_SOURCE_LANGUAGE\fP, \fBMETA_MODULE_PRODUCER_NAME\fP, \fBMETA_MODULE_PRODUCER_VERSION\fP, \fBMETA_MODULE_PRODUCER_TYPE\fP, \fBMETA_TARGET_TRIPLE\fP, \fBMETA_TARGET_CPU\fP, \fBMETA_TARGET_DATALAYOUT\fP, \fBMETA_TARGET_OPTIMIZATION\fP, \fBMETA_DEBUG_GENERATE\fP, \fBMETA_DEBUG_INCLUDESOURCE\fP, \fBMETA_DEBUG_SOURCELOCATION\fP, \fBMETA_DEBUG_SOURCECHECKSUM\fP, \fBMETA_DEBUG_DWARFVERSION\fP, \fBMETA_DEBUG_TYPENAMES\fP }
+.RI "built-in metadata property types\&. ""
 .br
-.RI "built-in metadata property types\&. "
 .ti -1c
-.RI "enum \fBcustom_property_type\fP { \fBMETA_MODULE\fP, \fBMETA_MODULE_SOURCE\fP, \fBMETA_MODULE_PRODUCER\fP, \fBMETA_TARGET\fP, \fBMETA_DEBUG\fP, \fBMETA_CUSTOM\fP }"
+.RI "enum \fBcustom_property_type\fP { \fBMETA_MODULE\fP, \fBMETA_MODULE_SOURCE\fP, \fBMETA_MODULE_PRODUCER\fP, \fBMETA_TARGET\fP, \fBMETA_DEBUG\fP, \fBMETA_CUSTOM\fP }
+.RI "custom metadata property types\&. ""
 .br
-.RI "custom metadata property types\&. "
 .ti -1c
 .RI "typedef vector< string > \fBpath\fP"
 .br
@@ -151,24 +149,24 @@ metadata property path: \fC!\&.\&.\&.\fP
 .SS "eviir::Metadata::Metadata (\fBbuiltin_property_type\fP type, \fBValue\fP * value = \fCnullptr\fP)"
 Constructs a new metadata instance defining a built-in property 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fItype\fP the built-in property type that this metadata defines 
 .br
-\fIvalue\fP the value of this metadata property (optional) 
+\fIvalue\fP the value of this metadata property 
 .RE
 .PP
 
 .SS "eviir::Metadata::Metadata (\fBcustom_property_type\fP type, \fBpath\fP path, \fBValue\fP * value = \fCnullptr\fP)"
 Constructs a new metadata instance defining a custom property 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fItype\fP the built-in type that this metadata defines a property of 
 .br
 \fIpath\fP the rest of the path of the property that this metadata defines 
 .br
-\fIvalue\fP the value of this metadata property (optional) 
+\fIvalue\fP the value of this metadata property 
 .RE
 .PP
 
@@ -179,7 +177,7 @@ Constructs a new metadata instance defining a custom property
 .PP
 Creates a Metadata path\&. Splits the given string into segments using \fC/\fP delimeters and returns that as a path 
 .PP
-\fBParameters\fP
+\fBParameters:\fP
 .RS 4
 \fIfull_path\fP the path to use (e\&.g\&. 'base/sub') 
 .RE
@@ -188,7 +186,7 @@ Creates a Metadata path\&. Splits the given string into segments using \fC/\fP d
 .SS "string eviir::Metadata::generate_ir ()"
 Generates the IR for this metadata property 
 .PP
-\fBReturns\fP
+\fBReturns:\fP
 .RS 4
 the ir as a string (without a newline) 
 .RE

@@ -1,4 +1,4 @@
-.TH "eviir::ObjectValue" 3 "Mon Apr 11 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
+.TH "eviir::ObjectValue" 3 "Tue Apr 12 2022" "Version 0.0.1" "EviIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,7 +15,7 @@ Inherits \fBeviir::Value\fP\&.
 .RI "string \fBgenerate_ir\fP (const char *format=nullptr)"
 .br
 .ti -1c
-.RI "\fBObjectValue\fP (map< \fBValue\fP *COMMA \fBValue\fP * > pairs)"
+.RI "\fBObjectValue\fP (map< \fBValue\fP *COMMA \fBValue\fP *> pairs)"
 .br
 .in -1c
 .SS "Public Attributes"
@@ -31,7 +31,7 @@ Inherits \fBeviir::Value\fP\&.
 .SS "string eviir::ObjectValue::generate_ir (const char * format = \fCnullptr\fP)\fC [virtual]\fP"
 Generates the IR for the value 
 .PP
-\fBReturns\fP
+\fBReturns:\fP
 .RS 4
 the IR as a string (without newline) 
 .RE

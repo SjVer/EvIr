@@ -59,7 +59,6 @@ class DoxygenAwesomeDarkModeToggle extends HTMLElement {
         $(function() {
             $(document).ready(function() {
                 const toggleButton = document.createElement('doxygen-awesome-dark-mode-toggle')
-                // toggleButton.style = "float:right"
                 toggleButton.title = DoxygenAwesomeDarkModeToggle.title
                 toggleButton.updateIcon()
 
@@ -74,11 +73,9 @@ class DoxygenAwesomeDarkModeToggle extends HTMLElement {
 
                 $(document).ready(function(){
                     document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
-                    // document.getElementById("MSearchBox").parentNode.parentNode.appendChild(toggleButton)
                 })
                 $(window).resize(function(){
                     document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
-                    // document.getElementById("MSearchBox").parentNode.parentNode.appendChild(toggleButton)
                 })
             })
         })
