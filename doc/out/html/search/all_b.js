@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['path_0',['Path',['../classevir_1_1Metadata.html#a95022cb074a6ac6d1f3c2d0e2b02ebbb',1,'evir::Metadata']]]
+  ['set_5fmetadata_0',['set_metadata',['../classevir_1_1Module.html#a41095e33b06c689da5e33ce78bc5e7d5',1,'evir::Module::set_metadata(Metadata::Path path, Value *value)'],['../classevir_1_1Module.html#a657eb3bfd892f1f3c990f20427f8f96c',1,'evir::Module::set_metadata(Metadata::BuiltinPropertyType type, Value *value)']]]
 ];

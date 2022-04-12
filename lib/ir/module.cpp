@@ -6,8 +6,8 @@ using namespace evir;
 
 Module::Module(String name): name(name)
 {
-	add_metadata(new Metadata(Metadata::META_MODULE_NAME, new StringValue(name)));
-	add_metadata(new Metadata(Metadata::META_MODULE_ENTRYPOINT, new ReferenceValue("main")));
+	// add_metadata(new Metadata(Metadata::META_MODULE_NAME, new StringValue(name)));
+	// add_metadata(new Metadata(Metadata::META_MODULE_ENTRYPOINT, new ReferenceValue("main")));
 }
 
 #pragma endregion
@@ -36,7 +36,7 @@ void Module::set_metadata(Metadata::Path path, Value* value)
 	Metadata* mdata = get_metadata(path);
 	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
 
-	mdata->p_object = value;
+	mdata->p_value = value;
 }
 
 void Module::set_metadata(Metadata::BuiltinPropertyType type, Value* value)
@@ -44,7 +44,7 @@ void Module::set_metadata(Metadata::BuiltinPropertyType type, Value* value)
 	Metadata* mdata = get_metadata(type);
 	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
 
-	mdata->p_object = value;
+	mdata->p_value = value;
 }
 
 Metadata* Module::get_metadata(Metadata::Path path)

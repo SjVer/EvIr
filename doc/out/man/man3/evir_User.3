@@ -1,0 +1,44 @@
+.TH "evir::User" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+evir::User
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Object\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBis_variable\fP ()"
+.br
+.RI "returns \fCtrue\fP if this is an instance of \fBVariableUser\fP "
+.ti -1c
+.RI "bool \fBis_function\fP ()"
+.br
+.RI "returns \fCtrue\fP if this is an instance of \fBFunctionUser\fP "
+.ti -1c
+.RI "bool \fBis_operator\fP ()"
+.br
+.RI "returns \fCtrue\fP if this is an instance of \fBOperatorUser\fP "
+.ti -1c
+.RI "virtual String \fBgenerate_ir\fP (const char *format=nullptr)=0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual String evir::User::generate_ir (const char * format = \fCnullptr\fP)\fC [pure virtual]\fP"
+Generates the IR for the object 
+.PP
+\fBReturns\fP
+.RS 4
+the IR as a string (without a newline) 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EvIr from the source code\&.

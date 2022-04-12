@@ -49,7 +49,7 @@ enum \mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{B
 , \newline
 \mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83badd040935fc7447b467728558a200753d}{META\+\_\+\+DEBUG\+\_\+\+TYPENAMES}}
  \}
-\begin{DoxyCompactList}\small\item\em built-\/in metadata property types. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em built-\/in metadata property types \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}} \{ \newline
 \mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba2e301f0107d9eeec9b89cbe651b938c9}{META\+\_\+\+MODULE}}
 , \newline
@@ -63,19 +63,19 @@ enum \mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{C
 , \newline
 \mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5bacf006a02fadcd158c073c8d75627569c}{META\+\_\+\+CUSTOM}}
  \}
-\begin{DoxyCompactList}\small\item\em custom metadata property types. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em custom metadata property types \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}\label{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}} 
 typedef Vector$<$ String $>$ {\bfseries Path}
 \begin{DoxyCompactList}\small\item\em A metadata path. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classevir_1_1Metadata_a145b68fd380c206a272983c7be03a5cc}{Metadata}} (\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{Builtin\+Property\+Type}} type, \mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$object=nullptr)
-\item 
-\mbox{\hyperlink{classevir_1_1Metadata_a6dd2f73e63f123fe7f4e6dbcea66c7fb}{Metadata}} (\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}} type, \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} path, \mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$object=nullptr)
-\item 
+\mbox{\hyperlink{classevir_1_1Metadata_a44c083489375a4593b311ee591f0d7ec}{Metadata}} (\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{Builtin\+Property\+Type}} type, \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$value=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a new metadata instance defining a built-\/in property. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevir_1_1Metadata_a527eb97d65ed04dbc3928ab007cad0ee}{Metadata}} (\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}} type, \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}} path, \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$value=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a new metadata instance defining a custom property. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classevir_1_1Metadata_ab8b6fc9bc47d7f1e8260c250ecbff96f}{generate\+\_\+ir}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Generates the IR for this metadata property. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -86,7 +86,7 @@ static \mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}
 \doxysubsection{Detailed Description}
 A class defining the metadata of a \mbox{\hyperlink{classevir_1_1Module}{Module}}. 
 
-Can be added to a module using \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{Module\+::add\+\_\+metadata}}. 
+Can be added to a module using \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{Module\+::add\+\_\+metadata}} 
 
 \doxysubsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}} 
@@ -97,9 +97,9 @@ Can be added to a module using \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab8
 
 
 
-built-\/in metadata property types. 
+built-\/in metadata property types 
 
-Used by \mbox{\hyperlink{}{Metadata\+::(\+Builtin\+Property\+Type type, Value$\ast$ value = nullptr)}}. \begin{DoxyEnumFields}{Enumerator}
+Used by \mbox{\hyperlink{}{Metadata\+::(\+Builtin\+Property\+Type type, Value$\ast$ value = nullptr)}} \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE\_NAME@{META\_MODULE\_NAME}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE\_NAME@{META\_MODULE\_NAME}}}\mbox{\Hypertarget{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba043ad4ab5db7545ce1e5f68f392e4a87}\label{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83ba043ad4ab5db7545ce1e5f68f392e4a87}} 
 META\+\_\+\+MODULE\+\_\+\+NAME&metadata property path\+: {\ttfamily !module/name} \\
 \hline
@@ -181,9 +181,9 @@ META\+\_\+\+DEBUG\+\_\+\+TYPENAMES&metadata property path\+: {\ttfamily !debug/t
 
 
 
-custom metadata property types. 
+custom metadata property types 
 
-Used by \mbox{\hyperlink{}{Metadata\+::\+Metadata(\+Custom\+Property\+Type type, path path, Value$\ast$ value = nullptr)}}. \begin{DoxyEnumFields}{Enumerator}
+Used by \mbox{\hyperlink{}{Metadata\+::\+Metadata(\+Custom\+Property\+Type type, path path, Value$\ast$ value = nullptr)}} \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{META\_MODULE@{META\_MODULE}!evir::Metadata@{evir::Metadata}}\index{evir::Metadata@{evir::Metadata}!META\_MODULE@{META\_MODULE}}}\mbox{\Hypertarget{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba2e301f0107d9eeec9b89cbe651b938c9}\label{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5ba2e301f0107d9eeec9b89cbe651b938c9}} 
 META\+\_\+\+MODULE&metadata property path\+: {\ttfamily !module/...} \\
 \hline
@@ -212,32 +212,40 @@ META\+\_\+\+CUSTOM&metadata property path\+: {\ttfamily !...} \\
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classevir_1_1Metadata_a145b68fd380c206a272983c7be03a5cc}\label{classevir_1_1Metadata_a145b68fd380c206a272983c7be03a5cc}} 
+\mbox{\Hypertarget{classevir_1_1Metadata_a44c083489375a4593b311ee591f0d7ec}\label{classevir_1_1Metadata_a44c083489375a4593b311ee591f0d7ec}} 
 \index{evir::Metadata@{evir::Metadata}!Metadata@{Metadata}}
 \index{Metadata@{Metadata}!evir::Metadata@{evir::Metadata}}
 \doxysubsubsection{\texorpdfstring{Metadata()}{Metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{Builtin\+Property\+Type}}}]{type,  }\item[{\mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$}]{object = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1Metadata_a1e0aa5c4c4bd2c61227217ca6cf6f83b}{Builtin\+Property\+Type}}}]{type,  }\item[{\mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$}]{value = {\ttfamily nullptr} }\end{DoxyParamCaption})}
 
-Constructs a new metadata instance defining a built-\/in property 
+
+
+Constructs a new metadata instance defining a built-\/in property. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em type} & the built-\/in property type that this metadata defines \\
 \hline
-{\em object} & the value of this metadata property \\
+{\em value} & the value of this metadata property \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classevir_1_1Metadata_a6dd2f73e63f123fe7f4e6dbcea66c7fb}\label{classevir_1_1Metadata_a6dd2f73e63f123fe7f4e6dbcea66c7fb}} 
+\mbox{\Hypertarget{classevir_1_1Metadata_a527eb97d65ed04dbc3928ab007cad0ee}\label{classevir_1_1Metadata_a527eb97d65ed04dbc3928ab007cad0ee}} 
 \index{evir::Metadata@{evir::Metadata}!Metadata@{Metadata}}
 \index{Metadata@{Metadata}!evir::Metadata@{evir::Metadata}}
 \doxysubsubsection{\texorpdfstring{Metadata()}{Metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}}}]{type,  }\item[{\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}}}]{path,  }\item[{\mbox{\hyperlink{classevir_1_1Object}{Object}} $\ast$}]{object = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily evir\+::\+Metadata\+::\+Metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1Metadata_a95a8bbc45933abb2efc8a25972e27d5b}{Custom\+Property\+Type}}}]{type,  }\item[{\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Path}}}]{path,  }\item[{\mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$}]{value = {\ttfamily nullptr} }\end{DoxyParamCaption})}
 
-Constructs a new metadata instance defining a custom property 
+
+
+Constructs a new metadata instance defining a custom property. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em type} & the built-\/in type that this metadata defines a property of \\
 \hline
 {\em path} & the rest of the path of the property that this metadata defines \\
 \hline
-{\em object} & the value of this metadata property \\
+{\em value} & the value of this metadata property \\
 \hline
 \end{DoxyParams}
 
@@ -264,7 +272,11 @@ Splits the given string into segments using {\ttfamily /} delimeters and returns
 \doxysubsubsection{\texorpdfstring{generate\_ir()}{generate\_ir()}}
 {\footnotesize\ttfamily String evir\+::\+Metadata\+::generate\+\_\+ir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Generates the IR for this metadata property \begin{DoxyReturn}{Returns}
+
+
+Generates the IR for this metadata property. 
+
+\begin{DoxyReturn}{Returns}
 the ir as a string (without a newline) 
 \end{DoxyReturn}
 

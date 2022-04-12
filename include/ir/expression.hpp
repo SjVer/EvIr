@@ -1,6 +1,0 @@
-#ifndef EVIR_IR_EXPRESSION_H
-#define EVIR_IR_EXPRESSION_H
-
-
-
-#endif // EVIR_IR_EXPRESSION_H

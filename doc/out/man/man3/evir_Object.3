@@ -7,22 +7,22 @@ evir::Object
 .br
 .PP
 .PP
-Inherited by \fBevir::Value\fP\&.
+Inherited by \fBevir::User\fP, and \fBevir::Value\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
 .RI "bool \fBis_value\fP ()"
 .br
-.RI "returns \fCtrue\fP if this is an instance of \fBValue\fP\&. "
+.RI "returns \fCtrue\fP if this is an instance of \fBValue\fP "
 .ti -1c
 .RI "bool \fBis_user\fP ()"
 .br
-.RI "returns \fCtrue\fP if this is an instance of \fBUser\fP\&. "
+.RI "returns \fCtrue\fP if this is an instance of \fBUser\fP "
 .ti -1c
 .RI "bool \fBis_type\fP ()"
 .br
-.RI "returns \fCtrue\fP if this is an instance of \fBType\fP\&. "
+.RI "returns \fCtrue\fP if this is an instance of \fBType\fP "
 .ti -1c
 .RI "virtual String \fBgenerate_ir\fP (const char *format=nullptr)=0"
 .br
@@ -39,7 +39,7 @@ the IR as a string (without a newline)
 .PP
 
 .PP
-Implemented in \fBevir::IntegerValue\fP, \fBevir::FloatValue\fP, \fBevir::StringValue\fP, \fBevir::ListValue\fP, \fBevir::MapValue\fP, \fBevir::ReferenceValue\fP, \fBevir::OptionValue\fP, and \fBevir::Value\fP\&.
+Implemented in \fBevir::IntegerValue\fP, \fBevir::FloatValue\fP, \fBevir::StringValue\fP, \fBevir::ListValue\fP, \fBevir::MapValue\fP, \fBevir::ReferenceValue\fP, \fBevir::OptionValue\fP, \fBevir::User\fP, and \fBevir::Value\fP\&.
 
 .SH "Author"
 .PP 

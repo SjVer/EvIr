@@ -20,7 +20,7 @@ Metadata::Path Metadata::create_path(String full_path)
 
 #pragma region Constructors
 
-Metadata::Metadata(BuiltinPropertyType type, Object* object)
+Metadata::Metadata(BuiltinPropertyType type, Value* value)
 {
 	p_type = (PropertyType)type;
 
@@ -56,10 +56,10 @@ Metadata::Metadata(BuiltinPropertyType type, Object* object)
 		default: ASSERT_F(0, "Invalid built-in metadata property type %d!", type);
 	}
 
-	p_object = object;
+	p_value = value;
 }
 
-Metadata::Metadata(CustomPropertyType type, Path path, Object* object)
+Metadata::Metadata(CustomPropertyType type, Path path, Value* value)
 {
 	p_type = (PropertyType)type;
 	
@@ -82,7 +82,7 @@ Metadata::Metadata(CustomPropertyType type, Path path, Object* object)
 	// concat paths
 	p_path.insert(p_path.end(), path.begin(), path.end());
 
-	p_object = object;
+	p_value = value;
 }
 
 #pragma endregion
@@ -95,7 +95,7 @@ String Metadata::generate_ir()
 	for(String& segment : p_path)
 		stream << segment << (segment != p_path.back() ? "/" : "");
 	
-	if(p_object) stream << " " << p_object->generate_ir(property_type_formats[p_type]);
+	if(p_value) stream << " " << p_value->generate_ir(property_type_formats[p_type]);
 	else stream << " <no object>";
 	
 	return stream.str();

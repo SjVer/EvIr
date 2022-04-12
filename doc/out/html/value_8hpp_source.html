@@ -21,7 +21,7 @@
     <meta name="twitter:description"
         content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." /> -->
     <!-- END twitter metadata -->
-    <title>EvIr: include/ir/object/value.hpp Source File</title>
+    <title>EvIr: include/ir/value/value.hpp Source File</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/svg+xml" href="logo.drawio.svg" />
     <script type="text/javascript" src="jquery.js"></script>
@@ -154,133 +154,61 @@ $(document).ready(function(){initNavTree('value_8hpp_source.html',''); initResiz
   <div class="headertitle"><div class="title">value.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===---------- ir/value.hpp --- C++ ------------===</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===--- ir/object/value.hpp ------------ C++ ---===</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// This header is part of the EvIr library</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// MIT License - Sjoerd Vermeulen (2022)</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// For more info see https://github.com/SjVer/EvIr</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//===--------------------------------------------===</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_VALUE_H</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_VALUE_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_OBJECT_VALUE_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_OBJECT_VALUE_H</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;.common.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;ir/object/object.hpp&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>evir</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span>IntegerValue;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">class </span>FloatValue;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span>StringValue;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span>ListValue;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span>MapValue;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">class </span>ReferenceValue;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">class </span>OptionValue;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html">   24</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Value.html">Value</a> : <span class="keyword">public</span> <a class="code hl_class" href="classevir_1_1Object.html">Object</a></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> <span class="keyword">const</span> ObjectType object_type = OBJECT_VALUE;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span>evir {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Value.html">Value</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">enum</span> ValueType</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        VALUE_CONSTANT,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        VALUE_OPERATOR,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        VALUE_REFERENCE,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        VALUE_none,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    } value_type = VALUE_none;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">enum</span> ValueType</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        VALUE_INTEGER,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        VALUE_FLOAT,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        VALUE_STRING,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        VALUE_LIST,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        VALUE_MAP,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        VALUE_EXPRESSION,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        VALUE_REFERENCE,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        VALUE_OPTION,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">    #pragma region Object type checks</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">    #define IS_TYPE_METHOD(typename, type) \</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">        bool is_##typename() { return value_type == VALUE_##type; }</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a27f4c807291b44b12f9366c1d0b98577">   36</a></span>    IS_TYPE_METHOD(constant, CONSTANT);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a3f0cc235db506d300723cd91ca7b59c3">   39</a></span>    IS_TYPE_METHOD(<span class="keyword">operator</span>, OPERATOR);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a7451685a6eaf2df06f2af4e4e58bb58e">   42</a></span>    IS_TYPE_METHOD(reference, REFERENCE);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        VALUE_none</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    } value_type = VALUE_none;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">    #undef IS_TYPE_METHOD</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    #pragma endregion</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">    #pragma region Constructors</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">    #define SIMPLE_VALUE_CONTRUCTOR(classname, lowercasename, membertype, membername) \</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">        static classname* new_##lowercasename(membertype membername);</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a343e306225c2ba058a6caee56024d115">   49</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1Value.html#a343e306225c2ba058a6caee56024d115">generate_ir</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* format = <span class="keyword">nullptr</span>) = 0;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a35e79b2fad9d9017a82a21db29771a3f">   56</a></span>    SIMPLE_VALUE_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1IntegerValue.html">IntegerValue</a>, integer, int64, value);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a31266ac2e2a142f848da136b23ba7fad">   60</a></span>    SIMPLE_VALUE_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1FloatValue.html">FloatValue</a>, <span class="keywordtype">float</span>, float2, value);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a080cb6b4b241169ea53119f9233a40dc">   64</a></span>    SIMPLE_VALUE_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1StringValue.html">StringValue</a>, <span class="keywordtype">string</span>, String, value);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#aba153525615a78158cbceb31c15ca1ac">   68</a></span>    SIMPLE_VALUE_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1ListValue.html">ListValue</a>, list, Vector&lt;Value*&gt;, elements);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a2a94d63d9a777a70f87348da178f7346">   72</a></span>    SIMPLE_VALUE_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1MapValue.html">MapValue</a>, map, Map&lt;Value* COMMA Value*&gt;, pairs);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a100bb5f39bccc35ce6552017d4f73a32">   76</a></span>    SIMPLE_VALUE_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1ReferenceValue.html">ReferenceValue</a>, reference, String, name);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a81bd9c9f935d156317ac00938285e01d">   80</a></span>    SIMPLE_VALUE_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1OptionValue.html">OptionValue</a>, option, String, name);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">    #undef SIMPLE_VALUE_CONTRUCTOR</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">    #pragma endregion</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">    #pragma region Value type checkers</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">    #define IS_TYPE_METHOD(typename, type) \</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">        bool is_##typename() { return value_type == VALUE_##type; }</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    IS_TYPE_METHOD(integer, INTEGER);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    IS_TYPE_METHOD(<span class="keywordtype">float</span>, FLOAT);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    IS_TYPE_METHOD(<span class="keywordtype">string</span>, STRING);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    IS_TYPE_METHOD(list, LIST);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    IS_TYPE_METHOD(map, MAP);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    IS_TYPE_METHOD(reference, REFERENCE);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    IS_TYPE_METHOD(option, OPTION);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">    #undef IS_TYPE_METHOD</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">    #pragma endregion</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classevir_1_1Value.html#a343e306225c2ba058a6caee56024d115">  102</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1Value.html#a343e306225c2ba058a6caee56024d115">generate_ir</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* format = <span class="keyword">nullptr</span>) = 0;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>};</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#pragma region Value classes</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#define MEMBERS(type) \</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">    private: static const ValueType value_type = type; \</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">    public: String generate_ir(const char* format = nullptr);</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#define SIMPLE_VALUE(name, valuetype, membername, membertype) \</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">    class name : public Value { MEMBERS(valuetype); \</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">    name(membertype membername): membername(membername) {}; membertype membername; }</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classevir_1_1IntegerValue.html#a1c39dc084ae636a793424a125941abe0">  113</a></span>SIMPLE_VALUE(<a class="code hl_class" href="classevir_1_1IntegerValue.html">IntegerValue</a>, VALUE_INTEGER, value, int64);</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classevir_1_1FloatValue.html#ac63ab333d014c8a8e368866e97c0fcd4">  114</a></span>SIMPLE_VALUE(<a class="code hl_class" href="classevir_1_1FloatValue.html">FloatValue</a>, VALUE_FLOAT, value, float2);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classevir_1_1StringValue.html#a1b21b622306781b8bb93263cc8b52f64">  115</a></span>SIMPLE_VALUE(<a class="code hl_class" href="classevir_1_1StringValue.html">StringValue</a>, VALUE_STRING, value, String);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classevir_1_1ListValue.html#a4c7b4331d093e51393860d441b32c60b">  117</a></span>SIMPLE_VALUE(<a class="code hl_class" href="classevir_1_1ListValue.html">ListValue</a>, VALUE_LIST, elements, Vector&lt;Value*&gt;);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classevir_1_1MapValue.html#a7cdbd0b796dc4a0c80c71bff58cc0bc8">  118</a></span>SIMPLE_VALUE(<a class="code hl_class" href="classevir_1_1MapValue.html">MapValue</a>, VALUE_MAP, pairs, Map&lt;Value* COMMA Value*&gt;);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classevir_1_1ReferenceValue.html#a50d7b476c7d9672e732f8ba28e5609d5">  120</a></span>SIMPLE_VALUE(<a class="code hl_class" href="classevir_1_1ReferenceValue.html">ReferenceValue</a>, VALUE_REFERENCE, name, String);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classevir_1_1OptionValue.html#a1e2b4d43b80e68d8dddda1ed2984ee85">  121</a></span>SIMPLE_VALUE(<a class="code hl_class" href="classevir_1_1OptionValue.html">OptionValue</a>, VALUE_OPTION, name, String);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#undef MEMBERS</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#undef SIMPLE_VALUE</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>};</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_VALUE_H</span></div>
-<div class="ttc" id="aclassevir_1_1FloatValue_html"><div class="ttname"><a href="classevir_1_1FloatValue.html">evir::FloatValue</a></div><div class="ttdef"><b>Definition:</b> value.hpp:114</div></div>
-<div class="ttc" id="aclassevir_1_1IntegerValue_html"><div class="ttname"><a href="classevir_1_1IntegerValue.html">evir::IntegerValue</a></div><div class="ttdef"><b>Definition:</b> value.hpp:113</div></div>
-<div class="ttc" id="aclassevir_1_1ListValue_html"><div class="ttname"><a href="classevir_1_1ListValue.html">evir::ListValue</a></div><div class="ttdef"><b>Definition:</b> value.hpp:117</div></div>
-<div class="ttc" id="aclassevir_1_1MapValue_html"><div class="ttname"><a href="classevir_1_1MapValue.html">evir::MapValue</a></div><div class="ttdef"><b>Definition:</b> value.hpp:118</div></div>
-<div class="ttc" id="aclassevir_1_1Object_html"><div class="ttname"><a href="classevir_1_1Object.html">evir::Object</a></div><div class="ttdef"><b>Definition:</b> object.hpp:17</div></div>
-<div class="ttc" id="aclassevir_1_1OptionValue_html"><div class="ttname"><a href="classevir_1_1OptionValue.html">evir::OptionValue</a></div><div class="ttdef"><b>Definition:</b> value.hpp:121</div></div>
-<div class="ttc" id="aclassevir_1_1ReferenceValue_html"><div class="ttname"><a href="classevir_1_1ReferenceValue.html">evir::ReferenceValue</a></div><div class="ttdef"><b>Definition:</b> value.hpp:120</div></div>
-<div class="ttc" id="aclassevir_1_1StringValue_html"><div class="ttname"><a href="classevir_1_1StringValue.html">evir::StringValue</a></div><div class="ttdef"><b>Definition:</b> value.hpp:115</div></div>
-<div class="ttc" id="aclassevir_1_1Value_html"><div class="ttname"><a href="classevir_1_1Value.html">evir::Value</a></div><div class="ttdef"><b>Definition:</b> value.hpp:25</div></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_OBJECT_VALUE_H</span></div>
+<div class="ttc" id="aclassevir_1_1Value_html"><div class="ttname"><a href="classevir_1_1Value.html">evir::Value</a></div><div class="ttdef"><b>Definition:</b> value.hpp:15</div></div>
 <div class="ttc" id="aclassevir_1_1Value_html_a343e306225c2ba058a6caee56024d115"><div class="ttname"><a href="classevir_1_1Value.html#a343e306225c2ba058a6caee56024d115">evir::Value::generate_ir</a></div><div class="ttdeci">virtual String generate_ir(const char *format=nullptr)=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_45e6f8f5dcd21a88a37c78d1bb277139.html">ir</a></li><li class="navelem"><a class="el" href="dir_da77e26d3984bc029cfbee555c35be15.html">object</a></li><li class="navelem"><b>value.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_45e6f8f5dcd21a88a37c78d1bb277139.html">ir</a></li><li class="navelem"><a class="el" href="dir_bf2ea5d8dc2e80d01d27bdd5330e0748.html">value</a></li><li class="navelem"><b>value.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

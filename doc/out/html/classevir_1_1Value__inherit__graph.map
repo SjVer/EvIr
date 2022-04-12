@@ -1,11 +1,9 @@
 <map id="evir::Value" name="evir::Value">
-<area shape="rect" id="node1" title=" " alt="" coords="151,157,241,184"/>
-<area shape="rect" id="node3" href="$classevir_1_1FloatValue.html" title=" " alt="" coords="306,5,430,32"/>
-<area shape="rect" id="node4" href="$classevir_1_1IntegerValue.html" title=" " alt="" coords="299,56,437,83"/>
-<area shape="rect" id="node5" href="$classevir_1_1ListValue.html" title=" " alt="" coords="311,107,425,133"/>
-<area shape="rect" id="node6" href="$classevir_1_1MapValue.html" title=" " alt="" coords="309,157,427,184"/>
-<area shape="rect" id="node7" href="$classevir_1_1OptionValue.html" title=" " alt="" coords="301,208,435,235"/>
-<area shape="rect" id="node8" href="$classevir_1_1ReferenceValue.html" title=" " alt="" coords="289,259,447,285"/>
-<area shape="rect" id="node9" href="$classevir_1_1StringValue.html" title=" " alt="" coords="303,309,433,336"/>
-<area shape="rect" id="node2" href="$classevir_1_1Object.html" title=" " alt="" coords="5,157,103,184"/>
+<area shape="rect" id="node1" title=" " alt="" coords="322,5,413,32"/>
+<area shape="rect" id="node2" href="$classevir_1_1Constant.html" title=" " alt="" coords="240,80,353,107"/>
+<area shape="rect" id="node7" href="$classevir_1_1Reference.html" title=" " alt="" coords="377,80,499,107"/>
+<area shape="rect" id="node3" href="$classevir_1_1ArrayConst.html" title=" " alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node4" href="$classevir_1_1FloatConst.html" title=" " alt="" coords="157,155,282,181"/>
+<area shape="rect" id="node5" href="$classevir_1_1IntegerConst.html" title=" " alt="" coords="306,155,445,181"/>
+<area shape="rect" id="node6" href="$classevir_1_1MapConst.html" title=" " alt="" coords="469,155,589,181"/>
 </map>

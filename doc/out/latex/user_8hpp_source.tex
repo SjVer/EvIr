@@ -1,0 +1,59 @@
+\hypertarget{user_8hpp_source}{}\doxysection{user.\+hpp}
+\label{user_8hpp_source}\index{include/ir/value/user.hpp@{include/ir/value/user.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//===-\/-\/-\/-\/ ir/object/user.hpp -\/-\/-\/ C++ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EvIr library}}
+\DoxyCodeLine{3 \textcolor{comment}{// MIT License -\/ Sjoerd Vermeulen (2022)}}
+\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EvIr}}
+\DoxyCodeLine{5 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_OBJECT\_USER\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_OBJECT\_USER\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/object/object.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1User}{User}} : \textcolor{keyword}{public} Object}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{static} \textcolor{keyword}{const} ObjectType object\_type = OBJECT\_USER;}
+\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} UserType}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         USER\_VARIABLE,}
+\DoxyCodeLine{25         USER\_FUNCTION,}
+\DoxyCodeLine{26         USER\_OPERATOR,}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         USER\_none}
+\DoxyCodeLine{29     \} user\_type = USER\_none;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{    \#pragma region Constructors}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{    \#pragma region Object type checks}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(typename, type) \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{        bool is\_\#\#typename() \{ return user\_type == USER\_\#\#type; \}}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{42     IS\_TYPE\_METHOD(variable, VARIABLE);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{45     IS\_TYPE\_METHOD(function, FUNCTION);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{48     IS\_TYPE\_METHOD(\textcolor{keyword}{operator}, OPERATOR);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1User_a384a91b3178709f07cc5ad90d7dd3ef0}{generate\_ir}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* format = \textcolor{keyword}{nullptr}) = 0;}
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_OBJECT\_USER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,53 @@
+\hypertarget{classevir_1_1User}{}\doxysection{evir\+::User Class Reference}
+\label{classevir_1_1User}\index{evir::User@{evir::User}}
+
+
+Inheritance diagram for evir\+::User\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{classevir_1_1User__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for evir\+::User\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{classevir_1_1User__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classevir_1_1User_af8c877bd675c6c57bd4274a13eb5b19e}\label{classevir_1_1User_af8c877bd675c6c57bd4274a13eb5b19e}} 
+bool {\bfseries is\+\_\+variable} ()
+\begin{DoxyCompactList}\small\item\em returns {\ttfamily true} if this is an instance of \mbox{\hyperlink{}{Variable\+User}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1User_a951821a5b8e12810531279b25ca3a624}\label{classevir_1_1User_a951821a5b8e12810531279b25ca3a624}} 
+bool {\bfseries is\+\_\+function} ()
+\begin{DoxyCompactList}\small\item\em returns {\ttfamily true} if this is an instance of \mbox{\hyperlink{}{Function\+User}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1User_a39c5fa70d8e4601a820a835b7eee0852}\label{classevir_1_1User_a39c5fa70d8e4601a820a835b7eee0852}} 
+bool {\bfseries is\+\_\+operator} ()
+\begin{DoxyCompactList}\small\item\em returns {\ttfamily true} if this is an instance of \mbox{\hyperlink{}{Operator\+User}} \end{DoxyCompactList}\item 
+virtual String \mbox{\hyperlink{classevir_1_1User_a384a91b3178709f07cc5ad90d7dd3ef0}{generate\+\_\+ir}} (const char $\ast$format=nullptr)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevir_1_1User_a384a91b3178709f07cc5ad90d7dd3ef0}\label{classevir_1_1User_a384a91b3178709f07cc5ad90d7dd3ef0}} 
+\index{evir::User@{evir::User}!generate\_ir@{generate\_ir}}
+\index{generate\_ir@{generate\_ir}!evir::User@{evir::User}}
+\doxysubsubsection{\texorpdfstring{generate\_ir()}{generate\_ir()}}
+{\footnotesize\ttfamily virtual String evir\+::\+User\+::generate\+\_\+ir (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Generates the IR for the object \begin{DoxyReturn}{Returns}
+the IR as a string (without a newline) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ir/value/user.\+hpp\end{DoxyCompactItemize}

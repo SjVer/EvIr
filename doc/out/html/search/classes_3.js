@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['mapvalue_0',['MapValue',['../classevir_1_1MapValue.html',1,'evir']]],
-  ['metadata_1',['Metadata',['../classevir_1_1Metadata.html',1,'evir']]],
-  ['module_2',['Module',['../classevir_1_1Module.html',1,'evir']]]
+  ['integerconst_0',['IntegerConst',['../classevir_1_1IntegerConst.html',1,'evir']]],
+  ['irbuilder_1',['IRBuilder',['../classevir_1_1IRBuilder.html',1,'evir']]]
 ];

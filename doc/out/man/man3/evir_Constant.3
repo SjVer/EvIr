@@ -1,0 +1,105 @@
+.TH "evir::Constant" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+evir::Constant
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBevir::Value\fP\&.
+.PP
+Inherited by \fBevir::ArrayConst\fP, \fBevir::FloatConst\fP, \fBevir::IntegerConst\fP, and \fBevir::MapConst\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBis_integer\fP ()"
+.br
+.ti -1c
+.RI "bool \fBis_float\fP ()"
+.br
+.ti -1c
+.RI "bool \fBis_array\fP ()"
+.br
+.ti -1c
+.RI "bool \fBis_map\fP ()"
+.br
+.ti -1c
+.RI "bool \fBis_reference\fP ()"
+.br
+.ti -1c
+.RI "virtual String \fBgenerate_ir\fP (const char *format=nullptr)=0"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBIntegerConst\fP * \fBnew_integer\fP (int64 value)"
+.br
+.ti -1c
+.RI "static \fBFloatConst\fP * \fBnew_float\fP (float2 value)"
+.br
+.ti -1c
+.RI "static \fBArrayConst\fP * \fBnew_array\fP (Vector< \fBValue\fP * > elements)"
+.br
+.ti -1c
+.RI "static \fBMapConst\fP * \fBnew_map\fP (Map< \fBValue\fP *COMMA \fBValue\fP * > pairs)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual String evir::Constant::generate_ir (const char * format = \fCnullptr\fP)\fC [pure virtual]\fP"
+Generates the IR for the value 
+.PP
+\fBReturns\fP
+.RS 4
+the IR as a string (without a newline) 
+.RE
+.PP
+
+.PP
+Implements \fBevir::Value\fP\&.
+.PP
+Implemented in \fBevir::IntegerConst\fP, \fBevir::FloatConst\fP, \fBevir::ArrayConst\fP, and \fBevir::MapConst\fP\&.
+.SS "static \fBArrayConst\fP * evir::Constant::new_array (Vector< \fBValue\fP * > elements)\fC [static]\fP"
+Constructs a new array constant 
+.PP
+\fBParameters\fP
+.RS 4
+\fIelements\fP the elements of the array 
+.RE
+.PP
+
+.SS "static \fBFloatConst\fP * evir::Constant::new_float (float2 value)\fC [static]\fP"
+Constructs a new float constant 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP the float 
+.RE
+.PP
+
+.SS "static \fBIntegerConst\fP * evir::Constant::new_integer (int64 value)\fC [static]\fP"
+Constructs a new integer constant 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP the integer 
+.RE
+.PP
+
+.SS "static \fBMapConst\fP * evir::Constant::new_map (Map< \fBValue\fP *COMMA \fBValue\fP * > pairs)\fC [static]\fP"
+Constructs a new map constant 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpair\fP the key-value pairs of the map 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EvIr from the source code\&.

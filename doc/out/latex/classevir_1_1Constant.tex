@@ -1,0 +1,122 @@
+\hypertarget{classevir_1_1Constant}{}\doxysection{evir\+::Constant Class Reference}
+\label{classevir_1_1Constant}\index{evir::Constant@{evir::Constant}}
+
+
+Inheritance diagram for evir\+::Constant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevir_1_1Constant__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for evir\+::Constant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classevir_1_1Constant__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classevir_1_1Constant_ad6f3fa5a15bf6571be559fb7ecdf9cd9}\label{classevir_1_1Constant_ad6f3fa5a15bf6571be559fb7ecdf9cd9}} 
+bool {\bfseries is\+\_\+integer} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Constant_af8938a8db7ef7fa8c5cc5ba08ae915fc}\label{classevir_1_1Constant_af8938a8db7ef7fa8c5cc5ba08ae915fc}} 
+bool {\bfseries is\+\_\+float} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Constant_a1b0e5ef62e19dc5d4f48f730dfe3f855}\label{classevir_1_1Constant_a1b0e5ef62e19dc5d4f48f730dfe3f855}} 
+bool {\bfseries is\+\_\+array} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Constant_a0bf52ae8ed22a002e8b794e7eca4f2d5}\label{classevir_1_1Constant_a0bf52ae8ed22a002e8b794e7eca4f2d5}} 
+bool {\bfseries is\+\_\+map} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Constant_a292895dbe23c92a3c054088566361ae1}\label{classevir_1_1Constant_a292895dbe23c92a3c054088566361ae1}} 
+bool {\bfseries is\+\_\+reference} ()
+\item 
+virtual String \mbox{\hyperlink{classevir_1_1Constant_aea953e1692da45dace87b6d805658526}{generate\+\_\+ir}} (const char $\ast$format=nullptr)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classevir_1_1IntegerConst}{Integer\+Const}} $\ast$ \mbox{\hyperlink{classevir_1_1Constant_a7aa32c29753dbec174bd30f6e6768dfb}{new\+\_\+integer}} (int64 value)
+\item 
+static \mbox{\hyperlink{classevir_1_1FloatConst}{Float\+Const}} $\ast$ \mbox{\hyperlink{classevir_1_1Constant_a7dd99883f6905e56f389c4de51963023}{new\+\_\+float}} (float2 value)
+\item 
+static \mbox{\hyperlink{classevir_1_1ArrayConst}{Array\+Const}} $\ast$ \mbox{\hyperlink{classevir_1_1Constant_a80c5b42594f02fa6f9d978cc388115cc}{new\+\_\+array}} (Vector$<$ \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$ $>$ elements)
+\item 
+static \mbox{\hyperlink{classevir_1_1MapConst}{Map\+Const}} $\ast$ \mbox{\hyperlink{classevir_1_1Constant_ab4274ebce66b1224fea917450e207714}{new\+\_\+map}} (Map$<$ \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$COMMA \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$ $>$ pairs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevir_1_1Constant_aea953e1692da45dace87b6d805658526}\label{classevir_1_1Constant_aea953e1692da45dace87b6d805658526}} 
+\index{evir::Constant@{evir::Constant}!generate\_ir@{generate\_ir}}
+\index{generate\_ir@{generate\_ir}!evir::Constant@{evir::Constant}}
+\doxysubsubsection{\texorpdfstring{generate\_ir()}{generate\_ir()}}
+{\footnotesize\ttfamily virtual String evir\+::\+Constant\+::generate\+\_\+ir (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Generates the IR for the value \begin{DoxyReturn}{Returns}
+the IR as a string (without a newline) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classevir_1_1Value_a343e306225c2ba058a6caee56024d115}{evir\+::\+Value}}.
+
+
+
+Implemented in \mbox{\hyperlink{classevir_1_1IntegerConst_a19228480aab618619e705d17f10e1d77}{evir\+::\+Integer\+Const}}, \mbox{\hyperlink{classevir_1_1FloatConst_a38b2063c1ccc0f343db04f2ffa358e88}{evir\+::\+Float\+Const}}, \mbox{\hyperlink{classevir_1_1ArrayConst_a0a32da9baf63dcf951cc00699da13078}{evir\+::\+Array\+Const}}, and \mbox{\hyperlink{classevir_1_1MapConst_ae85e1b01c33fa6cb44b9f6b07713ebd6}{evir\+::\+Map\+Const}}.
+
+\mbox{\Hypertarget{classevir_1_1Constant_a80c5b42594f02fa6f9d978cc388115cc}\label{classevir_1_1Constant_a80c5b42594f02fa6f9d978cc388115cc}} 
+\index{evir::Constant@{evir::Constant}!new\_array@{new\_array}}
+\index{new\_array@{new\_array}!evir::Constant@{evir::Constant}}
+\doxysubsubsection{\texorpdfstring{new\_array()}{new\_array()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classevir_1_1ArrayConst}{Array\+Const}} $\ast$ evir\+::\+Constant\+::new\+\_\+array (\begin{DoxyParamCaption}\item[{Vector$<$ \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$ $>$}]{elements }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new array constant 
+\begin{DoxyParams}{Parameters}
+{\em elements} & the elements of the array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Constant_a7dd99883f6905e56f389c4de51963023}\label{classevir_1_1Constant_a7dd99883f6905e56f389c4de51963023}} 
+\index{evir::Constant@{evir::Constant}!new\_float@{new\_float}}
+\index{new\_float@{new\_float}!evir::Constant@{evir::Constant}}
+\doxysubsubsection{\texorpdfstring{new\_float()}{new\_float()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classevir_1_1FloatConst}{Float\+Const}} $\ast$ evir\+::\+Constant\+::new\+\_\+float (\begin{DoxyParamCaption}\item[{float2}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new float constant 
+\begin{DoxyParams}{Parameters}
+{\em value} & the float \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Constant_a7aa32c29753dbec174bd30f6e6768dfb}\label{classevir_1_1Constant_a7aa32c29753dbec174bd30f6e6768dfb}} 
+\index{evir::Constant@{evir::Constant}!new\_integer@{new\_integer}}
+\index{new\_integer@{new\_integer}!evir::Constant@{evir::Constant}}
+\doxysubsubsection{\texorpdfstring{new\_integer()}{new\_integer()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classevir_1_1IntegerConst}{Integer\+Const}} $\ast$ evir\+::\+Constant\+::new\+\_\+integer (\begin{DoxyParamCaption}\item[{int64}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new integer constant 
+\begin{DoxyParams}{Parameters}
+{\em value} & the integer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classevir_1_1Constant_ab4274ebce66b1224fea917450e207714}\label{classevir_1_1Constant_ab4274ebce66b1224fea917450e207714}} 
+\index{evir::Constant@{evir::Constant}!new\_map@{new\_map}}
+\index{new\_map@{new\_map}!evir::Constant@{evir::Constant}}
+\doxysubsubsection{\texorpdfstring{new\_map()}{new\_map()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classevir_1_1MapConst}{Map\+Const}} $\ast$ evir\+::\+Constant\+::new\+\_\+map (\begin{DoxyParamCaption}\item[{Map$<$ \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$COMMA \mbox{\hyperlink{classevir_1_1Value}{Value}} $\ast$ $>$}]{pairs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constructs a new map constant 
+\begin{DoxyParams}{Parameters}
+{\em pair} & the key-\/value pairs of the map \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ir/value/constant.\+hpp\end{DoxyCompactItemize}

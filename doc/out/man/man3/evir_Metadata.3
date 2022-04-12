@@ -15,11 +15,11 @@ evir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 .ti -1c
 .RI "enum \fBBuiltinPropertyType\fP { \fBMETA_MODULE_NAME\fP, \fBMETA_MODULE_ENTRYPOINT\fP, \fBMETA_MODULE_SOURCE_FILENAME\fP, \fBMETA_MODULE_SOURCE_DIRECTORY\fP, \fBMETA_MODULE_SOURCE_LANGUAGE\fP, \fBMETA_MODULE_PRODUCER_NAME\fP, \fBMETA_MODULE_PRODUCER_VERSION\fP, \fBMETA_MODULE_PRODUCER_TYPE\fP, \fBMETA_TARGET_TRIPLE\fP, \fBMETA_TARGET_CPU\fP, \fBMETA_TARGET_DATALAYOUT\fP, \fBMETA_TARGET_OPTIMIZATION\fP, \fBMETA_DEBUG_GENERATE\fP, \fBMETA_DEBUG_INCLUDESOURCE\fP, \fBMETA_DEBUG_SOURCELOCATION\fP, \fBMETA_DEBUG_SOURCECHECKSUM\fP, \fBMETA_DEBUG_DWARFVERSION\fP, \fBMETA_DEBUG_TYPENAMES\fP }"
 .br
-.RI "built-in metadata property types\&. "
+.RI "built-in metadata property types "
 .ti -1c
 .RI "enum \fBCustomPropertyType\fP { \fBMETA_MODULE\fP, \fBMETA_MODULE_SOURCE\fP, \fBMETA_MODULE_PRODUCER\fP, \fBMETA_TARGET\fP, \fBMETA_DEBUG\fP, \fBMETA_CUSTOM\fP }"
 .br
-.RI "custom metadata property types\&. "
+.RI "custom metadata property types "
 .ti -1c
 .RI "typedef Vector< String > \fBPath\fP"
 .br
@@ -29,14 +29,17 @@ evir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBMetadata\fP (\fBBuiltinPropertyType\fP type, \fBObject\fP *object=nullptr)"
+.RI "\fBMetadata\fP (\fBBuiltinPropertyType\fP type, \fBValue\fP *value=nullptr)"
 .br
+.RI "Constructs a new metadata instance defining a built-in property\&. "
 .ti -1c
-.RI "\fBMetadata\fP (\fBCustomPropertyType\fP type, \fBPath\fP path, \fBObject\fP *object=nullptr)"
+.RI "\fBMetadata\fP (\fBCustomPropertyType\fP type, \fBPath\fP path, \fBValue\fP *value=nullptr)"
 .br
+.RI "Constructs a new metadata instance defining a custom property\&. "
 .ti -1c
 .RI "String \fBgenerate_ir\fP ()"
 .br
+.RI "Generates the IR for this metadata property\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -50,13 +53,13 @@ evir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 .PP 
 A class defining the metadata of a \fBModule\fP\&. 
 
-Can be added to a module using \fBModule::add_metadata\fP\&. 
+Can be added to a module using \fBModule::add_metadata\fP 
 .SH "Member Enumeration Documentation"
 .PP 
 .SS "enum \fBevir::Metadata::BuiltinPropertyType\fP"
 
 .PP
-built-in metadata property types\&. Used by \fBMetadata::(BuiltinPropertyType type, Value* value = nullptr)\fP\&. 
+built-in metadata property types Used by \fBMetadata::(BuiltinPropertyType type, Value* value = nullptr)\fP 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -117,7 +120,7 @@ metadata property path: \fC!debug/typenames\fP
 .SS "enum \fBevir::Metadata::CustomPropertyType\fP"
 
 .PP
-custom metadata property types\&. Used by \fBMetadata::Metadata(CustomPropertyType type, path path, Value* value = nullptr)\fP\&. 
+custom metadata property types Used by \fBMetadata::Metadata(CustomPropertyType type, path path, Value* value = nullptr)\fP 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -141,19 +144,23 @@ metadata property path: \fC!debug/\&.\&.\&.\fP
 metadata property path: \fC!\&.\&.\&.\fP 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "evir::Metadata::Metadata (\fBBuiltinPropertyType\fP type, \fBObject\fP * object = \fCnullptr\fP)"
-Constructs a new metadata instance defining a built-in property 
+.SS "evir::Metadata::Metadata (\fBBuiltinPropertyType\fP type, \fBValue\fP * value = \fCnullptr\fP)"
+
+.PP
+Constructs a new metadata instance defining a built-in property\&. 
 .PP
 \fBParameters\fP
 .RS 4
 \fItype\fP the built-in property type that this metadata defines 
 .br
-\fIobject\fP the value of this metadata property 
+\fIvalue\fP the value of this metadata property 
 .RE
 .PP
 
-.SS "evir::Metadata::Metadata (\fBCustomPropertyType\fP type, \fBPath\fP path, \fBObject\fP * object = \fCnullptr\fP)"
-Constructs a new metadata instance defining a custom property 
+.SS "evir::Metadata::Metadata (\fBCustomPropertyType\fP type, \fBPath\fP path, \fBValue\fP * value = \fCnullptr\fP)"
+
+.PP
+Constructs a new metadata instance defining a custom property\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -161,7 +168,7 @@ Constructs a new metadata instance defining a custom property
 .br
 \fIpath\fP the rest of the path of the property that this metadata defines 
 .br
-\fIobject\fP the value of this metadata property 
+\fIvalue\fP the value of this metadata property 
 .RE
 .PP
 
@@ -179,7 +186,9 @@ Creates a Metadata path\&. Splits the given string into segments using \fC/\fP d
 .PP
 
 .SS "String evir::Metadata::generate_ir ()"
-Generates the IR for this metadata property 
+
+.PP
+Generates the IR for this metadata property\&. 
 .PP
 \fBReturns\fP
 .RS 4

@@ -8,14 +8,14 @@
 #define EVIR_IR_METADATA_H
 
 #include ".common.hpp"
-#include "ir/object/object.hpp"
+#include "ir/value/value.hpp"
 
 namespace evir
 {
 
-/// @brief A class defining the metadata of a @link Module @endlink.
+/// @brief A class defining the metadata of a @link Module @endlink
 ///
-/// Can be added to a module using @link Module::add_metadata @endlink.
+/// Can be added to a module using @link Module::add_metadata @endlink
 class Metadata
 {
 	friend class Module;
@@ -74,8 +74,8 @@ public:
 	/// A metadata path
 	typedef Vector<String> Path;
 
-	/// @brief built-in metadata property types.
-	/// @details Used by @link Metadata::(BuiltinPropertyType type, Value* value = nullptr) @endlink.
+	/// @brief built-in metadata property types
+	/// @details Used by @link Metadata::(BuiltinPropertyType type, Value* value = nullptr) @endlink
 	typedef enum
 	{
 		#define META(name) META_##name = PropertyType::_META_##name
@@ -106,8 +106,8 @@ public:
 		#undef META
 	} BuiltinPropertyType;
 	
-	/// @brief custom metadata property types.
-	/// @details Used by @link Metadata::Metadata(CustomPropertyType type, path path, Value* value = nullptr) @endlink.
+	/// @brief custom metadata property types
+	/// @details Used by @link Metadata::Metadata(CustomPropertyType type, path path, Value* value = nullptr) @endlink
 	typedef enum
 	{
 		#define META(name) META_##name = PropertyType::_META_##name##_
@@ -128,7 +128,7 @@ private:
 
 	PropertyType p_type;
 	Path p_path;
-	Object* p_object;
+	Value* p_value;
 
 public:
 
@@ -139,20 +139,20 @@ public:
 
 	#pragma region Constructors
 
-	/// Constructs a new metadata instance defining a built-in property
+	/// @brief Constructs a new metadata instance defining a built-in property
 	/// @param type the built-in property type that this metadata defines
-	/// @param object the value of this metadata property
-	Metadata(BuiltinPropertyType type, Object* object = nullptr);
+	/// @param value the value of this metadata property
+	Metadata(BuiltinPropertyType type, Value* value = nullptr);
 
-	/// Constructs a new metadata instance defining a custom property
+	/// @brief Constructs a new metadata instance defining a custom property
 	/// @param type the built-in type that this metadata defines a property of
 	/// @param path the rest of the path of the property that this metadata defines
-	/// @param object the value of this metadata property
-	Metadata(CustomPropertyType type, Path path, Object* object = nullptr);
+	/// @param value the value of this metadata property
+	Metadata(CustomPropertyType type, Path path, Value* value = nullptr);
 	
 	#pragma endregion
 
-	/// Generates the IR for this metadata property
+	/// @brief Generates the IR for this metadata property
 	/// @return the ir as a string (without a newline)
 	String generate_ir();
 

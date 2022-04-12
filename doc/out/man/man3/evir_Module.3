@@ -15,6 +15,7 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .ti -1c
 .RI "\fBModule\fP (String module_name)"
 .br
+.RI "Constructs a new module\&. "
 .ti -1c
 .RI "bool \fBhas_metadata\fP (\fBMetadata::Path\fP path)"
 .br
@@ -26,27 +27,35 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .ti -1c
 .RI "void \fBadd_metadata\fP (\fBMetadata\fP *mdata)"
 .br
+.RI "Adds metadata to the module\&. "
 .ti -1c
 .RI "void \fBset_metadata\fP (\fBMetadata::Path\fP path, \fBValue\fP *value)"
 .br
+.RI "Sets a metadata property with the given path\&. "
 .ti -1c
 .RI "void \fBset_metadata\fP (\fBMetadata::BuiltinPropertyType\fP type, \fBValue\fP *value)"
 .br
+.RI "Sets a metadata property with the built-in type\&. "
 .ti -1c
 .RI "\fBMetadata\fP * \fBget_metadata\fP (\fBMetadata::Path\fP path)"
 .br
+.RI "Gets the requested metadata property\&. "
 .ti -1c
 .RI "\fBMetadata\fP * \fBget_metadata\fP (\fBMetadata::BuiltinPropertyType\fP type)"
 .br
+.RI "Gets the requested metadata property\&. "
 .ti -1c
 .RI "String \fBgenerate_ir_comment\fP (String text, bool header=false)"
 .br
+.RI "Generates an IR comment\&. "
 .ti -1c
 .RI "String \fBgenerate_metadata_ir\fP (bool before_contents)"
 .br
+.RI "Generates the IR of the current module's metadata\&. "
 .ti -1c
 .RI "String \fBgenerate_ir\fP ()"
 .br
+.RI "Generates the IR of the current module\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -64,7 +73,9 @@ Has the following metadata by default:
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "evir::Module::Module (String module_name)"
-Constructs a new module 
+
+.PP
+Constructs a new module\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -75,7 +86,9 @@ Constructs a new module
 .SH "Member Function Documentation"
 .PP 
 .SS "void evir::Module::add_metadata (\fBMetadata\fP * mdata)"
-Adds metadata to the module 
+
+.PP
+Adds metadata to the module\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -89,7 +102,9 @@ if the module already has metadata with the same path the function will abort
 .PP
 
 .SS "String evir::Module::generate_ir ()"
-Generates the IR of the current module 
+
+.PP
+Generates the IR of the current module\&. 
 .PP
 \fBReturns\fP
 .RS 4
@@ -98,7 +113,9 @@ the IR as a string (with newline)
 .PP
 
 .SS "String evir::Module::generate_ir_comment (String text, bool header = \fCfalse\fP)"
-Generates an IR comment 
+
+.PP
+Generates an IR comment\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -114,6 +131,8 @@ the IR as a string (with newline)
 .PP
 
 .SS "String evir::Module::generate_metadata_ir (bool before_contents)"
+
+.PP
 Generates the IR of the current module's metadata\&. If before_contents is true, the metadata that comes before the module's is generated, otherwise the metadata that comes after the module's contents is generated 
 .PP
 \fBParameters\fP
@@ -128,7 +147,9 @@ the IR as a string (with newline)
 .PP
 
 .SS "\fBMetadata\fP * evir::Module::get_metadata (\fBMetadata::BuiltinPropertyType\fP type)"
-Gets the requested metadata property 
+
+.PP
+Gets the requested metadata property\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -142,7 +163,9 @@ a pointer to the metadata, or null if it isn't found
 .PP
 
 .SS "\fBMetadata\fP * evir::Module::get_metadata (\fBMetadata::Path\fP path)"
-Gets the requested metadata property 
+
+.PP
+Gets the requested metadata property\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -156,7 +179,9 @@ a pointer to the metadata, or null if it isn't found
 .PP
 
 .SS "void evir::Module::set_metadata (\fBMetadata::BuiltinPropertyType\fP type, \fBValue\fP * value)"
-Sets a metadata property with the built-in type 
+
+.PP
+Sets a metadata property with the built-in type\&. 
 .PP
 \fBParameters\fP
 .RS 4
@@ -172,7 +197,9 @@ if the module doesn't have metadata with the given type the function will abort
 .PP
 
 .SS "void evir::Module::set_metadata (\fBMetadata::Path\fP path, \fBValue\fP * value)"
-Sets a metadata property with the given path 
+
+.PP
+Sets a metadata property with the given path\&. 
 .PP
 \fBParameters\fP
 .RS 4

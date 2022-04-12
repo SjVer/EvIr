@@ -1,17 +1,16 @@
 var annotated_dup =
 [
     [ "evir", null, [
-      [ "FloatValue", "classevir_1_1FloatValue.html", "classevir_1_1FloatValue" ],
-      [ "IntegerValue", "classevir_1_1IntegerValue.html", "classevir_1_1IntegerValue" ],
+      [ "ArrayConst", "classevir_1_1ArrayConst.html", "classevir_1_1ArrayConst" ],
+      [ "Constant", "classevir_1_1Constant.html", "classevir_1_1Constant" ],
+      [ "FloatConst", "classevir_1_1FloatConst.html", "classevir_1_1FloatConst" ],
+      [ "IntegerConst", "classevir_1_1IntegerConst.html", "classevir_1_1IntegerConst" ],
       [ "IRBuilder", "classevir_1_1IRBuilder.html", "classevir_1_1IRBuilder" ],
-      [ "ListValue", "classevir_1_1ListValue.html", "classevir_1_1ListValue" ],
-      [ "MapValue", "classevir_1_1MapValue.html", "classevir_1_1MapValue" ],
+      [ "MapConst", "classevir_1_1MapConst.html", "classevir_1_1MapConst" ],
       [ "Metadata", "classevir_1_1Metadata.html", "classevir_1_1Metadata" ],
       [ "Module", "classevir_1_1Module.html", "classevir_1_1Module" ],
-      [ "Object", "classevir_1_1Object.html", "classevir_1_1Object" ],
-      [ "OptionValue", "classevir_1_1OptionValue.html", "classevir_1_1OptionValue" ],
-      [ "ReferenceValue", "classevir_1_1ReferenceValue.html", "classevir_1_1ReferenceValue" ],
-      [ "StringValue", "classevir_1_1StringValue.html", "classevir_1_1StringValue" ],
+      [ "Reference", "classevir_1_1Reference.html", null ],
+      [ "User", "classevir_1_1User.html", "classevir_1_1User" ],
       [ "Value", "classevir_1_1Value.html", "classevir_1_1Value" ]
     ] ]
 ];

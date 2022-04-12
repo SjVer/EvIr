@@ -29,7 +29,7 @@ var classevir_1_1Metadata =
       [ "META_DEBUG", "classevir_1_1Metadata.html#a95a8bbc45933abb2efc8a25972e27d5baaf1fc29999b24aab0e1b44f45a7e08b9", null ],
       [ "META_CUSTOM", "classevir_1_1Metadata.html#a95a8bbc45933abb2efc8a25972e27d5bacf006a02fadcd158c073c8d75627569c", null ]
     ] ],
-    [ "Metadata", "classevir_1_1Metadata.html#a145b68fd380c206a272983c7be03a5cc", null ],
-    [ "Metadata", "classevir_1_1Metadata.html#a6dd2f73e63f123fe7f4e6dbcea66c7fb", null ],
+    [ "Metadata", "classevir_1_1Metadata.html#a44c083489375a4593b311ee591f0d7ec", null ],
+    [ "Metadata", "classevir_1_1Metadata.html#a527eb97d65ed04dbc3928ab007cad0ee", null ],
     [ "generate_ir", "classevir_1_1Metadata.html#ab8b6fc9bc47d7f1e8260c250ecbff96f", null ]
 ];
