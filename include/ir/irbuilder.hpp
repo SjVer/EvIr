@@ -1,8 +1,8 @@
-//===---------- ir/irbuilder.hpp --- C++ --------===
+//===---------- ir/irbuilder.hpp --- C++ ---------===
 // This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
 // For more info see https://github.com/SjVer/EvIr
-//===--------------------------------------------===
+//===---------------------------------------------===
 
 #ifndef EVIR_IR_IRBUILDER_H
 #define EVIR_IR_IRBUILDER_H

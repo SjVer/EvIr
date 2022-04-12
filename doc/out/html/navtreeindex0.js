@@ -2,7 +2,7 @@ var NAVTREEINDEX0 =
 {
 ".html":[0,0,0],
 "annotated.html":[0,0],
-"basicblock_8hpp_source.html":[1,0,0,0,0],
+"basicblock_8hpp_source.html":[1,0,0,0,1],
 "classes.html":[0,1],
 "classevir_1_1FloatValue.html":[0,0,0,0],
 "classevir_1_1FloatValue.html#a15fa49462955f59082b7b1381c3867a7":[0,0,0,0,2],
@@ -83,7 +83,8 @@ var NAVTREEINDEX0 =
 "classevir_1_1Value.html#a3e7e5bc634fd5bba528324076fe2a763":[0,0,0,10,0],
 "dir_45e6f8f5dcd21a88a37c78d1bb277139.html":[1,0,0,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
-"expression_8hpp_source.html":[1,0,0,0,1],
+"dir_da77e26d3984bc029cfbee555c35be15.html":[1,0,0,0,0],
+"expression_8hpp_source.html":[1,0,0,0,2],
 "files.html":[1,0],
 "functions.html":[0,3,0],
 "functions_enum.html":[0,3,3],
@@ -92,11 +93,11 @@ var NAVTREEINDEX0 =
 "functions_type.html":[0,3,2],
 "hierarchy.html":[0,2],
 "index.html":[],
-"instruction_8hpp_source.html":[1,0,0,0,2],
-"irbuilder_8hpp_source.html":[1,0,0,0,3],
-"metadata_8hpp_source.html":[1,0,0,0,4],
-"module_8hpp_source.html":[1,0,0,0,5],
+"instruction_8hpp_source.html":[1,0,0,0,3],
+"irbuilder_8hpp_source.html":[1,0,0,0,4],
+"metadata_8hpp_source.html":[1,0,0,0,5],
+"module_8hpp_source.html":[1,0,0,0,6],
 "pages.html":[],
-"type_8hpp_source.html":[1,0,0,0,6],
-"value_8hpp_source.html":[1,0,0,0,7]
+"type_8hpp_source.html":[1,0,0,0,7],
+"value_8hpp_source.html":[1,0,0,0,0,0]
 };

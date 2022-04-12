@@ -1,4 +1,4 @@
-//===---------- ir/value.hpp --- C++ -----------===
+//===---------- ir/value.hpp --- C++ ------------===
 // This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
 // For more info see https://github.com/SjVer/EvIr
@@ -80,7 +80,7 @@ public:
 	#pragma endregion
 
 	/// Generates the IR for the value
-	/// @return the IR as a string (without newline)
+	/// @return the IR as a string (without a newline)
 	virtual string generate_ir(const char* format = nullptr) = 0;
 };
 

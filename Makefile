@@ -19,7 +19,7 @@ LDFLAGS = -shared #`$(LLVMFLAGS) --ldflags --system-libs --libs`
 # Makefile settings - Can be customized.
 APPNAME = libeviir.so
 EXT = .cpp
-SRCDIR = src
+SRCDIR = lib
 HEADERDIR = include
 BINDIR = bin
 OBJDIR = $(BINDIR)/obj
@@ -30,9 +30,13 @@ OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 APP = $(BINDIR)/$(APPNAME)
 DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
 
-PCH = .base_pch.hpp
-PCHFLAGS = $(CXXFLAGS) $(addprefix -x c++-header $(HEADERDIR)/,$(PCH))
-INC_PCH_FLAG = -include-pch $(addsuffix .gch,$(addprefix $(HEADERDIR)/,$(PCH)))
+
+PCHS = .base_pch.hpp
+PCH_OUT_DIR = $(BINDIR)/pch
+PCH_SRC = $(addprefix $(HEADERDIR)/,$(PCHS))
+PCH_OUT = $(PCH_SRC:$(HEADERDIR)/%=$(PCH_OUT_DIR)/%.gch)
+PCHFLAGS = $(CXXFLAGS) -x c++-header
+INC_PCH_FLAG = $(addprefix -include-pch ,$(PCH_OUT))
 
 DEBUGDEFS = -DDEBUG -ggdb
 
@@ -60,9 +64,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT) | makedirs
 	@printf "\b\b done!\n"
 	$(eval OBJCOUNT = $(filter-out $(word 1,$(OBJCOUNT)),$(OBJCOUNT)))
 
-pchs: $(addprefix $(HEADERDIR)/,$(PCH))
-	@printf "[pch] compiling $(PCH)..."
-	@$(CC) $(PCHFLAGS)
+pchs: $(PCH_OUT)
+$(PCH_OUT_DIR)/%.gch: $(HEADERDIR)/% | makedirs
+	@printf "[pchs] compiling $(notdir $<)..."
+	@$(CC) $(PCHFLAGS) $^ -o $@
 	@printf "\b\b done!\n"
 
 ############################################################################
@@ -77,6 +82,7 @@ makedirs:
 	@$(MKDIR) -p $(BINDIR)
 	@$(MKDIR) -p $(OBJDIR)
 	@$(MKDIR) -p $(OBJDIR)/ir
+	@$(MKDIR) -p $(PCH_OUT_DIR)
 
 .PHONY: remake
 remake: clean $(APP)

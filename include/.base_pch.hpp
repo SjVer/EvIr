@@ -1,5 +1,5 @@
-#ifndef EVIIR__BASE_PCH_H
-#define EVIIR__BASE_PCH_H
+#ifndef EVIR__BASE_PCH_H
+#define EVIR__BASE_PCH_H
 
 #include <iostream>
 #include <sstream>
@@ -9,4 +9,4 @@
 
 #include <csignal>
 
-#endif // EVIIR__BASE_PCH_H
+#endif // EVIR__BASE_PCH_H

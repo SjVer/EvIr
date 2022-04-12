@@ -46,13 +46,6 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .RI "string \fBgenerate_ir\fP ()"
 .br
 .in -1c
-.SS "Friends"
-
-.in +1c
-.ti -1c
-.RI "class \fBMetadata\fP"
-.br
-.in -1c
 .SH "Detailed Description"
 .PP 
 A Class representing a single stand-alone IR module\&. 
@@ -87,7 +80,7 @@ Adds metadata to the module
 .PP
 \fBWarning:\fP
 .RS 4
-if the module already has metadata with the same path 
+if the module already has metadata with the same path the function will abort 
 .RE
 .PP
 
@@ -170,7 +163,7 @@ Sets a metadata property with the given path
 .PP
 \fBWarning:\fP
 .RS 4
-if the module doesn't have metadata with the given path 
+if the module doesn't have metadata with the given path the function will abort 
 .RE
 .PP
 
@@ -186,7 +179,7 @@ Sets a metadata property with the built-in type
 .PP
 \fBWarning:\fP
 .RS 4
-if the module doesn't have metadata with the given type 
+if the module doesn't have metadata with the given type the function will abort 
 .RE
 .PP
 

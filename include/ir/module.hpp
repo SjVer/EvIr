@@ -53,19 +53,19 @@ public:
 
 	/// Adds metadata to the module
 	/// @param mdata the metadata to add
-	/// @warning if the module already has metadata with the same path
+	/// @warning if the module already has metadata with the same path the function will abort
 	void add_metadata(Metadata* mdata);
 
 	/// Sets a metadata property with the given path
 	/// @param path the path of the metadata property
 	/// @param value the value to set the property to
-	/// @warning if the module doesn't have metadata with the given path
+	/// @warning if the module doesn't have metadata with the given path the function will abort
 	void set_metadata(Metadata::path path, Value* value);
 
 	/// Sets a metadata property with the built-in type
 	/// @param type the type of the metadata property
 	/// @param value the value to set the property to
-	/// @warning if the module doesn't have metadata with the given type
+	/// @warning if the module doesn't have metadata with the given type the function will abort
 	void set_metadata(Metadata::builtin_property_type type, Value* value);
 
 	/// Gets the requested metadata property
