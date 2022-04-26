@@ -143,8 +143,8 @@ debug-no-fold: debug
 git:
 	git add --all
 	git commit -m $$(test "$(msg)" && echo '$(msg)' || echo upload)
-	git push origin gh-pages
-	git push origin HEAD
+	git push origin main
+	git push origin gh-pages -f
 	
 newfile:
 	@test $(name) || ( echo "basename not given! ('make newfile name=BASENAME')"; false )
