@@ -1,5 +1,5 @@
-#include "ir/user/user.hpp"
-#include "ir/comment.hpp"
+#include "evir/ir/user/user.hpp"
+#include "evir/ir/comment.hpp"
 
 using namespace evir;
 
@@ -18,9 +18,7 @@ String User::generate_props_comment()
 		}
 
 		// built-in properties
-		comment << '(';
 		comment << (is_defined() ? "defined" : "declared");
-		comment << ')';
 
 		return generate_ir_comment(comment.str());
 	}

@@ -12,6 +12,8 @@
 namespace evir {
 
 class BasicBlock;
+class Function;
+class Module;
 
 class BranchInst;
 class StorageInst;
@@ -20,6 +22,11 @@ class DeclarationInst;
 class Instruction
 {
 protected:
+
+	friend class IRBuilder;
+	friend class Module;
+	friend class BasicBlock;
+
 	/// @cond
 	
 	BasicBlock* parent;
@@ -37,7 +44,9 @@ protected:
 
 	static const char ir_prefix;
 	static const char* ir_name;
-	#define _INST_IR_START (String() + ir_prefix + ir_name + ' ')
+	#define __EVIR_INST_IR_START (String() + ir_prefix + ir_name + ' ')
+
+	virtual void resolve() = 0;
 
 	/// @endcond
 public:
@@ -58,8 +67,14 @@ public:
 	#undef IS_INST_METHOD
 	#pragma endregion
 
+	/// Gets the instruction's parent block
 	BasicBlock* get_parent() const { return parent; }
-	// Module* get_module() const {}
+
+	/// Gets the instruction's parent block's function
+	Function* get_function() const;
+
+	/// Gets the instruction's parent block's function's module
+	Module* get_module() const;
 
 	virtual bool is_terminator() const = 0;
 

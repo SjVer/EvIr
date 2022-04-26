@@ -1,5 +1,5 @@
-#include "ir/value/value.hpp"
-#include "ir/metadata/mdvalue.hpp"
+#include "evir/ir/value/value.hpp"
+#include "evir/ir/metadata/mdvalue.hpp"
 
 using namespace evir;
 

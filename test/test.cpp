@@ -1,5 +1,5 @@
-#include "ir/irbuilder.hpp"
-#include <iostream>
+#include <evir/ir/irbuilder.hpp>
+#include <fstream>
 
 using namespace evir;
 
@@ -44,7 +44,8 @@ int main()
 
 	// puts
 	{
-		FunctionType* functype = new FunctionType(new IntegerType(false, 8), {});
+		Type* bytetype = new IntegerType(false, 8);
+		FunctionType* functype = new FunctionType(bytetype, { bytetype->get_pointer_to(2) });
 		Function* func = module->get_or_insert_function(functype, "puts");
 		func->add_property("nonstatic");
 	}
@@ -56,11 +57,21 @@ int main()
 		func->add_property("nonstatic");
 
 		BasicBlock* bentry = new BasicBlock("entry");
-		func->append_block(bentry);
-
 		BasicBlock* b0 = new BasicBlock();
-		b0->add_predecessor(bentry);
+		func->append_block(bentry);
 		func->append_block(b0);
+
+		/*entry*/ {
+			builder->set_block(bentry);
+			Value* cond = new FloatConst(0.0); // new Reference();
+			builder->create_condbr(cond, b0);
+			builder->create_ret(new IntegerConst(1));
+		}
+
+		/*b0*/ {
+			builder->set_block(b0);
+			builder->create_ret(new IntegerConst(0));
+		}
 	}
 
 	// main
@@ -71,27 +82,36 @@ int main()
 		func->add_property("nonstatic");
 
 		BasicBlock* bentry = new BasicBlock("entry");
+		BasicBlock* b0 = new BasicBlock();
+		BasicBlock* b1 = new BasicBlock();
 		func->append_block(bentry);
-		{
+		func->append_block(b0);
+		func->append_block(b1);
+
+		/*entry*/ {
 			builder->set_block(bentry);
-			builder->create_ret(new FloatConst(0));
+			Value* cond = new IntegerConst(0);
+			builder->create_condbr(cond, b0, b1);
 		}
 
-		BasicBlock* b0 = new BasicBlock();
-		b0->add_predecessor(bentry);
-		func->append_block(b0);
+		/*b0*/ {
+		builder->set_block(b0);
+		builder->create_ret(new IntegerConst(0));
+		}
 
-		BasicBlock* b1 = new BasicBlock();
-		b1->add_predecessor(bentry);
-		b1->add_predecessor(b0);
-		func->append_block(b1);
+		/*b1*/ {
+			builder->set_block(b1);
+			builder->create_ret(new IntegerConst(1));
+		}
 
 		module->add_metadata(Metadata::MD_MODULE_ENTRYPOINT, (MDIRValue*)(new Reference(func)));
 	}
 
 	#pragma endregion
 
-	std::cout << module->generate_ir();
+	std::ofstream s("test/out.evir");
+	s << module->generate_ir();
+	s.close();
 
 	return 0;
 }

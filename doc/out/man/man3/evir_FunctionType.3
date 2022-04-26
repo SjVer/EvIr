@@ -18,6 +18,9 @@ Inherits \fBevir::Type\fP\&.
 .RI "\fBFunctionType\fP (\fBType\fP *return_type, Vector< \fBType\fP * > params)"
 .br
 .ti -1c
+.RI "bool \fBoperator==\fP (const \fBType\fP &rhs)"
+.br
+.ti -1c
 .RI "String \fBgenerate_ir\fP ()"
 .br
 .in -1c
@@ -37,6 +40,10 @@ Generates the IR for the type
 the IR as a string (without a newline) 
 .RE
 .PP
+
+.PP
+Implements \fBevir::Type\fP\&.
+.SS "bool evir::FunctionType::operator== (const \fBType\fP & rhs)\fC [virtual]\fP"
 
 .PP
 Implements \fBevir::Type\fP\&.

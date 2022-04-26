@@ -18,8 +18,7 @@ puts i.u.8 (i.u.8**)
 ; props: nonstatic, defined
 iseven i.u.1 (f.32)
 	#entry ->	@_0 i.s.32 $mod %0 2
-				@_1 i.u.1 $cmpnz %_0 
-				~condbr %_1 &0				; dests: 0
+				~condbr $cmpnz %_0 &0		; dests: 0
 				~ret 1						; from: iseven
 
 	; preds: entry

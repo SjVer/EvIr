@@ -3,6 +3,8 @@ var hierarchy =
     [ "evir::BasicBlock", "classevir_1_1BasicBlock.html", null ],
     [ "evir::Instruction", "classevir_1_1Instruction.html", [
       [ "evir::BranchInst", "classevir_1_1BranchInst.html", [
+        [ "evir::BrInst", "classevir_1_1BrInst.html", null ],
+        [ "evir::CondBrInst", "classevir_1_1CondBrInst.html", null ],
         [ "evir::RetInst", "classevir_1_1RetInst.html", null ]
       ] ]
     ] ],

@@ -115,7 +115,7 @@ test: $(APP)
 	@printf ">>> COMPILING "
 	$(CC) -I$(HEADERDIR) test/test.cpp -o $(BINDIR)/test -L$(BINDIR) -levir
 	@printf ">>> RUNNING "
-	bin/test > test/out.evir
+	bin/test
 	@printf ">>> DONE "
 	cat test/out.evir
 

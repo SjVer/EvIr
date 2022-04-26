@@ -26,6 +26,15 @@ Inherited by \fBevir::BranchInst\fP\&.
 .ti -1c
 .RI "\fBBasicBlock\fP * \fBget_parent\fP () const"
 .br
+.RI "Gets the instruction's parent block\&. "
+.ti -1c
+.RI "\fBFunction\fP * \fBget_function\fP () const"
+.br
+.RI "Gets the instruction's parent block's function\&. "
+.ti -1c
+.RI "\fBModule\fP * \fBget_module\fP () const"
+.br
+.RI "Gets the instruction's parent block's function's module\&. "
 .ti -1c
 .RI "virtual bool \fBis_terminator\fP () const =0"
 .br
@@ -45,7 +54,7 @@ the IR as a string (with a newline)
 .PP
 
 .PP
-Implemented in \fBevir::RetInst\fP, and \fBevir::BranchInst\fP\&.
+Implemented in \fBevir::RetInst\fP, \fBevir::BrInst\fP, \fBevir::CondBrInst\fP, and \fBevir::BranchInst\fP\&.
 
 .SH "Author"
 .PP 

@@ -12,6 +12,8 @@
 
 namespace evir {
 
+class Module;
+
 class User
 {
 	friend class Module;
@@ -22,12 +24,16 @@ protected:
 	Type* type;
 	Vector<String> properties;
 
+	Module* parent;
+
 	String generate_props_comment();
 
 public:
 
 	/// Gets the name of the user
 	String get_name() { return name; };
+
+	Module* get_parent() const { return parent; }
 
 	/// Adds a property to the user
 	void add_property(String property) { properties.push_back(property); }

@@ -2,11 +2,12 @@
 \label{classevir_1_1Instruction}\index{evir::Instruction@{evir::Instruction}}
 
 
-Inheritance diagram for evir\+::Instruction\+:\nopagebreak
+Inheritance diagram for evir\+::Instruction\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=173pt]{classevir_1_1Instruction__inherit__graph}
+\includegraphics[width=350pt]{classevir_1_1Instruction__inherit__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -26,7 +27,13 @@ bool {\bfseries is\+\_\+condbr\+\_\+inst} () const
 \item 
 \mbox{\Hypertarget{classevir_1_1Instruction_a6278cbf130241ad4a928aa586d3e2180}\label{classevir_1_1Instruction_a6278cbf130241ad4a928aa586d3e2180}} 
 \mbox{\hyperlink{classevir_1_1BasicBlock}{Basic\+Block}} $\ast$ {\bfseries get\+\_\+parent} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the instruction\textquotesingle{}s parent block. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1Instruction_a2cefdbc21adc5defed0d27e645f58ca7}\label{classevir_1_1Instruction_a2cefdbc21adc5defed0d27e645f58ca7}} 
+\mbox{\hyperlink{classevir_1_1Function}{Function}} $\ast$ {\bfseries get\+\_\+function} () const
+\begin{DoxyCompactList}\small\item\em Gets the instruction\textquotesingle{}s parent block\textquotesingle{}s function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1Instruction_aeacb816b008c1f19df0313034e6031dc}\label{classevir_1_1Instruction_aeacb816b008c1f19df0313034e6031dc}} 
+\mbox{\hyperlink{classevir_1_1Module}{Module}} $\ast$ {\bfseries get\+\_\+module} () const
+\begin{DoxyCompactList}\small\item\em Gets the instruction\textquotesingle{}s parent block\textquotesingle{}s function\textquotesingle{}s module. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classevir_1_1Instruction_a847ca39c4bb40d8d799825119150c8ae}\label{classevir_1_1Instruction_a847ca39c4bb40d8d799825119150c8ae}} 
 virtual bool {\bfseries is\+\_\+terminator} () const =0
 \item 
@@ -46,7 +53,7 @@ the IR as a string (with a newline)
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classevir_1_1RetInst_a56a23c088e3c0dabed4c6459fc7c95b7}{evir\+::\+Ret\+Inst}}, and \mbox{\hyperlink{classevir_1_1BranchInst_adc5c60eff2e1f11df419e5dee4debc9d}{evir\+::\+Branch\+Inst}}.
+Implemented in \mbox{\hyperlink{classevir_1_1RetInst_a56a23c088e3c0dabed4c6459fc7c95b7}{evir\+::\+Ret\+Inst}}, \mbox{\hyperlink{classevir_1_1BrInst_ab29bfe468971e527fc217356d386b0da}{evir\+::\+Br\+Inst}}, \mbox{\hyperlink{classevir_1_1CondBrInst_a558fe2088f4c7b70007456e40b146de0}{evir\+::\+Cond\+Br\+Inst}}, and \mbox{\hyperlink{classevir_1_1BranchInst_adc5c60eff2e1f11df419e5dee4debc9d}{evir\+::\+Branch\+Inst}}.
 
 
 

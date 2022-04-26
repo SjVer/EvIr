@@ -48,6 +48,9 @@ public:
 		cn* create_##ln s { return (cn*)insert(new cn(__VA_ARGS__)); }
 
 	CREATE_INST(RetInst, ret, (Value* retval), retval);
+	CREATE_INST(BrInst, br, (BasicBlock* dest), dest);
+	CREATE_INST(CondBrInst, condbr, (Value* c, BasicBlock* td, BasicBlock* fd), c, td, fd);
+	CREATE_INST(CondBrInst, condbr, (Value* c, BasicBlock* td), c, td, nullptr);
 
 	#undef CREATE_INST
 	#pragma endregion

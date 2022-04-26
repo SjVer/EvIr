@@ -232,9 +232,9 @@ contexts:
     - match: \$(mul|div|sub|add|mod)
       scope: keyword.operator.arithmetic.evir
     - match: \$(ref|deref)
-      scope: keyword.operator.evir
+      scope: keyword.operator.pointer.evir
     - match: \$call
-      scope: keyword.call.evir
+      scope: keyword.operator.call.evir
 
   label-ref:
     - match: '&({{ident}}|{{number}})'

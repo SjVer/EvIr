@@ -1,5 +1,5 @@
-#include "ir/basicblock.hpp"
-#include "ir/comment.hpp"
+#include "evir/ir/basicblock.hpp"
+#include "evir/ir/comment.hpp"
 
 using namespace evir;
 
@@ -64,6 +64,7 @@ String BasicBlock::generate_ir()
 	for(auto i : instructions)
 	{
 		if(i != instructions.front()) stream << indent;
+		i->resolve();
 		stream << i->generate_ir();
 	}
 	if(instructions.size() == 0) stream << endl;

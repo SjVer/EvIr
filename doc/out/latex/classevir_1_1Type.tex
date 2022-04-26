@@ -21,6 +21,12 @@ Inheritance diagram for evir\+::Type\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classevir_1_1Type_a1b069e3a7cc481ed3d8a4808d0395db4}\label{classevir_1_1Type_a1b069e3a7cc481ed3d8a4808d0395db4}} 
+virtual bool {\bfseries operator==} (const \mbox{\hyperlink{classevir_1_1Type}{Type}} \&rhs)=0
+\item 
+\mbox{\Hypertarget{classevir_1_1Type_a725a7dcd9d1f33a71ff281519b2f0f59}\label{classevir_1_1Type_a725a7dcd9d1f33a71ff281519b2f0f59}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classevir_1_1Type}{Type}} \&rhs)
+\item 
 \mbox{\Hypertarget{classevir_1_1Type_ac9ca2514e6bd6ddc76b954202377c67b}\label{classevir_1_1Type_ac9ca2514e6bd6ddc76b954202377c67b}} 
 bool {\bfseries is\+\_\+integer\+\_\+type} ()
 \item 
@@ -33,8 +39,8 @@ bool {\bfseries is\+\_\+pointer\+\_\+type} ()
 \mbox{\Hypertarget{classevir_1_1Type_af9ffef7443a6df9018acc4c9c88862c7}\label{classevir_1_1Type_af9ffef7443a6df9018acc4c9c88862c7}} 
 bool {\bfseries is\+\_\+function\+\_\+type} ()
 \item 
-\mbox{\Hypertarget{classevir_1_1Type_afa772082a9d7ba72e71eb2d11d71dd99}\label{classevir_1_1Type_afa772082a9d7ba72e71eb2d11d71dd99}} 
-\mbox{\hyperlink{classevir_1_1PointerType}{Pointer\+Type}} $\ast$ {\bfseries get\+\_\+pointer\+\_\+to} ()
+\mbox{\Hypertarget{classevir_1_1Type_a695a872808fac9db85cd0b523bf9cf6f}\label{classevir_1_1Type_a695a872808fac9db85cd0b523bf9cf6f}} 
+\mbox{\hyperlink{classevir_1_1Type}{Type}} $\ast$ {\bfseries get\+\_\+pointer\+\_\+to} (uint depth=1)
 \begin{DoxyCompactList}\small\item\em Constructs a pointer to the the current instance\textquotesingle{}s type. \end{DoxyCompactList}\item 
 virtual String \mbox{\hyperlink{classevir_1_1Type_a64cc909abf597f3cb57387accec2dde6}{generate\+\_\+ir}} ()=0
 \end{DoxyCompactItemize}

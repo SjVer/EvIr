@@ -21,6 +21,9 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .br
 .RI "Constructs a new module\&. "
 .ti -1c
+.RI "String \fBget_name\fP ()"
+.br
+.ti -1c
 .RI "bool \fBhas_metadata\fP (\fBMetadata::Path\fP path)"
 .br
 .RI "Checks if the module has metadata with the given path\&. "
@@ -30,6 +33,10 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .RI "Checks if the module has metadata with the given type\&. "
 .ti -1c
 .RI "void \fBadd_metadata\fP (\fBMetadata\fP *mdata)"
+.br
+.RI "Adds metadata to the module\&. "
+.ti -1c
+.RI "void \fBadd_metadata\fP (\fBMetadata::BuiltinPropertyID\fP id, \fBMDValue\fP *value)"
 .br
 .RI "Adds metadata to the module\&. "
 .ti -1c
@@ -104,6 +111,24 @@ if the module already has metadata with the same path the function will abort
 .RE
 .PP
 
+.SS "void evir::Module::add_metadata (\fBMetadata::BuiltinPropertyID\fP id, \fBMDValue\fP * value)"
+
+.PP
+Adds metadata to the module\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP the id of the builtin property to add 
+.br
+\fIvalue\fP the value of the metadata 
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+if the module already has metadata with the same path the function will abort 
+.RE
+.PP
+
 .SS "String evir::Module::generate_ir ()"
 
 .PP
@@ -160,6 +185,30 @@ Gets the requested metadata property\&.
 \fBReturns\fP
 .RS 4
 a pointer to the metadata, or null if it isn't found 
+.RE
+.PP
+
+.SS "String evir::Module::get_name ()"
+
+.PP
+\fBReturns\fP
+.RS 4
+The name of the module if set properly, 
+.PP
+otherwise an empty string\&. 
+.RE
+.PP
+
+.SS "\fBFunction\fP * evir::Module::get_or_insert_function (\fBFunctionType\fP * type, String name)"
+
+.PP
+\fBReturns\fP
+.RS 4
+The function if it exists, or a new function 
+.PP
+if it doesn't\&. A nullptr is returned if a user 
+.PP
+with the same name exists with a different type\&. 
 .RE
 .PP
 

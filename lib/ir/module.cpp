@@ -1,7 +1,7 @@
-#include "ir/module.hpp"
-#include "ir/comment.hpp"
-#include "ir/value/constant.hpp"
-#include "ir/value/reference.hpp"
+#include "evir/ir/module.hpp"
+#include "evir/ir/comment.hpp"
+#include "evir/ir/value/constant.hpp"
+#include "evir/ir/value/reference.hpp"
 
 using namespace evir;
 

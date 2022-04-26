@@ -13,11 +13,11 @@ evir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 
 .in +1c
 .ti -1c
-.RI "enum \fBBuiltinPropertyID\fP { \fBMETA_MODULE_NAME\fP, \fBMETA_MODULE_ENTRYPOINT\fP, \fBMETA_MODULE_SOURCE_FILENAME\fP, \fBMETA_MODULE_SOURCE_DIRECTORY\fP, \fBMETA_MODULE_SOURCE_LANGUAGE\fP, \fBMETA_MODULE_PRODUCER_NAME\fP, \fBMETA_MODULE_PRODUCER_VERSION\fP, \fBMETA_MODULE_PRODUCER_TYPE\fP, \fBMETA_TARGET_TRIPLE\fP, \fBMETA_TARGET_CPU\fP, \fBMETA_TARGET_DATALAYOUT\fP, \fBMETA_TARGET_OPTIMIZATION\fP, \fBMETA_DEBUG_GENERATE\fP, \fBMETA_DEBUG_INCLUDESOURCE\fP, \fBMETA_DEBUG_SOURCELOCATION\fP, \fBMETA_DEBUG_SOURCECHECKSUM\fP, \fBMETA_DEBUG_DWARFVERSION\fP, \fBMETA_DEBUG_TYPENAMES\fP }"
+.RI "enum \fBBuiltinPropertyID\fP { \fBMD_MODULE_NAME\fP, \fBMD_MODULE_ENTRYPOINT\fP, \fBMD_MODULE_SOURCE_FILENAME\fP, \fBMD_MODULE_SOURCE_DIRECTORY\fP, \fBMD_MODULE_SOURCE_LANGUAGE\fP, \fBMD_MODULE_PRODUCER_NAME\fP, \fBMD_MODULE_PRODUCER_VERSION\fP, \fBMD_MODULE_PRODUCER_TYPE\fP, \fBMD_TARGET_TRIPLE\fP, \fBMD_TARGET_CPU\fP, \fBMD_TARGET_DATALAYOUT\fP, \fBMD_TARGET_OPTIMIZATION\fP, \fBMD_DEBUG_GENERATE\fP, \fBMD_DEBUG_INCLUDESOURCE\fP, \fBMD_DEBUG_SOURCELOCATION\fP, \fBMD_DEBUG_SOURCECHECKSUM\fP, \fBMD_DEBUG_DWARFVERSION\fP, \fBMD_DEBUG_TYPENAMES\fP }"
 .br
 .RI "built-in metadata property types "
 .ti -1c
-.RI "enum \fBCustomPropertyID\fP { \fBMETA_MODULE\fP, \fBMETA_MODULE_SOURCE\fP, \fBMETA_MODULE_PRODUCER\fP, \fBMETA_TARGET\fP, \fBMETA_DEBUG\fP, \fBMETA_CUSTOM\fP }"
+.RI "enum \fBCustomPropertyID\fP { \fBMD_MODULE\fP, \fBMD_MODULE_SOURCE\fP, \fBMD_MODULE_PRODUCER\fP, \fBMD_TARGET\fP, \fBMD_DEBUG\fP, \fBMD_CUSTOM\fP }"
 .br
 .RI "custom metadata property types "
 .ti -1c
@@ -64,58 +64,58 @@ built-in metadata property types Used by \fBMetadata::Metadata(BuiltinPropertyID
 \fBEnumerator\fP
 .in +1c
 .TP
-\fB\fIMETA_MODULE_NAME \fP\fP
+\fB\fIMD_MODULE_NAME \fP\fP
 metadata property path: \fC!module/name\fP 
 .TP
-\fB\fIMETA_MODULE_ENTRYPOINT \fP\fP
+\fB\fIMD_MODULE_ENTRYPOINT \fP\fP
 metadata property path: \fC!module/entrypoint\fP 
 .TP
-\fB\fIMETA_MODULE_SOURCE_FILENAME \fP\fP
+\fB\fIMD_MODULE_SOURCE_FILENAME \fP\fP
 metadata property path: \fC!module/source/filename\fP 
 .TP
-\fB\fIMETA_MODULE_SOURCE_DIRECTORY \fP\fP
+\fB\fIMD_MODULE_SOURCE_DIRECTORY \fP\fP
 metadata property path: \fC!module/source/directory\fP 
 .TP
-\fB\fIMETA_MODULE_SOURCE_LANGUAGE \fP\fP
+\fB\fIMD_MODULE_SOURCE_LANGUAGE \fP\fP
 metadata property path: \fC!module/source/language\fP 
 .TP
-\fB\fIMETA_MODULE_PRODUCER_NAME \fP\fP
+\fB\fIMD_MODULE_PRODUCER_NAME \fP\fP
 metadata property path: \fC!module/producer/name\fP 
 .TP
-\fB\fIMETA_MODULE_PRODUCER_VERSION \fP\fP
+\fB\fIMD_MODULE_PRODUCER_VERSION \fP\fP
 metadata property path: \fC!module/producer/version\fP 
 .TP
-\fB\fIMETA_MODULE_PRODUCER_TYPE \fP\fP
+\fB\fIMD_MODULE_PRODUCER_TYPE \fP\fP
 metadata property path: \fC!module/producer/type\fP 
 .TP
-\fB\fIMETA_TARGET_TRIPLE \fP\fP
+\fB\fIMD_TARGET_TRIPLE \fP\fP
 metadata property path: \fC!target/triple\fP 
 .TP
-\fB\fIMETA_TARGET_CPU \fP\fP
+\fB\fIMD_TARGET_CPU \fP\fP
 metadata property path: \fC!target/cpu\fP 
 .TP
-\fB\fIMETA_TARGET_DATALAYOUT \fP\fP
+\fB\fIMD_TARGET_DATALAYOUT \fP\fP
 metadata property path: \fC!target/datalayout\fP 
 .TP
-\fB\fIMETA_TARGET_OPTIMIZATION \fP\fP
+\fB\fIMD_TARGET_OPTIMIZATION \fP\fP
 metadata property path: \fC!target/optimization\fP 
 .TP
-\fB\fIMETA_DEBUG_GENERATE \fP\fP
+\fB\fIMD_DEBUG_GENERATE \fP\fP
 metadata property path: \fC!debug/generate\fP 
 .TP
-\fB\fIMETA_DEBUG_INCLUDESOURCE \fP\fP
+\fB\fIMD_DEBUG_INCLUDESOURCE \fP\fP
 metadata property path: \fC!debug/includesource\fP 
 .TP
-\fB\fIMETA_DEBUG_SOURCELOCATION \fP\fP
+\fB\fIMD_DEBUG_SOURCELOCATION \fP\fP
 metadata property path: \fC!debug/sourcelocation\fP 
 .TP
-\fB\fIMETA_DEBUG_SOURCECHECKSUM \fP\fP
+\fB\fIMD_DEBUG_SOURCECHECKSUM \fP\fP
 metadata property path: \fC!debug/sourcechecksum\fP 
 .TP
-\fB\fIMETA_DEBUG_DWARFVERSION \fP\fP
+\fB\fIMD_DEBUG_DWARFVERSION \fP\fP
 metadata property path: \fC!debug/dwarfversion\fP 
 .TP
-\fB\fIMETA_DEBUG_TYPENAMES \fP\fP
+\fB\fIMD_DEBUG_TYPENAMES \fP\fP
 metadata property path: \fC!debug/typenames\fP 
 .SS "enum \fBevir::Metadata::CustomPropertyID\fP"
 
@@ -125,22 +125,22 @@ custom metadata property types Used by \fBMetadata::Metadata(CustomPropertyID ty
 \fBEnumerator\fP
 .in +1c
 .TP
-\fB\fIMETA_MODULE \fP\fP
+\fB\fIMD_MODULE \fP\fP
 metadata property path: \fC!module/\&.\&.\&.\fP 
 .TP
-\fB\fIMETA_MODULE_SOURCE \fP\fP
+\fB\fIMD_MODULE_SOURCE \fP\fP
 metadata property path: \fC!module/source/\&.\&.\&.\fP 
 .TP
-\fB\fIMETA_MODULE_PRODUCER \fP\fP
+\fB\fIMD_MODULE_PRODUCER \fP\fP
 metadata property path: \fC!module/producer/\&.\&.\&.\fP 
 .TP
-\fB\fIMETA_TARGET \fP\fP
+\fB\fIMD_TARGET \fP\fP
 metadata property path: \fC!target/\&.\&.\&.\fP 
 .TP
-\fB\fIMETA_DEBUG \fP\fP
+\fB\fIMD_DEBUG \fP\fP
 metadata property path: \fC!debug/\&.\&.\&.\fP 
 .TP
-\fB\fIMETA_CUSTOM \fP\fP
+\fB\fIMD_CUSTOM \fP\fP
 metadata property path: \fC!\&.\&.\&.\fP 
 .SH "Constructor & Destructor Documentation"
 .PP 

@@ -12,25 +12,26 @@
 
 ; ================ module contents =================
 
-; props: nonstatic, (declared)
-puts i.u.8 ()
+; props: nonstatic, declared
+puts i.u.8 (i.u.8**)
 
-; props: nonstatic, (defined)
+; props: nonstatic, defined
 iseven i.u.1 (f.32)
-	#entry ->	
+	#entry ->	~condbr 0.0 &0
+				~ret 1
 
 	; preds: entry
-	#0 ->		
+	#0 ->		~ret 0
 
-; props: nonstatic, (defined)
+; props: nonstatic, defined
 main i.s.32 (i.s.32 i.u.8**)
-	#entry ->	~ret 0.0
+	#entry ->	~condbr 0 &0 &1
 
 	; preds: entry
-	#0 ->		
+	#0 ->		~ret 0
 
-	; preds: entry, 0
-	#1 ->		
+	; preds: entry
+	#1 ->		~ret 1
 
 ; ================ target metadata =================
 !target/triple "x86_64-pc-linux-gnu"

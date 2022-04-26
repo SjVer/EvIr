@@ -4,6 +4,8 @@ var annotated_dup =
       [ "ArrayConst", "classevir_1_1ArrayConst.html", "classevir_1_1ArrayConst" ],
       [ "BasicBlock", "classevir_1_1BasicBlock.html", "classevir_1_1BasicBlock" ],
       [ "BranchInst", "classevir_1_1BranchInst.html", "classevir_1_1BranchInst" ],
+      [ "BrInst", "classevir_1_1BrInst.html", "classevir_1_1BrInst" ],
+      [ "CondBrInst", "classevir_1_1CondBrInst.html", "classevir_1_1CondBrInst" ],
       [ "Constant", "classevir_1_1Constant.html", "classevir_1_1Constant" ],
       [ "FloatConst", "classevir_1_1FloatConst.html", "classevir_1_1FloatConst" ],
       [ "FloatType", "classevir_1_1FloatType.html", "classevir_1_1FloatType" ],

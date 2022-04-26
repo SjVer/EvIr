@@ -196,9 +196,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a243a2f1c7c2e066cf681391705c1487a"><td class="memItemLeft" align="right" valign="top"><a id="a243a2f1c7c2e066cf681391705c1487a" name="a243a2f1c7c2e066cf681391705c1487a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>FloatType</b> (uint64 bits_count)</td></tr>
 <tr class="separator:a243a2f1c7c2e066cf681391705c1487a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8867d74f81d41238fe9243a05b5bea60"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1FloatType.html#a8867d74f81d41238fe9243a05b5bea60">operator==</a> (const <a class="el" href="classevir_1_1Type.html">Type</a> &amp;rhs)</td></tr>
+<tr class="separator:a8867d74f81d41238fe9243a05b5bea60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac62359e31d5162ae50e4399735a5f206"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1FloatType.html#ac62359e31d5162ae50e4399735a5f206">generate_ir</a> ()</td></tr>
 <tr class="separator:ac62359e31d5162ae50e4399735a5f206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classevir_1_1Type"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classevir_1_1Type')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classevir_1_1Type.html">evir::Type</a></td></tr>
+<tr class="memitem:a1b069e3a7cc481ed3d8a4808d0395db4 inherit pub_methods_classevir_1_1Type"><td class="memItemLeft" align="right" valign="top"><a id="a1b069e3a7cc481ed3d8a4808d0395db4" name="a1b069e3a7cc481ed3d8a4808d0395db4"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classevir_1_1Type.html">Type</a> &amp;rhs)=0</td></tr>
+<tr class="separator:a1b069e3a7cc481ed3d8a4808d0395db4 inherit pub_methods_classevir_1_1Type"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725a7dcd9d1f33a71ff281519b2f0f59 inherit pub_methods_classevir_1_1Type"><td class="memItemLeft" align="right" valign="top"><a id="a725a7dcd9d1f33a71ff281519b2f0f59" name="a725a7dcd9d1f33a71ff281519b2f0f59"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classevir_1_1Type.html">Type</a> &amp;rhs)</td></tr>
+<tr class="separator:a725a7dcd9d1f33a71ff281519b2f0f59 inherit pub_methods_classevir_1_1Type"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ca2514e6bd6ddc76b954202377c67b inherit pub_methods_classevir_1_1Type"><td class="memItemLeft" align="right" valign="top"><a id="ac9ca2514e6bd6ddc76b954202377c67b" name="ac9ca2514e6bd6ddc76b954202377c67b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_integer_type</b> ()</td></tr>
 <tr class="separator:ac9ca2514e6bd6ddc76b954202377c67b inherit pub_methods_classevir_1_1Type"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,10 +219,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_pointer_type</b> (
 <tr class="memitem:af9ffef7443a6df9018acc4c9c88862c7 inherit pub_methods_classevir_1_1Type"><td class="memItemLeft" align="right" valign="top"><a id="af9ffef7443a6df9018acc4c9c88862c7" name="af9ffef7443a6df9018acc4c9c88862c7"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_function_type</b> ()</td></tr>
 <tr class="separator:af9ffef7443a6df9018acc4c9c88862c7 inherit pub_methods_classevir_1_1Type"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa772082a9d7ba72e71eb2d11d71dd99 inherit pub_methods_classevir_1_1Type"><td class="memItemLeft" align="right" valign="top"><a id="afa772082a9d7ba72e71eb2d11d71dd99" name="afa772082a9d7ba72e71eb2d11d71dd99"></a>
-<a class="el" href="classevir_1_1PointerType.html">PointerType</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to</b> ()</td></tr>
-<tr class="memdesc:afa772082a9d7ba72e71eb2d11d71dd99 inherit pub_methods_classevir_1_1Type"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a pointer to the the current instance's type. <br /></td></tr>
-<tr class="separator:afa772082a9d7ba72e71eb2d11d71dd99 inherit pub_methods_classevir_1_1Type"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695a872808fac9db85cd0b523bf9cf6f inherit pub_methods_classevir_1_1Type"><td class="memItemLeft" align="right" valign="top"><a id="a695a872808fac9db85cd0b523bf9cf6f" name="a695a872808fac9db85cd0b523bf9cf6f"></a>
+<a class="el" href="classevir_1_1Type.html">Type</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to</b> (uint depth=1)</td></tr>
+<tr class="memdesc:a695a872808fac9db85cd0b523bf9cf6f inherit pub_methods_classevir_1_1Type"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a pointer to the the current instance's type. <br /></td></tr>
+<tr class="separator:a695a872808fac9db85cd0b523bf9cf6f inherit pub_methods_classevir_1_1Type"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64cc909abf597f3cb57387accec2dde6 inherit pub_methods_classevir_1_1Type"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Type.html#a64cc909abf597f3cb57387accec2dde6">generate_ir</a> ()=0</td></tr>
 <tr class="separator:a64cc909abf597f3cb57387accec2dde6 inherit pub_methods_classevir_1_1Type"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -268,6 +276,34 @@ static <a class="el" href="classevir_1_1FunctionType.html">FunctionType</a> *&#1
 <p >Generates the IR for the type </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (without a newline) </dd></dl>
 
 <p>Implements <a class="el" href="classevir_1_1Type.html#a64cc909abf597f3cb57387accec2dde6">evir::Type</a>.</p>
+
+</div>
+</div>
+<a id="a8867d74f81d41238fe9243a05b5bea60" name="a8867d74f81d41238fe9243a05b5bea60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8867d74f81d41238fe9243a05b5bea60">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool evir::FloatType::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classevir_1_1Type.html">Type</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classevir_1_1Type.html">evir::Type</a>.</p>
 
 </div>
 </div>

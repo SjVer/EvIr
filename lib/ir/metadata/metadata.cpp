@@ -1,5 +1,5 @@
-#include "ir/metadata/metadata.hpp"
-#include "ir/module.hpp"
+#include "evir/ir/metadata/metadata.hpp"
+#include "evir/ir/module.hpp"
 
 using namespace evir;
 

@@ -162,7 +162,8 @@ $(document).ready(function(){initNavTree('classevir_1_1Instruction.html',''); in
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1Instruction__inherit__graph.svg" width="135" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1Instruction__inherit__graph.svg" width="382" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -181,7 +182,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_condbr_inst</b> ()
 <tr class="separator:a8f0a93ff9c8f9adfcb9ca5afc7342504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6278cbf130241ad4a928aa586d3e2180"><td class="memItemLeft" align="right" valign="top"><a id="a6278cbf130241ad4a928aa586d3e2180" name="a6278cbf130241ad4a928aa586d3e2180"></a>
 <a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_parent</b> () const</td></tr>
+<tr class="memdesc:a6278cbf130241ad4a928aa586d3e2180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the instruction's parent block. <br /></td></tr>
 <tr class="separator:a6278cbf130241ad4a928aa586d3e2180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cefdbc21adc5defed0d27e645f58ca7"><td class="memItemLeft" align="right" valign="top"><a id="a2cefdbc21adc5defed0d27e645f58ca7" name="a2cefdbc21adc5defed0d27e645f58ca7"></a>
+<a class="el" href="classevir_1_1Function.html">Function</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_function</b> () const</td></tr>
+<tr class="memdesc:a2cefdbc21adc5defed0d27e645f58ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the instruction's parent block's function. <br /></td></tr>
+<tr class="separator:a2cefdbc21adc5defed0d27e645f58ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeacb816b008c1f19df0313034e6031dc"><td class="memItemLeft" align="right" valign="top"><a id="aeacb816b008c1f19df0313034e6031dc" name="aeacb816b008c1f19df0313034e6031dc"></a>
+<a class="el" href="classevir_1_1Module.html">Module</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_module</b> () const</td></tr>
+<tr class="memdesc:aeacb816b008c1f19df0313034e6031dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the instruction's parent block's function's module. <br /></td></tr>
+<tr class="separator:aeacb816b008c1f19df0313034e6031dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a847ca39c4bb40d8d799825119150c8ae"><td class="memItemLeft" align="right" valign="top"><a id="a847ca39c4bb40d8d799825119150c8ae" name="a847ca39c4bb40d8d799825119150c8ae"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_terminator</b> () const =0</td></tr>
 <tr class="separator:a847ca39c4bb40d8d799825119150c8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,7 +223,7 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_terminator
 </div><div class="memdoc">
 <p >Generates the IR for the instruction </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (with a newline) </dd></dl>
 
-<p>Implemented in <a class="el" href="classevir_1_1RetInst.html#a56a23c088e3c0dabed4c6459fc7c95b7">evir::RetInst</a>, and <a class="el" href="classevir_1_1BranchInst.html#adc5c60eff2e1f11df419e5dee4debc9d">evir::BranchInst</a>.</p>
+<p>Implemented in <a class="el" href="classevir_1_1RetInst.html#a56a23c088e3c0dabed4c6459fc7c95b7">evir::RetInst</a>, <a class="el" href="classevir_1_1BrInst.html#ab29bfe468971e527fc217356d386b0da">evir::BrInst</a>, <a class="el" href="classevir_1_1CondBrInst.html#a558fe2088f4c7b70007456e40b146de0">evir::CondBrInst</a>, and <a class="el" href="classevir_1_1BranchInst.html#adc5c60eff2e1f11df419e5dee4debc9d">evir::BranchInst</a>.</p>
 
 </div>
 </div>

@@ -15,6 +15,12 @@ Inherited by \fBevir::FloatType\fP, \fBevir::FunctionType\fP, \fBevir::IntegerTy
 
 .in +1c
 .ti -1c
+.RI "virtual bool \fBoperator==\fP (const \fBType\fP &rhs)=0"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBType\fP &rhs)"
+.br
+.ti -1c
 .RI "bool \fBis_integer_type\fP ()"
 .br
 .ti -1c
@@ -27,7 +33,7 @@ Inherited by \fBevir::FloatType\fP, \fBevir::FunctionType\fP, \fBevir::IntegerTy
 .RI "bool \fBis_function_type\fP ()"
 .br
 .ti -1c
-.RI "\fBPointerType\fP * \fBget_pointer_to\fP ()"
+.RI "\fBType\fP * \fBget_pointer_to\fP (uint depth=1)"
 .br
 .RI "Constructs a pointer to the the current instance's type\&. "
 .ti -1c

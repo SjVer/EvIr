@@ -44,15 +44,18 @@
 \DoxyCodeLine{48 \textcolor{preprocessor}{        cn* create\_\#\#ln s \{ return (cn*)insert(new cn(\_\_VA\_ARGS\_\_)); \}}}
 \DoxyCodeLine{49 }
 \DoxyCodeLine{50     CREATE\_INST(\mbox{\hyperlink{classevir_1_1RetInst}{RetInst}}, ret, (\mbox{\hyperlink{classevir_1_1Value}{Value}}* retval), retval);}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52 \textcolor{preprocessor}{    \#undef CREATE\_INST}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{51     CREATE\_INST(\mbox{\hyperlink{classevir_1_1BrInst}{BrInst}}, br, (\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* dest), dest);}
+\DoxyCodeLine{52     CREATE\_INST(\mbox{\hyperlink{classevir_1_1CondBrInst}{CondBrInst}}, condbr, (\mbox{\hyperlink{classevir_1_1Value}{Value}}* c, \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* td, \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* fd), c, td, fd);}
+\DoxyCodeLine{53     CREATE\_INST(\mbox{\hyperlink{classevir_1_1CondBrInst}{CondBrInst}}, condbr, (\mbox{\hyperlink{classevir_1_1Value}{Value}}* c, \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* td), c, td, \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{54 }
-\DoxyCodeLine{55 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{56 \};}
+\DoxyCodeLine{55 \textcolor{preprocessor}{    \#undef CREATE\_INST}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{    \#pragma endregion}}
 \DoxyCodeLine{57 }
-\DoxyCodeLine{58 \}}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
 
 \end{DoxyCode}
