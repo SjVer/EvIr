@@ -12,16 +12,46 @@ A class for creating and managing instructions.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classevir_1_1IRBuilder_a3d72af25adcae919d694d7bd4017e9ed}\label{classevir_1_1IRBuilder_a3d72af25adcae919d694d7bd4017e9ed}} 
-{\bfseries IRBuilder} ()
-\begin{DoxyCompactList}\small\item\em Constructs a new IR Builder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{classevir_1_1IRBuilder_a79c49dc7bb1ec09d6388714b1dc19eb3}{IRBuilder}} (\mbox{\hyperlink{classevir_1_1BasicBlock}{Basic\+Block}} $\ast$bblock=nullptr)
+\item 
+\mbox{\Hypertarget{classevir_1_1IRBuilder_aca52b8dafdfc1f60a0c9f37dbf002010}\label{classevir_1_1IRBuilder_aca52b8dafdfc1f60a0c9f37dbf002010}} 
+\mbox{\hyperlink{classevir_1_1BasicBlock}{Basic\+Block}} $\ast$ {\bfseries get\+\_\+block} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1IRBuilder_add8a0c9b9e0a3b4ac471b6b7de521217}\label{classevir_1_1IRBuilder_add8a0c9b9e0a3b4ac471b6b7de521217}} 
+void {\bfseries set\+\_\+block} (\mbox{\hyperlink{classevir_1_1BasicBlock}{Basic\+Block}} $\ast$new\+\_\+block)
+\item 
+\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}} $\ast$ \mbox{\hyperlink{classevir_1_1IRBuilder_a9664eeea12d080024150f22d15419950}{insert}} (\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}} $\ast$inst)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A class for creating and managing instructions. 
 
-Instructions will be inserted in a \mbox{\hyperlink{}{Basic\+Block}}. ~\newline
+Instructions will be inserted in a \mbox{\hyperlink{classevir_1_1BasicBlock}{Basic\+Block}}. ~\newline
 Note that this API does not fully expose the uses of instructions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classevir_1_1IRBuilder_a79c49dc7bb1ec09d6388714b1dc19eb3}\label{classevir_1_1IRBuilder_a79c49dc7bb1ec09d6388714b1dc19eb3}} 
+\index{evir::IRBuilder@{evir::IRBuilder}!IRBuilder@{IRBuilder}}
+\index{IRBuilder@{IRBuilder}!evir::IRBuilder@{evir::IRBuilder}}
+\doxysubsubsection{\texorpdfstring{IRBuilder()}{IRBuilder()}}
+{\footnotesize\ttfamily evir\+::\+IRBuilder\+::\+IRBuilder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1BasicBlock}{Basic\+Block}} $\ast$}]{bblock = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+Constructs a new IR Builder 
+\begin{DoxyParams}{Parameters}
+{\em bblock} & a block to start appending instructions to \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevir_1_1IRBuilder_a9664eeea12d080024150f22d15419950}\label{classevir_1_1IRBuilder_a9664eeea12d080024150f22d15419950}} 
+\index{evir::IRBuilder@{evir::IRBuilder}!insert@{insert}}
+\index{insert@{insert}!evir::IRBuilder@{evir::IRBuilder}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevir_1_1Instruction}{Instruction}} $\ast$ evir\+::\+IRBuilder\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}} $\ast$}]{inst }\end{DoxyParamCaption})}
+
+Inserts the given instruction at the end of the current \mbox{\hyperlink{classevir_1_1BasicBlock}{Basic\+Block}} and returns it. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

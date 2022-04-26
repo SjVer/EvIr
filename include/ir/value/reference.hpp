@@ -1,14 +1,15 @@
-//===--- ir/object/reference.hpp -------- C++ ---===
+//===--- ir/value/reference.hpp --------- C++ ---===
 // This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-#ifndef EVIR_IR_OBJECT_REFERENCE_H
-#define EVIR_IR_OBJECT_REFERENCE_H
+#ifndef EVIR_IR_VALUE_REFERENCE_H
+#define EVIR_IR_VALUE_REFERENCE_H
 
 #include ".common.hpp"
 #include "ir/value/value.hpp"
+#include "ir/user/user.hpp"
 
 namespace evir {
 
@@ -18,17 +19,17 @@ protected:
 	/// @cond
 
 	static const ValueType value_type = VALUE_REFERENCE;
+	User* user;
 
 	/// @endcond
 public:
 
-	#pragma region Constructors
+	Reference(User* user = nullptr): user(user) {}
 
-	
-
-	#pragma endregion
+	/// @copydoc Value::generate_ir()
+	String generate_ir();
 };
 
 };
 
-#endif // EVIR_IR_OBJECT_REFERENCE_H
+#endif // EVIR_IR_VALUE_REFERENCE_H

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['floatconst_0',['FloatConst',['../classevir_1_1FloatConst.html',1,'evir']]]
+  ['constant_0',['Constant',['../classevir_1_1Constant.html',1,'evir']]]
 ];

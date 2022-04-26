@@ -165,16 +165,67 @@ $(document).ready(function(){initNavTree('classevir_1_1IRBuilder.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3d72af25adcae919d694d7bd4017e9ed"><td class="memItemLeft" align="right" valign="top"><a id="a3d72af25adcae919d694d7bd4017e9ed" name="a3d72af25adcae919d694d7bd4017e9ed"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IRBuilder</b> ()</td></tr>
-<tr class="memdesc:a3d72af25adcae919d694d7bd4017e9ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new IR Builder. <br /></td></tr>
-<tr class="separator:a3d72af25adcae919d694d7bd4017e9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79c49dc7bb1ec09d6388714b1dc19eb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1IRBuilder.html#a79c49dc7bb1ec09d6388714b1dc19eb3">IRBuilder</a> (<a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> *bblock=nullptr)</td></tr>
+<tr class="separator:a79c49dc7bb1ec09d6388714b1dc19eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca52b8dafdfc1f60a0c9f37dbf002010"><td class="memItemLeft" align="right" valign="top"><a id="aca52b8dafdfc1f60a0c9f37dbf002010" name="aca52b8dafdfc1f60a0c9f37dbf002010"></a>
+<a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_block</b> ()</td></tr>
+<tr class="separator:aca52b8dafdfc1f60a0c9f37dbf002010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add8a0c9b9e0a3b4ac471b6b7de521217"><td class="memItemLeft" align="right" valign="top"><a id="add8a0c9b9e0a3b4ac471b6b7de521217" name="add8a0c9b9e0a3b4ac471b6b7de521217"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_block</b> (<a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> *new_block)</td></tr>
+<tr class="separator:add8a0c9b9e0a3b4ac471b6b7de521217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9664eeea12d080024150f22d15419950"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classevir_1_1Instruction.html">Instruction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1IRBuilder.html#a9664eeea12d080024150f22d15419950">insert</a> (<a class="el" href="classevir_1_1Instruction.html">Instruction</a> *inst)</td></tr>
+<tr class="separator:a9664eeea12d080024150f22d15419950"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class for creating and managing instructions. </p>
-<p >Instructions will be inserted in a <a class="el" href="">BasicBlock</a>. <br  />
+<p >Instructions will be inserted in a <a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a>. <br  />
 Note that this API does not fully expose the uses of instructions. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a79c49dc7bb1ec09d6388714b1dc19eb3" name="a79c49dc7bb1ec09d6388714b1dc19eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79c49dc7bb1ec09d6388714b1dc19eb3">&#9670;&nbsp;</a></span>IRBuilder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">evir::IRBuilder::IRBuilder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> *&#160;</td>
+          <td class="paramname"><em>bblock</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Constructs a new IR Builder </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bblock</td><td>a block to start appending instructions to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9664eeea12d080024150f22d15419950" name="a9664eeea12d080024150f22d15419950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9664eeea12d080024150f22d15419950">&#9670;&nbsp;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classevir_1_1Instruction.html">Instruction</a> * evir::IRBuilder::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classevir_1_1Instruction.html">Instruction</a> *&#160;</td>
+          <td class="paramname"><em>inst</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Inserts the given instruction at the end of the current <a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> and returns it. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/ir/<a class="el" href="irbuilder_8hpp_source.html">irbuilder.hpp</a></li>
 </ul>
 </div><!-- contents -->

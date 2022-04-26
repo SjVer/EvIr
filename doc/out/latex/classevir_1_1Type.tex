@@ -1,0 +1,79 @@
+\hypertarget{classevir_1_1Type}{}\doxysection{evir\+::Type Class Reference}
+\label{classevir_1_1Type}\index{evir::Type@{evir::Type}}
+
+
+The interface for types.  
+
+
+
+
+{\ttfamily \#include $<$include/ir/type.\+hpp$>$}
+
+
+
+Inheritance diagram for evir\+::Type\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classevir_1_1Type__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classevir_1_1Type_ac9ca2514e6bd6ddc76b954202377c67b}\label{classevir_1_1Type_ac9ca2514e6bd6ddc76b954202377c67b}} 
+bool {\bfseries is\+\_\+integer\+\_\+type} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Type_a8b3e24937bd0956655994a759d567603}\label{classevir_1_1Type_a8b3e24937bd0956655994a759d567603}} 
+bool {\bfseries is\+\_\+float\+\_\+type} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Type_a3ac9573b103a86853aee5b39c07a9048}\label{classevir_1_1Type_a3ac9573b103a86853aee5b39c07a9048}} 
+bool {\bfseries is\+\_\+pointer\+\_\+type} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Type_af9ffef7443a6df9018acc4c9c88862c7}\label{classevir_1_1Type_af9ffef7443a6df9018acc4c9c88862c7}} 
+bool {\bfseries is\+\_\+function\+\_\+type} ()
+\item 
+\mbox{\Hypertarget{classevir_1_1Type_afa772082a9d7ba72e71eb2d11d71dd99}\label{classevir_1_1Type_afa772082a9d7ba72e71eb2d11d71dd99}} 
+\mbox{\hyperlink{classevir_1_1PointerType}{Pointer\+Type}} $\ast$ {\bfseries get\+\_\+pointer\+\_\+to} ()
+\begin{DoxyCompactList}\small\item\em Constructs a pointer to the the current instance\textquotesingle{}s type. \end{DoxyCompactList}\item 
+virtual String \mbox{\hyperlink{classevir_1_1Type_a64cc909abf597f3cb57387accec2dde6}{generate\+\_\+ir}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classevir_1_1Type_a7cf023b7354665ee6f0b9c000f60d485}\label{classevir_1_1Type_a7cf023b7354665ee6f0b9c000f60d485}} 
+static \mbox{\hyperlink{classevir_1_1IntegerType}{Integer\+Type}} $\ast$ {\bfseries get\+\_\+integer\+\_\+type} (bool is\+\_\+signed, uint64 bits\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classevir_1_1IntegerType}{Integer\+Type}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1Type_ae418ecd96a07fac45b331e6d7578967a}\label{classevir_1_1Type_ae418ecd96a07fac45b331e6d7578967a}} 
+static \mbox{\hyperlink{classevir_1_1FloatType}{Float\+Type}} $\ast$ {\bfseries get\+\_\+float\+\_\+type} (uint64 bits\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classevir_1_1FloatType}{Float\+Type}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1Type_add3b7450558318fa259dad231077428f}\label{classevir_1_1Type_add3b7450558318fa259dad231077428f}} 
+static \mbox{\hyperlink{classevir_1_1PointerType}{Pointer\+Type}} $\ast$ {\bfseries get\+\_\+pointer\+\_\+type} (\mbox{\hyperlink{classevir_1_1Type}{Type}} $\ast$subtype)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classevir_1_1PointerType}{Pointer\+Type}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classevir_1_1Type_a8681a9d79bdb78f2d43f3fa127fd1ba9}\label{classevir_1_1Type_a8681a9d79bdb78f2d43f3fa127fd1ba9}} 
+static \mbox{\hyperlink{classevir_1_1FunctionType}{Function\+Type}} $\ast$ {\bfseries get\+\_\+function\+\_\+type} (\mbox{\hyperlink{classevir_1_1Type}{Type}} $\ast$return\+\_\+type, Vector$<$ \mbox{\hyperlink{classevir_1_1Type}{Type}} $\ast$ $>$ params)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classevir_1_1FunctionType}{Function\+Type}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The interface for types. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classevir_1_1Type_a64cc909abf597f3cb57387accec2dde6}\label{classevir_1_1Type_a64cc909abf597f3cb57387accec2dde6}} 
+\index{evir::Type@{evir::Type}!generate\_ir@{generate\_ir}}
+\index{generate\_ir@{generate\_ir}!evir::Type@{evir::Type}}
+\doxysubsubsection{\texorpdfstring{generate\_ir()}{generate\_ir()}}
+{\footnotesize\ttfamily virtual String evir\+::\+Type\+::generate\+\_\+ir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Generates the IR for the type \begin{DoxyReturn}{Returns}
+the IR as a string (without a newline) 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classevir_1_1IntegerType_afc19ea269321a0b6eb5f0e00ce8b3aa8}{evir\+::\+Integer\+Type}}, \mbox{\hyperlink{classevir_1_1FloatType_ac62359e31d5162ae50e4399735a5f206}{evir\+::\+Float\+Type}}, \mbox{\hyperlink{classevir_1_1PointerType_a5240ba4837883dda2d36c0038f33f720}{evir\+::\+Pointer\+Type}}, and \mbox{\hyperlink{classevir_1_1FunctionType_a620e0378477eafbc65e49565a6fcdcc5}{evir\+::\+Function\+Type}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ir/type.\+hpp\end{DoxyCompactItemize}

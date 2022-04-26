@@ -1,4 +1,4 @@
-.TH "evir::Module" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Module" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,7 +21,7 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .br
 .RI "Checks if the module has metadata with the given path\&. "
 .ti -1c
-.RI "bool \fBhas_metadata\fP (\fBMetadata::BuiltinPropertyType\fP type)"
+.RI "bool \fBhas_metadata\fP (\fBMetadata::BuiltinPropertyID\fP type)"
 .br
 .RI "Checks if the module has metadata with the given type\&. "
 .ti -1c
@@ -29,11 +29,11 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .br
 .RI "Adds metadata to the module\&. "
 .ti -1c
-.RI "void \fBset_metadata\fP (\fBMetadata::Path\fP path, \fBValue\fP *value)"
+.RI "void \fBset_metadata\fP (\fBMetadata::Path\fP path, \fBMDValue\fP *value)"
 .br
 .RI "Sets a metadata property with the given path\&. "
 .ti -1c
-.RI "void \fBset_metadata\fP (\fBMetadata::BuiltinPropertyType\fP type, \fBValue\fP *value)"
+.RI "void \fBset_metadata\fP (\fBMetadata::BuiltinPropertyID\fP type, \fBMDValue\fP *value)"
 .br
 .RI "Sets a metadata property with the built-in type\&. "
 .ti -1c
@@ -41,13 +41,12 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .br
 .RI "Gets the requested metadata property\&. "
 .ti -1c
-.RI "\fBMetadata\fP * \fBget_metadata\fP (\fBMetadata::BuiltinPropertyType\fP type)"
+.RI "\fBMetadata\fP * \fBget_metadata\fP (\fBMetadata::BuiltinPropertyID\fP type)"
 .br
 .RI "Gets the requested metadata property\&. "
 .ti -1c
-.RI "String \fBgenerate_ir_comment\fP (String text, bool header=false)"
+.RI "\fBFunction\fP * \fBinsert_function\fP (\fBFunctionType\fP *type, String name)"
 .br
-.RI "Generates an IR comment\&. "
 .ti -1c
 .RI "String \fBgenerate_metadata_ir\fP (bool before_contents)"
 .br
@@ -63,9 +62,9 @@ A Class representing a single stand-alone IR module\&.
 
 Has the following metadata by default:
 .IP "\(bu" 2
-\fBMetadata::BuiltinPropertyType\fP::\fCMETA_MODULE_NAME\fP
+\fBMetadata::BuiltinPropertyID\fP::\fCMETA_MODULE_NAME\fP
 .IP "\(bu" 2
-\fBMetadata::BuiltinPropertyType\fP::\fCMETA_MODULE_ENTRYPOINT\fP 
+\fBMetadata::BuiltinPropertyID\fP::\fCMETA_MODULE_ENTRYPOINT\fP 
 .br
  
 .PP
@@ -112,24 +111,6 @@ the IR as a string (with newline)
 .RE
 .PP
 
-.SS "String evir::Module::generate_ir_comment (String text, bool header = \fCfalse\fP)"
-
-.PP
-Generates an IR comment\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fItext\fP the text of the comment 
-.br
-\fIheader\fP if true, the comment is formatted as a header comment 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-the IR as a string (with newline) 
-.RE
-.PP
-
 .SS "String evir::Module::generate_metadata_ir (bool before_contents)"
 
 .PP
@@ -146,7 +127,7 @@ the IR as a string (with newline)
 .RE
 .PP
 
-.SS "\fBMetadata\fP * evir::Module::get_metadata (\fBMetadata::BuiltinPropertyType\fP type)"
+.SS "\fBMetadata\fP * evir::Module::get_metadata (\fBMetadata::BuiltinPropertyID\fP type)"
 
 .PP
 Gets the requested metadata property\&. 
@@ -178,7 +159,7 @@ a pointer to the metadata, or null if it isn't found
 .RE
 .PP
 
-.SS "void evir::Module::set_metadata (\fBMetadata::BuiltinPropertyType\fP type, \fBValue\fP * value)"
+.SS "void evir::Module::set_metadata (\fBMetadata::BuiltinPropertyID\fP type, \fBMDValue\fP * value)"
 
 .PP
 Sets a metadata property with the built-in type\&. 
@@ -196,7 +177,7 @@ if the module doesn't have metadata with the given type the function will abort
 .RE
 .PP
 
-.SS "void evir::Module::set_metadata (\fBMetadata::Path\fP path, \fBValue\fP * value)"
+.SS "void evir::Module::set_metadata (\fBMetadata::Path\fP path, \fBMDValue\fP * value)"
 
 .PP
 Sets a metadata property with the given path\&. 

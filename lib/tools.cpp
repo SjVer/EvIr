@@ -1,4 +1,4 @@
-#include "tools.hpp"
+#include ".tools_pch.hpp"
 
 #include <cassert>
 #include <cstdarg>
@@ -8,6 +8,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <regex>
 
 #include <errno.h>
 #include <string.h>
@@ -257,4 +258,11 @@ void tools::writef(string path, string text)
     
     file_out << text;
     file_out.close();
+}
+
+
+// checks if str is an ident
+bool tools::is_ident(string str)
+{
+    return regex_match(str.c_str(), regex("[a-zA-Z_][a-zA-Z0-9_]*"));
 }

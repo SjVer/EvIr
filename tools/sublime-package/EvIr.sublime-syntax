@@ -3,7 +3,7 @@
 ---
 
 name: EvIr
-file_extensions: .evir]
+file_extensions: [evir]
 fileTypes: [.evir]
 scope: source.evir
 
@@ -19,7 +19,7 @@ variables:
 
   # types
   inttype: i\.(s|u)\.[0-9]+
-  floattype: f\.(1|2)\.[0-9]+
+  floattype: f\.(64|32|16)
   voidtype: v
   type: '(?:{{inttype}}|{{floattype}}|{{voidtype}})\**'
 

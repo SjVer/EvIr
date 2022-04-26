@@ -154,14 +154,14 @@ $(document).ready(function(){initNavTree('constant_8hpp_source.html',''); initRe
   <div class="headertitle"><div class="title">constant.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===--- ir/object/value.hpp --- C++ ------------===</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===--- ir/value/constant.hpp ---------- C++ ---===</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// This header is part of the EvIr library</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// MIT License - Sjoerd Vermeulen (2022)</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// For more info see https://github.com/SjVer/EvIr</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//===--------------------------------------------===</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_OBJECT_CONSTANT_H</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_OBJECT_CONSTANT_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_VALUE_CONSTANT_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_VALUE_CONSTANT_H</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;.common.hpp&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;ir/value/value.hpp&quot;</span></div>
@@ -173,93 +173,86 @@ $(document).ready(function(){initNavTree('constant_8hpp_source.html',''); initRe
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">class </span>FloatConst;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span>ArrayConst;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span>MapConst;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span>ReferenceConst;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Constant.html">Constant</a> : <span class="keyword">public</span> <a class="code hl_class" href="classevir_1_1Value.html">Value</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">static</span> <span class="keyword">const</span> ValueType value_type = VALUE_CONSTANT;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">enum</span> ConstantType</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        CONSTANT_INTEGER,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        CONSTANT_FLOAT,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        CONSTANT_ARRAY,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        CONSTANT_MAP,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        CONSTANT_REFERENCE,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Constant.html">Constant</a> : <span class="keyword">public</span> <a class="code hl_class" href="classevir_1_1Value.html">Value</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">static</span> <span class="keyword">const</span> ValueType value_type = VALUE_CONSTANT;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">enum</span> ConstantType</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        CONSTANT_INTEGER,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        CONSTANT_FLOAT,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        CONSTANT_ARRAY,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        CONSTANT_MAP,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        CONSTANT_none</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    } constant_type = CONSTANT_none;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        CONSTANT_none</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    } constant_type = CONSTANT_none;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">    #pragma region Constructors</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    #define SIMPLE_CONSTANT_CONTRUCTOR(classname, lowercasename, membertype, membername) \</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">        static classname* new_##lowercasename(membertype membername);</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a7aa32c29753dbec174bd30f6e6768dfb">   50</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1IntegerConst.html">IntegerConst</a>, integer, int64, value);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a7dd99883f6905e56f389c4de51963023">   54</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1FloatConst.html">FloatConst</a>, <span class="keywordtype">float</span>, float2, value);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a80c5b42594f02fa6f9d978cc388115cc">   58</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a>, array, Vector&lt;Value*&gt;, elements);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#ab4274ebce66b1224fea917450e207714">   62</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1MapConst.html">MapConst</a>, map, Map&lt;Value* COMMA Value*&gt;, pairs);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">    #pragma region Constructors</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">    #define SIMPLE_CONSTANT_CONTRUCTOR(classname, lowercasename, membertype, membername) \</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">        static classname* new_##lowercasename(membertype membername);</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a7aa32c29753dbec174bd30f6e6768dfb">   47</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1IntegerConst.html">IntegerConst</a>, integer, int64, value);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a7dd99883f6905e56f389c4de51963023">   51</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1FloatConst.html">FloatConst</a>, <span class="keywordtype">float</span>, float2, value);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a80c5b42594f02fa6f9d978cc388115cc">   55</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a>, array, Vector&lt;Value*&gt;, elements);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#ab4274ebce66b1224fea917450e207714">   59</a></span>    SIMPLE_CONSTANT_CONTRUCTOR(<a class="code hl_class" href="classevir_1_1MapConst.html">MapConst</a>, map, Map&lt;Value* COMMA Value*&gt;, pairs);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">    #undef SIMPLE_CONSTANT_CONTRUCTOR</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">    #pragma endregion</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">// /// Constructs a new reference constant</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// /// @param name the name of the reference</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// SIMPLE_CONSTANT_CONTRUCTOR(ReferenceConst, reference, Reference*, user = nullptr);</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">    #pragma region Constant type checkers</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">    #define IS_TYPE_METHOD(typename, type) \</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">        bool is_##typename() { return constant_type == CONSTANT_##type; }</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">    #undef SIMPLE_CONSTANT_CONTRUCTOR</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    #pragma endregion</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#ad6f3fa5a15bf6571be559fb7ecdf9cd9">   69</a></span>    IS_TYPE_METHOD(integer, INTEGER);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">    #pragma region Constant type checkers</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">    #define IS_TYPE_METHOD(typename, type) \</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">        bool is_##typename() { return constant_type == CONSTANT_##type; }</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    IS_TYPE_METHOD(integer, INTEGER);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    IS_TYPE_METHOD(<span class="keywordtype">float</span>, FLOAT);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    IS_TYPE_METHOD(array, ARRAY);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    IS_TYPE_METHOD(map, MAP);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    IS_TYPE_METHOD(reference, REFERENCE);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">    #undef IS_TYPE_METHOD</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">    #pragma endregion</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#aea953e1692da45dace87b6d805658526">   86</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1Constant.html#aea953e1692da45dace87b6d805658526">generate_ir</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* format = <span class="keyword">nullptr</span>) = 0;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#pragma region Constant subclasses</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#define MEMBERS(type) \</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">    private: static const ConstantType constant_type = CONSTANT_##type; \</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">    public: String generate_ir(const char* format = nullptr);</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#define SIMPLE_CONSTANT(name, valuetype, membertype, membername) \</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">    class name : public Constant { MEMBERS(valuetype); \</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">    name(membertype membername): membername(membername) {}; membertype membername; }</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classevir_1_1IntegerConst.html#a19228480aab618619e705d17f10e1d77">   97</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1IntegerConst.html">IntegerConst</a>, INTEGER, int64, value);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classevir_1_1FloatConst.html#a38b2063c1ccc0f343db04f2ffa358e88">   98</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1FloatConst.html">FloatConst</a>, FLOAT, float2, value);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classevir_1_1ArrayConst.html#a0a32da9baf63dcf951cc00699da13078">  100</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a>, ARRAY, Vector&lt;Value*&gt;, elements);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classevir_1_1MapConst.html#ae85e1b01c33fa6cb44b9f6b07713ebd6">  101</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1MapConst.html">MapConst</a>, MAP, Map&lt;Value* COMMA Value*&gt;, pairs);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">// SIMPLE_VALUE(ReferenceConst, REFERENCE, Reference*, user);</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#af8938a8db7ef7fa8c5cc5ba08ae915fc">   72</a></span>    IS_TYPE_METHOD(<span class="keywordtype">float</span>, FLOAT);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a1b0e5ef62e19dc5d4f48f730dfe3f855">   75</a></span>    IS_TYPE_METHOD(array, ARRAY);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a0bf52ae8ed22a002e8b794e7eca4f2d5">   78</a></span>    IS_TYPE_METHOD(map, MAP);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">    #undef IS_TYPE_METHOD</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">    #pragma endregion</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classevir_1_1Constant.html#a4bea194f5dc43097d05be87b612207b2">   84</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1Constant.html#a4bea194f5dc43097d05be87b612207b2">generate_ir</a>() = 0;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#pragma region Constant subclasses</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#define MEMBERS(type) \</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">    private: static const ConstantType constant_type = type; \</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">    public: String generate_ir();</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#define SIMPLE_CONSTANT(name, valuetype, membertype, membername) \</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">    class name : public Constant { MEMBERS(valuetype); \</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">    name(membertype membername): membername(membername) {}; membertype membername; }</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classevir_1_1IntegerConst.html#abf27724d0c0badb5fd729a516909e223">   95</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1IntegerConst.html">IntegerConst</a>,   CONSTANT_INTEGER,   int64, value);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classevir_1_1FloatConst.html#aa5d18a32d650b513b7ef33e3a53b9d6e">   96</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1FloatConst.html">FloatConst</a>,     CONSTANT_FLOAT,     float2, value);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classevir_1_1ArrayConst.html#a9d513b4116c04a0b85ac697f1c461227">   98</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a>,     CONSTANT_ARRAY,     Vector&lt;Value*&gt;, elements);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classevir_1_1MapConst.html#a9957a3b8abb93685c9447c4b04406f64">   99</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1MapConst.html">MapConst</a>,       CONSTANT_MAP,       Map&lt;Value* COMMA Value*&gt;, pairs);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#undef MEMBERS</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#undef SIMPLE_CONSTANT</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#undef MEMBERS</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#undef SIMPLE_CONSTANT</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_OBJECT_CONSTANT_H</span></div>
-<div class="ttc" id="aclassevir_1_1ArrayConst_html"><div class="ttname"><a href="classevir_1_1ArrayConst.html">evir::ArrayConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:100</div></div>
-<div class="ttc" id="aclassevir_1_1Constant_html"><div class="ttname"><a href="classevir_1_1Constant.html">evir::Constant</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:23</div></div>
-<div class="ttc" id="aclassevir_1_1Constant_html_aea953e1692da45dace87b6d805658526"><div class="ttname"><a href="classevir_1_1Constant.html#aea953e1692da45dace87b6d805658526">evir::Constant::generate_ir</a></div><div class="ttdeci">virtual String generate_ir(const char *format=nullptr)=0</div></div>
-<div class="ttc" id="aclassevir_1_1FloatConst_html"><div class="ttname"><a href="classevir_1_1FloatConst.html">evir::FloatConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:98</div></div>
-<div class="ttc" id="aclassevir_1_1IntegerConst_html"><div class="ttname"><a href="classevir_1_1IntegerConst.html">evir::IntegerConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:97</div></div>
-<div class="ttc" id="aclassevir_1_1MapConst_html"><div class="ttname"><a href="classevir_1_1MapConst.html">evir::MapConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:101</div></div>
-<div class="ttc" id="aclassevir_1_1Value_html"><div class="ttname"><a href="classevir_1_1Value.html">evir::Value</a></div><div class="ttdef"><b>Definition:</b> value.hpp:15</div></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_VALUE_CONSTANT_H</span></div>
+<div class="ttc" id="aclassevir_1_1ArrayConst_html"><div class="ttname"><a href="classevir_1_1ArrayConst.html">evir::ArrayConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:98</div></div>
+<div class="ttc" id="aclassevir_1_1Constant_html"><div class="ttname"><a href="classevir_1_1Constant.html">evir::Constant</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:22</div></div>
+<div class="ttc" id="aclassevir_1_1Constant_html_a4bea194f5dc43097d05be87b612207b2"><div class="ttname"><a href="classevir_1_1Constant.html#a4bea194f5dc43097d05be87b612207b2">evir::Constant::generate_ir</a></div><div class="ttdeci">virtual String generate_ir()=0</div></div>
+<div class="ttc" id="aclassevir_1_1FloatConst_html"><div class="ttname"><a href="classevir_1_1FloatConst.html">evir::FloatConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:96</div></div>
+<div class="ttc" id="aclassevir_1_1IntegerConst_html"><div class="ttname"><a href="classevir_1_1IntegerConst.html">evir::IntegerConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:95</div></div>
+<div class="ttc" id="aclassevir_1_1MapConst_html"><div class="ttname"><a href="classevir_1_1MapConst.html">evir::MapConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:99</div></div>
+<div class="ttc" id="aclassevir_1_1Value_html"><div class="ttname"><a href="classevir_1_1Value.html">evir::Value</a></div><div class="ttdef"><b>Definition:</b> value.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

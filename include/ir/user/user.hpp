@@ -1,0 +1,40 @@
+//===--- ir/user/user.hpp --------------- C++ ---===
+// This header is part of the EvIr library
+// MIT License - Sjoerd Vermeulen (2022)
+// For more info see https://github.com/SjVer/EvIr
+//===--------------------------------------------===
+
+#ifndef EVIR_IR_USER_USER_H
+#define EVIR_IR_USER_USER_H
+
+#include ".common.hpp"
+#include "ir/type.hpp"
+
+namespace evir {
+
+class User
+{
+protected:
+
+	String name;
+	Type* type;
+	Vector<String> properties;
+
+	String generate_props_comment();
+
+public:
+
+	/// Gets the name of the user
+	String get_name() { return name; };
+
+	/// Adds a property to the user
+	void add_property(String property) { properties.push_back(property); }
+
+	/// Generates the IR for the user
+	/// @return the IR as a string (without a newline)
+	virtual String generate_ir() = 0;
+};
+
+}
+
+#endif // EVIR_IR_USER_USER_H

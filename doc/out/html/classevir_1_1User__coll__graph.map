@@ -1,4 +1,6 @@
 <map id="evir::User" name="evir::User">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,91,107"/>
-<area shape="rect" id="node2" title=" " alt="" coords="16,5,80,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="90,95,175,121"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,65,32"/>
+<area shape="rect" id="node3" href="$classevir_1_1Type.html" title="The interface for types." alt="" coords="90,5,175,32"/>
+<area shape="rect" id="node4" title=" " alt="" coords="199,5,330,32"/>
 </map>

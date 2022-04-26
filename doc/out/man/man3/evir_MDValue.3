@@ -1,0 +1,40 @@
+.TH "evir::MDValue" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+evir::MDValue \- A Class representing a value used by metadata\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <include/ir/metadata/mdvalue\&.hpp>\fP
+.PP
+Inherited by \fBevir::MDArrayValue\fP, \fBevir::MDHexValue\fP, \fBevir::MDIRValue\fP, \fBevir::MDMapValue\fP, \fBevir::MDOptionValue\fP, \fBevir::MDStringValue\fP, and \fBevir::MDTypeValue\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual String \fBgenerate_ir\fP ()=0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A Class representing a value used by metadata\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual String evir::MDValue::generate_ir ()\fC [pure virtual]\fP"
+Generates the IR for the value 
+.PP
+\fBReturns\fP
+.RS 4
+the IR as a string (without a newline) 
+.RE
+.PP
+
+.PP
+Implemented in \fBevir::MDHexValue\fP, \fBevir::MDStringValue\fP, \fBevir::MDArrayValue\fP, \fBevir::MDMapValue\fP, \fBevir::MDOptionValue\fP, \fBevir::MDTypeValue\fP, and \fBevir::MDIRValue\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EvIr from the source code\&.

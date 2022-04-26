@@ -1,4 +1,4 @@
-.TH "evir::Value" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Value" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -24,12 +24,16 @@ Inherited by \fBevir::Constant\fP, \fBevir::Operator\fP, and \fBevir::Reference\
 .br
 .RI "returns \fCtrue\fP if this is an instance of \fBReference\fP "
 .ti -1c
-.RI "virtual String \fBgenerate_ir\fP (const char *format=nullptr)=0"
+.RI "virtual String \fBgenerate_ir\fP ()=0"
 .br
+.ti -1c
+.RI "\fBoperator MDIRValue\fP ()"
+.br
+.RI "Constructs a MDIRValue using this instance\&. "
 .in -1c
 .SH "Member Function Documentation"
 .PP 
-.SS "virtual String evir::Value::generate_ir (const char * format = \fCnullptr\fP)\fC [pure virtual]\fP"
+.SS "virtual String evir::Value::generate_ir ()\fC [pure virtual]\fP"
 Generates the IR for the value 
 .PP
 \fBReturns\fP
@@ -39,7 +43,7 @@ the IR as a string (without a newline)
 .PP
 
 .PP
-Implemented in \fBevir::IntegerConst\fP, \fBevir::FloatConst\fP, \fBevir::ArrayConst\fP, \fBevir::MapConst\fP, and \fBevir::Constant\fP\&.
+Implemented in \fBevir::IntegerConst\fP, \fBevir::FloatConst\fP, \fBevir::ArrayConst\fP, \fBevir::MapConst\fP, \fBevir::Reference\fP, and \fBevir::Constant\fP\&.
 
 .SH "Author"
 .PP 

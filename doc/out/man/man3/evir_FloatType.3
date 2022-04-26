@@ -1,0 +1,54 @@
+.TH "evir::FloatType" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+evir::FloatType \- An abritrary-width float type\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <include/ir/type\&.hpp>\fP
+.PP
+Inherits \fBevir::Type\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBHALF\fP, \fBFLOAT\fP, \fBDOUBLE\fP }"
+.br
+.RI "Accepted bitwidths\&. "
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFloatType\fP (uint64 bits_count)"
+.br
+.ti -1c
+.RI "String \fBgenerate_ir\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+An abritrary-width float type\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "String evir::FloatType::generate_ir ()\fC [virtual]\fP"
+
+.PP
+Generates the IR for the type 
+.PP
+\fBReturns\fP
+.RS 4
+the IR as a string (without a newline) 
+.RE
+.PP
+
+.PP
+Implements \fBevir::Type\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for EvIr from the source code\&.

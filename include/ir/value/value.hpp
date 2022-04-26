@@ -1,15 +1,17 @@
-//===--- ir/object/value.hpp ------------ C++ ---===
+//===--- ir/value/value.hpp ------------- C++ ---===
 // This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-#ifndef EVIR_IR_OBJECT_VALUE_H
-#define EVIR_IR_OBJECT_VALUE_H
+#ifndef EVIR_IR_VALUE_VALUE_H
+#define EVIR_IR_VALUE_VALUE_H
 
 #include ".common.hpp"
 
 namespace evir {
+
+class MDIRValue;
 
 class Value
 {
@@ -28,7 +30,7 @@ protected:
 	/// @endcond
 public:
 
-	#pragma region Object type checks
+	#pragma region Value type checks
 	#define IS_TYPE_METHOD(typename, type) \
 		bool is_##typename() { return value_type == VALUE_##type; }
 
@@ -46,9 +48,12 @@ public:
 
 	/// Generates the IR for the value
 	/// @return the IR as a string (without a newline)
-	virtual String generate_ir(const char* format = nullptr) = 0;
+	virtual String generate_ir() = 0;
+
+	/// Constructs a MDIRValue using this instance
+	operator MDIRValue();
 };
 
 }
 
-#endif // EVIR_IR_OBJECT_VALUE_H
+#endif // EVIR_IR_VALUE_VALUE_H

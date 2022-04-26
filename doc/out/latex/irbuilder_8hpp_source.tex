@@ -13,21 +13,35 @@
 \DoxyCodeLine{9 }
 \DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
 \DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/module.hpp"{}}}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir}
-\DoxyCodeLine{14 \{}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}}}
-\DoxyCodeLine{21 \{}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23 \textcolor{keyword}{public}:}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{26     \mbox{\hyperlink{classevir_1_1IRBuilder_a3d72af25adcae919d694d7bd4017e9ed}{IRBuilder}}();}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}ir/basicblock.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }evir}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* bblock = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{28 \};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30 \}}
+\DoxyCodeLine{30     \mbox{\hyperlink{classevir_1_1IRBuilder_a79c49dc7bb1ec09d6388714b1dc19eb3}{IRBuilder}}(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* bblock = \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{31 }
-\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{    \#pragma region Management}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* get\_block() \{ \textcolor{keywordflow}{return} bblock; \}}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} set\_block(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* new\_block) \{ bblock = new\_block; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{    \#pragma region IR Manipulation}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{42     \mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}* \mbox{\hyperlink{classevir_1_1IRBuilder_a9664eeea12d080024150f22d15419950}{insert}}(\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}* inst);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
 
 \end{DoxyCode}

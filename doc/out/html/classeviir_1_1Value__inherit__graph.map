@@ -1,9 +1,0 @@
-<map id="eviir::Value" name="eviir::Value">
-<area shape="rect" id="node2" href="$classeviir_1_1FloatValue.html" title="eviir::FloatValue" alt="" coords="172,5,305,32"/>
-<area shape="rect" id="node3" href="$classeviir_1_1IntegerValue.html" title="eviir::IntegerValue" alt="" coords="164,56,313,83"/>
-<area shape="rect" id="node4" href="$classeviir_1_1ListValue.html" title="eviir::ListValue" alt="" coords="177,107,301,133"/>
-<area shape="rect" id="node5" href="$classeviir_1_1ObjectValue.html" title="eviir::ObjectValue" alt="" coords="167,157,310,184"/>
-<area shape="rect" id="node6" href="$classeviir_1_1OptionValue.html" title="eviir::OptionValue" alt="" coords="167,208,311,235"/>
-<area shape="rect" id="node7" href="$classeviir_1_1ReferenceValue.html" title="eviir::ReferenceValue" alt="" coords="155,259,323,285"/>
-<area shape="rect" id="node8" href="$classeviir_1_1StringValue.html" title="eviir::StringValue" alt="" coords="168,309,309,336"/>
-</map>

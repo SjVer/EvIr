@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reference_0',['Reference',['../classevir_1_1Reference.html',1,'evir']]]
+  ['operator_0',['Operator',['../classevir_1_1Operator.html',1,'evir']]]
 ];

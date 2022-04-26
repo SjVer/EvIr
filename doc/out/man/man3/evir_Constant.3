@@ -1,4 +1,4 @@
-.TH "evir::Constant" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Constant" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,20 +16,21 @@ Inherited by \fBevir::ArrayConst\fP, \fBevir::FloatConst\fP, \fBevir::IntegerCon
 .ti -1c
 .RI "bool \fBis_integer\fP ()"
 .br
+.RI "returns \fCtrue\fP if this is an instance of \fBIntegerConst\fP "
 .ti -1c
 .RI "bool \fBis_float\fP ()"
 .br
+.RI "returns \fCtrue\fP if this is an instance of \fBFloatConst\fP "
 .ti -1c
 .RI "bool \fBis_array\fP ()"
 .br
+.RI "returns \fCtrue\fP if this is an instance of \fBArrayConst\fP "
 .ti -1c
 .RI "bool \fBis_map\fP ()"
 .br
+.RI "returns \fCtrue\fP if this is an instance of \fBMapConst\fP "
 .ti -1c
-.RI "bool \fBis_reference\fP ()"
-.br
-.ti -1c
-.RI "virtual String \fBgenerate_ir\fP (const char *format=nullptr)=0"
+.RI "virtual String \fBgenerate_ir\fP ()=0"
 .br
 .in -1c
 .SS "Static Public Member Functions"
@@ -50,7 +51,9 @@ Inherited by \fBevir::ArrayConst\fP, \fBevir::FloatConst\fP, \fBevir::IntegerCon
 .in -1c
 .SH "Member Function Documentation"
 .PP 
-.SS "virtual String evir::Constant::generate_ir (const char * format = \fCnullptr\fP)\fC [pure virtual]\fP"
+.SS "virtual String evir::Constant::generate_ir ()\fC [pure virtual]\fP"
+
+.PP
 Generates the IR for the value 
 .PP
 \fBReturns\fP

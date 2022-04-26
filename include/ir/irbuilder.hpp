@@ -9,6 +9,7 @@
 
 #include ".common.hpp"
 #include "ir/module.hpp"
+#include "ir/basicblock.hpp"
 
 namespace evir
 {
@@ -20,11 +21,27 @@ namespace evir
 class IRBuilder
 {
 
+	BasicBlock* bblock = nullptr;
+
 public:
 
 	/// Constructs a new IR Builder
-	IRBuilder();
+	/// @param bblock a block to start appending instructions to
+	IRBuilder(BasicBlock* bblock = nullptr);
 
+	#pragma region Management
+
+	BasicBlock* get_block() { return bblock; }
+	void set_block(BasicBlock* new_block) { bblock = new_block; }
+
+	#pragma endregion
+	#pragma region IR Manipulation
+
+	/// Inserts the given instruction at the end of the current
+	/// @link BasicBlock @endlink and returns it.
+	Instruction* insert(Instruction* inst);
+
+	#pragma endregion
 };
 
 }

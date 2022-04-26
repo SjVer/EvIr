@@ -8,13 +8,9 @@
 #define EVIR_IR_MODULE_H
 
 #include ".common.hpp"
-#include "ir/metadata.hpp"
-#include "ir/value/value.hpp"
-
-#define __IR_COMMENT_LENGTH 49
-#define __IR_HCOMMENT_LENGTH 50
-#define __IR_HCOMMENT_SURROUND_CHAR '='
-#define __IR_HCOMMENT_MIN_SURROUND 3
+#include "ir/metadata/metadata.hpp"
+#include "ir/user/user.hpp"
+#include "ir/user/function.hpp"
 
 namespace evir
 {
@@ -22,14 +18,15 @@ namespace evir
 /// @brief A Class representing a single stand-alone IR module
 ///
 /// Has the following metadata by default:
-/// - @link Metadata::BuiltinPropertyType @endlink::`META_MODULE_NAME` 
-/// - @link Metadata::BuiltinPropertyType @endlink::`META_MODULE_ENTRYPOINT` 
+/// - @link Metadata::BuiltinPropertyID @endlink::`META_MODULE_NAME` 
+/// - @link Metadata::BuiltinPropertyID @endlink::`META_MODULE_ENTRYPOINT` 
 class Module
 {
 	friend class Metadata;
 
 	String name;
 	Vector<Metadata*> metadata;
+	Vector<User*> users;
 
 public:
 
@@ -46,7 +43,7 @@ public:
 	bool has_metadata(Metadata::Path path);
 
 	/// @brief Checks if the module has metadata with the given type
-	bool has_metadata(Metadata::BuiltinPropertyType type);
+	bool has_metadata(Metadata::BuiltinPropertyID type);
 
 	/// @brief Adds metadata to the module
 	/// @param mdata the metadata to add
@@ -57,13 +54,13 @@ public:
 	/// @param path the path of the metadata property
 	/// @param value the value to set the property to
 	/// @warning if the module doesn't have metadata with the given path the function will abort
-	void set_metadata(Metadata::Path path, Value* value);
+	void set_metadata(Metadata::Path path, MDValue* value);
 
 	/// @brief Sets a metadata property with the built-in type
 	/// @param type the type of the metadata property
 	/// @param value the value to set the property to
 	/// @warning if the module doesn't have metadata with the given type the function will abort
-	void set_metadata(Metadata::BuiltinPropertyType type, Value* value);
+	void set_metadata(Metadata::BuiltinPropertyID type, MDValue* value);
 
 	/// @brief Gets the requested metadata property
 	/// @param path the path of the metadata property
@@ -73,21 +70,15 @@ public:
 	/// @brief Gets the requested metadata property
 	/// @param type the built-in type of the metadata property
 	/// @return a pointer to the metadata, or null if it isn't found
-	Metadata* get_metadata(Metadata::BuiltinPropertyType type);
+	Metadata* get_metadata(Metadata::BuiltinPropertyID type);
 
 	#pragma endregion
 	#pragma region User manipulation
 
-	
+	Function* insert_function(FunctionType* type, String name);
 
 	#pragma endregion
 	#pragma region IR generation
-
-	/// @brief Generates an IR comment
-	/// @param text the text of the comment
-	/// @param header if true, the comment is formatted as a header comment
-	/// @return the IR as a string (with newline)
-	String generate_ir_comment(String text, bool header = false);
 
 	/// @brief Generates the IR of the current module's metadata
 	/// @details If before_contents is true, the metadata that comes before 

@@ -1,4 +1,4 @@
-.TH "evir::User" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::User" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,30 +7,46 @@ evir::User
 .br
 .PP
 .PP
-Inherits Object\&.
+Inherited by \fBevir::Function\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "bool \fBis_variable\fP ()"
+.RI "String \fBget_name\fP ()"
 .br
-.RI "returns \fCtrue\fP if this is an instance of \fBVariableUser\fP "
+.RI "Gets the name of the user\&. "
 .ti -1c
-.RI "bool \fBis_function\fP ()"
+.RI "void \fBadd_property\fP (String property)"
 .br
-.RI "returns \fCtrue\fP if this is an instance of \fBFunctionUser\fP "
+.RI "Adds a property to the user\&. "
 .ti -1c
-.RI "bool \fBis_operator\fP ()"
+.RI "virtual String \fBgenerate_ir\fP ()=0"
 .br
-.RI "returns \fCtrue\fP if this is an instance of \fBOperatorUser\fP "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
 .ti -1c
-.RI "virtual String \fBgenerate_ir\fP (const char *format=nullptr)=0"
+.RI "String \fBgenerate_props_comment\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBname\fP"
+.br
+.ti -1c
+.RI "\fBType\fP * \fBtype\fP"
+.br
+.ti -1c
+.RI "Vector< String > \fBproperties\fP"
 .br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
-.SS "virtual String evir::User::generate_ir (const char * format = \fCnullptr\fP)\fC [pure virtual]\fP"
-Generates the IR for the object 
+.SS "virtual String evir::User::generate_ir ()\fC [pure virtual]\fP"
+Generates the IR for the user 
 .PP
 \fBReturns\fP
 .RS 4
@@ -38,6 +54,8 @@ the IR as a string (without a newline)
 .RE
 .PP
 
+.PP
+Implemented in \fBevir::Function\fP\&.
 
 .SH "Author"
 .PP 

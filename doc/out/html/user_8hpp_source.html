@@ -21,7 +21,7 @@
     <meta name="twitter:description"
         content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." /> -->
     <!-- END twitter metadata -->
-    <title>EvIr: include/ir/value/user.hpp Source File</title>
+    <title>EvIr: include/ir/user/user.hpp Source File</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/svg+xml" href="logo.drawio.svg" />
     <script type="text/javascript" src="jquery.js"></script>
@@ -154,67 +154,53 @@ $(document).ready(function(){initNavTree('user_8hpp_source.html',''); initResiza
   <div class="headertitle"><div class="title">user.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===---- ir/object/user.hpp --- C++ ------------===</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===--- ir/user/user.hpp --------------- C++ ---===</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// This header is part of the EvIr library</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// MIT License - Sjoerd Vermeulen (2022)</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// For more info see https://github.com/SjVer/EvIr</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//===--------------------------------------------===</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_OBJECT_USER_H</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_OBJECT_USER_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_USER_USER_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_USER_USER_H</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;.common.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;ir/object/object.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;ir/type.hpp&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>evir</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classevir_1_1User.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1User.html">User</a> : <span class="keyword">public</span> Object</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">static</span> <span class="keyword">const</span> ObjectType object_type = OBJECT_USER;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">enum</span> UserType</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        USER_VARIABLE,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        USER_FUNCTION,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        USER_OPERATOR,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        USER_none</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    } user_type = USER_none;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">    #pragma region Constructors</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">    #pragma endregion</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    #pragma region Object type checks</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">    #define IS_TYPE_METHOD(typename, type) \</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">        bool is_##typename() { return user_type == USER_##type; }</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#af8c877bd675c6c57bd4274a13eb5b19e">   42</a></span>    IS_TYPE_METHOD(variable, VARIABLE);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#a951821a5b8e12810531279b25ca3a624">   45</a></span>    IS_TYPE_METHOD(function, FUNCTION);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#a39c5fa70d8e4601a820a835b7eee0852">   48</a></span>    IS_TYPE_METHOD(<span class="keyword">operator</span>, OPERATOR);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">    #undef IS_TYPE_METHOD</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">    #pragma endregion</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#a384a91b3178709f07cc5ad90d7dd3ef0">   55</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1User.html#a384a91b3178709f07cc5ad90d7dd3ef0">generate_ir</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* format = <span class="keyword">nullptr</span>) = 0;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_OBJECT_USER_H</span></div>
-<div class="ttc" id="aclassevir_1_1User_html"><div class="ttname"><a href="classevir_1_1User.html">evir::User</a></div><div class="ttdef"><b>Definition:</b> user.hpp:17</div></div>
-<div class="ttc" id="aclassevir_1_1User_html_a384a91b3178709f07cc5ad90d7dd3ef0"><div class="ttname"><a href="classevir_1_1User.html#a384a91b3178709f07cc5ad90d7dd3ef0">evir::User::generate_ir</a></div><div class="ttdeci">virtual String generate_ir(const char *format=nullptr)=0</div></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>evir {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classevir_1_1User.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1User.html">User</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    String name;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="classevir_1_1Type.html">Type</a>* type;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    Vector&lt;String&gt; properties;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    String generate_props_comment();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#a14e5441cdc858754245960371b1bf269">   28</a></span>    String <a class="code hl_function" href="classevir_1_1User.html#a14e5441cdc858754245960371b1bf269">get_name</a>() { <span class="keywordflow">return</span> name; };</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#aa6956a6fd2b7faa7bddb591d14a5cfb9">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classevir_1_1User.html#aa6956a6fd2b7faa7bddb591d14a5cfb9">add_property</a>(String property) { properties.push_back(property); }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">   35</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">generate_ir</a>() = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_USER_USER_H</span></div>
+<div class="ttc" id="aclassevir_1_1Type_html"><div class="ttname"><a href="classevir_1_1Type.html">evir::Type</a></div><div class="ttdoc">The interface for types.</div><div class="ttdef"><b>Definition:</b> type.hpp:22</div></div>
+<div class="ttc" id="aclassevir_1_1User_html"><div class="ttname"><a href="classevir_1_1User.html">evir::User</a></div><div class="ttdef"><b>Definition:</b> user.hpp:16</div></div>
+<div class="ttc" id="aclassevir_1_1User_html_a14e5441cdc858754245960371b1bf269"><div class="ttname"><a href="classevir_1_1User.html#a14e5441cdc858754245960371b1bf269">evir::User::get_name</a></div><div class="ttdeci">String get_name()</div><div class="ttdoc">Gets the name of the user.</div><div class="ttdef"><b>Definition:</b> user.hpp:28</div></div>
+<div class="ttc" id="aclassevir_1_1User_html_a7678958f545c4eb4c9e6de91cc24daff"><div class="ttname"><a href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">evir::User::generate_ir</a></div><div class="ttdeci">virtual String generate_ir()=0</div></div>
+<div class="ttc" id="aclassevir_1_1User_html_aa6956a6fd2b7faa7bddb591d14a5cfb9"><div class="ttname"><a href="classevir_1_1User.html#aa6956a6fd2b7faa7bddb591d14a5cfb9">evir::User::add_property</a></div><div class="ttdeci">void add_property(String property)</div><div class="ttdoc">Adds a property to the user.</div><div class="ttdef"><b>Definition:</b> user.hpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_45e6f8f5dcd21a88a37c78d1bb277139.html">ir</a></li><li class="navelem"><a class="el" href="dir_bf2ea5d8dc2e80d01d27bdd5330e0748.html">value</a></li><li class="navelem"><b>user.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_45e6f8f5dcd21a88a37c78d1bb277139.html">ir</a></li><li class="navelem"><a class="el" href="dir_bc0bc5b68eaa44263c7c250fd6eca739.html">user</a></li><li class="navelem"><b>user.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

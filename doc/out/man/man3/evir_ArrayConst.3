@@ -1,4 +1,4 @@
-.TH "evir::ArrayConst" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::ArrayConst" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,7 +12,7 @@ Inherits \fBevir::Constant\fP\&.
 
 .in +1c
 .ti -1c
-.RI "String \fBgenerate_ir\fP (const char *format=nullptr)"
+.RI "String \fBgenerate_ir\fP ()"
 .br
 .ti -1c
 .RI "\fBArrayConst\fP (Vector< \fBValue\fP * > elements)"
@@ -28,7 +28,9 @@ Inherits \fBevir::Constant\fP\&.
 .SS "Additional Inherited Members"
 .SH "Member Function Documentation"
 .PP 
-.SS "String evir::ArrayConst::generate_ir (const char * format = \fCnullptr\fP)\fC [virtual]\fP"
+.SS "String evir::ArrayConst::generate_ir ()\fC [virtual]\fP"
+
+.PP
 Generates the IR for the value 
 .PP
 \fBReturns\fP

@@ -1,0 +1,96 @@
+\hypertarget{comment_8hpp_source}{}\doxysection{comment.\+hpp}
+\label{comment_8hpp_source}\index{include/ir/comment.hpp@{include/ir/comment.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//===-\/-\/-\/ ir/comment.hpp -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ C++ -\/-\/-\/===}}
+\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EvIr library}}
+\DoxyCodeLine{3 \textcolor{comment}{// MIT License -\/ Sjoerd Vermeulen (2022)}}
+\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EvIr}}
+\DoxyCodeLine{5 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_COMMENT\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_COMMENT\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define \_IR\_COMMENT\_LENGTH 49}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define \_IR\_HCOMMENT\_LENGTH 50}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define \_IR\_HCOMMENT\_SURROUND\_CHAR '='}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define \_IR\_HCOMMENT\_MIN\_SURROUND 3}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{23 \textcolor{keyword}{static} String generate\_ir\_comment(String text, \textcolor{keywordtype}{bool} header = \textcolor{keyword}{false})}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} max\_sentence\_size = header ? \_IR\_HCOMMENT\_LENGTH -\/ 2 * \_IR\_HCOMMENT\_MIN\_SURROUND -\/ 2}
+\DoxyCodeLine{26                                    : \_IR\_COMMENT\_LENGTH;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// separate text in sentences}}
+\DoxyCodeLine{29     Vector<String> sentences = Vector<String>();}
+\DoxyCodeLine{30     String sentence = text;}
+\DoxyCodeLine{31     \textcolor{keywordflow}{while}(sentence.length() > max\_sentence\_size)}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         \textcolor{comment}{// too long, find whitespace to split sentences}}
+\DoxyCodeLine{34         \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{35         \textcolor{keywordflow}{for}(i = max\_sentence\_size -\/ 1; i > 0 \&\& sentence[i] != \textcolor{charliteral}{' '}; i-\/-\/) \{\}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         sentences.push\_back(tools::trimc(sentence.substr(0, i)));}
+\DoxyCodeLine{38         sentence.erase(0, i);}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     sentences.push\_back(tools::trimc(sentence));}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// generate comment(s)}}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if}(header)}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{if}(sentences.size() == 1)}
+\DoxyCodeLine{46         \{}
+\DoxyCodeLine{47             SStream stream = SStream();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49             \textcolor{keywordtype}{int} len = sentence.length() + 2;}
+\DoxyCodeLine{50             \textcolor{keywordtype}{int} surround\_chars = \_IR\_HCOMMENT\_LENGTH -\/ len;}
+\DoxyCodeLine{51             \textcolor{keywordtype}{int} start\_surround\_chars = surround\_chars / 2;}
+\DoxyCodeLine{52             \textcolor{keywordtype}{int} end\_surround\_chars = surround\_chars -\/ start\_surround\_chars;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54             stream << \textcolor{stringliteral}{"{}; "{}} << String(start\_surround\_chars, \_IR\_HCOMMENT\_SURROUND\_CHAR);}
+\DoxyCodeLine{55             stream << \textcolor{stringliteral}{"{} "{}} << sentence << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{56             stream << String(end\_surround\_chars, \_IR\_HCOMMENT\_SURROUND\_CHAR) << endl;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58             \textcolor{keywordflow}{return} stream.str();}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{61         \{}
+\DoxyCodeLine{62             SStream stream = SStream();}
+\DoxyCodeLine{63             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} String\& sentence : sentences)}
+\DoxyCodeLine{64             \{}
+\DoxyCodeLine{65                 \textcolor{keywordtype}{int} end\_whitespaces = \_IR\_HCOMMENT\_LENGTH -\/ (}
+\DoxyCodeLine{66                     2 * \_IR\_HCOMMENT\_MIN\_SURROUND + 1 + sentence.length()); }
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68                 stream << \textcolor{stringliteral}{"{}; "{}} << String(\_IR\_HCOMMENT\_MIN\_SURROUND, \_IR\_HCOMMENT\_SURROUND\_CHAR);}
+\DoxyCodeLine{69                 stream << \textcolor{charliteral}{' '} << sentence << String(end\_whitespaces, \textcolor{charliteral}{' '});}
+\DoxyCodeLine{70                 stream << String(\_IR\_HCOMMENT\_MIN\_SURROUND, \_IR\_HCOMMENT\_SURROUND\_CHAR);}
+\DoxyCodeLine{71                 stream << endl;}
+\DoxyCodeLine{72             \}}
+\DoxyCodeLine{73             \textcolor{keywordflow}{return} stream.str();}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         \textcolor{keywordflow}{if}(sentences.size() == 1) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}; "{}} + sentence + endl;}
+\DoxyCodeLine{79         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{80         \{}
+\DoxyCodeLine{81             SStream stream = SStream();}
+\DoxyCodeLine{82             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} String\& sentence : sentences)}
+\DoxyCodeLine{83             \{}
+\DoxyCodeLine{84                 stream << \textcolor{stringliteral}{"{}; "{}} << sentence;}
+\DoxyCodeLine{85                 stream << endl;}
+\DoxyCodeLine{86             \}}
+\DoxyCodeLine{87             \textcolor{keywordflow}{return} stream.str();}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90 \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_COMMENT\_H}}
+
+\end{DoxyCode}

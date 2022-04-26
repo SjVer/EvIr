@@ -7,15 +7,26 @@
 #define API
 #endif
 
-#include ".base_pch.hpp"
-#include "tools.hpp"
+#pragma region info
+
+#define LIB_NAME "EvIr"
+#define LIB_NAME_INTERNAL "libevir"
+#define LIB_VERSION "0.0.1"
+#define LIB_VERSION_MAJOR 0
+#define LIB_VERSION_MINOR 0
+#define LIB_VERSION_PATCH 1
 
 #pragma endregion
+
+#include ".base_pch.hpp"
+#include ".tools_pch.hpp"
+
 #pragma region types
 namespace evir
 {
 
 typedef int64_t				int64;
+typedef uint64_t			uint64;
 typedef double				float2;
 typedef std::string 		String;
 typedef std::stringstream 	SStream;
@@ -32,11 +43,13 @@ using Map = std::map<K, V>;
 }
 #pragma endregion
 
-#pragma endregion
 #pragma region macros
 
 #define endl ((char)'\n')
 #define tab ((char)'\t')
+#define tab_len 4
+
+#define UNRESOLVED "<unresolved>"
 
 #define STRINGIFY(value) #value
 #define COMMA ,
@@ -47,7 +60,6 @@ using Map = std::map<K, V>;
 
 #pragma endregion
 
-#pragma endregion
 #pragma region debug macros
 #ifdef DEBUG
 

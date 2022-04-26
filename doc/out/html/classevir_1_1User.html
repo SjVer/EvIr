@@ -153,6 +153,8 @@ $(document).ready(function(){initNavTree('classevir_1_1User.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classevir_1_1User-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">evir::User Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -162,36 +164,50 @@ $(document).ready(function(){initNavTree('classevir_1_1User.html',''); initResiz
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1User__inherit__graph.svg" width="96" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1User__inherit__graph.svg" width="122" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for evir::User:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1User__coll__graph.svg" width="96" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1User__coll__graph.svg" width="336" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af8c877bd675c6c57bd4274a13eb5b19e"><td class="memItemLeft" align="right" valign="top"><a id="af8c877bd675c6c57bd4274a13eb5b19e" name="af8c877bd675c6c57bd4274a13eb5b19e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_variable</b> ()</td></tr>
-<tr class="memdesc:af8c877bd675c6c57bd4274a13eb5b19e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns <code>true</code> if this is an instance of <a class="el" href="">VariableUser</a> <br /></td></tr>
-<tr class="separator:af8c877bd675c6c57bd4274a13eb5b19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a951821a5b8e12810531279b25ca3a624"><td class="memItemLeft" align="right" valign="top"><a id="a951821a5b8e12810531279b25ca3a624" name="a951821a5b8e12810531279b25ca3a624"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_function</b> ()</td></tr>
-<tr class="memdesc:a951821a5b8e12810531279b25ca3a624"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns <code>true</code> if this is an instance of <a class="el" href="">FunctionUser</a> <br /></td></tr>
-<tr class="separator:a951821a5b8e12810531279b25ca3a624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39c5fa70d8e4601a820a835b7eee0852"><td class="memItemLeft" align="right" valign="top"><a id="a39c5fa70d8e4601a820a835b7eee0852" name="a39c5fa70d8e4601a820a835b7eee0852"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_operator</b> ()</td></tr>
-<tr class="memdesc:a39c5fa70d8e4601a820a835b7eee0852"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns <code>true</code> if this is an instance of <a class="el" href="">OperatorUser</a> <br /></td></tr>
-<tr class="separator:a39c5fa70d8e4601a820a835b7eee0852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a384a91b3178709f07cc5ad90d7dd3ef0"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1User.html#a384a91b3178709f07cc5ad90d7dd3ef0">generate_ir</a> (const char *format=nullptr)=0</td></tr>
-<tr class="separator:a384a91b3178709f07cc5ad90d7dd3ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e5441cdc858754245960371b1bf269"><td class="memItemLeft" align="right" valign="top"><a id="a14e5441cdc858754245960371b1bf269" name="a14e5441cdc858754245960371b1bf269"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>get_name</b> ()</td></tr>
+<tr class="memdesc:a14e5441cdc858754245960371b1bf269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the name of the user. <br /></td></tr>
+<tr class="separator:a14e5441cdc858754245960371b1bf269"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6956a6fd2b7faa7bddb591d14a5cfb9"><td class="memItemLeft" align="right" valign="top"><a id="aa6956a6fd2b7faa7bddb591d14a5cfb9" name="aa6956a6fd2b7faa7bddb591d14a5cfb9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_property</b> (String property)</td></tr>
+<tr class="memdesc:aa6956a6fd2b7faa7bddb591d14a5cfb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a property to the user. <br /></td></tr>
+<tr class="separator:aa6956a6fd2b7faa7bddb591d14a5cfb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7678958f545c4eb4c9e6de91cc24daff"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">generate_ir</a> ()=0</td></tr>
+<tr class="separator:a7678958f545c4eb4c9e6de91cc24daff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a7e292548147fe4406e4da759214dd9b3"><td class="memItemLeft" align="right" valign="top"><a id="a7e292548147fe4406e4da759214dd9b3" name="a7e292548147fe4406e4da759214dd9b3"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>generate_props_comment</b> ()</td></tr>
+<tr class="separator:a7e292548147fe4406e4da759214dd9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a335a10f092ab7aa2b455f102f71d9db8"><td class="memItemLeft" align="right" valign="top"><a id="a335a10f092ab7aa2b455f102f71d9db8" name="a335a10f092ab7aa2b455f102f71d9db8"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:a335a10f092ab7aa2b455f102f71d9db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa2015331ad771112e1a9ce639fb7c3"><td class="memItemLeft" align="right" valign="top"><a id="a9fa2015331ad771112e1a9ce639fb7c3" name="a9fa2015331ad771112e1a9ce639fb7c3"></a>
+<a class="el" href="classevir_1_1Type.html">Type</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:a9fa2015331ad771112e1a9ce639fb7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6243ab7ba00460f0143e784656992fd6"><td class="memItemLeft" align="right" valign="top"><a id="a6243ab7ba00460f0143e784656992fd6" name="a6243ab7ba00460f0143e784656992fd6"></a>
+Vector&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>properties</b></td></tr>
+<tr class="separator:a6243ab7ba00460f0143e784656992fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a384a91b3178709f07cc5ad90d7dd3ef0" name="a384a91b3178709f07cc5ad90d7dd3ef0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a384a91b3178709f07cc5ad90d7dd3ef0">&#9670;&nbsp;</a></span>generate_ir()</h2>
+<a id="a7678958f545c4eb4c9e6de91cc24daff" name="a7678958f545c4eb4c9e6de91cc24daff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7678958f545c4eb4c9e6de91cc24daff">&#9670;&nbsp;</a></span>generate_ir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,8 +218,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_operator</b> ()</t
         <tr>
           <td class="memname">virtual String evir::User::generate_ir </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>format</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -213,12 +228,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_operator</b> ()</t
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Generates the IR for the object </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (without a newline) </dd></dl>
+<p >Generates the IR for the user </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (without a newline) </dd></dl>
+
+<p>Implemented in <a class="el" href="classevir_1_1Function.html#aa6ecf9a27206df2e41ac5b359cf0e2b8">evir::Function</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/ir/value/<a class="el" href="user_8hpp_source.html">user.hpp</a></li>
+<li>include/ir/user/<a class="el" href="user_8hpp_source.html">user.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

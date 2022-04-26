@@ -1,4 +1,7 @@
 #include "ir/module.hpp"
+#include "ir/comment.hpp"
+#include "ir/value/constant.hpp"
+#include "ir/value/reference.hpp"
 
 using namespace evir;
 
@@ -6,8 +9,8 @@ using namespace evir;
 
 Module::Module(String name): name(name)
 {
-	// add_metadata(new Metadata(Metadata::META_MODULE_NAME, new StringValue(name)));
-	// add_metadata(new Metadata(Metadata::META_MODULE_ENTRYPOINT, new ReferenceValue("main")));
+	add_metadata(new Metadata(Metadata::META_MODULE_NAME, new MDStringValue(name)));
+	add_metadata(new Metadata(Metadata::META_MODULE_ENTRYPOINT, (MDIRValue*)new Reference()));
 }
 
 #pragma endregion
@@ -19,10 +22,10 @@ bool Module::has_metadata(Metadata::Path path)
 	return (bool)get_metadata(path);
 }
 
-bool Module::has_metadata(Metadata::BuiltinPropertyType type)
+bool Module::has_metadata(Metadata::BuiltinPropertyID id)
 {
 	// get it, and if it's null it isn't found
-	return (bool)get_metadata(type);
+	return (bool)get_metadata(id);
 }
 
 void Module::add_metadata(Metadata* mdata)
@@ -31,7 +34,7 @@ void Module::add_metadata(Metadata* mdata)
 	metadata.push_back(mdata);
 }
 
-void Module::set_metadata(Metadata::Path path, Value* value)
+void Module::set_metadata(Metadata::Path path, MDValue* value)
 {
 	Metadata* mdata = get_metadata(path);
 	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
@@ -39,9 +42,9 @@ void Module::set_metadata(Metadata::Path path, Value* value)
 	mdata->p_value = value;
 }
 
-void Module::set_metadata(Metadata::BuiltinPropertyType type, Value* value)
+void Module::set_metadata(Metadata::BuiltinPropertyID id, MDValue* value)
 {
-	Metadata* mdata = get_metadata(type);
+	Metadata* mdata = get_metadata(id);
 	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
 
 	mdata->p_value = value;
@@ -55,85 +58,26 @@ Metadata* Module::get_metadata(Metadata::Path path)
 	return nullptr;
 }
 
-Metadata* Module::get_metadata(Metadata::BuiltinPropertyType type)
+Metadata* Module::get_metadata(Metadata::BuiltinPropertyID id)
 {
 	// TODO?: improve?
 
-	for(auto md : metadata) if(md->p_type == (Metadata::PropertyType)type) return md;
+	for(auto md : metadata) if(md->p_id == (Metadata::PropertyID)id) return md;
 	return nullptr;
 }
 
 #pragma endregion
-#pragma region IR generation
+#pragma region User manipulation
 
-String Module::generate_ir_comment(String text, bool header)
+Function* Module::insert_function(FunctionType* type, String name)
 {
-	int max_sentence_size = header ? __IR_HCOMMENT_LENGTH - 2 * __IR_HCOMMENT_MIN_SURROUND - 2
-								   : __IR_COMMENT_LENGTH;
-
-	// separate text in sentences
-	Vector<String> sentences = Vector<String>();
-	String sentence = text;
-	while(sentence.length() > max_sentence_size)
-	{
-		// too long, find whitespace to split sentences
-		int i;
-		for(i = max_sentence_size - 1; i > 0 && sentence[i] != ' '; i--) {}
-
-		sentences.push_back(tools::trimc(sentence.substr(0, i)));
-		sentence.erase(0, i);
-	}
-	sentences.push_back(tools::trimc(sentence));
-
-	// generate comment(s)
-	if(header)
-	{
-		if(sentences.size() == 1)
-		{
-			SStream stream = SStream();
-
-			int len = sentence.length() + 2;
-			int surround_chars = __IR_HCOMMENT_LENGTH - len;
-			int start_surround_chars = surround_chars / 2;
-			int end_surround_chars = surround_chars - start_surround_chars;
-
-			stream << "; " << String(start_surround_chars, __IR_HCOMMENT_SURROUND_CHAR);
-			stream << " " << sentence << " ";
-			stream << String(end_surround_chars, __IR_HCOMMENT_SURROUND_CHAR) << endl;
-
-			return stream.str();
-		}
-		else
-		{
-			SStream stream = SStream();
-			for(const String& sentence : sentences)
-			{
-				int end_whitespaces = __IR_HCOMMENT_LENGTH - (
-					2 * __IR_HCOMMENT_MIN_SURROUND + 1 + sentence.length()); 
-
-				stream << "; " << String(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
-				stream << ' ' << sentence << String(end_whitespaces, ' ');
-				stream << String(__IR_HCOMMENT_MIN_SURROUND, __IR_HCOMMENT_SURROUND_CHAR);
-				stream << endl;
-			}
-			return stream.str();
-		}
-	}
-	else
-	{
-		if(sentences.size() == 1) return "; " + sentence + endl;
-		else
-		{
-			SStream stream = SStream();
-			for(const String& sentence : sentences)
-			{
-				stream << "; " << sentence;
-				stream << endl;
-			}
-			return stream.str();
-		}
-	}
+	Function* func = new Function(type, name);
+	users.push_back(func);
+	return func;
 }
+
+#pragma endregion
+#pragma region IR generation
 
 String Module::generate_metadata_ir(bool before_contents)
 {
@@ -147,8 +91,8 @@ String Module::generate_metadata_ir(bool before_contents)
 	STREAM(custom);
 
 	#undef STREAM
-	#define HANDLE_RANGE(do, name) if(do && md->p_type > Metadata::_META_start_##name && \
-								  md->p_type < Metadata::_META_end_##name) \
+	#define HANDLE_RANGE(do, name) if(do && md->p_id > Metadata::_META_start_##name && \
+								  md->p_id < Metadata::_META_end_##name) \
 							   { s_##name << md->generate_ir() << endl; continue; }
 
 	// gather metadata ir in seperate streams
@@ -159,13 +103,13 @@ String Module::generate_metadata_ir(bool before_contents)
 		HANDLE_RANGE(before_contents, module_producer);
 
 		// debug/typenames is on a new line
-		if(!before_contents && md->p_type == Metadata::_META_DEBUG_TYPENAMES) s_debug << endl;
+		if(!before_contents && md->p_id == Metadata::_META_DEBUG_TYPENAMES) s_debug << endl;
 
 		HANDLE_RANGE(!before_contents, target);
 		HANDLE_RANGE(!before_contents, debug);
 
 		// custom metadata follows at the end
-		if(!before_contents && md->p_type == Metadata::_META_CUSTOM_)
+		if(!before_contents && md->p_id == Metadata::_META_CUSTOM_)
 			s_custom << md->generate_ir() << endl;	
 	}
 
@@ -213,20 +157,27 @@ String Module::generate_ir()
 
 	// generate metata ir before contents
 	stream << generate_metadata_ir(true);
-	stream << endl;
 	
+	// generate users' ir
+	stream << generate_ir_comment("module contents", true);
 	stream << endl;
-	stream << endl;
+	for(auto user : users) stream << user->generate_ir() << endl;
 
 	// generate metata ir after contents
 	stream << generate_metadata_ir(false);
 
 	// generate credit comments
 	stream << generate_ir_comment("module generated with:");
-	stream << generate_ir_comment("\tlibevir version 0.0.1");
+	#ifdef DEBUG
+	stream << generate_ir_comment("\t" LIB_NAME_INTERNAL " version " LIB_VERSION " dev");
+	#else
+	stream << generate_ir_comment("\t" LIB_NAME_INTERNAL " version " LIB_VERSION);
+	#endif
 	stream << generate_ir_comment("\tby Sjoerd Vermeulen");
 	stream << generate_ir_comment("\tMIT license (2022)");
 
 	// return string
 	return stream.str();
 }
+
+#pragma endregion

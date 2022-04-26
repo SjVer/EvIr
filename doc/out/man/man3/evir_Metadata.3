@@ -1,4 +1,4 @@
-.TH "evir::Metadata" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Metadata" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,16 +8,16 @@ evir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 .br
 .PP
 .PP
-\fC#include <include/ir/metadata\&.hpp>\fP
+\fC#include <include/ir/metadata/metadata\&.hpp>\fP
 .SS "Public Types"
 
 .in +1c
 .ti -1c
-.RI "enum \fBBuiltinPropertyType\fP { \fBMETA_MODULE_NAME\fP, \fBMETA_MODULE_ENTRYPOINT\fP, \fBMETA_MODULE_SOURCE_FILENAME\fP, \fBMETA_MODULE_SOURCE_DIRECTORY\fP, \fBMETA_MODULE_SOURCE_LANGUAGE\fP, \fBMETA_MODULE_PRODUCER_NAME\fP, \fBMETA_MODULE_PRODUCER_VERSION\fP, \fBMETA_MODULE_PRODUCER_TYPE\fP, \fBMETA_TARGET_TRIPLE\fP, \fBMETA_TARGET_CPU\fP, \fBMETA_TARGET_DATALAYOUT\fP, \fBMETA_TARGET_OPTIMIZATION\fP, \fBMETA_DEBUG_GENERATE\fP, \fBMETA_DEBUG_INCLUDESOURCE\fP, \fBMETA_DEBUG_SOURCELOCATION\fP, \fBMETA_DEBUG_SOURCECHECKSUM\fP, \fBMETA_DEBUG_DWARFVERSION\fP, \fBMETA_DEBUG_TYPENAMES\fP }"
+.RI "enum \fBBuiltinPropertyID\fP { \fBMETA_MODULE_NAME\fP, \fBMETA_MODULE_ENTRYPOINT\fP, \fBMETA_MODULE_SOURCE_FILENAME\fP, \fBMETA_MODULE_SOURCE_DIRECTORY\fP, \fBMETA_MODULE_SOURCE_LANGUAGE\fP, \fBMETA_MODULE_PRODUCER_NAME\fP, \fBMETA_MODULE_PRODUCER_VERSION\fP, \fBMETA_MODULE_PRODUCER_TYPE\fP, \fBMETA_TARGET_TRIPLE\fP, \fBMETA_TARGET_CPU\fP, \fBMETA_TARGET_DATALAYOUT\fP, \fBMETA_TARGET_OPTIMIZATION\fP, \fBMETA_DEBUG_GENERATE\fP, \fBMETA_DEBUG_INCLUDESOURCE\fP, \fBMETA_DEBUG_SOURCELOCATION\fP, \fBMETA_DEBUG_SOURCECHECKSUM\fP, \fBMETA_DEBUG_DWARFVERSION\fP, \fBMETA_DEBUG_TYPENAMES\fP }"
 .br
 .RI "built-in metadata property types "
 .ti -1c
-.RI "enum \fBCustomPropertyType\fP { \fBMETA_MODULE\fP, \fBMETA_MODULE_SOURCE\fP, \fBMETA_MODULE_PRODUCER\fP, \fBMETA_TARGET\fP, \fBMETA_DEBUG\fP, \fBMETA_CUSTOM\fP }"
+.RI "enum \fBCustomPropertyID\fP { \fBMETA_MODULE\fP, \fBMETA_MODULE_SOURCE\fP, \fBMETA_MODULE_PRODUCER\fP, \fBMETA_TARGET\fP, \fBMETA_DEBUG\fP, \fBMETA_CUSTOM\fP }"
 .br
 .RI "custom metadata property types "
 .ti -1c
@@ -29,11 +29,11 @@ evir::Metadata \- A class defining the metadata of a \fBModule\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBMetadata\fP (\fBBuiltinPropertyType\fP type, \fBValue\fP *value=nullptr)"
+.RI "\fBMetadata\fP (\fBBuiltinPropertyID\fP type, \fBMDValue\fP *value=nullptr)"
 .br
 .RI "Constructs a new metadata instance defining a built-in property\&. "
 .ti -1c
-.RI "\fBMetadata\fP (\fBCustomPropertyType\fP type, \fBPath\fP path, \fBValue\fP *value=nullptr)"
+.RI "\fBMetadata\fP (\fBCustomPropertyID\fP type, \fBPath\fP path, \fBMDValue\fP *value=nullptr)"
 .br
 .RI "Constructs a new metadata instance defining a custom property\&. "
 .ti -1c
@@ -56,10 +56,10 @@ A class defining the metadata of a \fBModule\fP\&.
 Can be added to a module using \fBModule::add_metadata\fP 
 .SH "Member Enumeration Documentation"
 .PP 
-.SS "enum \fBevir::Metadata::BuiltinPropertyType\fP"
+.SS "enum \fBevir::Metadata::BuiltinPropertyID\fP"
 
 .PP
-built-in metadata property types Used by \fBMetadata::Metadata(BuiltinPropertyType type, Value* value)\fP 
+built-in metadata property types Used by \fBMetadata::Metadata(BuiltinPropertyID type, MDValue* value)\fP 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -117,10 +117,10 @@ metadata property path: \fC!debug/dwarfversion\fP
 .TP
 \fB\fIMETA_DEBUG_TYPENAMES \fP\fP
 metadata property path: \fC!debug/typenames\fP 
-.SS "enum \fBevir::Metadata::CustomPropertyType\fP"
+.SS "enum \fBevir::Metadata::CustomPropertyID\fP"
 
 .PP
-custom metadata property types Used by \fBMetadata::Metadata(CustomPropertyType type, Path path, Value* value)\fP 
+custom metadata property types Used by \fBMetadata::Metadata(CustomPropertyID type, Path path, MDValue* value)\fP 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -144,7 +144,7 @@ metadata property path: \fC!debug/\&.\&.\&.\fP
 metadata property path: \fC!\&.\&.\&.\fP 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "evir::Metadata::Metadata (\fBBuiltinPropertyType\fP type, \fBValue\fP * value = \fCnullptr\fP)"
+.SS "evir::Metadata::Metadata (\fBBuiltinPropertyID\fP type, \fBMDValue\fP * value = \fCnullptr\fP)"
 
 .PP
 Constructs a new metadata instance defining a built-in property\&. 
@@ -157,7 +157,7 @@ Constructs a new metadata instance defining a built-in property\&.
 .RE
 .PP
 
-.SS "evir::Metadata::Metadata (\fBCustomPropertyType\fP type, \fBPath\fP path, \fBValue\fP * value = \fCnullptr\fP)"
+.SS "evir::Metadata::Metadata (\fBCustomPropertyID\fP type, \fBPath\fP path, \fBMDValue\fP * value = \fCnullptr\fP)"
 
 .PP
 Constructs a new metadata instance defining a custom property\&. 

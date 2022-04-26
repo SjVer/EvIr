@@ -1,4 +1,4 @@
-.TH "evir::IRBuilder" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::IRBuilder" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,9 +13,17 @@ evir::IRBuilder \- A class for creating and managing instructions\&.
 
 .in +1c
 .ti -1c
-.RI "\fBIRBuilder\fP ()"
+.RI "\fBIRBuilder\fP (\fBBasicBlock\fP *bblock=nullptr)"
 .br
-.RI "Constructs a new IR Builder\&. "
+.ti -1c
+.RI "\fBBasicBlock\fP * \fBget_block\fP ()"
+.br
+.ti -1c
+.RI "void \fBset_block\fP (\fBBasicBlock\fP *new_block)"
+.br
+.ti -1c
+.RI "\fBInstruction\fP * \fBinsert\fP (\fBInstruction\fP *inst)"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -24,6 +32,21 @@ A class for creating and managing instructions\&.
 Instructions will be inserted in a \fBBasicBlock\fP\&. 
 .br
 Note that this API does not fully expose the uses of instructions\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "evir::IRBuilder::IRBuilder (\fBBasicBlock\fP * bblock = \fCnullptr\fP)"
+Constructs a new IR Builder 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbblock\fP a block to start appending instructions to 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBInstruction\fP * evir::IRBuilder::insert (\fBInstruction\fP * inst)"
+Inserts the given instruction at the end of the current \fBBasicBlock\fP and returns it\&. 
 
 .SH "Author"
 .PP 

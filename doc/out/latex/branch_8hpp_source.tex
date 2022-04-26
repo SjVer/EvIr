@@ -1,0 +1,87 @@
+\hypertarget{branch_8hpp_source}{}\doxysection{branch.\+hpp}
+\label{branch_8hpp_source}\index{include/ir/instructions/branch.hpp@{include/ir/instructions/branch.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//===-\/-\/-\/ ir/instructions/branch.hpp -\/-\/-\/-\/-\/ C++ -\/-\/-\/===}}
+\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EvIr library}}
+\DoxyCodeLine{3 \textcolor{comment}{// MIT License -\/ Sjoerd Vermeulen (2022)}}
+\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EvIr}}
+\DoxyCodeLine{5 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_INSTRUCTIONS\_BRANCH\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_INSTRUCTIONS\_BRANCH\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/instructions/instruction.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}ir/value/value.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }RetInst;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1BranchInst}{BranchInst}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{static} \textcolor{keyword}{const} InstType inst\_type = INST\_BRANCH;}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} BranchInstType}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         BRANCH\_INST\_RET,}
+\DoxyCodeLine{27         BRANCH\_INST\_BR,}
+\DoxyCodeLine{28         BRANCH\_INST\_CONDBR,}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         BRANCH\_INST\_none}
+\DoxyCodeLine{31     \} branch\_inst\_type = BRANCH\_INST\_none;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} ir\_prefix = \textcolor{charliteral}{'\string~'};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{    \#pragma region Constructors}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{    \#define SIMPLE\_CONSTRUCTOR(classname, lowercasename, membertype, membername) \(\backslash\)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{        static classname* new\_\#\#lowercasename\#\#\_inst(membertype membername);}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{44     SIMPLE\_CONSTRUCTOR(\mbox{\hyperlink{classevir_1_1RetInst}{RetInst}}, ret, \mbox{\hyperlink{classevir_1_1Value}{Value}}*, retval = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{    \#undef SIMPLE\_CONSTRUCTOR}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{    \#pragma region BranchInst type checkers}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(typename, type) \(\backslash\)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{        bool is\_\#\#typename\#\#\_\_inst() \{ return branch\_inst\_type == BRANCH\_INST\_\#\#type; \}}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     IS\_TYPE\_METHOD(ret, RET);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57     IS\_TYPE\_METHOD(br, BR);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60     IS\_TYPE\_METHOD(condbr, CONDBR);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1BranchInst_adc5c60eff2e1f11df419e5dee4debc9d}{generate\_ir}}() = 0;}
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#pragma region BranchInst subclasses}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define MEMBERS(name, type, term) \(\backslash\)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{    private: static constexpr const char* ir\_name = name; \(\backslash\)}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{    static const BranchInstType branch\_inst\_type = type; \(\backslash\)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{    public: bool is\_terminator() const \{ return term; \} \(\backslash\)}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{    String generate\_ir();}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1RetInst}{RetInst}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1BranchInst}{BranchInst}}}
+\DoxyCodeLine{77 \{}
+\DoxyCodeLine{78     \mbox{\hyperlink{classevir_1_1Value}{Value}}* retval;}
+\DoxyCodeLine{79     MEMBERS(\textcolor{stringliteral}{"{}ret"{}}, BRANCH\_INST\_RET, \textcolor{keyword}{true});}
+\DoxyCodeLine{80     }
+\DoxyCodeLine{81     \mbox{\hyperlink{classevir_1_1RetInst}{RetInst}}(\mbox{\hyperlink{classevir_1_1Value}{Value}}* retval = \textcolor{keyword}{nullptr}): retval(retval) \{\}}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#undef MEMBERS}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_INSTRUCTIONS\_BRANCH\_H}}
+
+\end{DoxyCode}

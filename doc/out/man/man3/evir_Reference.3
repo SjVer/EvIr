@@ -1,4 +1,4 @@
-.TH "evir::Reference" 3 "Tue Apr 12 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Reference" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -8,8 +8,31 @@ evir::Reference
 .PP
 .PP
 Inherits \fBevir::Value\fP\&.
-.SS "Additional Inherited Members"
+.SS "Public Member Functions"
 
+.in +1c
+.ti -1c
+.RI "\fBReference\fP (\fBUser\fP *user=nullptr)"
+.br
+.ti -1c
+.RI "String \fBgenerate_ir\fP ()"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "String evir::Reference::generate_ir ()\fC [virtual]\fP"
+
+.PP
+Generates the IR for the value 
+.PP
+\fBReturns\fP
+.RS 4
+the IR as a string (without a newline) 
+.RE
+.PP
+
+.PP
+Implements \fBevir::Value\fP\&.
 
 .SH "Author"
 .PP 

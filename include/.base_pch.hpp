@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <map>
+#include <functional>
 
 #include <csignal>
 
