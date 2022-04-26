@@ -7,9 +7,9 @@
 #ifndef EVIR_IR_USER_FUNCTION_H
 #define EVIR_IR_USER_FUNCTION_H
 
-#include ".common.hpp"
-#include "ir/user/user.hpp"
-#include "ir/basicblock.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/user/user.hpp"
+#include "evir/ir/basicblock.hpp"
 
 namespace evir {
 
@@ -24,6 +24,8 @@ public:
 
 	/// Appends a new @link BasicBlock @endlink to the function's body
 	void append_block(BasicBlock* block);
+
+	bool is_defined() const { return blocks.size() > 0; };
 
 	/// @copydoc User::generate_ir()
 	String generate_ir();

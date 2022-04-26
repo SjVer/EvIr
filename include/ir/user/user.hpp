@@ -7,8 +7,8 @@
 #ifndef EVIR_IR_USER_USER_H
 #define EVIR_IR_USER_USER_H
 
-#include ".common.hpp"
-#include "ir/type.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/type.hpp"
 
 namespace evir {
 
@@ -29,6 +29,8 @@ public:
 
 	/// Adds a property to the user
 	void add_property(String property) { properties.push_back(property); }
+
+	virtual bool is_defined() const = 0;
 
 	/// Generates the IR for the user
 	/// @return the IR as a string (without a newline)

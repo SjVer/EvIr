@@ -7,8 +7,8 @@
 #ifndef EVIR_IR_VALUE_OPERATOR_H
 #define EVIR_IR_VALUE_OPERATOR_H
 
-#include ".common.hpp"
-#include "ir/value/value.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/value/value.hpp"
 
 namespace evir {
 

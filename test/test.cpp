@@ -1,7 +1,4 @@
 #include "ir/irbuilder.hpp"
-#include "ir/value/constant.hpp"
-#include "ir/value/reference.hpp"
-#include "ir/instructions/branch.hpp"
 #include <iostream>
 
 using namespace evir;
@@ -82,7 +79,7 @@ int main()
 		func->append_block(bentry);
 		{
 			builder->set_block(bentry);
-			builder->insert(new RetInst(new IntegerConst(0)));
+			builder->create_ret(new FloatConst(0));
 		}
 
 		BasicBlock* b0 = new BasicBlock();

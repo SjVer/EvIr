@@ -1,0 +1,254 @@
+---
+name: EvIr
+scopeName: source.evir
+fileTypes: [evir]
+
+firstLineMatch: ^#!/.*\bevir\b
+
+variables:
+  ident: '[A-Za-z_][A-Za-z_0-9]*'
+
+  # numbers
+  decimal: '\b[0-9]+(?:\.[0-9]*)?\b'
+  binary: '\b0b[0-1]+\b'
+  octal: '\b0c[0-7]+\b'
+  hexadecimal: '\b0x[0-9a-fA-F]+\b'
+  number: '{{decimal}}|{{binary}}|{{octal}}|{{hexadecimal}}'
+
+  # types
+  inttype: i\.(?:s|u)\.[0-9]+
+  floattype: f\.(?:64|32|16)
+  voidtype: v
+  type: '(?:{{inttype}}|{{floattype}}|{{voidtype}})\**'
+
+patterns:
+- include: '#comment'
+- include: '#metadata'
+- include: '#declaration'
+- include: '#label'
+- include: '#instruction'
+- include: '#expression'
+- include: '#invalid'
+
+repository:
+
+  type:
+    name: storage.type.evir
+    match: '{{type}}'
+
+  metadata:
+    name: meta.metadata.evir
+
+    begin: (\!)\s*({{ident}}\s*\/\s*)*({{ident}})
+    beginCaptures:
+      '0': { name: keyword.control.metadata.evir }
+      '1': { name: punctuation.definition.metadata.evir }
+     
+    patterns:
+    - include: '#map'
+    - include: '#constant'
+    - include: '#type'
+    - include: '#expression'
+
+    end: $\n?
+  
+  map:
+    name: meta.map.evir
+
+    begin: \{
+    beginCaptures:
+      '0': { name: punctuation.section.mapping.begin.evir }
+    
+    patterns:
+    - include: '#type'
+    - name: punctuation.separator.key-value.evir
+      match: ':'
+    - name: punctuation.separator.continuation.evir
+      match: ','
+    - include: '#expression'
+
+    end: \}
+    endCaptures:
+      '0': { name: punctuation.section.mapping.end.evir }
+
+  constant:
+    name: entity.name.function.option.evir
+    match: ':{{ident}}'
+
+  # STATEMENTS
+
+  declaration:
+    patterns:
+    # top level
+    - name: meta.declaration.top-level.evir
+      begin: '^\s*{{ident}}\s+(?:({{type}})|(\S*))'
+      beginCaptures:
+        '0': { name: entity.name.function.evir }
+        '1': { name: storage.type.evir }
+        '2': { name: invalid.illegal.evir }
+
+      patterns:
+      - name: meta.parameters.evir
+        begin: \(
+        beginCaptures: { '0': { name: punctuation.section.parameters.begin.evir } }
+        patterns:
+        - name: variable.parameter.evir
+          match: '{{type}}'
+        - include: '#invalid'
+        end: \)\s*(?=$\n?)
+        endCaptures: { '0': { name: punctuation.section.parameters.end.evir } }
+      - include: '#expression'
+      - include: '#invalid'
+
+      end: $\n?
+
+  label:
+    name: meta.label.evir
+    begin: '#\s*(?:{{ident}}|{{number}})'
+    beginCaptures: { '0': { name: keyword.operator.label.evir } }
+    # patterns: { include: '#invalid' }
+    end: ->
+    endCaptures: { '0': { name: keyword.operator.label.evir } }
+
+  instruction:
+    patterns:
+    - match: ~br
+      name: keyword.control.flow.branch.evir
+    - match: ~condbr
+      name: keyword.control.flow.conditional-branch.evir
+    - match: ~ret
+      name: keyword.control.flow.return.evir
+    - match: =disp
+      name: keyword.dispose.evir
+    - match: =store
+      name: keyword.store.evir
+    - match: =malloc
+      name: keyword.malloc.evir
+
+  # EXPRESSION
+
+  expression:
+    patterns:
+    - include: '#comment'
+
+    - include: '#operator'
+    - include: '#array'
+    - include: '#label-ref'
+    - include: '#variable'
+    - include: '#number'
+    - include: '#string-char'
+
+    - include: '#invalid'
+
+  operator:
+    patterns:
+    - match: \$sh(l|r)
+      name: keyword.operator.bitwise.shift.evir
+    - match: \$cmp(eq|neq|le|ge|l|g|nz)
+      name: keyword.operator.comparison.evir
+    - match: \$l(not|and|or|xor)
+      name: keyword.operator.logical.evir
+    - match: \$b(and|or|xor|not)
+      name: keyword.operator.bitwise.evir
+    - match: \$decr
+      name: keyword.operator.decrement.evir
+    - match: \$incr
+      name: keyword.operator.increment.evir
+    - match: \$(mul|div|sub|add|mod)
+      name: keyword.operator.arithmetic.evir
+    - match: \$(ref|deref)
+      name: keyword.operator.evir
+    - match: \$call
+      name: keyword.call.evir
+
+  array:
+    begin: \[
+    beginCaptures: { '0': { name: punctuation.section.brackets.begin.evir } }
+
+    patterns:
+    - name: punctuation.separator.continuation.evir
+      match: \,
+    - include: '#comment'
+    - include: '#expression'
+
+    end: \]
+    endCaptures: { '0': { name: punctuation.section.brackets.begin.evir } }
+
+  label-ref:
+    match: '&({{ident}}|{{number}})'
+    scope: keyword.operator.label-ref.evir
+
+  variable:
+    patterns:
+    - match: '%{{ident}}'
+      name: variable.evir
+    - match: '%[0-9]+'
+      name: variable.parameter.evir
+
+  number:
+    name: constant.numeric.evir
+    match: \b{{number}}\b
+
+  string-char:
+    patterns:
+    - name: string.quoted.double.evir
+
+      begin: '"'
+      beginCaptures:
+        '0': { name: punctuation.definition.string.begin.evir }
+
+      patterns:
+      - include: '#string_escaped_char'
+      - include: '#string_placeholder'
+
+      end: '"'
+      endCaptures:
+        '0': { name: punctuation.definition.string.end.evir }
+
+    - name: string.quoted.single.evir
+
+      begin: "'"
+      beginCaptures:
+        '0': { name: punctuation.definition.string.begin.evir }
+
+      patterns:
+      - include: '#string_escaped_char'
+
+      end: "'"
+      endCaptures:
+        '0': { name: punctuation.definition.string.end.evir }
+
+  # MISC
+
+  comment:
+    name: comment.line.evir
+    match: ';.*$'
+
+  string_escaped_char:
+    patterns:
+    - name: constant.character.escape.evir
+      match: \\(a|b|e|f|n|r|t|v|\\|'|"|0)
+    - name: invalid.illegal.unknown-escape.evir
+      match: \\.
+      
+  string_placeholder:
+    patterns:
+    - name: constant.other.placeholder.evi
+      match: |-
+          (?x)%
+            (\d+\$)?                                      # field (argument #)
+            [#0\- +']*                                    # flags
+            [,;:_]?                                       # separator character (AltiVec)
+            ((-?\d+)|\*(-?\d+\$)?)?                       # minimum field width
+            (\.((-?\d+)|\*(-?\d+\$)?)?)?                  # precision
+            (hh|h|ll|l|j|t|z|q|L|vh|vl|v|hv|hl)?          # length modifier
+            (\[[^\]]+\]|[am]s|[diouxXDOUeEfFgGaACcSspn%]) # conversion type
+        
+    - name: invalid.illegal.placeholder.evi
+      match: (%)(?!"\s*(PRI|SCN))
+
+  invalid:
+    patterns:
+    - match: '\s+'
+    - name: invalid.illegal.evi
+      match: '\S'

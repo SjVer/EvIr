@@ -7,10 +7,10 @@
 #ifndef EVIR_IR_MODULE_H
 #define EVIR_IR_MODULE_H
 
-#include ".common.hpp"
-#include "ir/metadata/metadata.hpp"
-#include "ir/user/user.hpp"
-#include "ir/user/function.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/metadata/metadata.hpp"
+#include "evir/ir/user/user.hpp"
+#include "evir/ir/user/function.hpp"
 
 namespace evir
 {

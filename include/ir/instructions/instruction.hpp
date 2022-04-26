@@ -7,7 +7,7 @@
 #ifndef EVIR_IR_INSTRUCTIONS_INSTRUCTION_H
 #define EVIR_IR_INSTRUCTIONS_INSTRUCTION_H
 
-#include ".common.hpp"
+#include "evir/.common.hpp"
 
 namespace evir {
 
@@ -26,9 +26,11 @@ protected:
 
 	static const enum InstType
 	{
-		INST_BRANCH,
-		INST_STORAGE,
-		INST_DECLARATION,
+		INST_branch_start,
+		INST_RET,
+		INST_BR,
+		INST_CONDBR,
+		INST_branch_end,
 
 		INST_none,
 	} inst_type = INST_none;
@@ -41,19 +43,19 @@ protected:
 public:
 
 	#pragma region Instruction type checks
-	#define IS_TYPE_METHOD(instname, type) \
+	#define IS_TYPE_METHOD(tn) \
+		bool is_##tn##_type_inst() const \
+		{ return inst_type > INST_##tn##_start && inst_type < INST_##tn##_end; }
+	#define IS_INST_METHOD(instname, type) \
 		bool is_##instname##_inst() const { return inst_type == INST_##type; }
 
-	/// returns `true` if this is an instance of @link BranchInst @endlink
-	IS_TYPE_METHOD(branch, BRANCH);
-
-	/// returns `true` if this is an instance of @link StorageInst @endlink
-	IS_TYPE_METHOD(storage, STORAGE);
-
-	/// returns `true` if this is an instance of @link DeclarationInst @endlink
-	IS_TYPE_METHOD(declaration, DECLARATION);
+	IS_TYPE_METHOD(branch);
+	IS_INST_METHOD(ret, RET);
+	IS_INST_METHOD(br, BR);
+	IS_INST_METHOD(condbr, CONDBR);
 
 	#undef IS_TYPE_METHOD
+	#undef IS_INST_METHOD
 	#pragma endregion
 
 	BasicBlock* get_parent() const { return parent; }

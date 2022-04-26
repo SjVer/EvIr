@@ -7,7 +7,7 @@
 #ifndef EVIR_IR_VALUE_VALUE_H
 #define EVIR_IR_VALUE_VALUE_H
 
-#include ".common.hpp"
+#include "evir/.common.hpp"
 
 namespace evir {
 

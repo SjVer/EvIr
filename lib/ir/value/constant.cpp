@@ -17,23 +17,23 @@ SIMPLE_CONSTANT_CONTRUCTOR(MapConst, map, Map<Value* COMMA Value*>, pairs);
 
 #pragma endregion
 #pragma region IR Generation
-#define GENERATE_IR(classname) String classname::generate_ir()
 
-GENERATE_IR(IntegerConst)
+String IntegerConst::generate_ir()
 {
 	// if(format) return tools::fstr(format, value);
 	// else
 	return std::to_string(value);
 }
 
-GENERATE_IR(FloatConst)
+String FloatConst::generate_ir()
 {
 	// if(format) return tools::fstr(format, value);
 	// else
-	return tools::rtrimc(std::to_string(value), '0');
+	String ir = tools::rtrimc(std::to_string(value), '0');
+	return ir.back() == '.' ? ir + '0' : ir;
 }
 
-GENERATE_IR(ArrayConst)
+String ArrayConst::generate_ir()
 {
 	SStream stream = SStream();
 	stream << "[";
@@ -47,7 +47,7 @@ GENERATE_IR(ArrayConst)
 	return stream.str();
 }
 
-GENERATE_IR(MapConst)
+String MapConst::generate_ir()
 {
 	if(pairs.size() == 1)
 	{
@@ -75,4 +75,3 @@ GENERATE_IR(MapConst)
 	return stream.str();
 }
 
-#pragma endregion

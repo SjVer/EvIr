@@ -7,7 +7,7 @@
 #ifndef EVIR_IR_TYPE_H
 #define EVIR_IR_TYPE_H
 
-#include ".common.hpp"
+#include "evir/.common.hpp"
 
 namespace evir {
 

@@ -7,8 +7,8 @@
 #ifndef EVIR_IR_METADATA_H
 #define EVIR_IR_METADATA_H
 
-#include ".common.hpp"
-#include "ir/metadata/mdvalue.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/metadata/mdvalue.hpp"
 
 namespace evir
 {

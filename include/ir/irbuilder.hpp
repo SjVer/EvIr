@@ -7,9 +7,11 @@
 #ifndef EVIR_IR_IRBUILDER_H
 #define EVIR_IR_IRBUILDER_H
 
-#include ".common.hpp"
-#include "ir/module.hpp"
-#include "ir/basicblock.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/module.hpp"
+#include "evir/ir/basicblock.hpp"
+#include "evir/ir/instructions/all.hpp"
+#include "evir/ir/value/all.hpp"
 
 namespace evir
 {
@@ -40,6 +42,15 @@ public:
 	/// Inserts the given instruction at the end of the current
 	/// @link BasicBlock @endlink and returns it.
 	Instruction* insert(Instruction* inst);
+
+	#pragma region Instruction creation
+	#define CREATE_INST(cn, ln, s, ...) \
+		cn* create_##ln s { return (cn*)insert(new cn(__VA_ARGS__)); }
+
+	CREATE_INST(RetInst, ret, (Value* retval), retval);
+
+	#undef CREATE_INST
+	#pragma endregion
 
 	#pragma endregion
 };

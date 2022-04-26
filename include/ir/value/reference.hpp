@@ -7,9 +7,9 @@
 #ifndef EVIR_IR_VALUE_REFERENCE_H
 #define EVIR_IR_VALUE_REFERENCE_H
 
-#include ".common.hpp"
-#include "ir/value/value.hpp"
-#include "ir/user/user.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/value/value.hpp"
+#include "evir/ir/user/user.hpp"
 
 namespace evir {
 

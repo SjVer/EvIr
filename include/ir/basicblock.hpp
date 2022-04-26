@@ -7,8 +7,8 @@
 #ifndef EVIR_IR_BASICBLOCK_H
 #define EVIR_IR_BASICBLOCK_H
 
-#include ".common.hpp"
-#include "ir/instructions/instruction.hpp"
+#include "evir/.common.hpp"
+#include "evir/ir/instructions/instruction.hpp"
 
 namespace evir {
 

@@ -18,8 +18,8 @@
 
 #pragma endregion
 
-#include ".base_pch.hpp"
-#include ".tools_pch.hpp"
+#include "evir/.base_pch.hpp"
+#include "evir/.tools_pch.hpp"
 
 #pragma region types
 namespace evir

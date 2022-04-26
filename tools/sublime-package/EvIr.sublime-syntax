@@ -133,7 +133,7 @@ contexts:
         - include: invalid
 
   label:
-    - match: '#({{ident}}|{{number}})'
+    - match: '#\s*({{ident}}|{{number}})'
       scope: keyword.operator.label.evir
       push:
         - match: ->

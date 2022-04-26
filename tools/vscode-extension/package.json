@@ -1,0 +1,57 @@
+{
+  "name": "evir-lang",
+  "displayName": "EvIr",
+  "description": "EvIr syntax highlighting extension",
+  "version": "0.0.1",
+  "publisher": "SjVer",
+  "author": {
+    "email": "sjoerd@marsenaar.com",
+    "name": "Sjoerd Vermeulen",
+    "url": "https://github.com/SjVer"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "evir",
+        "aliases": [
+          "EvIr",
+          "evir"
+        ],
+        "extensions": [
+          ".evir"
+        ],
+        "configuration": "./syntaxes/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "evir",
+        "scopeName": "source.evir",
+        "path": "./syntaxes/evir.generated.tmLanguage"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "node build-grammar.js",
+    "grammar": "node build-grammar.js"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "latest",
+    "@types/which": "^2.0.0",
+    "js-yaml": "latest",
+    "plist": "latest"
+  },
+  "dependencies": {
+    "which": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SjVer/EvIr.git"
+  }
+}

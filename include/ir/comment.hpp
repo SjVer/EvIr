@@ -7,7 +7,7 @@
 #ifndef EVIR_IR_COMMENT_H
 #define EVIR_IR_COMMENT_H
 
-#include ".common.hpp"
+#include "evir/.common.hpp"
 
 #define _IR_COMMENT_LENGTH 49
 #define _IR_HCOMMENT_LENGTH 50
