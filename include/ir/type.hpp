@@ -38,6 +38,9 @@ protected:
 	/// @endcond
 public:
 
+	virtual bool operator==(const Type& rhs) = 0;
+	bool operator!=(const Type& rhs) { return !operator==(rhs); }
+
 	#pragma region getters
 	#define GETTER(classname, lowercasename, ...) static classname* get_##lowercasename##_type(__VA_ARGS__)
 
@@ -69,7 +72,7 @@ public:
 	#pragma endregion
 
 	/// Constructs a pointer to the the current instance's type
-	PointerType* get_pointer_to();
+	Type* get_pointer_to(uint depth = 1);
 
 	/// Generates the IR for the type
 	/// @return the IR as a string (without a newline)
@@ -97,6 +100,8 @@ public:
 	IntegerType(bool is_signed, uint64 bits_count);
 	// static IntegerType* get(uint64 bits_count, bool is_signed);
 
+	bool operator==(const Type& rhs);
+
 	/// @copydoc Type::generate_ir()
 	String generate_ir();
 };
@@ -121,6 +126,8 @@ public:
 	FloatType(uint64 bits_count);
 	// static FloatType* get(uint64 bits_count);
 
+	bool operator==(const Type& rhs);
+
 	/// @copydoc Type::generate_ir()
 	String generate_ir();
 };
@@ -137,6 +144,8 @@ public:
 
 	PointerType(Type* subtype);
 	// static FloatType* get(uint64 bits_count);
+
+	bool operator==(const Type& rhs);
 
 	/// @copydoc Type::generate_ir()
 	String generate_ir();
@@ -155,6 +164,8 @@ public:
 
 	FunctionType(Type* return_type, Vector<Type*> params);
 	// static FloatType* get(uint64 bits_count);
+
+	bool operator==(const Type& rhs);
 
 	/// @copydoc Type::generate_ir()
 	String generate_ir();

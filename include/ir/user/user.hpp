@@ -14,6 +14,8 @@ namespace evir {
 
 class User
 {
+	friend class Module;
+	
 protected:
 
 	String name;

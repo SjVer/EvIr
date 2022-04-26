@@ -30,11 +30,18 @@ class Module
 
 public:
 
-	#pragma region Constructors
+	#pragma region
 
 	/// @brief Constructs a new module
+	Module();
+
+	/// @copydoc Module::Module()
 	/// @param module_name the name of the module
 	Module(String module_name);
+
+	/// @returns The name of the module if set properly,
+	/// @returns otherwise an empty string.
+	String get_name();
 
 	#pragma endregion
 	#pragma region Metadata manipulation
@@ -49,6 +56,12 @@ public:
 	/// @param mdata the metadata to add
 	/// @warning if the module already has metadata with the same path the function will abort
 	void add_metadata(Metadata* mdata);
+
+	/// @brief Adds metadata to the module
+	/// @param id the id of the builtin property to add
+	/// @param value the value of the metadata
+	/// @warning if the module already has metadata with the same path the function will abort
+	void add_metadata(Metadata::BuiltinPropertyID id, MDValue* value);
 
 	/// @brief Sets a metadata property with the given path
 	/// @param path the path of the metadata property
@@ -75,7 +88,15 @@ public:
 	#pragma endregion
 	#pragma region User manipulation
 
-	Function* insert_function(FunctionType* type, String name);
+	/// @returns The function if it exists, or a new function
+	/// @returns if it doesn't. A nullptr is returned if a user
+	/// @returns with the same name exists with a different type.
+	Function* get_or_insert_function(FunctionType* type, String name);
+
+	// /// @returns The global if it exists, or a new global
+	// /// @returns if it doesn't. A nullptr is returned if a user
+	// /// @returns with the same name exists with a different type.
+	// Global* get_or_insert_global(Global* type, String name);
 
 	#pragma endregion
 	#pragma region IR generation

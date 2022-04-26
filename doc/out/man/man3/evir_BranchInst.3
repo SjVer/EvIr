@@ -14,26 +14,7 @@ Inherited by \fBevir::RetInst\fP\&.
 
 .in +1c
 .ti -1c
-.RI "bool \fBis_ret__inst\fP ()"
-.br
-.RI "returns \fCtrue\fP if this is an instance of \fBRetInst\fP "
-.ti -1c
-.RI "bool \fBis_br__inst\fP ()"
-.br
-.RI "returns \fCtrue\fP if this is an instance of \fBBrInst\fP "
-.ti -1c
-.RI "bool \fBis_condbr__inst\fP ()"
-.br
-.RI "returns \fCtrue\fP if this is an instance of \fBCondBrInst\fP "
-.ti -1c
 .RI "virtual String \fBgenerate_ir\fP ()=0"
-.br
-.in -1c
-.SS "Static Public Member Functions"
-
-.in +1c
-.ti -1c
-.RI "static \fBRetInst\fP * \fBnew_ret_inst\fP (\fBValue\fP *retval=nullptr)"
 .br
 .in -1c
 .SH "Member Function Documentation"
@@ -53,15 +34,6 @@ the IR as a string (with a newline)
 Implements \fBevir::Instruction\fP\&.
 .PP
 Implemented in \fBevir::RetInst\fP\&.
-.SS "static \fBRetInst\fP * evir::BranchInst::new_ret_inst (\fBValue\fP * retval = \fCnullptr\fP)\fC [static]\fP"
-Constructs a new return instruction 
-.PP
-\fBParameters\fP
-.RS 4
-\fIretval\fP the return value 
-.RE
-.PP
-
 
 .SH "Author"
 .PP 

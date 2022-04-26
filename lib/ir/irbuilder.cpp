@@ -2,8 +2,7 @@
 
 using namespace evir;
 
-IRBuilder::IRBuilder(BasicBlock* bblock): bblock(bblock)
-{}
+IRBuilder::IRBuilder(BasicBlock* bblock): bblock(bblock) {}
 
 #pragma region IR Manipulation
 

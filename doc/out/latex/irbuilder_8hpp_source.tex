@@ -11,37 +11,48 @@
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_IRBUILDER\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_IRBUILDER\_H}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/module.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}ir/basicblock.hpp"{}}}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{namespace }evir}
-\DoxyCodeLine{15 \{}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}}}
-\DoxyCodeLine{22 \{}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* bblock = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/module.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/basicblock.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/instructions/all.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}evir/ir/value/all.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }evir}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}}}
+\DoxyCodeLine{24 \{}
 \DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* bblock = \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{30     \mbox{\hyperlink{classevir_1_1IRBuilder_a79c49dc7bb1ec09d6388714b1dc19eb3}{IRBuilder}}(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* bblock = \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32 \textcolor{preprocessor}{    \#pragma region Management}}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{32     \mbox{\hyperlink{classevir_1_1IRBuilder_a79c49dc7bb1ec09d6388714b1dc19eb3}{IRBuilder}}(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* bblock = \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{34     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* get\_block() \{ \textcolor{keywordflow}{return} bblock; \}}
-\DoxyCodeLine{35     \textcolor{keywordtype}{void} set\_block(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* new\_block) \{ bblock = new\_block; \}}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{38 \textcolor{preprocessor}{    \#pragma region IR Manipulation}}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{42     \mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}* \mbox{\hyperlink{classevir_1_1IRBuilder_a9664eeea12d080024150f22d15419950}{insert}}(\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}* inst);}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{45 \};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47 \}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{    \#pragma region Management}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* get\_block() \{ \textcolor{keywordflow}{return} bblock; \}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} set\_block(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* new\_block) \{ bblock = new\_block; \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{    \#pragma region IR Manipulation}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{44     \mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}* \mbox{\hyperlink{classevir_1_1IRBuilder_a9664eeea12d080024150f22d15419950}{insert}}(\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}* inst);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{    \#pragma region Instruction creation}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{    \#define CREATE\_INST(cn, ln, s, ...) \(\backslash\)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{        cn* create\_\#\#ln s \{ return (cn*)insert(new cn(\_\_VA\_ARGS\_\_)); \}}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     CREATE\_INST(\mbox{\hyperlink{classevir_1_1RetInst}{RetInst}}, ret, (\mbox{\hyperlink{classevir_1_1Value}{Value}}* retval), retval);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{    \#undef CREATE\_INST}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
 
 \end{DoxyCode}

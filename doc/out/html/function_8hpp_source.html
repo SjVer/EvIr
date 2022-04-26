@@ -163,9 +163,9 @@ $(document).ready(function(){initNavTree('function_8hpp_source.html',''); initRe
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_USER_FUNCTION_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_USER_FUNCTION_H</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;.common.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;ir/user/user.hpp&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;ir/basicblock.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;evir/.common.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;evir/ir/user/user.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;evir/ir/basicblock.hpp&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span>evir {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
@@ -180,12 +180,14 @@ $(document).ready(function(){initNavTree('function_8hpp_source.html',''); initRe
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classevir_1_1Function.html#a3b1980e6c8a28d983549348656177eee">   26</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classevir_1_1Function.html#a3b1980e6c8a28d983549348656177eee">append_block</a>(<a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>* block);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classevir_1_1Function.html#aa6ecf9a27206df2e41ac5b359cf0e2b8">   29</a></span>    String <a class="code hl_function" href="classevir_1_1Function.html#aa6ecf9a27206df2e41ac5b359cf0e2b8">generate_ir</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> is_defined()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> blocks.size() &gt; 0; };</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classevir_1_1Function.html#aa6ecf9a27206df2e41ac5b359cf0e2b8">   31</a></span>    String <a class="code hl_function" href="classevir_1_1Function.html#aa6ecf9a27206df2e41ac5b359cf0e2b8">generate_ir</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_USER_FUNCTION_H</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_USER_FUNCTION_H</span></div>
 <div class="ttc" id="aclassevir_1_1BasicBlock_html"><div class="ttname"><a href="classevir_1_1BasicBlock.html">evir::BasicBlock</a></div><div class="ttdoc">A single basic block containing instructions.</div><div class="ttdef"><b>Definition:</b> basicblock.hpp:25</div></div>
 <div class="ttc" id="aclassevir_1_1FunctionType_html"><div class="ttname"><a href="classevir_1_1FunctionType.html">evir::FunctionType</a></div><div class="ttdoc">A function's type.</div><div class="ttdef"><b>Definition:</b> type.hpp:147</div></div>
 <div class="ttc" id="aclassevir_1_1Function_html"><div class="ttname"><a href="classevir_1_1Function.html">evir::Function</a></div><div class="ttdef"><b>Definition:</b> function.hpp:17</div></div>

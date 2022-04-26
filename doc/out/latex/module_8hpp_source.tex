@@ -11,10 +11,10 @@
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_MODULE\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_MODULE\_H}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/metadata/metadata.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}ir/user/user.hpp"{}}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}ir/user/function.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/metadata/metadata.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/user/user.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/user/function.hpp"{}}}
 \DoxyCodeLine{14 }
 \DoxyCodeLine{15 \textcolor{keyword}{namespace }evir}
 \DoxyCodeLine{16 \{}
@@ -31,42 +31,44 @@
 \DoxyCodeLine{32 }
 \DoxyCodeLine{33 \textcolor{preprocessor}{    \#pragma region Constructors}}
 \DoxyCodeLine{34 }
-\DoxyCodeLine{37     \mbox{\hyperlink{classevir_1_1Module_a9d8a3459011354b49ee984fa52b6c4d9}{Module}}(String module\_name);}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{40 \textcolor{preprocessor}{    \#pragma region Metadata manipulation}}
+\DoxyCodeLine{36     \mbox{\hyperlink{classevir_1_1Module_a7c323d88c85f42b4cc4824cbae0db2fe}{Module}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{40     \mbox{\hyperlink{classevir_1_1Module_a9d8a3459011354b49ee984fa52b6c4d9}{Module}}(String module\_name);}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{43     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_a2b53dfd4cbb4228e26394bdff9725552}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
+\DoxyCodeLine{42 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{    \#pragma region Metadata manipulation}}
 \DoxyCodeLine{44 }
-\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_aeb178190f52430e9a6a5fcceae09d2e5}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_a2b53dfd4cbb4228e26394bdff9725552}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
 \DoxyCodeLine{47 }
-\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{add\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* mdata);}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8077df8d0dd3bebeab4cb940ec266664}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a3c358833678977212573c10e7b4c618e}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{68     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_afd44eb8d5ae737998cdf4d8a9fa6fc0c}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{73     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_a7931a66d927c09b11e4e501aa3248102}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{76 \textcolor{preprocessor}{    \#pragma region User manipulation}}
+\DoxyCodeLine{49     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_aeb178190f52430e9a6a5fcceae09d2e5}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{add\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* mdata);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8077df8d0dd3bebeab4cb940ec266664}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a3c358833678977212573c10e7b4c618e}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_afd44eb8d5ae737998cdf4d8a9fa6fc0c}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_a7931a66d927c09b11e4e501aa3248102}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
 \DoxyCodeLine{77 }
-\DoxyCodeLine{78     \mbox{\hyperlink{classevir_1_1Function}{Function}}* insert\_function(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}* type, String name);}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{81 \textcolor{preprocessor}{    \#pragma region IR generation}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{    \#pragma region User manipulation}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \mbox{\hyperlink{classevir_1_1Function}{Function}}* get\_or\_insert\_function(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}* type, String name);}
 \DoxyCodeLine{82 }
-\DoxyCodeLine{89     String \mbox{\hyperlink{classevir_1_1Module_af713049800faeb4aea0ae91c580c5c52}{generate\_metadata\_ir}}(\textcolor{keywordtype}{bool} before\_contents);}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{93     String \mbox{\hyperlink{classevir_1_1Module_a938af35989bf5221fd3fb8d0cff51586}{generate\_ir}}();}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{96 \};}
+\DoxyCodeLine{83 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{    \#pragma region IR generation}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{92     String \mbox{\hyperlink{classevir_1_1Module_af713049800faeb4aea0ae91c580c5c52}{generate\_metadata\_ir}}(\textcolor{keywordtype}{bool} before\_contents);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{96     String \mbox{\hyperlink{classevir_1_1Module_a938af35989bf5221fd3fb8d0cff51586}{generate\_ir}}();}
 \DoxyCodeLine{97 }
-\DoxyCodeLine{98 \}}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MODULE\_H}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{99 \};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MODULE\_H}}
 
 \end{DoxyCode}

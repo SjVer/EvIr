@@ -22,50 +22,50 @@ class Metadata
 
 	typedef enum
 	{
-		_META_start_module,
-		_META_MODULE_NAME,
-		_META_MODULE_ENTRYPOINT,
-		_META_MODULE_,
-		_META_end_module,
+		_MD_start_module,
+		_MD_MODULE_NAME,
+		_MD_MODULE_ENTRYPOINT,
+		_MD_MODULE_,
+		_MD_end_module,
 
-		_META_start_module_source,
-		_META_MODULE_SOURCE_FILENAME,
-		_META_MODULE_SOURCE_DIRECTORY,
-		_META_MODULE_SOURCE_LANGUAGE,
-		_META_MODULE_SOURCE_,
-		_META_end_module_source,
+		_MD_start_module_source,
+		_MD_MODULE_SOURCE_FILENAME,
+		_MD_MODULE_SOURCE_DIRECTORY,
+		_MD_MODULE_SOURCE_LANGUAGE,
+		_MD_MODULE_SOURCE_,
+		_MD_end_module_source,
 
-		_META_start_module_producer,
-		_META_MODULE_PRODUCER_NAME,
-		_META_MODULE_PRODUCER_VERSION,
-		_META_MODULE_PRODUCER_TYPE,
-		_META_MODULE_PRODUCER_,
-		_META_end_module_producer,
+		_MD_start_module_producer,
+		_MD_MODULE_PRODUCER_NAME,
+		_MD_MODULE_PRODUCER_VERSION,
+		_MD_MODULE_PRODUCER_TYPE,
+		_MD_MODULE_PRODUCER_,
+		_MD_end_module_producer,
 
-		_META_start_target,
-		_META_TARGET_TRIPLE,
-		_META_TARGET_CPU,
-		_META_TARGET_DATALAYOUT,
-		_META_TARGET_OPTIMIZATION,
-		_META_TARGET_,
-		_META_end_target,
+		_MD_start_target,
+		_MD_TARGET_TRIPLE,
+		_MD_TARGET_CPU,
+		_MD_TARGET_DATALAYOUT,
+		_MD_TARGET_OPTIMIZATION,
+		_MD_TARGET_,
+		_MD_end_target,
 
-		_META_start_debug,
-		_META_DEBUG_GENERATE,
-		_META_DEBUG_INCLUDESOURCE,
-		_META_DEBUG_SOURCELOCATION,
-		_META_DEBUG_SOURCECHECKSUM,
-		_META_DEBUG_DWARFVERSION,
-		_META_DEBUG_TYPENAMES,
-		_META_DEBUG_,
-		_META_end_debug,
+		_MD_start_debug,
+		_MD_DEBUG_GENERATE,
+		_MD_DEBUG_INCLUDESOURCE,
+		_MD_DEBUG_SOURCELOCATION,
+		_MD_DEBUG_SOURCECHECKSUM,
+		_MD_DEBUG_DWARFVERSION,
+		_MD_DEBUG_TYPENAMES,
+		_MD_DEBUG_,
+		_MD_end_debug,
 
-		_META_CUSTOM_,
+		_MD_CUSTOM_,
 
-		_META_none,
+		_MD_none,
 	} PropertyID;
 
-	// static const char* property_id_formats[_META_none];
+	// static const char* property_id_formats[_none];
 
 public:
 
@@ -78,7 +78,7 @@ public:
 	/// @details Used by @link Metadata::Metadata(BuiltinPropertyID type, MDValue* value) @endlink
 	typedef enum
 	{
-		#define META(name) META_##name = PropertyID::_META_##name
+		#define META(name) MD_##name = PropertyID::_MD_##name
 
 		META(MODULE_NAME), 				///< metadata property path: `!module/name`
 		META(MODULE_ENTRYPOINT), 		///< metadata property path: `!module/entrypoint`
@@ -110,7 +110,7 @@ public:
 	/// @details Used by @link Metadata::Metadata(CustomPropertyID type, Path path, MDValue* value) @endlink
 	typedef enum
 	{
-		#define META(name) META_##name = PropertyID::_META_##name##_
+		#define META(name) MD_##name = PropertyID::_MD_##name##_
 
 		META(MODULE),			///< metadata property path: `!module/...`
 		META(MODULE_SOURCE),	///< metadata property path: `!module/source/...`

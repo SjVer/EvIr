@@ -181,6 +181,8 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>append_block</b> (<a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> *block)</td></tr>
 <tr class="memdesc:a3b1980e6c8a28d983549348656177eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a new <a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> to the function's body. <br /></td></tr>
 <tr class="separator:a3b1980e6c8a28d983549348656177eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebe3cec165191db7ea4a6ab2e92e317e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Function.html#aebe3cec165191db7ea4a6ab2e92e317e">is_defined</a> () const</td></tr>
+<tr class="separator:aebe3cec165191db7ea4a6ab2e92e317e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6ecf9a27206df2e41ac5b359cf0e2b8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1Function.html#aa6ecf9a27206df2e41ac5b359cf0e2b8">generate_ir</a> ()</td></tr>
 <tr class="separator:aa6ecf9a27206df2e41ac5b359cf0e2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classevir_1_1User"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classevir_1_1User')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classevir_1_1User.html">evir::User</a></td></tr>
@@ -192,6 +194,9 @@ String&#160;</td><td class="memItemRight" valign="bottom"><b>get_name</b> ()</td
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_property</b> (String property)</td></tr>
 <tr class="memdesc:aa6956a6fd2b7faa7bddb591d14a5cfb9 inherit pub_methods_classevir_1_1User"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a property to the user. <br /></td></tr>
 <tr class="separator:aa6956a6fd2b7faa7bddb591d14a5cfb9 inherit pub_methods_classevir_1_1User"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd527a9392a90d3a3a9558d16a5e2d5d inherit pub_methods_classevir_1_1User"><td class="memItemLeft" align="right" valign="top"><a id="abd527a9392a90d3a3a9558d16a5e2d5d" name="abd527a9392a90d3a3a9558d16a5e2d5d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_defined</b> () const =0</td></tr>
+<tr class="separator:abd527a9392a90d3a3a9558d16a5e2d5d inherit pub_methods_classevir_1_1User"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7678958f545c4eb4c9e6de91cc24daff inherit pub_methods_classevir_1_1User"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">generate_ir</a> ()=0</td></tr>
 <tr class="separator:a7678958f545c4eb4c9e6de91cc24daff inherit pub_methods_classevir_1_1User"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -240,6 +245,33 @@ Vector&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pro
 <p >Generates the IR for the user </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (without a newline) </dd></dl>
 
 <p>Implements <a class="el" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">evir::User</a>.</p>
+
+</div>
+</div>
+<a id="aebe3cec165191db7ea4a6ab2e92e317e" name="aebe3cec165191db7ea4a6ab2e92e317e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebe3cec165191db7ea4a6ab2e92e317e">&#9670;&nbsp;</a></span>is_defined()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool evir::Function::is_defined </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classevir_1_1User.html">evir::User</a>.</p>
 
 </div>
 </div>

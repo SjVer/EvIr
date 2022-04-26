@@ -16,7 +16,11 @@ String User::generate_props_comment()
 			// if(prop != properties.back()) comment << ", ";
 			comment << prop << ", ";
 		}
+
+		// built-in properties
+		comment << '(';
 		comment << (is_defined() ? "defined" : "declared");
+		comment << ')';
 
 		return generate_ir_comment(comment.str());
 	}

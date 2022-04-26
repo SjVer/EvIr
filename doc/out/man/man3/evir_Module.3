@@ -13,6 +13,10 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 
 .in +1c
 .ti -1c
+.RI "\fBModule\fP ()"
+.br
+.RI "Constructs a new module\&. "
+.ti -1c
 .RI "\fBModule\fP (String module_name)"
 .br
 .RI "Constructs a new module\&. "
@@ -45,7 +49,7 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .br
 .RI "Gets the requested metadata property\&. "
 .ti -1c
-.RI "\fBFunction\fP * \fBinsert_function\fP (\fBFunctionType\fP *type, String name)"
+.RI "\fBFunction\fP * \fBget_or_insert_function\fP (\fBFunctionType\fP *type, String name)"
 .br
 .ti -1c
 .RI "String \fBgenerate_metadata_ir\fP (bool before_contents)"

@@ -34,5 +34,5 @@ var searchData=
   ['meta_5ftarget_5foptimization_31',['META_TARGET_OPTIMIZATION',['../classevir_1_1Metadata.html#a12e125eae4e599760a508e21afeef02ea0a52141a0e9e2746d9a73b4c6a8bedb6',1,'evir::Metadata']]],
   ['meta_5ftarget_5ftriple_32',['META_TARGET_TRIPLE',['../classevir_1_1Metadata.html#a12e125eae4e599760a508e21afeef02ea5991898f8f5af4a9fe3f6282af692cc0',1,'evir::Metadata']]],
   ['metadata_33',['Metadata',['../classevir_1_1Metadata.html',1,'evir::Metadata'],['../classevir_1_1Metadata.html#a07e1493a76e547840d7e2a072c99e46c',1,'evir::Metadata::Metadata(BuiltinPropertyID type, MDValue *value=nullptr)'],['../classevir_1_1Metadata.html#a04f985fff42ba4671f681c03e96e82f6',1,'evir::Metadata::Metadata(CustomPropertyID type, Path path, MDValue *value=nullptr)']]],
-  ['module_34',['Module',['../classevir_1_1Module.html',1,'evir::Module'],['../classevir_1_1Module.html#a9d8a3459011354b49ee984fa52b6c4d9',1,'evir::Module::Module()']]]
+  ['module_34',['Module',['../classevir_1_1Module.html',1,'evir::Module'],['../classevir_1_1Module.html#a7c323d88c85f42b4cc4824cbae0db2fe',1,'evir::Module::Module()'],['../classevir_1_1Module.html#a9d8a3459011354b49ee984fa52b6c4d9',1,'evir::Module::Module(String module_name)']]]
 ];

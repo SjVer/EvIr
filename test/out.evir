@@ -2,14 +2,55 @@
 !module/name "test"
 !module/entrypoint %main
 
+!module/source/filename "test.evi"
+!module/source/directory "/home/sjoerdv/test/"
+!module/source/language "Evi"
+
+!module/producer/name "evi (official)"
+!module/producer/version [1, 0, 0]
+!module/producer/type :compiler
+
 ; ================ module contents =================
 
-; props: defined
-main i.s.32 ()
-	#entry ->	~ret 0
+; props: nonstatic, (declared)
+puts i.u.8 ()
+
+; props: nonstatic, (defined)
+iseven i.u.1 (f.32)
+	#entry ->	
+
+	; preds: entry
+	#0 ->		
+
+; props: nonstatic, (defined)
+main i.s.32 (i.s.32 i.u.8**)
+	#entry ->	~ret 0.0
+
+	; preds: entry
+	#0 ->		
+
+	; preds: entry, 0
+	#1 ->		
+
+; ================ target metadata =================
+!target/triple "x86_64-pc-linux-gnu"
+!target/cpu "generic"
+!target/datalayout :auto
+!target/optimization :O3
 
 ; ============== debug info metadata ===============
-!debug/generate 0
+!debug/generate 1
+!debug/includesource 1
+!debug/sourcelocation :modulefile
+!debug/sourcechecksum 0xbba3
+!debug/dwarfversion 5
+
+!debug/typenames {
+	"bln": i.u.1,
+	"chr": i.u.8,
+	"flt": f.32,
+	"i32": i.s.32
+}
 
 ; module generated with:
 ; 	libevir version 0.0.1 dev

@@ -163,8 +163,8 @@ $(document).ready(function(){initNavTree('user_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_USER_USER_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_USER_USER_H</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;.common.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;ir/type.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;evir/.common.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;evir/ir/type.hpp&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>evir {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
@@ -184,12 +184,14 @@ $(document).ready(function(){initNavTree('user_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#aa6956a6fd2b7faa7bddb591d14a5cfb9">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classevir_1_1User.html#aa6956a6fd2b7faa7bddb591d14a5cfb9">add_property</a>(String property) { properties.push_back(property); }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">   35</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">generate_ir</a>() = 0;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> is_defined() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">   37</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1User.html#a7678958f545c4eb4c9e6de91cc24daff">generate_ir</a>() = 0;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_USER_USER_H</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_USER_USER_H</span></div>
 <div class="ttc" id="aclassevir_1_1Type_html"><div class="ttname"><a href="classevir_1_1Type.html">evir::Type</a></div><div class="ttdoc">The interface for types.</div><div class="ttdef"><b>Definition:</b> type.hpp:22</div></div>
 <div class="ttc" id="aclassevir_1_1User_html"><div class="ttname"><a href="classevir_1_1User.html">evir::User</a></div><div class="ttdef"><b>Definition:</b> user.hpp:16</div></div>
 <div class="ttc" id="aclassevir_1_1User_html_a14e5441cdc858754245960371b1bf269"><div class="ttname"><a href="classevir_1_1User.html#a14e5441cdc858754245960371b1bf269">evir::User::get_name</a></div><div class="ttdeci">String get_name()</div><div class="ttdoc">Gets the name of the user.</div><div class="ttdef"><b>Definition:</b> user.hpp:28</div></div>

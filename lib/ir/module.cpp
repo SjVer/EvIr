@@ -7,10 +7,23 @@ using namespace evir;
 
 #pragma region Constructors
 
+Module::Module() {}
+
 Module::Module(String name): name(name)
 {
-	add_metadata(new Metadata(Metadata::META_MODULE_NAME, new MDStringValue(name)));
-	add_metadata(new Metadata(Metadata::META_MODULE_ENTRYPOINT, (MDIRValue*)new Reference()));
+	add_metadata(new Metadata(Metadata::MD_MODULE_NAME, new MDStringValue(name)));
+}
+
+String Module::get_name()
+{
+	// metadata isn't set
+	if(!has_metadata(Metadata::MD_MODULE_NAME)) return "";
+	
+	// metadata isn't a string
+	Metadata* mdata = get_metadata(Metadata::MD_MODULE_NAME);
+	if(!mdata->p_value->is_string()) return "";
+
+	return ((MDStringValue*)mdata->p_value)->string;
 }
 
 #pragma endregion
@@ -32,6 +45,12 @@ void Module::add_metadata(Metadata* mdata)
 {
 	ASSERT(!has_metadata(mdata->p_path), "Module already has metadata with similar path!");
 	metadata.push_back(mdata);
+}
+
+void Module::add_metadata(Metadata::BuiltinPropertyID id, MDValue* value)
+{
+	ASSERT(!has_metadata(id), "Module already has metadata with similar path!");
+	add_metadata(new Metadata(id, value));
 }
 
 void Module::set_metadata(Metadata::Path path, MDValue* value)
@@ -69,12 +88,33 @@ Metadata* Module::get_metadata(Metadata::BuiltinPropertyID id)
 #pragma endregion
 #pragma region User manipulation
 
-Function* Module::insert_function(FunctionType* type, String name)
+Function* Module::get_or_insert_function(FunctionType* type, String name)
 {
+	for(auto u : users)
+	{
+		if(u->get_name() != name) continue;
+		else if(*u->type != *type) return nullptr;
+		else return (Function*)u;
+	}
+
 	Function* func = new Function(type, name);
 	users.push_back(func);
 	return func;
 }
+
+// Global* Module::get_or_insert_global(Type* type, String name)
+// {
+// 	for(auto u : users)
+// 	{
+// 		if(u->get_name() != name) continue;
+// 		else if(*u->type != *type) return nullptr;
+// 		else return (Global*)u;
+// 	}
+//
+// 	Global* glob = new Global(type, name);
+// 	users.push_back(glob);
+// 	return glob;
+// }
 
 #pragma endregion
 #pragma region IR generation
@@ -91,8 +131,8 @@ String Module::generate_metadata_ir(bool before_contents)
 	STREAM(custom);
 
 	#undef STREAM
-	#define HANDLE_RANGE(do, name) if(do && md->p_id > Metadata::_META_start_##name && \
-								  md->p_id < Metadata::_META_end_##name) \
+	#define HANDLE_RANGE(do, name) if(do && md->p_id > Metadata::_MD_start_##name && \
+								  md->p_id < Metadata::_MD_end_##name) \
 							   { s_##name << md->generate_ir() << endl; continue; }
 
 	// gather metadata ir in seperate streams
@@ -103,13 +143,13 @@ String Module::generate_metadata_ir(bool before_contents)
 		HANDLE_RANGE(before_contents, module_producer);
 
 		// debug/typenames is on a new line
-		if(!before_contents && md->p_id == Metadata::_META_DEBUG_TYPENAMES) s_debug << endl;
+		if(!before_contents && md->p_id == Metadata::_MD_DEBUG_TYPENAMES) s_debug << endl;
 
 		HANDLE_RANGE(!before_contents, target);
 		HANDLE_RANGE(!before_contents, debug);
 
 		// custom metadata follows at the end
-		if(!before_contents && md->p_id == Metadata::_META_CUSTOM_)
+		if(!before_contents && md->p_id == Metadata::_MD_CUSTOM_)
 			s_custom << md->generate_ir() << endl;	
 	}
 

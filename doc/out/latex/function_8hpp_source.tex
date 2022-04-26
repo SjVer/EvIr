@@ -11,9 +11,9 @@
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_USER\_FUNCTION\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_USER\_FUNCTION\_H}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ir/user/user.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}ir/basicblock.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/user/user.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/basicblock.hpp"{}}}
 \DoxyCodeLine{13 }
 \DoxyCodeLine{14 \textcolor{keyword}{namespace }evir \{}
 \DoxyCodeLine{15 }
@@ -28,11 +28,13 @@
 \DoxyCodeLine{24 }
 \DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Function_a3b1980e6c8a28d983549348656177eee}{append\_block}}(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* block);}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{29     String \mbox{\hyperlink{classevir_1_1Function_aa6ecf9a27206df2e41ac5b359cf0e2b8}{generate\_ir}}();}
-\DoxyCodeLine{30 \};}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32 \}}
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} is\_defined()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} blocks.size() > 0; \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31     String \mbox{\hyperlink{classevir_1_1Function_aa6ecf9a27206df2e41ac5b359cf0e2b8}{generate\_ir}}();}
+\DoxyCodeLine{32 \};}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_USER\_FUNCTION\_H}}
+\DoxyCodeLine{34 \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_USER\_FUNCTION\_H}}
 
 \end{DoxyCode}
