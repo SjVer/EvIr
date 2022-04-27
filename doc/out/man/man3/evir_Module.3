@@ -56,6 +56,9 @@ evir::Module \- A Class representing a single stand-alone IR module\&.
 .br
 .RI "Gets the requested metadata property\&. "
 .ti -1c
+.RI "\fBFunction\fP * \fBget_function\fP (String name)"
+.br
+.ti -1c
 .RI "\fBFunction\fP * \fBget_or_insert_function\fP (\fBFunctionType\fP *type, String name)"
 .br
 .ti -1c
@@ -153,6 +156,15 @@ Generates the IR of the current module's metadata\&. If before_contents is true,
 \fBReturns\fP
 .RS 4
 the IR as a string (with newline) 
+.RE
+.PP
+
+.SS "\fBFunction\fP * evir::Module::get_function (String name)"
+
+.PP
+\fBReturns\fP
+.RS 4
+The function if it exists, otherwise a nullptr 
 .RE
 .PP
 

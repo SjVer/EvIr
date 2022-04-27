@@ -40,7 +40,11 @@ class BasicBlock
 public:
 
 	BasicBlock() {}
-	BasicBlock(String label) { set_label(label); }
+	BasicBlock(String label, Function* parent = nullptr): parent(parent)
+	{
+		set_label(label);
+		if(parent) parent->append_block(this);
+	}
 
 	Function* get_parent() { return parent; }
 

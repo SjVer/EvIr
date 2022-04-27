@@ -89,10 +89,16 @@ public:
 	#pragma endregion
 	#pragma region User manipulation
 
+	/// @returns The function if it exists, otherwise a nullptr
+	Function* get_function(String name);
+
 	/// @returns The function if it exists, or a new function
 	/// @returns if it doesn't. A nullptr is returned if a user
 	/// @returns with the same name exists with a different type.
 	Function* get_or_insert_function(FunctionType* type, String name);
+
+	// /// @returns The global if it exists, otherwise a nullptr
+	// Global* get_global(String name);
 
 	// /// @returns The global if it exists, or a new global
 	// /// @returns if it doesn't. A nullptr is returned if a user

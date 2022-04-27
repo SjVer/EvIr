@@ -88,19 +88,34 @@ Metadata* Module::get_metadata(Metadata::BuiltinPropertyID id)
 #pragma endregion
 #pragma region User manipulation
 
-Function* Module::get_or_insert_function(FunctionType* type, String name)
+Function* Module::get_function(String name)
 {
 	for(auto u : users)
+		if(u->type->is_function_type() && u->get_name() == name)
+			return (Function*)u;
+
+	return nullptr;
+}
+
+Function* Module::get_or_insert_function(FunctionType* type, String name)
+{
+	Function* func = get_function(name);
+
+	// not found
+	if(!func)
 	{
-		if(u->get_name() != name) continue;
-		else if(*u->type != *type) return nullptr;
-		else return (Function*)u;
+		func = new Function(type, name);
+		users.push_back(func);
+		return func;
 	}
 
-	Function* func = new Function(type, name);
-	users.push_back(func);
-	return func;
+	// wrong type
+	else if(*func->type != *type) return nullptr;
+
+	// found
+	else return func;
 }
+
 
 // Global* Module::get_or_insert_global(Type* type, String name)
 // {

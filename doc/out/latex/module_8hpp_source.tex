@@ -60,25 +60,30 @@
 \DoxyCodeLine{89 \textcolor{preprocessor}{    \#pragma endregion}}
 \DoxyCodeLine{90 \textcolor{preprocessor}{    \#pragma region User manipulation}}
 \DoxyCodeLine{91 }
-\DoxyCodeLine{95     \mbox{\hyperlink{classevir_1_1Function}{Function}}* \mbox{\hyperlink{classevir_1_1Module_ac3bace1007f3a14fb0b01ab77b47a473}{get\_or\_insert\_function}}(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}* type, String name);}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97     \textcolor{comment}{// /// @returns The global if it exists, or a new global}}
-\DoxyCodeLine{98     \textcolor{comment}{// /// @returns if it doesn't. A nullptr is returned if a user}}
-\DoxyCodeLine{99     \textcolor{comment}{// /// @returns with the same name exists with a different type.}}
-\DoxyCodeLine{100     \textcolor{comment}{// Global* get\_or\_insert\_global(Global* type, String name);}}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{102 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{103 \textcolor{preprocessor}{    \#pragma region IR generation}}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{111     String \mbox{\hyperlink{classevir_1_1Module_af713049800faeb4aea0ae91c580c5c52}{generate\_metadata\_ir}}(\textcolor{keywordtype}{bool} before\_contents);}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{115     String \mbox{\hyperlink{classevir_1_1Module_a938af35989bf5221fd3fb8d0cff51586}{generate\_ir}}();}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{117 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{118 \};}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{120 \}}
-\DoxyCodeLine{121 }
-\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MODULE\_H}}
+\DoxyCodeLine{93     \mbox{\hyperlink{classevir_1_1Function}{Function}}* \mbox{\hyperlink{classevir_1_1Module_a795e30b2d6f8af2b21a6f9767cf62b77}{get\_function}}(String name);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{98     \mbox{\hyperlink{classevir_1_1Function}{Function}}* \mbox{\hyperlink{classevir_1_1Module_ac3bace1007f3a14fb0b01ab77b47a473}{get\_or\_insert\_function}}(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}* type, String name);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{comment}{// /// @returns The global if it exists, otherwise a nullptr}}
+\DoxyCodeLine{101     \textcolor{comment}{// Global* get\_global(String name);}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{comment}{// /// @returns The global if it exists, or a new global}}
+\DoxyCodeLine{104     \textcolor{comment}{// /// @returns if it doesn't. A nullptr is returned if a user}}
+\DoxyCodeLine{105     \textcolor{comment}{// /// @returns with the same name exists with a different type.}}
+\DoxyCodeLine{106     \textcolor{comment}{// Global* get\_or\_insert\_global(Global* type, String name);}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{    \#pragma region IR generation}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{117     String \mbox{\hyperlink{classevir_1_1Module_af713049800faeb4aea0ae91c580c5c52}{generate\_metadata\_ir}}(\textcolor{keywordtype}{bool} before\_contents);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{121     String \mbox{\hyperlink{classevir_1_1Module_a938af35989bf5221fd3fb8d0cff51586}{generate\_ir}}();}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{124 \};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MODULE\_H}}
 
 \end{DoxyCode}

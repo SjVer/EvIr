@@ -6,6 +6,7 @@ var classevir_1_1Module =
     [ "add_metadata", "classevir_1_1Module.html#af8764ad3e44a8fe939439a2bf1544986", null ],
     [ "generate_ir", "classevir_1_1Module.html#a938af35989bf5221fd3fb8d0cff51586", null ],
     [ "generate_metadata_ir", "classevir_1_1Module.html#af713049800faeb4aea0ae91c580c5c52", null ],
+    [ "get_function", "classevir_1_1Module.html#a795e30b2d6f8af2b21a6f9767cf62b77", null ],
     [ "get_metadata", "classevir_1_1Module.html#a7931a66d927c09b11e4e501aa3248102", null ],
     [ "get_metadata", "classevir_1_1Module.html#afd44eb8d5ae737998cdf4d8a9fa6fc0c", null ],
     [ "get_name", "classevir_1_1Module.html#a154991c8367ffe72899c59e79a00941f", null ],

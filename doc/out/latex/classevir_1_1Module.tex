@@ -37,6 +37,8 @@ void \mbox{\hyperlink{classevir_1_1Module_a3c358833678977212573c10e7b4c618e}{set
 \begin{DoxyCompactList}\small\item\em Gets the requested metadata property. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}} $\ast$ \mbox{\hyperlink{classevir_1_1Module_a7931a66d927c09b11e4e501aa3248102}{get\+\_\+metadata}} (\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata\+::\+Builtin\+Property\+ID}} type)
 \begin{DoxyCompactList}\small\item\em Gets the requested metadata property. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classevir_1_1Function}{Function}} $\ast$ \mbox{\hyperlink{classevir_1_1Module_a795e30b2d6f8af2b21a6f9767cf62b77}{get\+\_\+function}} (String name)
+\item 
 \mbox{\hyperlink{classevir_1_1Function}{Function}} $\ast$ \mbox{\hyperlink{classevir_1_1Module_ac3bace1007f3a14fb0b01ab77b47a473}{get\+\_\+or\+\_\+insert\+\_\+function}} (\mbox{\hyperlink{classevir_1_1FunctionType}{Function\+Type}} $\ast$type, String name)
 \item 
 String \mbox{\hyperlink{classevir_1_1Module_af713049800faeb4aea0ae91c580c5c52}{generate\+\_\+metadata\+\_\+ir}} (bool before\+\_\+contents)
@@ -142,6 +144,15 @@ If before\+\_\+contents is true, the metadata that comes before the module\textq
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 the IR as a string (with newline) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classevir_1_1Module_a795e30b2d6f8af2b21a6f9767cf62b77}\label{classevir_1_1Module_a795e30b2d6f8af2b21a6f9767cf62b77}} 
+\index{evir::Module@{evir::Module}!get\_function@{get\_function}}
+\index{get\_function@{get\_function}!evir::Module@{evir::Module}}
+\doxysubsubsection{\texorpdfstring{get\_function()}{get\_function()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classevir_1_1Function}{Function}} $\ast$ evir\+::\+Module\+::get\+\_\+function (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The function if it exists, otherwise a nullptr 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classevir_1_1Module_a7931a66d927c09b11e4e501aa3248102}\label{classevir_1_1Module_a7931a66d927c09b11e4e501aa3248102}} 
 \index{evir::Module@{evir::Module}!get\_metadata@{get\_metadata}}
