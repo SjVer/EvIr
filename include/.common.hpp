@@ -1,3 +1,7 @@
+#if !defined(COMPILING) && __INCLUDE_LEVEL__ == 1
+#	error "including this file is not allowed."
+#endif
+
 #ifndef EVIR__COMMON_H
 #define EVIR__COMMON_H
 
@@ -85,3 +89,5 @@ using Map = std::map<K, V>;
 #pragma endregion
 
 #endif // EVIR__COMMON_H
+
+#undef __EVIR_HEADER

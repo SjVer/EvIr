@@ -6,6 +6,7 @@
 
 #ifndef EVIR_IR_BASICBLOCK_H
 #define EVIR_IR_BASICBLOCK_H
+#define __EVIR_HEADER
 
 #include "evir/.common.hpp"
 #include "evir/ir/instructions/instruction.hpp"

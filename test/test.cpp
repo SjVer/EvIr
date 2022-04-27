@@ -5,6 +5,9 @@ using namespace evir;
 
 int main()
 {
+
+	tools::fstr("");
+	
 	// create module
 	Module* module = new Module("test");
 	IRBuilder* builder = new IRBuilder();
@@ -44,7 +47,7 @@ int main()
 
 	// puts
 	{
-		Type* bytetype = new IntegerType(false, 8);
+		Type* bytetype = builder->get_int32_type();
 		FunctionType* functype = new FunctionType(bytetype, { bytetype->get_pointer_to(2) });
 		Function* func = module->get_or_insert_function(functype, "puts");
 		func->add_property("nonstatic");
@@ -52,7 +55,7 @@ int main()
 
 	// iseven
 	{
-		FunctionType* functype = new FunctionType(new IntegerType(false, 1), {new FloatType(32)});
+		FunctionType* functype = new FunctionType(builder->get_bool_type(), {builder->get_float_type()});
 		Function* func = module->get_or_insert_function(functype, "iseven");
 		func->add_property("nonstatic");
 
@@ -76,8 +79,8 @@ int main()
 
 	// main
 	{
-		FunctionType* functype = new FunctionType(new IntegerType(true, 32), {
-			new IntegerType(true, 32), (new IntegerType(false, 8))->get_pointer_to(2) });
+		FunctionType* functype = new FunctionType(builder->get_int32_type(), {
+			builder->get_int32_type(), builder->get_uint8_type()->get_pointer_to(2) });
 		Function* func = module->get_or_insert_function(functype, "main");
 		func->add_property("nonstatic");
 
@@ -95,12 +98,14 @@ int main()
 		}
 
 		/*b0*/ {
-		builder->set_block(b0);
-		builder->create_ret(new IntegerConst(0));
+			builder->set_block(b0);
+			builder->create_disp(new StringConst("even!"));
+			builder->create_ret(new IntegerConst(0));
 		}
 
 		/*b1*/ {
 			builder->set_block(b1);
+			builder->create_disp(new StringConst("uneven!"));
 			builder->create_ret(new IntegerConst(1));
 		}
 

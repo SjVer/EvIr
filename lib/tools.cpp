@@ -16,6 +16,7 @@
 #include <sys/wait.h>
 
 using namespace std;
+using namespace evir;
 
 // ========= string ops =========
 

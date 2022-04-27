@@ -12,6 +12,9 @@ SIMPLE_CONSTANT_CONTRUCTOR(IntegerConst, integer, int64, value);
 SIMPLE_CONSTANT_CONTRUCTOR(FloatConst, float, float2, value);
 SIMPLE_CONSTANT_CONTRUCTOR(ArrayConst, array, Vector<Value*>, elements);
 SIMPLE_CONSTANT_CONTRUCTOR(MapConst, map, Map<Value* COMMA Value*>, pairs);
+StringConst* Constant::new_string(String string) { return new StringConst(string); }
+
+StringConst::StringConst(String string): ArrayConst({}), string(string) {}
 
 #undef SIMPLE_CONSTANT_CONTRUCTOR
 
@@ -75,3 +78,8 @@ String MapConst::generate_ir()
 	return stream.str();
 }
 
+String StringConst::generate_ir()
+{
+	// ez
+	return '"' + tools::unescstr(string) + '"';
+} 

@@ -13,7 +13,7 @@
 ; ================ module contents =================
 
 ; props: nonstatic, declared
-puts i.u.8 (i.u.8**)
+puts i.s.32 (i.s.32**)
 
 ; props: nonstatic, defined
 iseven i.u.1 (f.32)
@@ -28,10 +28,12 @@ main i.s.32 (i.s.32 i.u.8**)
 	#entry ->	~condbr 0 &0 &1
 
 	; preds: entry
-	#0 ->		~ret 0
+	#0 ->		=disp "even!"
+				~ret 0
 
 	; preds: entry
-	#1 ->		~ret 1
+	#1 ->		=disp "uneven!"
+				~ret 1
 
 ; ================ target metadata =================
 !target/triple "x86_64-pc-linux-gnu"

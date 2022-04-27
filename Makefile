@@ -15,7 +15,7 @@ PCOS = tools.cpp
 
 MUTE = varargs c99-designator # write-strings sign-compare unused-function comment dangling-gsl unknown-warning-option c++17-extensions
 LLVMFLAGS = llvm-config-$(LLVMVERSION) --cxxflags
-DEFS = 
+DEFS = __EVIR_HEADER COMPILING
 CXXFLAGS = -Wall $(addprefix -Wno-,$(MUTE)) $(addprefix -D,$(DEFS)) -fPIC # `$(LLVMFLAGS)`
 LDFLAGS = -shared #`$(LLVMFLAGS) --ldflags --system-libs --libs`
 
@@ -38,8 +38,8 @@ PCH_SRC = $(addprefix $(HEADERDIR)/,$(PCHS))
 PCO_SRC = $(addprefix $(SRCDIR)/,$(PCOS))
 PCH_OUT = $(PCH_SRC:$(HEADERDIR)/%=$(PC_OUT_DIR)/%.gch)
 PCO_OUT = $(PCO_SRC:$(SRCDIR)/%$(EXT)=$(PC_OUT_DIR)/%.o)
-PCHFLAGS = $(CXXFLAGS) -x c++-header
-PCOFLAGS = $(CXXFLAGS)
+PCHFLAGS = $(CXXFLAGS) -x c++-header -fvisibility=hidden
+PCOFLAGS = $(CXXFLAGS) -fvisibility=hidden
 INC_PCH_FLAG = $(addprefix -include-pch ,$(PCH_OUT))
 INC_PCO_FLAG = $(PCO_OUT)
 

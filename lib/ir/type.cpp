@@ -10,6 +10,7 @@ GETTER(IntegerType, integer, bool is_signed, uint64 bits_count) BODY(IntegerType
 GETTER(FloatType, float, uint64 bits_count) BODY(FloatType, bits_count);
 GETTER(PointerType, pointer, Type* subtype) BODY(PointerType, subtype);
 GETTER(FunctionType, function, Type* return_type, Vector<Type*> params) BODY(FunctionType, return_type, params);
+GETTER(VoidType, void) BODY(VoidType);
 
 #undef BODY
 #undef GETTER

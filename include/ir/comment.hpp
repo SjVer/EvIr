@@ -6,6 +6,7 @@
 
 #ifndef EVIR_IR_COMMENT_H
 #define EVIR_IR_COMMENT_H
+#define __EVIR_HEADER
 
 #include "evir/.common.hpp"
 

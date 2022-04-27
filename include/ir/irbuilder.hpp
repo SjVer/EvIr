@@ -6,6 +6,7 @@
 
 #ifndef EVIR_IR_IRBUILDER_H
 #define EVIR_IR_IRBUILDER_H
+#define __EVIR_HEADER
 
 #include "evir/.common.hpp"
 #include "evir/ir/module.hpp"
@@ -52,9 +53,33 @@ public:
 	CREATE_INST(CondBrInst, condbr, (Value* c, BasicBlock* td, BasicBlock* fd), c, td, fd);
 	CREATE_INST(CondBrInst, condbr, (Value* c, BasicBlock* td), c, td, nullptr);
 
+	CREATE_INST(DispInst, disp, (Value* expression), expression);
+
 	#undef CREATE_INST
 	#pragma endregion
 
+	#pragma endregion
+	#pragma region Types
+	#define GET_TYPE_METHOD(cn, ln, ...) \
+		cn* get_##ln##_type() { return new cn(__VA_ARGS__); }
+
+	GET_TYPE_METHOD(IntegerType, bool, false, 1);
+	GET_TYPE_METHOD(IntegerType, uint8, false, 8);
+	GET_TYPE_METHOD(IntegerType, int8, true, 8);
+	GET_TYPE_METHOD(IntegerType, uint16, false, 16);
+	GET_TYPE_METHOD(IntegerType, int16, true, 16);
+	GET_TYPE_METHOD(IntegerType, uint32, false, 32);
+	GET_TYPE_METHOD(IntegerType, int32, true, 32);
+	GET_TYPE_METHOD(IntegerType, uint64, false, 64);
+	GET_TYPE_METHOD(IntegerType, int64, true, 64);
+	GET_TYPE_METHOD(IntegerType, uint128, false, 128);
+	GET_TYPE_METHOD(IntegerType, int128, true, 128);
+	GET_TYPE_METHOD(FloatType, half, 16);
+	GET_TYPE_METHOD(FloatType, float, 32);
+	GET_TYPE_METHOD(FloatType, double, 64);
+	GET_TYPE_METHOD(VoidType, void);
+
+	#undef GET_TYPE_METHOD
 	#pragma endregion
 };
 

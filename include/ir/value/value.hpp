@@ -6,6 +6,7 @@
 
 #ifndef EVIR_IR_VALUE_VALUE_H
 #define EVIR_IR_VALUE_VALUE_H
+#define __EVIR_HEADER
 
 #include "evir/.common.hpp"
 

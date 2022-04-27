@@ -6,6 +6,7 @@
 
 #ifndef EVIR_IR_VALUE_CONSTANT_H
 #define EVIR_IR_VALUE_CONSTANT_H
+#define __EVIR_HEADER
 
 #include "evir/.common.hpp"
 #include "evir/ir/value/value.hpp"
@@ -17,6 +18,7 @@ class IntegerConst;
 class FloatConst;
 class ArrayConst;
 class MapConst;
+class StringConst;
 
 class Constant : public Value
 {
@@ -42,21 +44,11 @@ public:
 	#define SIMPLE_CONSTANT_CONTRUCTOR(classname, lowercasename, membertype, membername) \
 		static classname* new_##lowercasename(membertype membername);
 
-	/// Constructs a new integer constant
-	/// @param value the integer
 	SIMPLE_CONSTANT_CONTRUCTOR(IntegerConst, integer, int64, value);
-
-	/// Constructs a new float constant
-	/// @param value the float
 	SIMPLE_CONSTANT_CONTRUCTOR(FloatConst, float, float2, value);
-
-	/// Constructs a new array constant
-	/// @param elements the elements of the array
 	SIMPLE_CONSTANT_CONTRUCTOR(ArrayConst, array, Vector<Value*>, elements);
-
-	/// Constructs a new map constant
-	/// @param pair the key-value pairs of the map
 	SIMPLE_CONSTANT_CONTRUCTOR(MapConst, map, Map<Value* COMMA Value*>, pairs);
+	static StringConst* new_string(String string);
 
 	#undef SIMPLE_CONSTANT_CONTRUCTOR
 	#pragma endregion
@@ -97,6 +89,17 @@ SIMPLE_CONSTANT(FloatConst, 	CONSTANT_FLOAT, 	float2, value);
 
 SIMPLE_CONSTANT(ArrayConst, 	CONSTANT_ARRAY, 	Vector<Value*>, elements);
 SIMPLE_CONSTANT(MapConst, 		CONSTANT_MAP, 		Map<Value* COMMA Value*>, pairs);
+
+class StringConst : public ArrayConst
+{
+	String string;
+
+public:
+	StringConst(String string);
+
+	/// @copydoc Constant::generate_ir()
+	String generate_ir();
+};
 
 #undef MEMBERS
 #undef SIMPLE_CONSTANT

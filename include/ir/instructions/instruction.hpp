@@ -6,6 +6,7 @@
 
 #ifndef EVIR_IR_INSTRUCTIONS_INSTRUCTION_H
 #define EVIR_IR_INSTRUCTIONS_INSTRUCTION_H
+#define __EVIR_HEADER
 
 #include "evir/.common.hpp"
 
@@ -39,6 +40,12 @@ protected:
 		INST_CONDBR,
 		INST_branch_end,
 
+		INST_storage_start,
+		INST_LOAD,
+		INST_STORE,
+		INST_DISP,
+		INST_storage_end,
+
 		INST_none,
 	} inst_type = INST_none;
 
@@ -62,6 +69,11 @@ public:
 	IS_INST_METHOD(ret, RET);
 	IS_INST_METHOD(br, BR);
 	IS_INST_METHOD(condbr, CONDBR);
+
+	IS_TYPE_METHOD(storage);
+	IS_INST_METHOD(load, LOAD);
+	IS_INST_METHOD(store, STORE);
+	IS_INST_METHOD(disp, DISP);
 
 	#undef IS_TYPE_METHOD
 	#undef IS_INST_METHOD
