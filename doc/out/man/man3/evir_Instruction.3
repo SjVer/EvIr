@@ -1,4 +1,4 @@
-.TH "evir::Instruction" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Instruction" 3 "Wed Apr 27 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,7 +7,7 @@ evir::Instruction
 .br
 .PP
 .PP
-Inherited by \fBevir::BranchInst\fP\&.
+Inherited by \fBevir::BranchInst\fP, and \fBevir::StorageInst\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -22,6 +22,18 @@ Inherited by \fBevir::BranchInst\fP\&.
 .br
 .ti -1c
 .RI "bool \fBis_condbr_inst\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_storage_type_inst\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_load_inst\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_store_inst\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_disp_inst\fP () const"
 .br
 .ti -1c
 .RI "\fBBasicBlock\fP * \fBget_parent\fP () const"
@@ -54,7 +66,7 @@ the IR as a string (with a newline)
 .PP
 
 .PP
-Implemented in \fBevir::RetInst\fP, \fBevir::BrInst\fP, \fBevir::CondBrInst\fP, and \fBevir::BranchInst\fP\&.
+Implemented in \fBevir::RetInst\fP, \fBevir::BrInst\fP, \fBevir::CondBrInst\fP, \fBevir::DispInst\fP, \fBevir::BranchInst\fP, and \fBevir::StorageInst\fP\&.
 
 .SH "Author"
 .PP 

@@ -6,6 +6,9 @@ var hierarchy =
         [ "evir::BrInst", "classevir_1_1BrInst.html", null ],
         [ "evir::CondBrInst", "classevir_1_1CondBrInst.html", null ],
         [ "evir::RetInst", "classevir_1_1RetInst.html", null ]
+      ] ],
+      [ "evir::StorageInst", "classevir_1_1StorageInst.html", [
+        [ "evir::DispInst", "classevir_1_1DispInst.html", null ]
       ] ]
     ] ],
     [ "evir::IRBuilder", "classevir_1_1IRBuilder.html", null ],
@@ -24,14 +27,17 @@ var hierarchy =
       [ "evir::FloatType", "classevir_1_1FloatType.html", null ],
       [ "evir::FunctionType", "classevir_1_1FunctionType.html", null ],
       [ "evir::IntegerType", "classevir_1_1IntegerType.html", null ],
-      [ "evir::PointerType", "classevir_1_1PointerType.html", null ]
+      [ "evir::PointerType", "classevir_1_1PointerType.html", null ],
+      [ "evir::VoidType", "classevir_1_1VoidType.html", null ]
     ] ],
     [ "evir::User", "classevir_1_1User.html", [
       [ "evir::Function", "classevir_1_1Function.html", null ]
     ] ],
     [ "evir::Value", "classevir_1_1Value.html", [
       [ "evir::Constant", "classevir_1_1Constant.html", [
-        [ "evir::ArrayConst", "classevir_1_1ArrayConst.html", null ],
+        [ "evir::ArrayConst", "classevir_1_1ArrayConst.html", [
+          [ "evir::StringConst", "classevir_1_1StringConst.html", null ]
+        ] ],
         [ "evir::FloatConst", "classevir_1_1FloatConst.html", null ],
         [ "evir::IntegerConst", "classevir_1_1IntegerConst.html", null ],
         [ "evir::MapConst", "classevir_1_1MapConst.html", null ]

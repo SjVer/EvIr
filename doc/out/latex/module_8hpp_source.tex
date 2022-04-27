@@ -10,74 +10,75 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_MODULE\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_MODULE\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/metadata/metadata.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/user/user.hpp"{}}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/user/function.hpp"{}}}
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{keyword}{namespace }evir}
-\DoxyCodeLine{16 \{}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}}}
-\DoxyCodeLine{24 \{}
-\DoxyCodeLine{25     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Metadata}{Metadata}};}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27     String name;}
-\DoxyCodeLine{28     Vector<Metadata*> metadata;}
-\DoxyCodeLine{29     Vector<User*> users;}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33 \textcolor{preprocessor}{    \#pragma region}}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{36     \mbox{\hyperlink{classevir_1_1Module_a7c323d88c85f42b4cc4824cbae0db2fe}{Module}}();}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{40     \mbox{\hyperlink{classevir_1_1Module_a9d8a3459011354b49ee984fa52b6c4d9}{Module}}(String module\_name);}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{44     String \mbox{\hyperlink{classevir_1_1Module_a154991c8367ffe72899c59e79a00941f}{get\_name}}();}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{47 \textcolor{preprocessor}{    \#pragma region Metadata manipulation}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_a2b53dfd4cbb4228e26394bdff9725552}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{53     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_aeb178190f52430e9a6a5fcceae09d2e5}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{add\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* mdata);}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_af8764ad3e44a8fe939439a2bf1544986}{add\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} \textcolor{keywordtype}{id}, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8077df8d0dd3bebeab4cb940ec266664}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a3c358833678977212573c10e7b4c618e}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{81     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_afd44eb8d5ae737998cdf4d8a9fa6fc0c}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{86     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_a7931a66d927c09b11e4e501aa3248102}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
-\DoxyCodeLine{87 }
-\DoxyCodeLine{88 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{89 \textcolor{preprocessor}{    \#pragma region User manipulation}}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{94     \mbox{\hyperlink{classevir_1_1Function}{Function}}* \mbox{\hyperlink{classevir_1_1Module_ac3bace1007f3a14fb0b01ab77b47a473}{get\_or\_insert\_function}}(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}* type, String name);}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96     \textcolor{comment}{// /// @returns The global if it exists, or a new global}}
-\DoxyCodeLine{97     \textcolor{comment}{// /// @returns if it doesn't. A nullptr is returned if a user}}
-\DoxyCodeLine{98     \textcolor{comment}{// /// @returns with the same name exists with a different type.}}
-\DoxyCodeLine{99     \textcolor{comment}{// Global* get\_or\_insert\_global(Global* type, String name);}}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{101 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{102 \textcolor{preprocessor}{    \#pragma region IR generation}}
-\DoxyCodeLine{103 }
-\DoxyCodeLine{110     String \mbox{\hyperlink{classevir_1_1Module_af713049800faeb4aea0ae91c580c5c52}{generate\_metadata\_ir}}(\textcolor{keywordtype}{bool} before\_contents);}
-\DoxyCodeLine{111 }
-\DoxyCodeLine{114     String \mbox{\hyperlink{classevir_1_1Module_a938af35989bf5221fd3fb8d0cff51586}{generate\_ir}}();}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{116 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{117 \};}
-\DoxyCodeLine{118 }
-\DoxyCodeLine{119 \}}
-\DoxyCodeLine{120 }
-\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MODULE\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/metadata/metadata.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/user/user.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}evir/ir/user/function.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }evir}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Metadata}{Metadata}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     String name;}
+\DoxyCodeLine{29     Vector<Metadata*> metadata;}
+\DoxyCodeLine{30     Vector<User*> users;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{    \#pragma region}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{37     \mbox{\hyperlink{classevir_1_1Module_a7c323d88c85f42b4cc4824cbae0db2fe}{Module}}();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{41     \mbox{\hyperlink{classevir_1_1Module_a9d8a3459011354b49ee984fa52b6c4d9}{Module}}(String module\_name);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{45     String \mbox{\hyperlink{classevir_1_1Module_a154991c8367ffe72899c59e79a00941f}{get\_name}}();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{    \#pragma region Metadata manipulation}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_a2b53dfd4cbb4228e26394bdff9725552}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1Module_aeb178190f52430e9a6a5fcceae09d2e5}{has\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8e8193a7ab86fb626058bd6135f8e2f8}{add\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* mdata);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_af8764ad3e44a8fe939439a2bf1544986}{add\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} \textcolor{keywordtype}{id}, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a8077df8d0dd3bebeab4cb940ec266664}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1Module_a3c358833678977212573c10e7b4c618e}{set\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type, \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}* value);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{82     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_afd44eb8d5ae737998cdf4d8a9fa6fc0c}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a95022cb074a6ac6d1f3c2d0e2b02ebbb}{Metadata::Path}} path);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{87     \mbox{\hyperlink{classevir_1_1Metadata}{Metadata}}* \mbox{\hyperlink{classevir_1_1Module_a7931a66d927c09b11e4e501aa3248102}{get\_metadata}}(\mbox{\hyperlink{classevir_1_1Metadata_a12e125eae4e599760a508e21afeef02e}{Metadata::BuiltinPropertyID}} type);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{    \#pragma region User manipulation}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95     \mbox{\hyperlink{classevir_1_1Function}{Function}}* \mbox{\hyperlink{classevir_1_1Module_ac3bace1007f3a14fb0b01ab77b47a473}{get\_or\_insert\_function}}(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}* type, String name);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{comment}{// /// @returns The global if it exists, or a new global}}
+\DoxyCodeLine{98     \textcolor{comment}{// /// @returns if it doesn't. A nullptr is returned if a user}}
+\DoxyCodeLine{99     \textcolor{comment}{// /// @returns with the same name exists with a different type.}}
+\DoxyCodeLine{100     \textcolor{comment}{// Global* get\_or\_insert\_global(Global* type, String name);}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{    \#pragma region IR generation}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{111     String \mbox{\hyperlink{classevir_1_1Module_af713049800faeb4aea0ae91c580c5c52}{generate\_metadata\_ir}}(\textcolor{keywordtype}{bool} before\_contents);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{115     String \mbox{\hyperlink{classevir_1_1Module_a938af35989bf5221fd3fb8d0cff51586}{generate\_ir}}();}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{118 \};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MODULE\_H}}
 
 \end{DoxyCode}

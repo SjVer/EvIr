@@ -1,4 +1,4 @@
-.TH "evir::Constant" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Constant" 3 "Wed Apr 27 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -48,6 +48,9 @@ Inherited by \fBevir::ArrayConst\fP, \fBevir::FloatConst\fP, \fBevir::IntegerCon
 .ti -1c
 .RI "static \fBMapConst\fP * \fBnew_map\fP (Map< \fBValue\fP *COMMA \fBValue\fP * > pairs)"
 .br
+.ti -1c
+.RI "static \fBStringConst\fP * \fBnew_string\fP (String string)"
+.br
 .in -1c
 .SH "Member Function Documentation"
 .PP 
@@ -65,43 +68,7 @@ the IR as a string (without a newline)
 .PP
 Implements \fBevir::Value\fP\&.
 .PP
-Implemented in \fBevir::IntegerConst\fP, \fBevir::FloatConst\fP, \fBevir::ArrayConst\fP, and \fBevir::MapConst\fP\&.
-.SS "static \fBArrayConst\fP * evir::Constant::new_array (Vector< \fBValue\fP * > elements)\fC [static]\fP"
-Constructs a new array constant 
-.PP
-\fBParameters\fP
-.RS 4
-\fIelements\fP the elements of the array 
-.RE
-.PP
-
-.SS "static \fBFloatConst\fP * evir::Constant::new_float (float2 value)\fC [static]\fP"
-Constructs a new float constant 
-.PP
-\fBParameters\fP
-.RS 4
-\fIvalue\fP the float 
-.RE
-.PP
-
-.SS "static \fBIntegerConst\fP * evir::Constant::new_integer (int64 value)\fC [static]\fP"
-Constructs a new integer constant 
-.PP
-\fBParameters\fP
-.RS 4
-\fIvalue\fP the integer 
-.RE
-.PP
-
-.SS "static \fBMapConst\fP * evir::Constant::new_map (Map< \fBValue\fP *COMMA \fBValue\fP * > pairs)\fC [static]\fP"
-Constructs a new map constant 
-.PP
-\fBParameters\fP
-.RS 4
-\fIpair\fP the key-value pairs of the map 
-.RE
-.PP
-
+Implemented in \fBevir::IntegerConst\fP, \fBevir::FloatConst\fP, \fBevir::ArrayConst\fP, \fBevir::MapConst\fP, and \fBevir::StringConst\fP\&.
 
 .SH "Author"
 .PP 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['user_0',['User',['../classevir_1_1User.html',1,'evir']]]
+  ['storageinst_0',['StorageInst',['../classevir_1_1StorageInst.html',1,'evir']]],
+  ['stringconst_1',['StringConst',['../classevir_1_1StringConst.html',1,'evir']]]
 ];

@@ -10,156 +10,169 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_TYPE\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_TYPE\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{namespace }evir \{}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{class }IntegerType;}
-\DoxyCodeLine{15 \textcolor{keyword}{class }FloatType;}
-\DoxyCodeLine{16 \textcolor{keyword}{class }PointerType;}
-\DoxyCodeLine{17 \textcolor{keyword}{class }ArrayType;}
-\DoxyCodeLine{18 \textcolor{keyword}{class }FunctionType;}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Type}{Type}}}
-\DoxyCodeLine{22 \{}
-\DoxyCodeLine{23 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} TypeID \{}
-\DoxyCodeLine{27         TYPE\_INTEGER,}
-\DoxyCodeLine{28         TYPE\_FLOAT,}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30         TYPE\_POINTER,}
-\DoxyCodeLine{31         TYPE\_ARRAY,}
-\DoxyCodeLine{32 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }IntegerType;}
+\DoxyCodeLine{16 \textcolor{keyword}{class }FloatType;}
+\DoxyCodeLine{17 \textcolor{keyword}{class }PointerType;}
+\DoxyCodeLine{18 \textcolor{keyword}{class }ArrayType;}
+\DoxyCodeLine{19 \textcolor{keyword}{class }FunctionType;}
+\DoxyCodeLine{20 \textcolor{keyword}{class }VoidType;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Type}{Type}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} TypeID \{}
+\DoxyCodeLine{29         TYPE\_INTEGER,}
+\DoxyCodeLine{30         TYPE\_FLOAT,}
+\DoxyCodeLine{31         TYPE\_POINTER,}
+\DoxyCodeLine{32         TYPE\_ARRAY,}
 \DoxyCodeLine{33         TYPE\_FUNCTION,}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35         TYPE\_none}
-\DoxyCodeLine{36     \} type\_id = TYPE\_none;}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{39 \textcolor{keyword}{public}:}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs) = 0;}
-\DoxyCodeLine{42     \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs) \{ \textcolor{keywordflow}{return} !operator==(rhs); \}}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44 \textcolor{preprocessor}{    \#pragma region getters}}
-\DoxyCodeLine{45 \textcolor{preprocessor}{    \#define GETTER(classname, lowercasename, ...) static classname* get\_\#\#lowercasename\#\#\_type(\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{46 }
+\DoxyCodeLine{34         TYPE\_VOID,}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         TYPE\_none}
+\DoxyCodeLine{37     \} type\_id = TYPE\_none;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{40 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs) = 0;}
+\DoxyCodeLine{43     \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs) \{ \textcolor{keywordflow}{return} !operator==(rhs); \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{    \#pragma region getters}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{    \#define GETTER(classname, lowercasename, ...) static classname* get\_\#\#lowercasename\#\#\_type(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{47 }
 \DoxyCodeLine{48     GETTER(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, integer, \textcolor{keywordtype}{bool} is\_signed, uint64 bits\_count);}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{51     GETTER(\mbox{\hyperlink{classevir_1_1FloatType}{FloatType}}, \textcolor{keywordtype}{float}, uint64 bits\_count);}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{54     GETTER(\mbox{\hyperlink{classevir_1_1PointerType}{PointerType}}, pointer, \mbox{\hyperlink{classevir_1_1Type}{Type}}* subtype);}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{57     GETTER(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}, function, \mbox{\hyperlink{classevir_1_1Type}{Type}}* return\_type, Vector<Type*> params);}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \textcolor{preprocessor}{    \#undef GETTER}}
-\DoxyCodeLine{60 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{61 }
-\DoxyCodeLine{62 \textcolor{preprocessor}{    \#pragma region type id checks}}
-\DoxyCodeLine{63 \textcolor{preprocessor}{    \#define TYPE\_CHECK\_MEMBER(lowercasename, type) \(\backslash\)}}
-\DoxyCodeLine{64 \textcolor{preprocessor}{        bool is\_\#\#lowercasename\#\#\_type() \{ return type\_id == type; \}}}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66     TYPE\_CHECK\_MEMBER(integer, TYPE\_INTEGER);}
-\DoxyCodeLine{67     TYPE\_CHECK\_MEMBER(\textcolor{keywordtype}{float}, TYPE\_FLOAT);}
-\DoxyCodeLine{68     TYPE\_CHECK\_MEMBER(pointer, TYPE\_POINTER);}
-\DoxyCodeLine{69     TYPE\_CHECK\_MEMBER(function, TYPE\_FUNCTION);}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{71 \textcolor{preprocessor}{    \#undef TYPE\_CHECK\_MEMBER}}
-\DoxyCodeLine{72 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{75     \mbox{\hyperlink{classevir_1_1Type}{Type}}* \mbox{\hyperlink{classevir_1_1Type_a695a872808fac9db85cd0b523bf9cf6f}{get\_pointer\_to}}(uint depth = 1);}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{79     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Type_a64cc909abf597f3cb57387accec2dde6}{generate\_ir}}() = 0;}
-\DoxyCodeLine{80 \};}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82 \textcolor{preprocessor}{\#pragma region subclasses}}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{85 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
-\DoxyCodeLine{86 \{}
-\DoxyCodeLine{87     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_INTEGER;}
-\DoxyCodeLine{88     uint64 bitwidth;}
-\DoxyCodeLine{89     \textcolor{keywordtype}{bool} is\_signed;}
+\DoxyCodeLine{49     GETTER(\mbox{\hyperlink{classevir_1_1FloatType}{FloatType}}, \textcolor{keywordtype}{float}, uint64 bits\_count);}
+\DoxyCodeLine{50     GETTER(\mbox{\hyperlink{classevir_1_1PointerType}{PointerType}}, pointer, \mbox{\hyperlink{classevir_1_1Type}{Type}}* subtype);}
+\DoxyCodeLine{51     GETTER(\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}, function, \mbox{\hyperlink{classevir_1_1Type}{Type}}* return\_type, Vector<Type*> params);}
+\DoxyCodeLine{52     GETTER(\mbox{\hyperlink{classevir_1_1VoidType}{VoidType}}, \textcolor{keywordtype}{void});}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{    \#undef GETTER}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{    \#pragma region type id checks}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{    \#define TYPE\_CHECK\_MEMBER(lowercasename, type) \(\backslash\)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{        bool is\_\#\#lowercasename\#\#\_type() \{ return type\_id == type; \}}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     TYPE\_CHECK\_MEMBER(integer, TYPE\_INTEGER);}
+\DoxyCodeLine{62     TYPE\_CHECK\_MEMBER(\textcolor{keywordtype}{float}, TYPE\_FLOAT);}
+\DoxyCodeLine{63     TYPE\_CHECK\_MEMBER(pointer, TYPE\_POINTER);}
+\DoxyCodeLine{64     TYPE\_CHECK\_MEMBER(function, TYPE\_FUNCTION);}
+\DoxyCodeLine{65     TYPE\_CHECK\_MEMBER(\textcolor{keywordtype}{void}, TYPE\_VOID);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{    \#undef TYPE\_CHECK\_MEMBER}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71     \mbox{\hyperlink{classevir_1_1Type}{Type}}* \mbox{\hyperlink{classevir_1_1Type_a695a872808fac9db85cd0b523bf9cf6f}{get\_pointer\_to}}(uint depth = 1);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{75     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Type_a64cc909abf597f3cb57387accec2dde6}{generate\_ir}}() = 0;}
+\DoxyCodeLine{76 \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#pragma region subclasses}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{81 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_INTEGER;}
+\DoxyCodeLine{84     uint64 bitwidth;}
+\DoxyCodeLine{85     \textcolor{keywordtype}{bool} is\_signed;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{comment}{// IntegerType();}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{public}:}
 \DoxyCodeLine{90 }
-\DoxyCodeLine{91     \textcolor{comment}{// IntegerType();}}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93 \textcolor{keyword}{public}:}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95     \textcolor{keyword}{enum} \{}
-\DoxyCodeLine{96         MIN\_BITS\_COUNT = 1,}
-\DoxyCodeLine{97         MAX\_BITS\_COUNT = (1 << 23)}
-\DoxyCodeLine{98     \};}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100     \mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}(\textcolor{keywordtype}{bool} is\_signed, uint64 bits\_count);}
-\DoxyCodeLine{101     \textcolor{comment}{// static IntegerType* get(uint64 bits\_count, bool is\_signed);}}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{103     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{91     \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{92         MIN\_BITS\_COUNT = 1,}
+\DoxyCodeLine{93         MAX\_BITS\_COUNT = (1 << 23)}
+\DoxyCodeLine{94     \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}(\textcolor{keywordtype}{bool} is\_signed, uint64 bits\_count);}
+\DoxyCodeLine{97     \textcolor{comment}{// static IntegerType* get(uint64 bits\_count, bool is\_signed);}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{102     String \mbox{\hyperlink{classevir_1_1IntegerType_afc19ea269321a0b6eb5f0e00ce8b3aa8}{generate\_ir}}();}
+\DoxyCodeLine{103 \};}
 \DoxyCodeLine{104 }
-\DoxyCodeLine{106     String \mbox{\hyperlink{classevir_1_1IntegerType_afc19ea269321a0b6eb5f0e00ce8b3aa8}{generate\_ir}}();}
-\DoxyCodeLine{107 \};}
-\DoxyCodeLine{108 }
-\DoxyCodeLine{110 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1FloatType}{FloatType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
-\DoxyCodeLine{111 \{}
-\DoxyCodeLine{112     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_FLOAT;}
-\DoxyCodeLine{113     uint64 bitwidth;}
+\DoxyCodeLine{106 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1FloatType}{FloatType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
+\DoxyCodeLine{107 \{}
+\DoxyCodeLine{108     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_FLOAT;}
+\DoxyCodeLine{109     uint64 bitwidth;}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{comment}{// FloatType();}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{keyword}{public}:}
 \DoxyCodeLine{114 }
-\DoxyCodeLine{115     \textcolor{comment}{// FloatType();}}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{117 \textcolor{keyword}{public}:}
-\DoxyCodeLine{118 }
-\DoxyCodeLine{120     \textcolor{keyword}{enum} \{}
-\DoxyCodeLine{121         HALF = 16,}
-\DoxyCodeLine{122         FLOAT = 32,}
-\DoxyCodeLine{123         DOUBLE = 64}
-\DoxyCodeLine{124     \};}
-\DoxyCodeLine{125 }
-\DoxyCodeLine{126     \mbox{\hyperlink{classevir_1_1FloatType}{FloatType}}(uint64 bits\_count);}
-\DoxyCodeLine{127     \textcolor{comment}{// static FloatType* get(uint64 bits\_count);}}
-\DoxyCodeLine{128 }
-\DoxyCodeLine{129     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{116     \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{117         HALF = 16,}
+\DoxyCodeLine{118         FLOAT = 32,}
+\DoxyCodeLine{119         DOUBLE = 64}
+\DoxyCodeLine{120     \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \mbox{\hyperlink{classevir_1_1FloatType}{FloatType}}(uint64 bits\_count);}
+\DoxyCodeLine{123     \textcolor{comment}{// static FloatType* get(uint64 bits\_count);}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{128     String \mbox{\hyperlink{classevir_1_1FloatType_ac62359e31d5162ae50e4399735a5f206}{generate\_ir}}();}
+\DoxyCodeLine{129 \};}
 \DoxyCodeLine{130 }
-\DoxyCodeLine{132     String \mbox{\hyperlink{classevir_1_1FloatType_ac62359e31d5162ae50e4399735a5f206}{generate\_ir}}();}
-\DoxyCodeLine{133 \};}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{136 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1PointerType}{PointerType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
-\DoxyCodeLine{137 \{}
-\DoxyCodeLine{138     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_POINTER;}
-\DoxyCodeLine{139     \mbox{\hyperlink{classevir_1_1Type}{Type}}* subtype;}
+\DoxyCodeLine{132 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1PointerType}{PointerType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
+\DoxyCodeLine{133 \{}
+\DoxyCodeLine{134     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_POINTER;}
+\DoxyCodeLine{135     \mbox{\hyperlink{classevir_1_1Type}{Type}}* subtype;}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \textcolor{comment}{// FloatType();}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{keyword}{public}:}
 \DoxyCodeLine{140 }
-\DoxyCodeLine{141     \textcolor{comment}{// FloatType();}}
-\DoxyCodeLine{142 }
-\DoxyCodeLine{143 \textcolor{keyword}{public}:}
-\DoxyCodeLine{144 }
-\DoxyCodeLine{145     \mbox{\hyperlink{classevir_1_1PointerType}{PointerType}}(\mbox{\hyperlink{classevir_1_1Type}{Type}}* subtype);}
-\DoxyCodeLine{146     \textcolor{comment}{// static FloatType* get(uint64 bits\_count);}}
-\DoxyCodeLine{147 }
-\DoxyCodeLine{148     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{141     \mbox{\hyperlink{classevir_1_1PointerType}{PointerType}}(\mbox{\hyperlink{classevir_1_1Type}{Type}}* subtype);}
+\DoxyCodeLine{142     \textcolor{comment}{// static FloatType* get(uint64 bits\_count);}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{147     String \mbox{\hyperlink{classevir_1_1PointerType_a5240ba4837883dda2d36c0038f33f720}{generate\_ir}}();}
+\DoxyCodeLine{148 \};}
 \DoxyCodeLine{149 }
-\DoxyCodeLine{151     String \mbox{\hyperlink{classevir_1_1PointerType_a5240ba4837883dda2d36c0038f33f720}{generate\_ir}}();}
-\DoxyCodeLine{152 \};}
-\DoxyCodeLine{153 }
-\DoxyCodeLine{155 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
-\DoxyCodeLine{156 \{}
-\DoxyCodeLine{157     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_FUNCTION;}
-\DoxyCodeLine{158     \mbox{\hyperlink{classevir_1_1Type}{Type}}* return\_type;}
-\DoxyCodeLine{159     Vector<Type*> params;}
+\DoxyCodeLine{151 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
+\DoxyCodeLine{152 \{}
+\DoxyCodeLine{153     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_FUNCTION;}
+\DoxyCodeLine{154     \mbox{\hyperlink{classevir_1_1Type}{Type}}* return\_type;}
+\DoxyCodeLine{155     Vector<Type*> params;}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \textcolor{comment}{// FunctionType();}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{keyword}{public}:}
 \DoxyCodeLine{160 }
-\DoxyCodeLine{161     \textcolor{comment}{// FunctionType();}}
-\DoxyCodeLine{162 }
-\DoxyCodeLine{163 \textcolor{keyword}{public}:}
-\DoxyCodeLine{164 }
-\DoxyCodeLine{165     \mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}(\mbox{\hyperlink{classevir_1_1Type}{Type}}* return\_type, Vector<Type*> params);}
-\DoxyCodeLine{166     \textcolor{comment}{// static FloatType* get(uint64 bits\_count);}}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{161     \mbox{\hyperlink{classevir_1_1FunctionType}{FunctionType}}(\mbox{\hyperlink{classevir_1_1Type}{Type}}* return\_type, Vector<Type*> params);}
+\DoxyCodeLine{162     \textcolor{comment}{// static FloatType* get(uint64 bits\_count);}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs);}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{167     String \mbox{\hyperlink{classevir_1_1FunctionType_a620e0378477eafbc65e49565a6fcdcc5}{generate\_ir}}();}
+\DoxyCodeLine{168 \};}
 \DoxyCodeLine{169 }
-\DoxyCodeLine{171     String \mbox{\hyperlink{classevir_1_1FunctionType_a620e0378477eafbc65e49565a6fcdcc5}{generate\_ir}}();}
-\DoxyCodeLine{172 \};}
-\DoxyCodeLine{173 }
-\DoxyCodeLine{174 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{175 }
-\DoxyCodeLine{176 \}}
-\DoxyCodeLine{177 }
-\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_TYPE\_H}}
+\DoxyCodeLine{171 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1VoidType}{VoidType}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Type}{Type}}}
+\DoxyCodeLine{172 \{}
+\DoxyCodeLine{173     \textcolor{keyword}{static} \textcolor{keyword}{const} TypeID type\_id = TYPE\_VOID;}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{keyword}{public}:}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \mbox{\hyperlink{classevir_1_1VoidType}{VoidType}}() \{\}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classevir_1_1Type}{Type}}\& rhs) \{ \textcolor{keywordflow}{return} rhs.type\_id != TYPE\_VOID; \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{182     String \mbox{\hyperlink{classevir_1_1VoidType_a79b4c3689a6b9bc05f731f7dc425d915}{generate\_ir}}() \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}v"{}}; \}}
+\DoxyCodeLine{183 \};}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_TYPE\_H}}
 
 \end{DoxyCode}

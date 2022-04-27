@@ -10,48 +10,49 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_VALUE\_VALUE\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_VALUE\_VALUE\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{namespace }evir \{}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{class }MDIRValue;}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Value}{Value}}}
-\DoxyCodeLine{17 \{}
-\DoxyCodeLine{18 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} ValueType}
-\DoxyCodeLine{22     \{}
-\DoxyCodeLine{23         VALUE\_CONSTANT,}
-\DoxyCodeLine{24         VALUE\_OPERATOR,}
-\DoxyCodeLine{25         VALUE\_REFERENCE,}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27         VALUE\_none,}
-\DoxyCodeLine{28     \} value\_type = VALUE\_none;}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{31 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33 \textcolor{preprocessor}{    \#pragma region Value type checks}}
-\DoxyCodeLine{34 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(typename, type) \(\backslash\)}}
-\DoxyCodeLine{35 \textcolor{preprocessor}{        bool is\_\#\#typename() \{ return value\_type == VALUE\_\#\#type; \}}}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{38     IS\_TYPE\_METHOD(constant, CONSTANT);}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{41     IS\_TYPE\_METHOD(\textcolor{keyword}{operator}, OPERATOR);}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{44     IS\_TYPE\_METHOD(reference, REFERENCE);}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
-\DoxyCodeLine{47 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{51     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Value_a5ade2573c8702bfc1c74705207d5589d}{generate\_ir}}() = 0;}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{54     \textcolor{keyword}{operator} \mbox{\hyperlink{classevir_1_1MDIRValue}{MDIRValue}}();}
-\DoxyCodeLine{55 \};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57 \}}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_VALUE\_VALUE\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }MDIRValue;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Value}{Value}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} ValueType}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         VALUE\_CONSTANT,}
+\DoxyCodeLine{25         VALUE\_OPERATOR,}
+\DoxyCodeLine{26         VALUE\_REFERENCE,}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         VALUE\_none,}
+\DoxyCodeLine{29     \} value\_type = VALUE\_none;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{    \#pragma region Value type checks}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(typename, type) \(\backslash\)}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{        bool is\_\#\#typename() \{ return value\_type == VALUE\_\#\#type; \}}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{39     IS\_TYPE\_METHOD(constant, CONSTANT);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{42     IS\_TYPE\_METHOD(\textcolor{keyword}{operator}, OPERATOR);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{45     IS\_TYPE\_METHOD(reference, REFERENCE);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Value_a5ade2573c8702bfc1c74705207d5589d}{generate\_ir}}() = 0;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{55     \textcolor{keyword}{operator} \mbox{\hyperlink{classevir_1_1MDIRValue}{MDIRValue}}();}
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_VALUE\_VALUE\_H}}
 
 \end{DoxyCode}

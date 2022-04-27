@@ -7,6 +7,7 @@ var annotated_dup =
       [ "BrInst", "classevir_1_1BrInst.html", "classevir_1_1BrInst" ],
       [ "CondBrInst", "classevir_1_1CondBrInst.html", "classevir_1_1CondBrInst" ],
       [ "Constant", "classevir_1_1Constant.html", "classevir_1_1Constant" ],
+      [ "DispInst", "classevir_1_1DispInst.html", "classevir_1_1DispInst" ],
       [ "FloatConst", "classevir_1_1FloatConst.html", "classevir_1_1FloatConst" ],
       [ "FloatType", "classevir_1_1FloatType.html", "classevir_1_1FloatType" ],
       [ "Function", "classevir_1_1Function.html", "classevir_1_1Function" ],
@@ -30,8 +31,11 @@ var annotated_dup =
       [ "PointerType", "classevir_1_1PointerType.html", "classevir_1_1PointerType" ],
       [ "Reference", "classevir_1_1Reference.html", "classevir_1_1Reference" ],
       [ "RetInst", "classevir_1_1RetInst.html", "classevir_1_1RetInst" ],
+      [ "StorageInst", "classevir_1_1StorageInst.html", "classevir_1_1StorageInst" ],
+      [ "StringConst", "classevir_1_1StringConst.html", "classevir_1_1StringConst" ],
       [ "Type", "classevir_1_1Type.html", "classevir_1_1Type" ],
       [ "User", "classevir_1_1User.html", "classevir_1_1User" ],
-      [ "Value", "classevir_1_1Value.html", "classevir_1_1Value" ]
+      [ "Value", "classevir_1_1Value.html", "classevir_1_1Value" ],
+      [ "VoidType", "classevir_1_1VoidType.html", "classevir_1_1VoidType" ]
     ] ]
 ];

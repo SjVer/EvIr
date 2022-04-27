@@ -1,4 +1,4 @@
-.TH "evir::IRBuilder" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::IRBuilder" 3 "Wed Apr 27 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -35,6 +35,60 @@ evir::IRBuilder \- A class for creating and managing instructions\&.
 .br
 .ti -1c
 .RI "\fBCondBrInst\fP * \fBcreate_condbr\fP (\fBValue\fP *c, \fBBasicBlock\fP *td)"
+.br
+.ti -1c
+.RI "\fBDispInst\fP * \fBcreate_disp\fP (\fBValue\fP *expression)"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_bool_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_uint8_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_int8_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_uint16_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_int16_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_uint32_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_int32_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_uint64_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_int64_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_uint128_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_int128_type\fP ()"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_uintn_type\fP (uint bitwidth)"
+.br
+.ti -1c
+.RI "\fBIntegerType\fP * \fBget_uint_type\fP (uint bitwidth)"
+.br
+.ti -1c
+.RI "\fBFloatType\fP * \fBget_half_type\fP ()"
+.br
+.ti -1c
+.RI "\fBFloatType\fP * \fBget_float_type\fP ()"
+.br
+.ti -1c
+.RI "\fBFloatType\fP * \fBget_double_type\fP ()"
+.br
+.ti -1c
+.RI "\fBVoidType\fP * \fBget_void_type\fP ()"
 .br
 .in -1c
 .SH "Detailed Description"

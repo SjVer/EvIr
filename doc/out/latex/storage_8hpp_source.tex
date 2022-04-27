@@ -1,0 +1,58 @@
+\hypertarget{storage_8hpp_source}{}\doxysection{storage.\+hpp}
+\label{storage_8hpp_source}\index{include/ir/instructions/storage.hpp@{include/ir/instructions/storage.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//===-\/-\/-\/ ir/instructions/storage.hpp -\/-\/-\/-\/ C++ -\/-\/-\/===}}
+\DoxyCodeLine{2 \textcolor{comment}{// This header is part of the EvIr library}}
+\DoxyCodeLine{3 \textcolor{comment}{// MIT License -\/ Sjoerd Vermeulen (2022)}}
+\DoxyCodeLine{4 \textcolor{comment}{// For more info see https://github.com/SjVer/EvIr}}
+\DoxyCodeLine{5 \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_INSTRUCTIONS\_STORAGE\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_INSTRUCTIONS\_STORAGE\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/instructions/instruction.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/value/value.hpp"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1StorageInst}{StorageInst}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} ir\_prefix = \textcolor{charliteral}{'='};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} resolve() = 0;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1StorageInst_a51449e5439b2c4a5fadd082156304175}{generate\_ir}}() = 0;}
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#pragma region StorageInst subclasses}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define MEMBERS(name, type, term) \(\backslash\)}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{    private: void resolve(); \(\backslash\)}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{    static const InstType inst\_type = type;\(\backslash\)}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{    static constexpr const char* ir\_name = name; \(\backslash\)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{    public: bool is\_terminator() const \{ return term; \} \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{    String generate\_ir();}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1DispInst}{DispInst}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1StorageInst}{StorageInst}}}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \mbox{\hyperlink{classevir_1_1Value}{Value}}* expression;}
+\DoxyCodeLine{44     MEMBERS(\textcolor{stringliteral}{"{}disp"{}}, INST\_DISP, \textcolor{keyword}{false});}
+\DoxyCodeLine{45     }
+\DoxyCodeLine{46     \mbox{\hyperlink{classevir_1_1DispInst}{DispInst}}(\mbox{\hyperlink{classevir_1_1Value}{Value}}* expression): expression(expression) \{\}}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#undef MEMBERS}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_INSTRUCTIONS\_STORAGE\_H}}
+
+\end{DoxyCode}

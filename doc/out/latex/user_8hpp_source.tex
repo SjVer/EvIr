@@ -10,43 +10,44 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_USER\_USER\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_USER\_USER\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/type.hpp"{}}}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir \{}
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{keyword}{class }Module;}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1User}{User}}}
-\DoxyCodeLine{18 \{}
-\DoxyCodeLine{19     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}};}
-\DoxyCodeLine{20     }
-\DoxyCodeLine{21 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     String name;}
-\DoxyCodeLine{24     \mbox{\hyperlink{classevir_1_1Type}{Type}}* type;}
-\DoxyCodeLine{25     Vector<String> properties;}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27     \mbox{\hyperlink{classevir_1_1Module}{Module}}* parent;}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29     String generate\_props\_comment();}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{34     String \mbox{\hyperlink{classevir_1_1User_a14e5441cdc858754245960371b1bf269}{get\_name}}() \{ \textcolor{keywordflow}{return} name; \};}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     \mbox{\hyperlink{classevir_1_1Module}{Module}}* get\_parent()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} parent; \}}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1User_aa6956a6fd2b7faa7bddb591d14a5cfb9}{add\_property}}(String property) \{ properties.push\_back(property); \}}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} is\_defined() \textcolor{keyword}{const} = 0;}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{45     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1User_a7678958f545c4eb4c9e6de91cc24daff}{generate\_ir}}() = 0;}
-\DoxyCodeLine{46 \};}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \}}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_USER\_USER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/type.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }Module;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1User}{User}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}};}
+\DoxyCodeLine{21     }
+\DoxyCodeLine{22 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     String name;}
+\DoxyCodeLine{25     \mbox{\hyperlink{classevir_1_1Type}{Type}}* type;}
+\DoxyCodeLine{26     Vector<String> properties;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{classevir_1_1Module}{Module}}* parent;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     String generate\_props\_comment();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{35     String \mbox{\hyperlink{classevir_1_1User_a14e5441cdc858754245960371b1bf269}{get\_name}}() \{ \textcolor{keywordflow}{return} name; \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{classevir_1_1Module}{Module}}* get\_parent()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} parent; \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1User_aa6956a6fd2b7faa7bddb591d14a5cfb9}{add\_property}}(String property) \{ properties.push\_back(property); \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} is\_defined() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1User_a7678958f545c4eb4c9e6de91cc24daff}{generate\_ir}}() = 0;}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_USER\_USER\_H}}
 
 \end{DoxyCode}

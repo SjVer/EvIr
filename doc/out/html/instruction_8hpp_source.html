@@ -162,88 +162,100 @@ $(document).ready(function(){initNavTree('instruction_8hpp_source.html',''); ini
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_INSTRUCTIONS_INSTRUCTION_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_INSTRUCTIONS_INSTRUCTION_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;evir/.common.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span>evir {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">class </span>BasicBlock;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span>Function;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span>Module;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span>BranchInst;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span>StorageInst;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span>DeclarationInst;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Instruction.html">Instruction</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1IRBuilder.html">IRBuilder</a>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Module.html">Module</a>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>* parent;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">enum</span> InstType</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        INST_branch_start,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        INST_RET,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        INST_BR,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        INST_CONDBR,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        INST_branch_end,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        INST_none,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    } inst_type = INST_none;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> ir_prefix;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* ir_name;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">    #define __EVIR_INST_IR_START (String() + ir_prefix + ir_name + &#39; &#39;)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define __EVIR_HEADER</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;evir/.common.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>evir {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span>BasicBlock;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span>Function;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">class </span>Module;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span>BranchInst;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span>StorageInst;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">class </span>DeclarationInst;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Instruction.html">Instruction</a></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1IRBuilder.html">IRBuilder</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Module.html">Module</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>* parent;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">enum</span> InstType</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        INST_branch_start,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        INST_RET,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        INST_BR,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        INST_CONDBR,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        INST_branch_end,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        INST_storage_start,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        INST_LOAD,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        INST_STORE,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        INST_DISP,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        INST_storage_end,</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> resolve() = 0;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">    #pragma region Instruction type checks</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">    #define IS_TYPE_METHOD(tn) \</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">        bool is_##tn##_type_inst() const \</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">        { return inst_type &gt; INST_##tn##_start &amp;&amp; inst_type &lt; INST_##tn##_end; }</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">    #define IS_INST_METHOD(instname, type) \</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">        bool is_##instname##_inst() const { return inst_type == INST_##type; }</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        INST_none,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    } inst_type = INST_none;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> ir_prefix;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* ir_name;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">    #define __EVIR_INST_IR_START (String() + ir_prefix + ir_name + &#39; &#39;)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> resolve() = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    IS_TYPE_METHOD(branch);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    IS_INST_METHOD(ret, RET);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    IS_INST_METHOD(br, BR);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    IS_INST_METHOD(condbr, CONDBR);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">    #undef IS_TYPE_METHOD</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">    #undef IS_INST_METHOD</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">    #pragma endregion</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#a6278cbf130241ad4a928aa586d3e2180">   71</a></span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>* <a class="code hl_function" href="classevir_1_1Instruction.html#a6278cbf130241ad4a928aa586d3e2180">get_parent</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> parent; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">    #pragma region Instruction type checks</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">    #define IS_TYPE_METHOD(tn) \</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">        bool is_##tn##_type_inst() const \</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">        { return inst_type &gt; INST_##tn##_start &amp;&amp; inst_type &lt; INST_##tn##_end; }</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">    #define IS_INST_METHOD(instname, type) \</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">        bool is_##instname##_inst() const { return inst_type == INST_##type; }</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    IS_TYPE_METHOD(branch);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    IS_INST_METHOD(ret, RET);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    IS_INST_METHOD(br, BR);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    IS_INST_METHOD(condbr, CONDBR);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#a2cefdbc21adc5defed0d27e645f58ca7">   74</a></span>    <a class="code hl_class" href="classevir_1_1Function.html">Function</a>* <a class="code hl_function" href="classevir_1_1Instruction.html#a2cefdbc21adc5defed0d27e645f58ca7">get_function</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#aeacb816b008c1f19df0313034e6031dc">   77</a></span>    <a class="code hl_class" href="classevir_1_1Module.html">Module</a>* <a class="code hl_function" href="classevir_1_1Instruction.html#aeacb816b008c1f19df0313034e6031dc">get_module</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> is_terminator() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#a975d5c981b0b45dc9a61bc23c7856b40">   83</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1Instruction.html#a975d5c981b0b45dc9a61bc23c7856b40">generate_ir</a>() = 0;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    IS_TYPE_METHOD(storage);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    IS_INST_METHOD(load, LOAD);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    IS_INST_METHOD(store, STORE);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    IS_INST_METHOD(disp, DISP);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">    #undef IS_TYPE_METHOD</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">    #undef IS_INST_METHOD</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">    #pragma endregion</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#a6278cbf130241ad4a928aa586d3e2180">   83</a></span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>* <a class="code hl_function" href="classevir_1_1Instruction.html#a6278cbf130241ad4a928aa586d3e2180">get_parent</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> parent; }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#a2cefdbc21adc5defed0d27e645f58ca7">   86</a></span>    <a class="code hl_class" href="classevir_1_1Function.html">Function</a>* <a class="code hl_function" href="classevir_1_1Instruction.html#a2cefdbc21adc5defed0d27e645f58ca7">get_function</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_INSTRUCTIONS_INSTRUCTION_H</span></div>
-<div class="ttc" id="aclassevir_1_1BasicBlock_html"><div class="ttname"><a href="classevir_1_1BasicBlock.html">evir::BasicBlock</a></div><div class="ttdoc">A single basic block containing instructions.</div><div class="ttdef"><b>Definition:</b> basicblock.hpp:25</div></div>
-<div class="ttc" id="aclassevir_1_1Function_html"><div class="ttname"><a href="classevir_1_1Function.html">evir::Function</a></div><div class="ttdef"><b>Definition:</b> function.hpp:17</div></div>
-<div class="ttc" id="aclassevir_1_1IRBuilder_html"><div class="ttname"><a href="classevir_1_1IRBuilder.html">evir::IRBuilder</a></div><div class="ttdoc">A class for creating and managing instructions.</div><div class="ttdef"><b>Definition:</b> irbuilder.hpp:24</div></div>
-<div class="ttc" id="aclassevir_1_1Instruction_html"><div class="ttname"><a href="classevir_1_1Instruction.html">evir::Instruction</a></div><div class="ttdef"><b>Definition:</b> instruction.hpp:23</div></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#aeacb816b008c1f19df0313034e6031dc">   89</a></span>    <a class="code hl_class" href="classevir_1_1Module.html">Module</a>* <a class="code hl_function" href="classevir_1_1Instruction.html#aeacb816b008c1f19df0313034e6031dc">get_module</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> is_terminator() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classevir_1_1Instruction.html#a975d5c981b0b45dc9a61bc23c7856b40">   95</a></span>    <span class="keyword">virtual</span> String <a class="code hl_function" href="classevir_1_1Instruction.html#a975d5c981b0b45dc9a61bc23c7856b40">generate_ir</a>() = 0;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_INSTRUCTIONS_INSTRUCTION_H</span></div>
+<div class="ttc" id="aclassevir_1_1BasicBlock_html"><div class="ttname"><a href="classevir_1_1BasicBlock.html">evir::BasicBlock</a></div><div class="ttdoc">A single basic block containing instructions.</div><div class="ttdef"><b>Definition:</b> basicblock.hpp:26</div></div>
+<div class="ttc" id="aclassevir_1_1Function_html"><div class="ttname"><a href="classevir_1_1Function.html">evir::Function</a></div><div class="ttdef"><b>Definition:</b> function.hpp:18</div></div>
+<div class="ttc" id="aclassevir_1_1IRBuilder_html"><div class="ttname"><a href="classevir_1_1IRBuilder.html">evir::IRBuilder</a></div><div class="ttdoc">A class for creating and managing instructions.</div><div class="ttdef"><b>Definition:</b> irbuilder.hpp:25</div></div>
+<div class="ttc" id="aclassevir_1_1Instruction_html"><div class="ttname"><a href="classevir_1_1Instruction.html">evir::Instruction</a></div><div class="ttdef"><b>Definition:</b> instruction.hpp:24</div></div>
 <div class="ttc" id="aclassevir_1_1Instruction_html_a2cefdbc21adc5defed0d27e645f58ca7"><div class="ttname"><a href="classevir_1_1Instruction.html#a2cefdbc21adc5defed0d27e645f58ca7">evir::Instruction::get_function</a></div><div class="ttdeci">Function * get_function() const</div><div class="ttdoc">Gets the instruction's parent block's function.</div></div>
-<div class="ttc" id="aclassevir_1_1Instruction_html_a6278cbf130241ad4a928aa586d3e2180"><div class="ttname"><a href="classevir_1_1Instruction.html#a6278cbf130241ad4a928aa586d3e2180">evir::Instruction::get_parent</a></div><div class="ttdeci">BasicBlock * get_parent() const</div><div class="ttdoc">Gets the instruction's parent block.</div><div class="ttdef"><b>Definition:</b> instruction.hpp:71</div></div>
+<div class="ttc" id="aclassevir_1_1Instruction_html_a6278cbf130241ad4a928aa586d3e2180"><div class="ttname"><a href="classevir_1_1Instruction.html#a6278cbf130241ad4a928aa586d3e2180">evir::Instruction::get_parent</a></div><div class="ttdeci">BasicBlock * get_parent() const</div><div class="ttdoc">Gets the instruction's parent block.</div><div class="ttdef"><b>Definition:</b> instruction.hpp:83</div></div>
 <div class="ttc" id="aclassevir_1_1Instruction_html_a975d5c981b0b45dc9a61bc23c7856b40"><div class="ttname"><a href="classevir_1_1Instruction.html#a975d5c981b0b45dc9a61bc23c7856b40">evir::Instruction::generate_ir</a></div><div class="ttdeci">virtual String generate_ir()=0</div></div>
 <div class="ttc" id="aclassevir_1_1Instruction_html_aeacb816b008c1f19df0313034e6031dc"><div class="ttname"><a href="classevir_1_1Instruction.html#aeacb816b008c1f19df0313034e6031dc">evir::Instruction::get_module</a></div><div class="ttdeci">Module * get_module() const</div><div class="ttdoc">Gets the instruction's parent block's function's module.</div></div>
-<div class="ttc" id="aclassevir_1_1Module_html"><div class="ttname"><a href="classevir_1_1Module.html">evir::Module</a></div><div class="ttdoc">A Class representing a single stand-alone IR module.</div><div class="ttdef"><b>Definition:</b> module.hpp:24</div></div>
+<div class="ttc" id="aclassevir_1_1Module_html"><div class="ttname"><a href="classevir_1_1Module.html">evir::Module</a></div><div class="ttdoc">A Class representing a single stand-alone IR module.</div><div class="ttdef"><b>Definition:</b> module.hpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

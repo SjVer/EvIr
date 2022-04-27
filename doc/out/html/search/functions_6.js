@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['new_5farray_0',['new_array',['../classevir_1_1Constant.html#a80c5b42594f02fa6f9d978cc388115cc',1,'evir::Constant']]],
-  ['new_5ffloat_1',['new_float',['../classevir_1_1Constant.html#a7dd99883f6905e56f389c4de51963023',1,'evir::Constant']]],
-  ['new_5finteger_2',['new_integer',['../classevir_1_1Constant.html#a7aa32c29753dbec174bd30f6e6768dfb',1,'evir::Constant']]],
-  ['new_5fmap_3',['new_map',['../classevir_1_1Constant.html#ab4274ebce66b1224fea917450e207714',1,'evir::Constant']]]
+  ['operator_20mdirvalue_0',['operator MDIRValue',['../classevir_1_1Value.html#a4bdca3e0835e6637c8933ad934fda586',1,'evir::Value']]]
 ];

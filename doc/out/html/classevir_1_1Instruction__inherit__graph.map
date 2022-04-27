@@ -1,7 +1,9 @@
 <map id="evir::Instruction" name="evir::Instruction">
-<area shape="rect" id="node1" title=" " alt="" coords="125,5,249,32"/>
-<area shape="rect" id="node2" href="$classevir_1_1BranchInst.html" title=" " alt="" coords="125,80,249,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="258,5,382,32"/>
+<area shape="rect" id="node2" href="$classevir_1_1BranchInst.html" title=" " alt="" coords="183,80,307,107"/>
+<area shape="rect" id="node6" href="$classevir_1_1StorageInst.html" title=" " alt="" coords="361,80,490,107"/>
 <area shape="rect" id="node3" href="$classevir_1_1BrInst.html" title=" " alt="" coords="5,155,99,181"/>
 <area shape="rect" id="node4" href="$classevir_1_1CondBrInst.html" title=" " alt="" coords="123,155,250,181"/>
 <area shape="rect" id="node5" href="$classevir_1_1RetInst.html" title=" " alt="" coords="275,155,376,181"/>
+<area shape="rect" id="node7" href="$classevir_1_1DispInst.html" title=" " alt="" coords="401,155,509,181"/>
 </map>

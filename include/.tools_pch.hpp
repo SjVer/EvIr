@@ -8,38 +8,37 @@
 #include <string>
 #include <vector>
 
-#ifndef COMPILING
-#   define ATTR [[deprecated]]
-#else 
-#   define ATTR 
-#endif
-
 namespace evir {
-namespace tools {
+
+namespace
+#ifndef COMPILING
+[[deprecated]] // The namespace evir::tools can be used internally by libevir only!
+#endif
+    tools {
 
     using namespace std;
 
-    ATTR char escchr(char ogchar);
-    ATTR const char* unescchr(char escchar);
+    char escchr(char ogchar);
+    const char* unescchr(char escchar);
 
     // string ops
-    ATTR std::vector<string> split_string(const string& str, const string& delimiter);
-    ATTR string fstr(string format, ...);
-    ATTR string replacestr(string source, string oldstring, string newstring);
-    ATTR string escstr(string str);
-    ATTR string unescstr(string str, bool ign_s_quotes = false, bool ign_d_quotes = false);
+    std::vector<string> split_string(const string& str, const string& delimiter);
+    string fstr(string format, ...);
+    string replacestr(string source, string oldstring, string newstring);
+    string escstr(string str);
+    string unescstr(string str, bool ign_s_quotes = false, bool ign_d_quotes = false);
 
-    ATTR void ltrim(string &s, char delim = ' ');
-    ATTR void rtrim(string &s, char delim = ' ');
-    ATTR void trim(string &s, char delim = ' ');
-    ATTR string ltrimc(string s, char delim = ' ');
-    ATTR string rtrimc(string s, char delim = ' ');
-    ATTR string trimc(string s, char delim = ' ');
+    void ltrim(string &s, char delim = ' ');
+    void rtrim(string &s, char delim = ' ');
+    void trim(string &s, char delim = ' ');
+    string ltrimc(string s, char delim = ' ');
+    string rtrimc(string s, char delim = ' ');
+    string trimc(string s, char delim = ' ');
 
-    ATTR string readf(string path);
-    ATTR void writef(string path, string text);
+    string readf(string path);
+    void writef(string path, string text);
 
-    ATTR bool is_ident(string str);
+    bool is_ident(string str);
 }
 }
 #endif

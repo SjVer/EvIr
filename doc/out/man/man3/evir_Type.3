@@ -1,4 +1,4 @@
-.TH "evir::Type" 3 "Tue Apr 26 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
+.TH "evir::Type" 3 "Wed Apr 27 2022" "Version 0.0.1" "EvIr" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,7 +10,7 @@ evir::Type \- The interface for types\&.
 .PP
 \fC#include <include/ir/type\&.hpp>\fP
 .PP
-Inherited by \fBevir::FloatType\fP, \fBevir::FunctionType\fP, \fBevir::IntegerType\fP, and \fBevir::PointerType\fP\&.
+Inherited by \fBevir::FloatType\fP, \fBevir::FunctionType\fP, \fBevir::IntegerType\fP, \fBevir::PointerType\fP, and \fBevir::VoidType\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
@@ -33,6 +33,9 @@ Inherited by \fBevir::FloatType\fP, \fBevir::FunctionType\fP, \fBevir::IntegerTy
 .RI "bool \fBis_function_type\fP ()"
 .br
 .ti -1c
+.RI "bool \fBis_void_type\fP ()"
+.br
+.ti -1c
 .RI "\fBType\fP * \fBget_pointer_to\fP (uint depth=1)"
 .br
 .RI "Constructs a pointer to the the current instance's type\&. "
@@ -46,19 +49,18 @@ Inherited by \fBevir::FloatType\fP, \fBevir::FunctionType\fP, \fBevir::IntegerTy
 .ti -1c
 .RI "static \fBIntegerType\fP * \fBget_integer_type\fP (bool is_signed, uint64 bits_count)"
 .br
-.RI "Constructs a new \fBIntegerType\fP\&. "
 .ti -1c
 .RI "static \fBFloatType\fP * \fBget_float_type\fP (uint64 bits_count)"
 .br
-.RI "Constructs a new \fBFloatType\fP\&. "
 .ti -1c
 .RI "static \fBPointerType\fP * \fBget_pointer_type\fP (\fBType\fP *subtype)"
 .br
-.RI "Constructs a new \fBPointerType\fP\&. "
 .ti -1c
 .RI "static \fBFunctionType\fP * \fBget_function_type\fP (\fBType\fP *return_type, Vector< \fBType\fP * > params)"
 .br
-.RI "Constructs a new \fBFunctionType\fP\&. "
+.ti -1c
+.RI "static \fBVoidType\fP * \fBget_void_type\fP ()"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -75,7 +77,7 @@ the IR as a string (without a newline)
 .PP
 
 .PP
-Implemented in \fBevir::IntegerType\fP, \fBevir::FloatType\fP, \fBevir::PointerType\fP, and \fBevir::FunctionType\fP\&.
+Implemented in \fBevir::IntegerType\fP, \fBevir::FloatType\fP, \fBevir::PointerType\fP, \fBevir::FunctionType\fP, and \fBevir::VoidType\fP\&.
 
 .SH "Author"
 .PP 

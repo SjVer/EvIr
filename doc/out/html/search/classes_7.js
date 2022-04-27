@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointertype_0',['PointerType',['../classevir_1_1PointerType.html',1,'evir']]]
+  ['operator_0',['Operator',['../classevir_1_1Operator.html',1,'evir']]]
 ];

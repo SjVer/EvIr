@@ -5,9 +5,6 @@ using namespace evir;
 
 int main()
 {
-
-	tools::fstr("");
-	
 	// create module
 	Module* module = new Module("test");
 	IRBuilder* builder = new IRBuilder();

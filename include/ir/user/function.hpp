@@ -16,7 +16,6 @@ namespace evir {
 
 class Function : public User
 {
-
 	Vector<BasicBlock*> blocks;
 
 public:

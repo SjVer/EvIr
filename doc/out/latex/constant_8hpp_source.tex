@@ -10,89 +10,99 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_VALUE\_CONSTANT\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_VALUE\_CONSTANT\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/value/value.hpp"{}}}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir}
-\DoxyCodeLine{14 \{}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{class }IntegerConst;}
-\DoxyCodeLine{17 \textcolor{keyword}{class }FloatConst;}
-\DoxyCodeLine{18 \textcolor{keyword}{class }ArrayConst;}
-\DoxyCodeLine{19 \textcolor{keyword}{class }MapConst;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Constant}{Constant}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Value}{Value}}}
-\DoxyCodeLine{22 \{}
-\DoxyCodeLine{23 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{keyword}{static} \textcolor{keyword}{const} ValueType value\_type = VALUE\_CONSTANT;}
-\DoxyCodeLine{27     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} ConstantType}
-\DoxyCodeLine{28     \{}
-\DoxyCodeLine{29         CONSTANT\_INTEGER,}
-\DoxyCodeLine{30         CONSTANT\_FLOAT,}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32         CONSTANT\_ARRAY,}
-\DoxyCodeLine{33         CONSTANT\_MAP,}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35         CONSTANT\_none}
-\DoxyCodeLine{36     \} constant\_type = CONSTANT\_none;}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{39 \textcolor{keyword}{public}:}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41 \textcolor{preprocessor}{    \#pragma region Constructors}}
-\DoxyCodeLine{42 \textcolor{preprocessor}{    \#define SIMPLE\_CONSTANT\_CONTRUCTOR(classname, lowercasename, membertype, membername) \(\backslash\)}}
-\DoxyCodeLine{43 \textcolor{preprocessor}{        static classname* new\_\#\#lowercasename(membertype membername);}}
-\DoxyCodeLine{44 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/value/value.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }evir}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }IntegerConst;}
+\DoxyCodeLine{18 \textcolor{keyword}{class }FloatConst;}
+\DoxyCodeLine{19 \textcolor{keyword}{class }ArrayConst;}
+\DoxyCodeLine{20 \textcolor{keyword}{class }MapConst;}
+\DoxyCodeLine{21 \textcolor{keyword}{class }StringConst;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Constant}{Constant}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1Value}{Value}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{static} \textcolor{keyword}{const} ValueType value\_type = VALUE\_CONSTANT;}
+\DoxyCodeLine{29     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} ConstantType}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         CONSTANT\_INTEGER,}
+\DoxyCodeLine{32         CONSTANT\_FLOAT,}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         CONSTANT\_ARRAY,}
+\DoxyCodeLine{35         CONSTANT\_MAP,}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         CONSTANT\_none}
+\DoxyCodeLine{38     \} constant\_type = CONSTANT\_none;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41 \textcolor{keyword}{public}:}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{    \#pragma region Constructors}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{    \#define SIMPLE\_CONSTANT\_CONTRUCTOR(classname, lowercasename, membertype, membername) \(\backslash\)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{        static classname* new\_\#\#lowercasename(membertype membername);}}
+\DoxyCodeLine{46 }
 \DoxyCodeLine{47     SIMPLE\_CONSTANT\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1IntegerConst}{IntegerConst}}, integer, int64, value);}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{51     SIMPLE\_CONSTANT\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1FloatConst}{FloatConst}}, \textcolor{keywordtype}{float}, float2, value);}
+\DoxyCodeLine{48     SIMPLE\_CONSTANT\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1FloatConst}{FloatConst}}, \textcolor{keywordtype}{float}, float2, value);}
+\DoxyCodeLine{49     SIMPLE\_CONSTANT\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}}, array, Vector<Value*>, elements);}
+\DoxyCodeLine{50     SIMPLE\_CONSTANT\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1MapConst}{MapConst}}, map, Map<Value* COMMA Value*>, pairs);}
+\DoxyCodeLine{51     \textcolor{keyword}{static} \mbox{\hyperlink{classevir_1_1StringConst}{StringConst}}* new\_string(String \textcolor{keywordtype}{string});}
 \DoxyCodeLine{52 }
-\DoxyCodeLine{55     SIMPLE\_CONSTANT\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}}, array, Vector<Value*>, elements);}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{59     SIMPLE\_CONSTANT\_CONTRUCTOR(\mbox{\hyperlink{classevir_1_1MapConst}{MapConst}}, map, Map<Value* COMMA Value*>, pairs);}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61 \textcolor{preprocessor}{    \#undef SIMPLE\_CONSTANT\_CONTRUCTOR}}
-\DoxyCodeLine{62 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64 \textcolor{preprocessor}{    \#pragma region Constant type checkers}}
-\DoxyCodeLine{65 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(typename, type) \(\backslash\)}}
-\DoxyCodeLine{66 \textcolor{preprocessor}{        bool is\_\#\#typename() \{ return constant\_type == CONSTANT\_\#\#type; \}}}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{69     IS\_TYPE\_METHOD(integer, INTEGER);}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{72     IS\_TYPE\_METHOD(\textcolor{keywordtype}{float}, FLOAT);}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{75     IS\_TYPE\_METHOD(array, ARRAY);}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{78     IS\_TYPE\_METHOD(map, MAP);}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
-\DoxyCodeLine{81 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{84     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Constant_a4bea194f5dc43097d05be87b612207b2}{generate\_ir}}() = 0;}
-\DoxyCodeLine{85 \};}
+\DoxyCodeLine{53 \textcolor{preprocessor}{    \#undef SIMPLE\_CONSTANT\_CONTRUCTOR}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{    \#pragma region Constant type checkers}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(typename, type) \(\backslash\)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{        bool is\_\#\#typename() \{ return constant\_type == CONSTANT\_\#\#type; \}}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{61     IS\_TYPE\_METHOD(integer, INTEGER);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64     IS\_TYPE\_METHOD(\textcolor{keywordtype}{float}, FLOAT);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67     IS\_TYPE\_METHOD(array, ARRAY);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{70     IS\_TYPE\_METHOD(map, MAP);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Constant_a4bea194f5dc43097d05be87b612207b2}{generate\_ir}}() = 0;}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#pragma region Constant subclasses}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define MEMBERS(type) \(\backslash\)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{    private: static const ConstantType constant\_type = type; \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{    public: String generate\_ir();}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define SIMPLE\_CONSTANT(name, valuetype, membertype, membername) \(\backslash\)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{    class name : public Constant \{ MEMBERS(valuetype); \(\backslash\)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{    name(membertype membername): membername(membername) \{\}; membertype membername; \}}}
 \DoxyCodeLine{86 }
-\DoxyCodeLine{87 \textcolor{preprocessor}{\#pragma region Constant subclasses}}
-\DoxyCodeLine{88 \textcolor{preprocessor}{\#define MEMBERS(type) \(\backslash\)}}
-\DoxyCodeLine{89 \textcolor{preprocessor}{    private: static const ConstantType constant\_type = type; \(\backslash\)}}
-\DoxyCodeLine{90 \textcolor{preprocessor}{    public: String generate\_ir();}}
-\DoxyCodeLine{91 \textcolor{preprocessor}{\#define SIMPLE\_CONSTANT(name, valuetype, membertype, membername) \(\backslash\)}}
-\DoxyCodeLine{92 \textcolor{preprocessor}{    class name : public Constant \{ MEMBERS(valuetype); \(\backslash\)}}
-\DoxyCodeLine{93 \textcolor{preprocessor}{    name(membertype membername): membername(membername) \{\}; membertype membername; \}}}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1IntegerConst}{IntegerConst}},   CONSTANT\_INTEGER,   int64, value);}
-\DoxyCodeLine{96 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1FloatConst}{FloatConst}},   CONSTANT\_FLOAT,     float2, value);}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}},   CONSTANT\_ARRAY,     Vector<Value*>, elements);}
-\DoxyCodeLine{99 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1MapConst}{MapConst}},       CONSTANT\_MAP,       Map<Value* COMMA Value*>, pairs);}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{101 \textcolor{preprocessor}{\#undef MEMBERS}}
-\DoxyCodeLine{102 \textcolor{preprocessor}{\#undef SIMPLE\_CONSTANT}}
-\DoxyCodeLine{103 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{105 \}}
-\DoxyCodeLine{106 }
-\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_VALUE\_CONSTANT\_H}}
+\DoxyCodeLine{87 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1IntegerConst}{IntegerConst}},   CONSTANT\_INTEGER,   int64, value);}
+\DoxyCodeLine{88 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1FloatConst}{FloatConst}},   CONSTANT\_FLOAT,     float2, value);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}},   CONSTANT\_ARRAY,     Vector<Value*>, elements);}
+\DoxyCodeLine{91 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1MapConst}{MapConst}},       CONSTANT\_MAP,       Map<Value* COMMA Value*>, pairs);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1StringConst}{StringConst}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}}}
+\DoxyCodeLine{94 \{}
+\DoxyCodeLine{95     String string;}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{public}:}
+\DoxyCodeLine{98     \mbox{\hyperlink{classevir_1_1StringConst}{StringConst}}(String \textcolor{keywordtype}{string});}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{101     String \mbox{\hyperlink{classevir_1_1StringConst_a30688b68108d552ec4237638b64264ad}{generate\_ir}}();}
+\DoxyCodeLine{102 \};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#undef MEMBERS}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#undef SIMPLE\_CONSTANT}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_VALUE\_CONSTANT\_H}}
 
 \end{DoxyCode}

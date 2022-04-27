@@ -23,7 +23,6 @@ namespace evir
 /// Note that this API does not fully expose the uses of instructions.
 class IRBuilder
 {
-
 	BasicBlock* bblock = nullptr;
 
 public:
@@ -74,6 +73,10 @@ public:
 	GET_TYPE_METHOD(IntegerType, int64, true, 64);
 	GET_TYPE_METHOD(IntegerType, uint128, false, 128);
 	GET_TYPE_METHOD(IntegerType, int128, true, 128);
+	IntegerType* get_uintn_type(uint bitwidth) {
+		return new IntegerType(false, bitwidth); }
+	IntegerType* get_uint_type(uint bitwidth) {
+		return new IntegerType(true, bitwidth); }
 	GET_TYPE_METHOD(FloatType, half, 16);
 	GET_TYPE_METHOD(FloatType, float, 32);
 	GET_TYPE_METHOD(FloatType, double, 64);

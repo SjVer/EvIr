@@ -178,9 +178,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a394266cba6ee7083c0b35b36e4590591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56a23c088e3c0dabed4c6459fc7c95b7"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1RetInst.html#a56a23c088e3c0dabed4c6459fc7c95b7">generate_ir</a> ()</td></tr>
 <tr class="separator:a56a23c088e3c0dabed4c6459fc7c95b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa13fdc4a98cf6a05aedac107da3cb696"><td class="memItemLeft" align="right" valign="top"><a id="aa13fdc4a98cf6a05aedac107da3cb696" name="aa13fdc4a98cf6a05aedac107da3cb696"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RetInst</b> (<a class="el" href="classevir_1_1Value.html">Value</a> *retval=nullptr)</td></tr>
-<tr class="separator:aa13fdc4a98cf6a05aedac107da3cb696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba96258745a7a328ac95a1bffd734e9d"><td class="memItemLeft" align="right" valign="top"><a id="aba96258745a7a328ac95a1bffd734e9d" name="aba96258745a7a328ac95a1bffd734e9d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>RetInst</b> (<a class="el" href="classevir_1_1Value.html">Value</a> *retval)</td></tr>
+<tr class="separator:aba96258745a7a328ac95a1bffd734e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc5c60eff2e1f11df419e5dee4debc9d"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classevir_1_1BranchInst.html#adc5c60eff2e1f11df419e5dee4debc9d">generate_ir</a> ()=0</td></tr>
 <tr class="separator:adc5c60eff2e1f11df419e5dee4debc9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classevir_1_1Instruction"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classevir_1_1Instruction')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classevir_1_1Instruction.html">evir::Instruction</a></td></tr>
@@ -196,6 +196,18 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_br_inst</b> () con
 <tr class="memitem:a8f0a93ff9c8f9adfcb9ca5afc7342504 inherit pub_methods_classevir_1_1Instruction"><td class="memItemLeft" align="right" valign="top"><a id="a8f0a93ff9c8f9adfcb9ca5afc7342504" name="a8f0a93ff9c8f9adfcb9ca5afc7342504"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_condbr_inst</b> () const</td></tr>
 <tr class="separator:a8f0a93ff9c8f9adfcb9ca5afc7342504 inherit pub_methods_classevir_1_1Instruction"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adabe3383730f7145e68df8ba492ac76e inherit pub_methods_classevir_1_1Instruction"><td class="memItemLeft" align="right" valign="top"><a id="adabe3383730f7145e68df8ba492ac76e" name="adabe3383730f7145e68df8ba492ac76e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_storage_type_inst</b> () const</td></tr>
+<tr class="separator:adabe3383730f7145e68df8ba492ac76e inherit pub_methods_classevir_1_1Instruction"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b0f736c33cbb6c174c964e06061f47 inherit pub_methods_classevir_1_1Instruction"><td class="memItemLeft" align="right" valign="top"><a id="ab2b0f736c33cbb6c174c964e06061f47" name="ab2b0f736c33cbb6c174c964e06061f47"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_load_inst</b> () const</td></tr>
+<tr class="separator:ab2b0f736c33cbb6c174c964e06061f47 inherit pub_methods_classevir_1_1Instruction"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0717952ccde899dd58feb9cb226be888 inherit pub_methods_classevir_1_1Instruction"><td class="memItemLeft" align="right" valign="top"><a id="a0717952ccde899dd58feb9cb226be888" name="a0717952ccde899dd58feb9cb226be888"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_store_inst</b> () const</td></tr>
+<tr class="separator:a0717952ccde899dd58feb9cb226be888 inherit pub_methods_classevir_1_1Instruction"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de82708aa53dd7ab81784c584afaf8e inherit pub_methods_classevir_1_1Instruction"><td class="memItemLeft" align="right" valign="top"><a id="a2de82708aa53dd7ab81784c584afaf8e" name="a2de82708aa53dd7ab81784c584afaf8e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_disp_inst</b> () const</td></tr>
+<tr class="separator:a2de82708aa53dd7ab81784c584afaf8e inherit pub_methods_classevir_1_1Instruction"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6278cbf130241ad4a928aa586d3e2180 inherit pub_methods_classevir_1_1Instruction"><td class="memItemLeft" align="right" valign="top"><a id="a6278cbf130241ad4a928aa586d3e2180" name="a6278cbf130241ad4a928aa586d3e2180"></a>
 <a class="el" href="classevir_1_1BasicBlock.html">BasicBlock</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_parent</b> () const</td></tr>
 <tr class="memdesc:a6278cbf130241ad4a928aa586d3e2180 inherit pub_methods_classevir_1_1Instruction"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the instruction's parent block. <br /></td></tr>

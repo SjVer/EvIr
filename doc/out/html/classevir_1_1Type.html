@@ -168,7 +168,8 @@ $(document).ready(function(){initNavTree('classevir_1_1Type.html',''); initResiz
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1Type__inherit__graph.svg" width="604" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classevir_1_1Type__inherit__graph.svg" width="284" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -191,6 +192,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_pointer_type</b> (
 <tr class="memitem:af9ffef7443a6df9018acc4c9c88862c7"><td class="memItemLeft" align="right" valign="top"><a id="af9ffef7443a6df9018acc4c9c88862c7" name="af9ffef7443a6df9018acc4c9c88862c7"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_function_type</b> ()</td></tr>
 <tr class="separator:af9ffef7443a6df9018acc4c9c88862c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58caf6af74702ef5ed27d26b3f44fb0"><td class="memItemLeft" align="right" valign="top"><a id="ae58caf6af74702ef5ed27d26b3f44fb0" name="ae58caf6af74702ef5ed27d26b3f44fb0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_void_type</b> ()</td></tr>
+<tr class="separator:ae58caf6af74702ef5ed27d26b3f44fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a695a872808fac9db85cd0b523bf9cf6f"><td class="memItemLeft" align="right" valign="top"><a id="a695a872808fac9db85cd0b523bf9cf6f" name="a695a872808fac9db85cd0b523bf9cf6f"></a>
 <a class="el" href="classevir_1_1Type.html">Type</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_to</b> (uint depth=1)</td></tr>
 <tr class="memdesc:a695a872808fac9db85cd0b523bf9cf6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a pointer to the the current instance's type. <br /></td></tr>
@@ -202,20 +206,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_function_type</b> 
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7cf023b7354665ee6f0b9c000f60d485"><td class="memItemLeft" align="right" valign="top"><a id="a7cf023b7354665ee6f0b9c000f60d485" name="a7cf023b7354665ee6f0b9c000f60d485"></a>
 static <a class="el" href="classevir_1_1IntegerType.html">IntegerType</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_integer_type</b> (bool is_signed, uint64 bits_count)</td></tr>
-<tr class="memdesc:a7cf023b7354665ee6f0b9c000f60d485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classevir_1_1IntegerType.html">IntegerType</a>. <br /></td></tr>
 <tr class="separator:a7cf023b7354665ee6f0b9c000f60d485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae418ecd96a07fac45b331e6d7578967a"><td class="memItemLeft" align="right" valign="top"><a id="ae418ecd96a07fac45b331e6d7578967a" name="ae418ecd96a07fac45b331e6d7578967a"></a>
 static <a class="el" href="classevir_1_1FloatType.html">FloatType</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_float_type</b> (uint64 bits_count)</td></tr>
-<tr class="memdesc:ae418ecd96a07fac45b331e6d7578967a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classevir_1_1FloatType.html">FloatType</a>. <br /></td></tr>
 <tr class="separator:ae418ecd96a07fac45b331e6d7578967a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add3b7450558318fa259dad231077428f"><td class="memItemLeft" align="right" valign="top"><a id="add3b7450558318fa259dad231077428f" name="add3b7450558318fa259dad231077428f"></a>
 static <a class="el" href="classevir_1_1PointerType.html">PointerType</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_pointer_type</b> (<a class="el" href="classevir_1_1Type.html">Type</a> *subtype)</td></tr>
-<tr class="memdesc:add3b7450558318fa259dad231077428f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classevir_1_1PointerType.html">PointerType</a>. <br /></td></tr>
 <tr class="separator:add3b7450558318fa259dad231077428f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8681a9d79bdb78f2d43f3fa127fd1ba9"><td class="memItemLeft" align="right" valign="top"><a id="a8681a9d79bdb78f2d43f3fa127fd1ba9" name="a8681a9d79bdb78f2d43f3fa127fd1ba9"></a>
 static <a class="el" href="classevir_1_1FunctionType.html">FunctionType</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_function_type</b> (<a class="el" href="classevir_1_1Type.html">Type</a> *return_type, Vector&lt; <a class="el" href="classevir_1_1Type.html">Type</a> * &gt; params)</td></tr>
-<tr class="memdesc:a8681a9d79bdb78f2d43f3fa127fd1ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classevir_1_1FunctionType.html">FunctionType</a>. <br /></td></tr>
 <tr class="separator:a8681a9d79bdb78f2d43f3fa127fd1ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64abc94164c67c7eb5f4fb5be788dbf1"><td class="memItemLeft" align="right" valign="top"><a id="a64abc94164c67c7eb5f4fb5be788dbf1" name="a64abc94164c67c7eb5f4fb5be788dbf1"></a>
+static <a class="el" href="classevir_1_1VoidType.html">VoidType</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_void_type</b> ()</td></tr>
+<tr class="separator:a64abc94164c67c7eb5f4fb5be788dbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The interface for types. </p>
@@ -244,7 +247,7 @@ static <a class="el" href="classevir_1_1FunctionType.html">FunctionType</a> *&#1
 </div><div class="memdoc">
 <p >Generates the IR for the type </p><dl class="section return"><dt>Returns</dt><dd>the IR as a string (without a newline) </dd></dl>
 
-<p>Implemented in <a class="el" href="classevir_1_1IntegerType.html#afc19ea269321a0b6eb5f0e00ce8b3aa8">evir::IntegerType</a>, <a class="el" href="classevir_1_1FloatType.html#ac62359e31d5162ae50e4399735a5f206">evir::FloatType</a>, <a class="el" href="classevir_1_1PointerType.html#a5240ba4837883dda2d36c0038f33f720">evir::PointerType</a>, and <a class="el" href="classevir_1_1FunctionType.html#a620e0378477eafbc65e49565a6fcdcc5">evir::FunctionType</a>.</p>
+<p>Implemented in <a class="el" href="classevir_1_1IntegerType.html#afc19ea269321a0b6eb5f0e00ce8b3aa8">evir::IntegerType</a>, <a class="el" href="classevir_1_1FloatType.html#ac62359e31d5162ae50e4399735a5f206">evir::FloatType</a>, <a class="el" href="classevir_1_1PointerType.html#a5240ba4837883dda2d36c0038f33f720">evir::PointerType</a>, <a class="el" href="classevir_1_1FunctionType.html#a620e0378477eafbc65e49565a6fcdcc5">evir::FunctionType</a>, and <a class="el" href="classevir_1_1VoidType.html#a79b4c3689a6b9bc05f731f7dc425d915">evir::VoidType</a>.</p>
 
 </div>
 </div>

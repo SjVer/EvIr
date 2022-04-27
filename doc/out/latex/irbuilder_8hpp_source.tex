@@ -10,19 +10,19 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_IRBUILDER\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_IRBUILDER\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/module.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/basicblock.hpp"{}}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/instructions/all.hpp"{}}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}evir/ir/value/all.hpp"{}}}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{namespace }evir}
-\DoxyCodeLine{17 \{}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}}}
-\DoxyCodeLine{24 \{}
-\DoxyCodeLine{25 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/module.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/basicblock.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}evir/ir/instructions/all.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}evir/ir/value/all.hpp"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{namespace }evir}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}}}
+\DoxyCodeLine{25 \{}
 \DoxyCodeLine{26     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* bblock = \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{27 }
 \DoxyCodeLine{28 \textcolor{keyword}{public}:}
@@ -48,14 +48,42 @@
 \DoxyCodeLine{52     CREATE\_INST(\mbox{\hyperlink{classevir_1_1CondBrInst}{CondBrInst}}, condbr, (\mbox{\hyperlink{classevir_1_1Value}{Value}}* c, \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* td, \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* fd), c, td, fd);}
 \DoxyCodeLine{53     CREATE\_INST(\mbox{\hyperlink{classevir_1_1CondBrInst}{CondBrInst}}, condbr, (\mbox{\hyperlink{classevir_1_1Value}{Value}}* c, \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* td), c, td, \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{54 }
-\DoxyCodeLine{55 \textcolor{preprocessor}{    \#undef CREATE\_INST}}
-\DoxyCodeLine{56 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{57 }
+\DoxyCodeLine{55     CREATE\_INST(\mbox{\hyperlink{classevir_1_1DispInst}{DispInst}}, disp, (\mbox{\hyperlink{classevir_1_1Value}{Value}}* expression), expression);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{    \#undef CREATE\_INST}}
 \DoxyCodeLine{58 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{59 \};}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61 \}}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{    \#pragma region Types}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{    \#define GET\_TYPE\_METHOD(cn, ln, ...) \(\backslash\)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{        cn* get\_\#\#ln\#\#\_type() \{ return new cn(\_\_VA\_ARGS\_\_); \}}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, \textcolor{keywordtype}{bool}, \textcolor{keyword}{false}, 1);}
+\DoxyCodeLine{66     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, uint8, \textcolor{keyword}{false}, 8);}
+\DoxyCodeLine{67     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, int8, \textcolor{keyword}{true}, 8);}
+\DoxyCodeLine{68     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, uint16, \textcolor{keyword}{false}, 16);}
+\DoxyCodeLine{69     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, int16, \textcolor{keyword}{true}, 16);}
+\DoxyCodeLine{70     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, uint32, \textcolor{keyword}{false}, 32);}
+\DoxyCodeLine{71     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, int32, \textcolor{keyword}{true}, 32);}
+\DoxyCodeLine{72     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, uint64, \textcolor{keyword}{false}, 64);}
+\DoxyCodeLine{73     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, int64, \textcolor{keyword}{true}, 64);}
+\DoxyCodeLine{74     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, uint128, \textcolor{keyword}{false}, 128);}
+\DoxyCodeLine{75     GET\_TYPE\_METHOD(\mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}, int128, \textcolor{keyword}{true}, 128);}
+\DoxyCodeLine{76     \mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}* get\_uintn\_type(uint bitwidth) \{}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}(\textcolor{keyword}{false}, bitwidth); \}}
+\DoxyCodeLine{78     \mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}* get\_uint\_type(uint bitwidth) \{}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classevir_1_1IntegerType}{IntegerType}}(\textcolor{keyword}{true}, bitwidth); \}}
+\DoxyCodeLine{80     GET\_TYPE\_METHOD(FloatType, half, 16);}
+\DoxyCodeLine{81     GET\_TYPE\_METHOD(FloatType, \textcolor{keywordtype}{float}, 32);}
+\DoxyCodeLine{82     GET\_TYPE\_METHOD(FloatType, \textcolor{keywordtype}{double}, 64);}
+\DoxyCodeLine{83     GET\_TYPE\_METHOD(VoidType, \textcolor{keywordtype}{void});}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{preprocessor}{    \#undef GET\_TYPE\_METHOD}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{87 \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_IRBUILDER\_H}}
 
 \end{DoxyCode}

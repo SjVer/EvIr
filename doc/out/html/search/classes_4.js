@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['instruction_0',['Instruction',['../classevir_1_1Instruction.html',1,'evir']]],
-  ['integerconst_1',['IntegerConst',['../classevir_1_1IntegerConst.html',1,'evir']]],
-  ['integertype_2',['IntegerType',['../classevir_1_1IntegerType.html',1,'evir']]],
-  ['irbuilder_3',['IRBuilder',['../classevir_1_1IRBuilder.html',1,'evir']]]
+  ['floatconst_0',['FloatConst',['../classevir_1_1FloatConst.html',1,'evir']]],
+  ['floattype_1',['FloatType',['../classevir_1_1FloatType.html',1,'evir']]],
+  ['function_2',['Function',['../classevir_1_1Function.html',1,'evir']]],
+  ['functiontype_3',['FunctionType',['../classevir_1_1FunctionType.html',1,'evir']]]
 ];

@@ -162,57 +162,58 @@ $(document).ready(function(){initNavTree('basicblock_8hpp_source.html',''); init
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef EVIR_IR_BASICBLOCK_H</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define EVIR_IR_BASICBLOCK_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;evir/.common.hpp&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;evir/ir/instructions/instruction.hpp&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>evir {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span>Function;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html">   24</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Function.html">Function</a>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1IRBuilder.html">IRBuilder</a>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="classevir_1_1Function.html">Function</a>* parent;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">bool</span> label_set;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    String label;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::function&lt;String()&gt; tmp_label_getter;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    Vector&lt;BasicBlock*&gt; preds;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Vector&lt;Instruction*&gt; instructions;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>() {}</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>(String label) { set_label(label); }</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classevir_1_1Function.html">Function</a>* get_parent() { <span class="keywordflow">return</span> parent; }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> set_label(String label);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    String get_label();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">bool</span> has_label()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> label_set; }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> remove_label() { label_set = <span class="keyword">false</span>; }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html#ad53fb5c4d18526e5e4569c9fa2702020">   52</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classevir_1_1BasicBlock.html#ad53fb5c4d18526e5e4569c9fa2702020">has_terminator</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> instructions.back()-&gt;is_terminator(); }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html#acc36fcca328bb01b5938213497b67c8c">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classevir_1_1BasicBlock.html#acc36fcca328bb01b5938213497b67c8c">add_predecessor</a>(<a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>* pred);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html#af533f9eb52cd8a0e27ace4cd70023b66">   59</a></span>    String <a class="code hl_function" href="classevir_1_1BasicBlock.html#af533f9eb52cd8a0e27ace4cd70023b66">generate_ir</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_BASICBLOCK_H</span></div>
-<div class="ttc" id="aclassevir_1_1BasicBlock_html"><div class="ttname"><a href="classevir_1_1BasicBlock.html">evir::BasicBlock</a></div><div class="ttdoc">A single basic block containing instructions.</div><div class="ttdef"><b>Definition:</b> basicblock.hpp:25</div></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define __EVIR_HEADER</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;evir/.common.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;evir/ir/instructions/instruction.hpp&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span>evir {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span>Function;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html">   25</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1Function.html">Function</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classevir_1_1IRBuilder.html">IRBuilder</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="classevir_1_1Function.html">Function</a>* parent;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> label_set;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    String label;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::function&lt;String()&gt; tmp_label_getter;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    Vector&lt;BasicBlock*&gt; preds;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    Vector&lt;Instruction*&gt; instructions;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>() {}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>(String label) { set_label(label); }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classevir_1_1Function.html">Function</a>* get_parent() { <span class="keywordflow">return</span> parent; }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> set_label(String label);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    String get_label();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">bool</span> has_label()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> label_set; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> remove_label() { label_set = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html#ad53fb5c4d18526e5e4569c9fa2702020">   53</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classevir_1_1BasicBlock.html#ad53fb5c4d18526e5e4569c9fa2702020">has_terminator</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> instructions.back()-&gt;is_terminator(); }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html#acc36fcca328bb01b5938213497b67c8c">   56</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classevir_1_1BasicBlock.html#acc36fcca328bb01b5938213497b67c8c">add_predecessor</a>(<a class="code hl_class" href="classevir_1_1BasicBlock.html">BasicBlock</a>* pred);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classevir_1_1BasicBlock.html#af533f9eb52cd8a0e27ace4cd70023b66">   60</a></span>    String <a class="code hl_function" href="classevir_1_1BasicBlock.html#af533f9eb52cd8a0e27ace4cd70023b66">generate_ir</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_BASICBLOCK_H</span></div>
+<div class="ttc" id="aclassevir_1_1BasicBlock_html"><div class="ttname"><a href="classevir_1_1BasicBlock.html">evir::BasicBlock</a></div><div class="ttdoc">A single basic block containing instructions.</div><div class="ttdef"><b>Definition:</b> basicblock.hpp:26</div></div>
 <div class="ttc" id="aclassevir_1_1BasicBlock_html_acc36fcca328bb01b5938213497b67c8c"><div class="ttname"><a href="classevir_1_1BasicBlock.html#acc36fcca328bb01b5938213497b67c8c">evir::BasicBlock::add_predecessor</a></div><div class="ttdeci">void add_predecessor(BasicBlock *pred)</div><div class="ttdoc">Adds a predecessing block.</div></div>
-<div class="ttc" id="aclassevir_1_1BasicBlock_html_ad53fb5c4d18526e5e4569c9fa2702020"><div class="ttname"><a href="classevir_1_1BasicBlock.html#ad53fb5c4d18526e5e4569c9fa2702020">evir::BasicBlock::has_terminator</a></div><div class="ttdeci">bool has_terminator() const</div><div class="ttdoc">Checks if the block ends with a terminator instruction.</div><div class="ttdef"><b>Definition:</b> basicblock.hpp:52</div></div>
+<div class="ttc" id="aclassevir_1_1BasicBlock_html_ad53fb5c4d18526e5e4569c9fa2702020"><div class="ttname"><a href="classevir_1_1BasicBlock.html#ad53fb5c4d18526e5e4569c9fa2702020">evir::BasicBlock::has_terminator</a></div><div class="ttdeci">bool has_terminator() const</div><div class="ttdoc">Checks if the block ends with a terminator instruction.</div><div class="ttdef"><b>Definition:</b> basicblock.hpp:53</div></div>
 <div class="ttc" id="aclassevir_1_1BasicBlock_html_af533f9eb52cd8a0e27ace4cd70023b66"><div class="ttname"><a href="classevir_1_1BasicBlock.html#af533f9eb52cd8a0e27ace4cd70023b66">evir::BasicBlock::generate_ir</a></div><div class="ttdeci">String generate_ir()</div></div>
-<div class="ttc" id="aclassevir_1_1Function_html"><div class="ttname"><a href="classevir_1_1Function.html">evir::Function</a></div><div class="ttdef"><b>Definition:</b> function.hpp:17</div></div>
-<div class="ttc" id="aclassevir_1_1IRBuilder_html"><div class="ttname"><a href="classevir_1_1IRBuilder.html">evir::IRBuilder</a></div><div class="ttdoc">A class for creating and managing instructions.</div><div class="ttdef"><b>Definition:</b> irbuilder.hpp:24</div></div>
+<div class="ttc" id="aclassevir_1_1Function_html"><div class="ttname"><a href="classevir_1_1Function.html">evir::Function</a></div><div class="ttdef"><b>Definition:</b> function.hpp:18</div></div>
+<div class="ttc" id="aclassevir_1_1IRBuilder_html"><div class="ttname"><a href="classevir_1_1IRBuilder.html">evir::IRBuilder</a></div><div class="ttdoc">A class for creating and managing instructions.</div><div class="ttdef"><b>Definition:</b> irbuilder.hpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

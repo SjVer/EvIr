@@ -10,144 +10,145 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_MDVALUE\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_MDVALUE\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/ir/value/value.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/type.hpp"{}}}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{namespace }evir \{}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{18 \{}
-\DoxyCodeLine{19     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}};}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} MDValueType}
-\DoxyCodeLine{25     \{}
-\DoxyCodeLine{26         MDVALUE\_HEX,}
-\DoxyCodeLine{27         MDVALUE\_STRING,}
-\DoxyCodeLine{28         MDVALUE\_ARRAY,}
-\DoxyCodeLine{29         MDVALUE\_MAP,}
-\DoxyCodeLine{30         MDVALUE\_OPTION,}
-\DoxyCodeLine{31         MDVALUE\_TYPE,}
-\DoxyCodeLine{32         MDVALUE\_IRVALUE,}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34         MDVALUE\_none}
-\DoxyCodeLine{35     \} mdvalue\_type = MDVALUE\_none;}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{38 \textcolor{keyword}{public}:}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \textcolor{preprocessor}{    \#pragma region MDValue type checkers}}
-\DoxyCodeLine{41 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(ln, type) \(\backslash\)}}
-\DoxyCodeLine{42 \textcolor{preprocessor}{        bool is\_\#\#ln () \{ return mdvalue\_type == MDVALUE\_\#\#type; \}}}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44     IS\_TYPE\_METHOD(hex, HEX);}
-\DoxyCodeLine{45     IS\_TYPE\_METHOD(\textcolor{keywordtype}{string}, STRING);}
-\DoxyCodeLine{46     IS\_TYPE\_METHOD(array, ARRAY);}
-\DoxyCodeLine{47     IS\_TYPE\_METHOD(map, MAP);}
-\DoxyCodeLine{48     IS\_TYPE\_METHOD(option, OPTION);}
-\DoxyCodeLine{49     IS\_TYPE\_METHOD(type, TYPE);}
-\DoxyCodeLine{50     IS\_TYPE\_METHOD(irvalue, IRVALUE);}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{57     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1MDValue_a8891a39c4eddb22c9437dd1d7305daaa}{generate\_ir}}() = 0;}
-\DoxyCodeLine{58 \};}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \textcolor{preprocessor}{\#define MDVALUE\_MEMBERS(type) \(\backslash\)}}
-\DoxyCodeLine{61 \textcolor{preprocessor}{    friend class Module; \(\backslash\)}}
-\DoxyCodeLine{62 \textcolor{preprocessor}{    static const MDValueType mdvalue\_type = MDVALUE\_\#\#type;}}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{65 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDHexValue}{MDHexValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{66 \{}
-\DoxyCodeLine{67     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} value;}
-\DoxyCodeLine{68     MDVALUE\_MEMBERS(HEX);}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70 \textcolor{keyword}{public}:}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72     \mbox{\hyperlink{classevir_1_1MDHexValue}{MDHexValue}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} value): value(value) \{\}}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{75     String \mbox{\hyperlink{classevir_1_1MDHexValue_a3d9481f919a1f0ca759628d3de4253c4}{generate\_ir}}();}
-\DoxyCodeLine{76 \};}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{79 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDStringValue}{MDStringValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{80 \{}
-\DoxyCodeLine{81     String string;}
-\DoxyCodeLine{82     MDVALUE\_MEMBERS(STRING);}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{84 \textcolor{keyword}{public}:}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86     \mbox{\hyperlink{classevir_1_1MDStringValue}{MDStringValue}}(String \textcolor{keywordtype}{string}): string(\textcolor{keywordtype}{string}) \{\}}
-\DoxyCodeLine{87 }
-\DoxyCodeLine{89     String \mbox{\hyperlink{classevir_1_1MDStringValue_ad7c110757b8bcf5a881db695218c30f2}{generate\_ir}}();}
-\DoxyCodeLine{90 \};}
-\DoxyCodeLine{91 }
-\DoxyCodeLine{93 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDArrayValue}{MDArrayValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{94 \{}
-\DoxyCodeLine{95     Vector<MDValue*> elements;}
-\DoxyCodeLine{96     MDVALUE\_MEMBERS(ARRAY);}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98 \textcolor{keyword}{public}:}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100     \mbox{\hyperlink{classevir_1_1MDArrayValue}{MDArrayValue}}(Vector<MDValue*> elements): elements(elements) \{\}}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{103     String \mbox{\hyperlink{classevir_1_1MDArrayValue_ab1a3a387313b63820cf8077eb3b6b83b}{generate\_ir}}();}
-\DoxyCodeLine{104 \};}
-\DoxyCodeLine{105 }
-\DoxyCodeLine{107 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDMapValue}{MDMapValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{108 \{}
-\DoxyCodeLine{109     Map<MDValue*, MDValue*> pairs;}
-\DoxyCodeLine{110     MDVALUE\_MEMBERS(MAP);}
-\DoxyCodeLine{111 }
-\DoxyCodeLine{112 \textcolor{keyword}{public}:}
-\DoxyCodeLine{113 }
-\DoxyCodeLine{114     \mbox{\hyperlink{classevir_1_1MDMapValue}{MDMapValue}}(Map<MDValue*, MDValue*> pairs): pairs(pairs) \{\}}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{117     String \mbox{\hyperlink{classevir_1_1MDMapValue_a488f7849fa60549882d66d993f3824ac}{generate\_ir}}();}
-\DoxyCodeLine{118 \};}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{121 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDOptionValue}{MDOptionValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{122 \{}
-\DoxyCodeLine{123     String name;}
-\DoxyCodeLine{124     MDVALUE\_MEMBERS(OPTION);}
-\DoxyCodeLine{125 }
-\DoxyCodeLine{126 \textcolor{keyword}{public}:}
-\DoxyCodeLine{127 }
-\DoxyCodeLine{128     \mbox{\hyperlink{classevir_1_1MDOptionValue}{MDOptionValue}}(String name): name(name) \{\}}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{131     String \mbox{\hyperlink{classevir_1_1MDOptionValue_a423233c06866a4cacf62931e3b7f2394}{generate\_ir}}();}
-\DoxyCodeLine{132 \};}
-\DoxyCodeLine{133 }
-\DoxyCodeLine{135 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDTypeValue}{MDTypeValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{136 \{}
-\DoxyCodeLine{137     \mbox{\hyperlink{classevir_1_1Type}{Type}}* type;}
-\DoxyCodeLine{138     MDVALUE\_MEMBERS(TYPE);}
-\DoxyCodeLine{139 }
-\DoxyCodeLine{140 \textcolor{keyword}{public}:}
-\DoxyCodeLine{141 }
-\DoxyCodeLine{142     \mbox{\hyperlink{classevir_1_1MDTypeValue}{MDTypeValue}}(\mbox{\hyperlink{classevir_1_1Type}{Type}}* type): type(type) \{\}}
-\DoxyCodeLine{143 }
-\DoxyCodeLine{145     String \mbox{\hyperlink{classevir_1_1MDTypeValue_a0beb06762316857683f73362bf3378c6}{generate\_ir}}();}
-\DoxyCodeLine{146 \};}
-\DoxyCodeLine{147 }
-\DoxyCodeLine{149 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDIRValue}{MDIRValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
-\DoxyCodeLine{150 \{}
-\DoxyCodeLine{151     \mbox{\hyperlink{classevir_1_1Value}{Value}}* value;}
-\DoxyCodeLine{152     MDVALUE\_MEMBERS(IRVALUE);}
-\DoxyCodeLine{153 }
-\DoxyCodeLine{154 \textcolor{keyword}{public}:}
-\DoxyCodeLine{155 }
-\DoxyCodeLine{156     \mbox{\hyperlink{classevir_1_1MDIRValue}{MDIRValue}}(\mbox{\hyperlink{classevir_1_1Value}{Value}}* value): value(value) \{\}}
-\DoxyCodeLine{157 }
-\DoxyCodeLine{159     String \mbox{\hyperlink{classevir_1_1MDIRValue_afae8b6503d4a89fb44d963eec3fa03da}{generate\_ir}}();}
-\DoxyCodeLine{160 \};}
-\DoxyCodeLine{161 }
-\DoxyCodeLine{162 \textcolor{preprocessor}{\#undef MDVALUE\_MEMBERS}}
-\DoxyCodeLine{163 }
-\DoxyCodeLine{164 \}}
-\DoxyCodeLine{165 }
-\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MDVALUE\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}evir/ir/value/value.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}evir/ir/type.hpp"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} MDValueType}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27         MDVALUE\_HEX,}
+\DoxyCodeLine{28         MDVALUE\_STRING,}
+\DoxyCodeLine{29         MDVALUE\_ARRAY,}
+\DoxyCodeLine{30         MDVALUE\_MAP,}
+\DoxyCodeLine{31         MDVALUE\_OPTION,}
+\DoxyCodeLine{32         MDVALUE\_TYPE,}
+\DoxyCodeLine{33         MDVALUE\_IRVALUE,}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         MDVALUE\_none}
+\DoxyCodeLine{36     \} mdvalue\_type = MDVALUE\_none;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{39 \textcolor{keyword}{public}:}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{    \#pragma region MDValue type checkers}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(ln, type) \(\backslash\)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{        bool is\_\#\#ln () \{ return mdvalue\_type == MDVALUE\_\#\#type; \}}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     IS\_TYPE\_METHOD(hex, HEX);}
+\DoxyCodeLine{46     IS\_TYPE\_METHOD(\textcolor{keywordtype}{string}, STRING);}
+\DoxyCodeLine{47     IS\_TYPE\_METHOD(array, ARRAY);}
+\DoxyCodeLine{48     IS\_TYPE\_METHOD(map, MAP);}
+\DoxyCodeLine{49     IS\_TYPE\_METHOD(option, OPTION);}
+\DoxyCodeLine{50     IS\_TYPE\_METHOD(type, TYPE);}
+\DoxyCodeLine{51     IS\_TYPE\_METHOD(irvalue, IRVALUE);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1MDValue_a8891a39c4eddb22c9437dd1d7305daaa}{generate\_ir}}() = 0;}
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define MDVALUE\_MEMBERS(type) \(\backslash\)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{    friend class Module; \(\backslash\)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{    static const MDValueType mdvalue\_type = MDVALUE\_\#\#type;}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDHexValue}{MDHexValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} value;}
+\DoxyCodeLine{69     MDVALUE\_MEMBERS(HEX);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{public}:}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \mbox{\hyperlink{classevir_1_1MDHexValue}{MDHexValue}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} value): value(value) \{\}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76     String \mbox{\hyperlink{classevir_1_1MDHexValue_a3d9481f919a1f0ca759628d3de4253c4}{generate\_ir}}();}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{80 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDStringValue}{MDStringValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{81 \{}
+\DoxyCodeLine{82     String string;}
+\DoxyCodeLine{83     MDVALUE\_MEMBERS(STRING);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{keyword}{public}:}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \mbox{\hyperlink{classevir_1_1MDStringValue}{MDStringValue}}(String \textcolor{keywordtype}{string}): string(\textcolor{keywordtype}{string}) \{\}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{90     String \mbox{\hyperlink{classevir_1_1MDStringValue_ad7c110757b8bcf5a881db695218c30f2}{generate\_ir}}();}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{94 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDArrayValue}{MDArrayValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     Vector<MDValue*> elements;}
+\DoxyCodeLine{97     MDVALUE\_MEMBERS(ARRAY);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{keyword}{public}:}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \mbox{\hyperlink{classevir_1_1MDArrayValue}{MDArrayValue}}(Vector<MDValue*> elements): elements(elements) \{\}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{104     String \mbox{\hyperlink{classevir_1_1MDArrayValue_ab1a3a387313b63820cf8077eb3b6b83b}{generate\_ir}}();}
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{108 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDMapValue}{MDMapValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{109 \{}
+\DoxyCodeLine{110     Map<MDValue*, MDValue*> pairs;}
+\DoxyCodeLine{111     MDVALUE\_MEMBERS(MAP);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{keyword}{public}:}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \mbox{\hyperlink{classevir_1_1MDMapValue}{MDMapValue}}(Map<MDValue*, MDValue*> pairs): pairs(pairs) \{\}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{118     String \mbox{\hyperlink{classevir_1_1MDMapValue_a488f7849fa60549882d66d993f3824ac}{generate\_ir}}();}
+\DoxyCodeLine{119 \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{122 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDOptionValue}{MDOptionValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{123 \{}
+\DoxyCodeLine{124     String name;}
+\DoxyCodeLine{125     MDVALUE\_MEMBERS(OPTION);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{public}:}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \mbox{\hyperlink{classevir_1_1MDOptionValue}{MDOptionValue}}(String name): name(name) \{\}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{132     String \mbox{\hyperlink{classevir_1_1MDOptionValue_a423233c06866a4cacf62931e3b7f2394}{generate\_ir}}();}
+\DoxyCodeLine{133 \};}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{136 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDTypeValue}{MDTypeValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{137 \{}
+\DoxyCodeLine{138     \mbox{\hyperlink{classevir_1_1Type}{Type}}* type;}
+\DoxyCodeLine{139     MDVALUE\_MEMBERS(TYPE);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{keyword}{public}:}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \mbox{\hyperlink{classevir_1_1MDTypeValue}{MDTypeValue}}(\mbox{\hyperlink{classevir_1_1Type}{Type}}* type): type(type) \{\}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{146     String \mbox{\hyperlink{classevir_1_1MDTypeValue_a0beb06762316857683f73362bf3378c6}{generate\_ir}}();}
+\DoxyCodeLine{147 \};}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{150 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1MDIRValue}{MDIRValue}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1MDValue}{MDValue}}}
+\DoxyCodeLine{151 \{}
+\DoxyCodeLine{152     \mbox{\hyperlink{classevir_1_1Value}{Value}}* value;}
+\DoxyCodeLine{153     MDVALUE\_MEMBERS(IRVALUE);}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{keyword}{public}:}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \mbox{\hyperlink{classevir_1_1MDIRValue}{MDIRValue}}(\mbox{\hyperlink{classevir_1_1Value}{Value}}* value): value(value) \{\}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{160     String \mbox{\hyperlink{classevir_1_1MDIRValue_afae8b6503d4a89fb44d963eec3fa03da}{generate\_ir}}();}
+\DoxyCodeLine{161 \};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#undef MDVALUE\_MEMBERS}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_MDVALUE\_H}}
 
 \end{DoxyCode}

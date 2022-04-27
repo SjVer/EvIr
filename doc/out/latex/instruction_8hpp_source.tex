@@ -10,78 +10,90 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef EVIR\_IR\_INSTRUCTIONS\_INSTRUCTION\_H}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#define EVIR\_IR\_INSTRUCTIONS\_INSTRUCTION\_H}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{namespace }evir \{}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{class }BasicBlock;}
-\DoxyCodeLine{15 \textcolor{keyword}{class }Function;}
-\DoxyCodeLine{16 \textcolor{keyword}{class }Module;}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18 \textcolor{keyword}{class }BranchInst;}
-\DoxyCodeLine{19 \textcolor{keyword}{class }StorageInst;}
-\DoxyCodeLine{20 \textcolor{keyword}{class }DeclarationInst;}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}}
-\DoxyCodeLine{23 \{}
-\DoxyCodeLine{24 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}};}
-\DoxyCodeLine{27     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}};}
-\DoxyCodeLine{28     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{31     }
-\DoxyCodeLine{32     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* parent;}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} InstType}
-\DoxyCodeLine{35     \{}
-\DoxyCodeLine{36         INST\_branch\_start,}
-\DoxyCodeLine{37         INST\_RET,}
-\DoxyCodeLine{38         INST\_BR,}
-\DoxyCodeLine{39         INST\_CONDBR,}
-\DoxyCodeLine{40         INST\_branch\_end,}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42         INST\_none,}
-\DoxyCodeLine{43     \} inst\_type = INST\_none;}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} ir\_prefix;}
-\DoxyCodeLine{46     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* ir\_name;}
-\DoxyCodeLine{47 \textcolor{preprocessor}{    \#define \_\_EVIR\_INST\_IR\_START (String() + ir\_prefix + ir\_name + ' ')}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define \_\_EVIR\_HEADER}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}evir/.common.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }evir \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }BasicBlock;}
+\DoxyCodeLine{16 \textcolor{keyword}{class }Function;}
+\DoxyCodeLine{17 \textcolor{keyword}{class }Module;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }BranchInst;}
+\DoxyCodeLine{20 \textcolor{keyword}{class }StorageInst;}
+\DoxyCodeLine{21 \textcolor{keyword}{class }DeclarationInst;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Instruction}{Instruction}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1IRBuilder}{IRBuilder}};}
+\DoxyCodeLine{28     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1Module}{Module}};}
+\DoxyCodeLine{29     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32     }
+\DoxyCodeLine{33     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* parent;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{enum} InstType}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         INST\_branch\_start,}
+\DoxyCodeLine{38         INST\_RET,}
+\DoxyCodeLine{39         INST\_BR,}
+\DoxyCodeLine{40         INST\_CONDBR,}
+\DoxyCodeLine{41         INST\_branch\_end,}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         INST\_storage\_start,}
+\DoxyCodeLine{44         INST\_LOAD,}
+\DoxyCodeLine{45         INST\_STORE,}
+\DoxyCodeLine{46         INST\_DISP,}
+\DoxyCodeLine{47         INST\_storage\_end,}
 \DoxyCodeLine{48 }
-\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} resolve() = 0;}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{52 \textcolor{keyword}{public}:}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \textcolor{preprocessor}{    \#pragma region Instruction type checks}}
-\DoxyCodeLine{55 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(tn) \(\backslash\)}}
-\DoxyCodeLine{56 \textcolor{preprocessor}{        bool is\_\#\#tn\#\#\_type\_inst() const \(\backslash\)}}
-\DoxyCodeLine{57 \textcolor{preprocessor}{        \{ return inst\_type > INST\_\#\#tn\#\#\_start \&\& inst\_type < INST\_\#\#tn\#\#\_end; \}}}
-\DoxyCodeLine{58 \textcolor{preprocessor}{    \#define IS\_INST\_METHOD(instname, type) \(\backslash\)}}
-\DoxyCodeLine{59 \textcolor{preprocessor}{        bool is\_\#\#instname\#\#\_inst() const \{ return inst\_type == INST\_\#\#type; \}}}
+\DoxyCodeLine{49         INST\_none,}
+\DoxyCodeLine{50     \} inst\_type = INST\_none;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} ir\_prefix;}
+\DoxyCodeLine{53     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* ir\_name;}
+\DoxyCodeLine{54 \textcolor{preprocessor}{    \#define \_\_EVIR\_INST\_IR\_START (String() + ir\_prefix + ir\_name + ' ')}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} resolve() = 0;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{59 \textcolor{keyword}{public}:}
 \DoxyCodeLine{60 }
-\DoxyCodeLine{61     IS\_TYPE\_METHOD(branch);}
-\DoxyCodeLine{62     IS\_INST\_METHOD(ret, RET);}
-\DoxyCodeLine{63     IS\_INST\_METHOD(br, BR);}
-\DoxyCodeLine{64     IS\_INST\_METHOD(condbr, CONDBR);}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
-\DoxyCodeLine{67 \textcolor{preprocessor}{    \#undef IS\_INST\_METHOD}}
-\DoxyCodeLine{68 \textcolor{preprocessor}{    \#pragma endregion}}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{71     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* \mbox{\hyperlink{classevir_1_1Instruction_a6278cbf130241ad4a928aa586d3e2180}{get\_parent}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} parent; \}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{    \#pragma region Instruction type checks}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{    \#define IS\_TYPE\_METHOD(tn) \(\backslash\)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{        bool is\_\#\#tn\#\#\_type\_inst() const \(\backslash\)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{        \{ return inst\_type > INST\_\#\#tn\#\#\_start \&\& inst\_type < INST\_\#\#tn\#\#\_end; \}}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{    \#define IS\_INST\_METHOD(instname, type) \(\backslash\)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{        bool is\_\#\#instname\#\#\_inst() const \{ return inst\_type == INST\_\#\#type; \}}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     IS\_TYPE\_METHOD(branch);}
+\DoxyCodeLine{69     IS\_INST\_METHOD(ret, RET);}
+\DoxyCodeLine{70     IS\_INST\_METHOD(br, BR);}
+\DoxyCodeLine{71     IS\_INST\_METHOD(condbr, CONDBR);}
 \DoxyCodeLine{72 }
-\DoxyCodeLine{74     \mbox{\hyperlink{classevir_1_1Function}{Function}}* \mbox{\hyperlink{classevir_1_1Instruction_a2cefdbc21adc5defed0d27e645f58ca7}{get\_function}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{77     \mbox{\hyperlink{classevir_1_1Module}{Module}}* \mbox{\hyperlink{classevir_1_1Instruction_aeacb816b008c1f19df0313034e6031dc}{get\_module}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{79     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} is\_terminator() \textcolor{keyword}{const} = 0;}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{83     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Instruction_a975d5c981b0b45dc9a61bc23c7856b40}{generate\_ir}}() = 0;}
-\DoxyCodeLine{84 \};}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86 \}}
+\DoxyCodeLine{73     IS\_TYPE\_METHOD(storage);}
+\DoxyCodeLine{74     IS\_INST\_METHOD(load, LOAD);}
+\DoxyCodeLine{75     IS\_INST\_METHOD(store, STORE);}
+\DoxyCodeLine{76     IS\_INST\_METHOD(disp, DISP);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{    \#undef IS\_TYPE\_METHOD}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{    \#undef IS\_INST\_METHOD}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{    \#pragma endregion}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{83     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* \mbox{\hyperlink{classevir_1_1Instruction_a6278cbf130241ad4a928aa586d3e2180}{get\_parent}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} parent; \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{86     \mbox{\hyperlink{classevir_1_1Function}{Function}}* \mbox{\hyperlink{classevir_1_1Instruction_a2cefdbc21adc5defed0d27e645f58ca7}{get\_function}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{87 }
-\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_INSTRUCTIONS\_INSTRUCTION\_H}}
+\DoxyCodeLine{89     \mbox{\hyperlink{classevir_1_1Module}{Module}}* \mbox{\hyperlink{classevir_1_1Instruction_aeacb816b008c1f19df0313034e6031dc}{get\_module}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} is\_terminator() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{95     \textcolor{keyword}{virtual} String \mbox{\hyperlink{classevir_1_1Instruction_a975d5c981b0b45dc9a61bc23c7856b40}{generate\_ir}}() = 0;}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_INSTRUCTIONS\_INSTRUCTION\_H}}
 
 \end{DoxyCode}
