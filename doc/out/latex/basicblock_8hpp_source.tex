@@ -37,28 +37,24 @@
 \DoxyCodeLine{40 \textcolor{keyword}{public}:}
 \DoxyCodeLine{41 }
 \DoxyCodeLine{42     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}() \{\}}
-\DoxyCodeLine{43     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}(String label, \mbox{\hyperlink{classevir_1_1Function}{Function}}* parent = \textcolor{keyword}{nullptr}): parent(parent)}
-\DoxyCodeLine{44     \{}
-\DoxyCodeLine{45         set\_label(label);}
-\DoxyCodeLine{46         \textcolor{keywordflow}{if}(parent) parent-\/>\mbox{\hyperlink{classevir_1_1Function_a3b1980e6c8a28d983549348656177eee}{append\_block}}(\textcolor{keyword}{this});}
-\DoxyCodeLine{47     \}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49     \mbox{\hyperlink{classevir_1_1Function}{Function}}* get\_parent() \{ \textcolor{keywordflow}{return} parent; \}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51     \textcolor{keywordtype}{void} set\_label(String label);}
-\DoxyCodeLine{52     String get\_label();}
-\DoxyCodeLine{53     \textcolor{keywordtype}{bool} has\_label()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} label\_set; \}}
-\DoxyCodeLine{54     \textcolor{keywordtype}{void} remove\_label() \{ label\_set = \textcolor{keyword}{false}; \}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{57     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1BasicBlock_ad53fb5c4d18526e5e4569c9fa2702020}{has\_terminator}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} instructions.back()-\/>is\_terminator(); \}}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1BasicBlock_acc36fcca328bb01b5938213497b67c8c}{add\_predecessor}}(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* pred);}
-\DoxyCodeLine{61 }
-\DoxyCodeLine{64     String \mbox{\hyperlink{classevir_1_1BasicBlock_af533f9eb52cd8a0e27ace4cd70023b66}{generate\_ir}}();}
-\DoxyCodeLine{65 \};}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67 \}}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_BASICBLOCK\_H}}
+\DoxyCodeLine{43     \mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}(String label, \mbox{\hyperlink{classevir_1_1Function}{Function}}* parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \mbox{\hyperlink{classevir_1_1Function}{Function}}* get\_parent() \{ \textcolor{keywordflow}{return} parent; \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} set\_label(String label);}
+\DoxyCodeLine{48     String get\_label();}
+\DoxyCodeLine{49     \textcolor{keywordtype}{bool} has\_label()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} label\_set; \}}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} remove\_label() \{ label\_set = \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classevir_1_1BasicBlock_ad53fb5c4d18526e5e4569c9fa2702020}{has\_terminator}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} instructions.back()-\/>is\_terminator(); \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{classevir_1_1BasicBlock_acc36fcca328bb01b5938213497b67c8c}{add\_predecessor}}(\mbox{\hyperlink{classevir_1_1BasicBlock}{BasicBlock}}* pred);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{60     String \mbox{\hyperlink{classevir_1_1BasicBlock_af533f9eb52cd8a0e27ace4cd70023b66}{generate\_ir}}();}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_BASICBLOCK\_H}}
 
 \end{DoxyCode}
