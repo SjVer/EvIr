@@ -38,8 +38,8 @@ PCH_SRC = $(addprefix $(HEADERDIR)/,$(PCHS))
 PCO_SRC = $(addprefix $(SRCDIR)/,$(PCOS))
 PCH_OUT = $(PCH_SRC:$(HEADERDIR)/%=$(PC_OUT_DIR)/%.gch)
 PCO_OUT = $(PCO_SRC:$(SRCDIR)/%$(EXT)=$(PC_OUT_DIR)/%.o)
-PCHFLAGS = $(CXXFLAGS) -x c++-header -fvisibility=hidden
-PCOFLAGS = $(CXXFLAGS) -fvisibility=hidden
+PCHFLAGS = $(CXXFLAGS) -x c++-header
+PCOFLAGS = $(CXXFLAGS)
 INC_PCH_FLAG = $(addprefix -include-pch ,$(PCH_OUT))
 INC_PCO_FLAG = $(PCO_OUT)
 

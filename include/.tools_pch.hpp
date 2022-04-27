@@ -12,7 +12,7 @@ namespace evir {
 
 namespace
 #ifndef COMPILING
-[[deprecated]] // The namespace evir::tools can be used internally by libevir only!
+[[deprecated("The namespace evir::tools is unstable and should be used by libevir only!")]]
 #endif
     tools {
 

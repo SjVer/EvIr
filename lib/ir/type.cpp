@@ -31,8 +31,8 @@ Type* Type::get_pointer_to(uint depth)
 IntegerType::IntegerType(bool is_signed, uint64 bits_count)
 // IntegerType* IntegerType::get(uint64 bits_count, bool is_signed)
 {
-	ASSERT(bits_count >= MIN_BITS_COUNT, "bitwidth too small!");
-	ASSERT(bits_count <= MAX_BITS_COUNT, "bitwidth too large!");
+	EVIR_ASSERT(bits_count >= MIN_BITS_COUNT, "bitwidth too small!");
+	EVIR_ASSERT(bits_count <= MAX_BITS_COUNT, "bitwidth too large!");
 
 	// IntegerType* type = new IntegerType();
 	// type->bitwidth = bits_count;
@@ -65,7 +65,7 @@ FloatType::FloatType(uint64 bits_count)
 	switch(bits_count)
 	{
 		case HALF: case FLOAT: case DOUBLE: break;
-		default: ASSERT(0, "invalid FloatType bitwidth!");
+		default: EVIR_ASSERT(0, "invalid FloatType bitwidth!");
 	}
 
 	bitwidth = bits_count;
@@ -98,7 +98,7 @@ bool PointerType::operator==(const Type& rhs)
 
 String PointerType::generate_ir()
 {
-	ASSERT(subtype, "pointer subtype is null!");
+	EVIR_ASSERT(subtype, "pointer subtype is null!");
 	return subtype->generate_ir() + '*';
 }
 #pragma endregion
@@ -126,12 +126,12 @@ String FunctionType::generate_ir()
 {
 	SStream stream = SStream();
 
-	ASSERT(return_type, "function return type is null!");
+	EVIR_ASSERT(return_type, "function return type is null!");
 	stream << return_type->generate_ir() + " (";
 
 	for(auto param : params)
 	{
-		ASSERT(param, "function parameter type is null!");
+		EVIR_ASSERT(param, "function parameter type is null!");
 		stream << param->generate_ir();
 		if(param != params.back()) stream << " ";
 	}

@@ -4,7 +4,7 @@
 void __attribute__((constructor)) __evir_init()
 {
 	#ifdef DEBUG
-	printf(DEBUG_MARKER " " LIB_NAME_INTERNAL " initialized (ctor).\n");
+	printf(DEBUG_MARKER " " EVIR_LIB_NAME_INTERNAL " initialized (ctor).\n");
 	#endif
 }
 
@@ -12,6 +12,6 @@ void __attribute__((constructor)) __evir_init()
 void __attribute__((destructor)) __evir_deinit()
 {
 	#ifdef DEBUG
-	printf(DEBUG_MARKER " " LIB_NAME_INTERNAL " deinitialized (dtor).\n");
+	printf(DEBUG_MARKER " " EVIR_LIB_NAME_INTERNAL " deinitialized (dtor).\n");
 	#endif
 }

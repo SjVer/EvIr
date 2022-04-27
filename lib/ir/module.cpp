@@ -43,20 +43,20 @@ bool Module::has_metadata(Metadata::BuiltinPropertyID id)
 
 void Module::add_metadata(Metadata* mdata)
 {
-	ASSERT(!has_metadata(mdata->p_path), "Module already has metadata with similar path!");
+	EVIR_ASSERT(!has_metadata(mdata->p_path), "Module already has metadata with similar path!");
 	metadata.push_back(mdata);
 }
 
 void Module::add_metadata(Metadata::BuiltinPropertyID id, MDValue* value)
 {
-	ASSERT(!has_metadata(id), "Module already has metadata with similar path!");
+	EVIR_ASSERT(!has_metadata(id), "Module already has metadata with similar path!");
 	add_metadata(new Metadata(id, value));
 }
 
 void Module::set_metadata(Metadata::Path path, MDValue* value)
 {
 	Metadata* mdata = get_metadata(path);
-	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
+	EVIR_ASSERT(mdata, "Cannot set value of non-existent metadata property!");
 
 	mdata->p_value = value;
 }
@@ -64,7 +64,7 @@ void Module::set_metadata(Metadata::Path path, MDValue* value)
 void Module::set_metadata(Metadata::BuiltinPropertyID id, MDValue* value)
 {
 	Metadata* mdata = get_metadata(id);
-	ASSERT(mdata, "Cannot set value of non-existent metadata property!");
+	EVIR_ASSERT(mdata, "Cannot set value of non-existent metadata property!");
 
 	mdata->p_value = value;
 }
@@ -224,9 +224,9 @@ String Module::generate_ir()
 	// generate credit comments
 	stream << generate_ir_comment("module generated with:");
 	#ifdef DEBUG
-	stream << generate_ir_comment("\t" LIB_NAME_INTERNAL " version " LIB_VERSION " dev");
+	stream << generate_ir_comment("\t" EVIR_LIB_NAME_INTERNAL " version " EVIR_LIB_VERSION " dev");
 	#else
-	stream << generate_ir_comment("\t" LIB_NAME_INTERNAL " version " LIB_VERSION);
+	stream << generate_ir_comment("\t" EVIR_LIB_NAME_INTERNAL " version " EVIR_LIB_VERSION);
 	#endif
 	stream << generate_ir_comment("\tby Sjoerd Vermeulen");
 	stream << generate_ir_comment("\tMIT license (2022)");

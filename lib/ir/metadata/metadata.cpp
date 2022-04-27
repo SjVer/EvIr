@@ -53,7 +53,7 @@ Metadata::Metadata(BuiltinPropertyID type, MDValue* value)
 		CASE(MD_DEBUG_TYPENAMES, "debug", "typenames");
 
 		#undef CASE
-		default: ASSERT_F(0, "Invalid built-in metadata property type %d!", type);
+		default: EVIR_ASSERT_F(0, "Invalid built-in metadata property type %d!", type);
 	}
 
 	p_value = value;
@@ -76,7 +76,7 @@ Metadata::Metadata(CustomPropertyID type, Path path, MDValue* value)
 		CASE(MD_CUSTOM, );
 
 		#undef CASE
-		default: ASSERT_F(0, "Invalid custom metadata property type %d!", type);
+		default: EVIR_ASSERT_F(0, "Invalid custom metadata property type %d!", type);
 	}
 
 	// concat paths

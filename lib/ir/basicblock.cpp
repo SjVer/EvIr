@@ -1,11 +1,18 @@
 #include "evir/ir/basicblock.hpp"
+#include "evir/ir/user/function.hpp"
 #include "evir/ir/comment.hpp"
 
 using namespace evir;
 
+BasicBlock::BasicBlock(String label, Function* parent): parent(parent)
+{
+	set_label(label);
+	if(parent) parent->append_block(this);
+}
+
 void BasicBlock::set_label(String label_)
 {
-	ASSERT(label_.length(), "invalid label!");
+	EVIR_ASSERT(label_.length(), "invalid label!");
 	label = label_;
 	label_set = true;
 }
@@ -24,7 +31,7 @@ String BasicBlock::get_label()
 
 void BasicBlock::add_predecessor(BasicBlock* pred)
 {
-	ASSERT(pred, "invalid predecessor block!");
+	EVIR_ASSERT(pred, "invalid predecessor block!");
 	preds.push_back(pred);
 	preds.shrink_to_fit();
 }
@@ -39,7 +46,7 @@ String BasicBlock::generate_ir()
 		SStream predscomment = SStream();
 		predscomment << "preds: ";
 
-		// ASSERT label
+		// EVIR_ASSERT label
 		for(auto pred : preds)
 		{
 			predscomment << pred->get_label();

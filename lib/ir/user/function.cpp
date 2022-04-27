@@ -10,7 +10,7 @@ Function::Function(FunctionType* type_, String name_)
 
 void Function::append_block(BasicBlock* block)
 {
-	ASSERT(block, "invalid basic block!");
+	EVIR_ASSERT(block, "invalid basic block!");
 	block->parent = this;
 	blocks.push_back(block);
 }
@@ -23,8 +23,8 @@ String Function::generate_ir()
 	stream << generate_props_comment();
 
 	// function signature
-	ASSERT(type, "function type is null!");
-	ASSERT(name.length(), "function name is empty!");
+	EVIR_ASSERT(type, "function type is null!");
+	EVIR_ASSERT(name.length(), "function name is empty!");
 	stream << name << " " << type->generate_ir() << endl;
 
 	// set tmp labels where needed

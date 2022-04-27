@@ -5,29 +5,24 @@
 #ifndef EVIR__COMMON_H
 #define EVIR__COMMON_H
 
-#if defined(_WIN32) || defined(_WIN64)
-#define API __declspec(dllexport)
-#else
-#define API
-#endif
-
-#pragma region info
-
-#define LIB_NAME "EvIr"
-#define LIB_NAME_INTERNAL "libevir"
-#define LIB_VERSION "0.0.1"
-#define LIB_VERSION_MAJOR 0
-#define LIB_VERSION_MINOR 0
-#define LIB_VERSION_PATCH 1
-
-#pragma endregion
-
 #include "evir/.base_pch.hpp"
 #include "evir/.tools_pch.hpp"
 
-#pragma region types
 namespace evir
 {
+
+#pragma region info
+
+#define EVIR_LIB_NAME "EvIr"
+#define EVIR_LIB_NAME_INTERNAL "libevir"
+#define EVIR_LIB_VERSION "0.0.1"
+#define EVIR_LIB_VERSION_MAJOR 0
+#define EVIR_LIB_VERSION_MINOR 0
+#define EVIR_LIB_VERSION_PATCH 1
+
+#pragma endregion
+
+#pragma region types
 
 typedef int64_t				int64;
 typedef uint64_t			uint64;
@@ -44,25 +39,26 @@ using Pair = std::pair<T1, T2>;
 template<typename K, typename V>
 using Map = std::map<K, V>;
 
-}
+static const char endl = '\n';
+static const char tab = '\t';
+static const char tab_len = 4;
+
 #pragma endregion
-
 #pragma region macros
-
-#define endl ((char)'\n')
-#define tab ((char)'\t')
-#define tab_len 4
 
 #define UNRESOLVED "<unresolved>"
 
 #define STRINGIFY(value) #value
 #define COMMA ,
 
-#define ASSERT(condition, whatwentwrong) if(!(condition)) { \
+#define EVIR_ASSERT(condition, whatwentwrong) if(!(condition)) { \
 	std::cerr << "EvIr Assertion failed: " << whatwentwrong << endl; raise(SIGABRT); }
-#define ASSERT_F(condition, whatwentwrong, ...) ASSERT(condition, tools::fstr(whatwentwrong, __VA_ARGS__))
+#define EVIR_ASSERT_F(condition, whatwentwrong, ...) \
+	EVIR_ASSERT(condition, tools::fstr(whatwentwrong, __VA_ARGS__))
 
 #pragma endregion
+
+#ifdef COMPILING
 
 #pragma region debug macros
 #ifdef DEBUG
@@ -87,6 +83,10 @@ using Map = std::map<K, V>;
 
 #endif
 #pragma endregion
+
+#endif
+
+}
 
 #endif // EVIR__COMMON_H
 

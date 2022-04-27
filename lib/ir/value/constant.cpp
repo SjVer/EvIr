@@ -42,7 +42,7 @@ String ArrayConst::generate_ir()
 	stream << "[";
 	for(auto element : elements)
 	{
-		ASSERT(element, "array constant element is null!");
+		EVIR_ASSERT(element, "array constant element is null!");
 		stream << element->generate_ir();
 		if(element != elements.back()) stream << ", ";
 	}
@@ -57,8 +57,8 @@ String MapConst::generate_ir()
 		Value* k = pairs.begin()->first;
 		Value* v = pairs.begin()->second;
 
-		ASSERT(k, "map constant key is null!");
-		ASSERT(v, "map constant value is null!");
+		EVIR_ASSERT(k, "map constant key is null!");
+		EVIR_ASSERT(v, "map constant value is null!");
 
 		return "{ " + k->generate_ir() + ": " + v->generate_ir() + " }";
 	}
@@ -67,8 +67,8 @@ String MapConst::generate_ir()
 	stream << "{" << endl;
 	for(auto it = pairs.begin(); it != pairs.end(); it++)
 	{
-		ASSERT(it->first, "map constant key is null!");
-		ASSERT(it->second, "map constant value is null!");
+		EVIR_ASSERT(it->first, "map constant key is null!");
+		EVIR_ASSERT(it->second, "map constant value is null!");
 
 		stream << tab << it->first->generate_ir() << ": ";
 		stream << it->second->generate_ir();
