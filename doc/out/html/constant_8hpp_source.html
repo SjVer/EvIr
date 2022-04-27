@@ -231,38 +231,39 @@ $(document).ready(function(){initNavTree('constant_8hpp_source.html',''); initRe
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">    public: String generate_ir();</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#define SIMPLE_CONSTANT(name, valuetype, membertype, membername) \</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">    class name : public Constant { MEMBERS(valuetype); \</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">    name(membertype membername): membername(membername) {}; membertype membername; }</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classevir_1_1IntegerConst.html#abf27724d0c0badb5fd729a516909e223">   87</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1IntegerConst.html">IntegerConst</a>,   CONSTANT_INTEGER,   int64, value);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classevir_1_1FloatConst.html#aa5d18a32d650b513b7ef33e3a53b9d6e">   88</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1FloatConst.html">FloatConst</a>,     CONSTANT_FLOAT,     float2, value);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classevir_1_1ArrayConst.html#a9d513b4116c04a0b85ac697f1c461227">   90</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a>,     CONSTANT_ARRAY,     Vector&lt;Value*&gt;, elements);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classevir_1_1MapConst.html#a9957a3b8abb93685c9447c4b04406f64">   91</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1MapConst.html">MapConst</a>,       CONSTANT_MAP,       Map&lt;Value* COMMA Value*&gt;, pairs);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classevir_1_1StringConst.html">   93</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1StringConst.html">StringConst</a> : <span class="keyword">public</span> <a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    String string;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_class" href="classevir_1_1StringConst.html">StringConst</a>(String <span class="keywordtype">string</span>);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classevir_1_1StringConst.html#a30688b68108d552ec4237638b64264ad">  101</a></span>    String <a class="code hl_function" href="classevir_1_1StringConst.html#a30688b68108d552ec4237638b64264ad">generate_ir</a>();</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>};</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#undef MEMBERS</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#undef SIMPLE_CONSTANT</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_VALUE_CONSTANT_H</span></div>
-<div class="ttc" id="aclassevir_1_1ArrayConst_html"><div class="ttname"><a href="classevir_1_1ArrayConst.html">evir::ArrayConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:90</div></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">    private: membertype membername; \</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">    public: name(membertype membername): membername(membername) {}; }</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classevir_1_1IntegerConst.html#abf27724d0c0badb5fd729a516909e223">   88</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1IntegerConst.html">IntegerConst</a>,   CONSTANT_INTEGER,   int64, value);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classevir_1_1FloatConst.html#aa5d18a32d650b513b7ef33e3a53b9d6e">   89</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1FloatConst.html">FloatConst</a>,     CONSTANT_FLOAT,     float2, value);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classevir_1_1ArrayConst.html#a9d513b4116c04a0b85ac697f1c461227">   91</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a>,     CONSTANT_ARRAY,     Vector&lt;Value*&gt;, elements);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classevir_1_1MapConst.html#a9957a3b8abb93685c9447c4b04406f64">   92</a></span>SIMPLE_CONSTANT(<a class="code hl_class" href="classevir_1_1MapConst.html">MapConst</a>,       CONSTANT_MAP,       Map&lt;Value* COMMA Value*&gt;, pairs);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classevir_1_1StringConst.html">   94</a></span><span class="keyword">class </span><a class="code hl_class" href="classevir_1_1StringConst.html">StringConst</a> : <span class="keyword">public</span> <a class="code hl_class" href="classevir_1_1ArrayConst.html">ArrayConst</a></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    String string;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_class" href="classevir_1_1StringConst.html">StringConst</a>(String <span class="keywordtype">string</span>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classevir_1_1StringConst.html#a30688b68108d552ec4237638b64264ad">  102</a></span>    String <a class="code hl_function" href="classevir_1_1StringConst.html#a30688b68108d552ec4237638b64264ad">generate_ir</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>};</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#undef MEMBERS</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#undef SIMPLE_CONSTANT</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#endif </span><span class="comment">// EVIR_IR_VALUE_CONSTANT_H</span></div>
+<div class="ttc" id="aclassevir_1_1ArrayConst_html"><div class="ttname"><a href="classevir_1_1ArrayConst.html">evir::ArrayConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:91</div></div>
 <div class="ttc" id="aclassevir_1_1Constant_html"><div class="ttname"><a href="classevir_1_1Constant.html">evir::Constant</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:24</div></div>
 <div class="ttc" id="aclassevir_1_1Constant_html_a4bea194f5dc43097d05be87b612207b2"><div class="ttname"><a href="classevir_1_1Constant.html#a4bea194f5dc43097d05be87b612207b2">evir::Constant::generate_ir</a></div><div class="ttdeci">virtual String generate_ir()=0</div></div>
-<div class="ttc" id="aclassevir_1_1FloatConst_html"><div class="ttname"><a href="classevir_1_1FloatConst.html">evir::FloatConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:88</div></div>
-<div class="ttc" id="aclassevir_1_1IntegerConst_html"><div class="ttname"><a href="classevir_1_1IntegerConst.html">evir::IntegerConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:87</div></div>
-<div class="ttc" id="aclassevir_1_1MapConst_html"><div class="ttname"><a href="classevir_1_1MapConst.html">evir::MapConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:91</div></div>
-<div class="ttc" id="aclassevir_1_1StringConst_html"><div class="ttname"><a href="classevir_1_1StringConst.html">evir::StringConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:94</div></div>
+<div class="ttc" id="aclassevir_1_1FloatConst_html"><div class="ttname"><a href="classevir_1_1FloatConst.html">evir::FloatConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:89</div></div>
+<div class="ttc" id="aclassevir_1_1IntegerConst_html"><div class="ttname"><a href="classevir_1_1IntegerConst.html">evir::IntegerConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:88</div></div>
+<div class="ttc" id="aclassevir_1_1MapConst_html"><div class="ttname"><a href="classevir_1_1MapConst.html">evir::MapConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:92</div></div>
+<div class="ttc" id="aclassevir_1_1StringConst_html"><div class="ttname"><a href="classevir_1_1StringConst.html">evir::StringConst</a></div><div class="ttdef"><b>Definition:</b> constant.hpp:95</div></div>
 <div class="ttc" id="aclassevir_1_1StringConst_html_a30688b68108d552ec4237638b64264ad"><div class="ttname"><a href="classevir_1_1StringConst.html#a30688b68108d552ec4237638b64264ad">evir::StringConst::generate_ir</a></div><div class="ttdeci">String generate_ir()</div></div>
 <div class="ttc" id="aclassevir_1_1Value_html"><div class="ttname"><a href="classevir_1_1Value.html">evir::Value</a></div><div class="ttdef"><b>Definition:</b> value.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->

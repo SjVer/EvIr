@@ -1,6 +1,5 @@
 <map id="evir::MapConst" name="evir::MapConst">
-<area shape="rect" id="node1" title=" " alt="" coords="91,185,211,212"/>
-<area shape="rect" id="node2" href="$classevir_1_1Constant.html" title=" " alt="" coords="5,89,119,115"/>
-<area shape="rect" id="node3" href="$classevir_1_1Value.html" title=" " alt="" coords="17,5,107,32"/>
-<area shape="rect" id="node4" title=" " alt="" coords="143,81,341,123"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,125,181"/>
+<area shape="rect" id="node2" href="$classevir_1_1Constant.html" title=" " alt="" coords="9,80,122,107"/>
+<area shape="rect" id="node3" href="$classevir_1_1Value.html" title=" " alt="" coords="20,5,111,32"/>
 </map>

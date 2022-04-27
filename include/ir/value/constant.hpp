@@ -82,7 +82,8 @@ public:
 	public: String generate_ir();
 #define SIMPLE_CONSTANT(name, valuetype, membertype, membername) \
 	class name : public Constant { MEMBERS(valuetype); \
-	name(membertype membername): membername(membername) {}; membertype membername; }
+	private: membertype membername; \
+	public: name(membertype membername): membername(membername) {}; }
 
 SIMPLE_CONSTANT(IntegerConst, 	CONSTANT_INTEGER, 	int64, value);
 SIMPLE_CONSTANT(FloatConst, 	CONSTANT_FLOAT, 	float2, value);

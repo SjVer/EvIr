@@ -79,30 +79,31 @@
 \DoxyCodeLine{82 \textcolor{preprocessor}{    public: String generate\_ir();}}
 \DoxyCodeLine{83 \textcolor{preprocessor}{\#define SIMPLE\_CONSTANT(name, valuetype, membertype, membername) \(\backslash\)}}
 \DoxyCodeLine{84 \textcolor{preprocessor}{    class name : public Constant \{ MEMBERS(valuetype); \(\backslash\)}}
-\DoxyCodeLine{85 \textcolor{preprocessor}{    name(membertype membername): membername(membername) \{\}; membertype membername; \}}}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1IntegerConst}{IntegerConst}},   CONSTANT\_INTEGER,   int64, value);}
-\DoxyCodeLine{88 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1FloatConst}{FloatConst}},   CONSTANT\_FLOAT,     float2, value);}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{90 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}},   CONSTANT\_ARRAY,     Vector<Value*>, elements);}
-\DoxyCodeLine{91 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1MapConst}{MapConst}},       CONSTANT\_MAP,       Map<Value* COMMA Value*>, pairs);}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1StringConst}{StringConst}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}}}
-\DoxyCodeLine{94 \{}
-\DoxyCodeLine{95     String string;}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97 \textcolor{keyword}{public}:}
-\DoxyCodeLine{98     \mbox{\hyperlink{classevir_1_1StringConst}{StringConst}}(String \textcolor{keywordtype}{string});}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{101     String \mbox{\hyperlink{classevir_1_1StringConst_a30688b68108d552ec4237638b64264ad}{generate\_ir}}();}
-\DoxyCodeLine{102 \};}
-\DoxyCodeLine{103 }
-\DoxyCodeLine{104 \textcolor{preprocessor}{\#undef MEMBERS}}
-\DoxyCodeLine{105 \textcolor{preprocessor}{\#undef SIMPLE\_CONSTANT}}
-\DoxyCodeLine{106 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108 \}}
-\DoxyCodeLine{109 }
-\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_VALUE\_CONSTANT\_H}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{    private: membertype membername; \(\backslash\)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{    public: name(membertype membername): membername(membername) \{\}; \}}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1IntegerConst}{IntegerConst}},   CONSTANT\_INTEGER,   int64, value);}
+\DoxyCodeLine{89 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1FloatConst}{FloatConst}},   CONSTANT\_FLOAT,     float2, value);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}},   CONSTANT\_ARRAY,     Vector<Value*>, elements);}
+\DoxyCodeLine{92 SIMPLE\_CONSTANT(\mbox{\hyperlink{classevir_1_1MapConst}{MapConst}},       CONSTANT\_MAP,       Map<Value* COMMA Value*>, pairs);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{class }\mbox{\hyperlink{classevir_1_1StringConst}{StringConst}} : \textcolor{keyword}{public} \mbox{\hyperlink{classevir_1_1ArrayConst}{ArrayConst}}}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     String string;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{public}:}
+\DoxyCodeLine{99     \mbox{\hyperlink{classevir_1_1StringConst}{StringConst}}(String \textcolor{keywordtype}{string});}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{102     String \mbox{\hyperlink{classevir_1_1StringConst_a30688b68108d552ec4237638b64264ad}{generate\_ir}}();}
+\DoxyCodeLine{103 \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#undef MEMBERS}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#undef SIMPLE\_CONSTANT}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EVIR\_IR\_VALUE\_CONSTANT\_H}}
 
 \end{DoxyCode}
