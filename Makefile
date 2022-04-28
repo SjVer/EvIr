@@ -11,11 +11,11 @@ CC = clang++
 LLVMVERSION = 12
 
 PCHS = .base_pch.hpp .tools_pch.hpp
-PCOS = tools.cpp
+PCOS = tools.cpp statics.cpp
 
 MUTE = varargs c99-designator # write-strings sign-compare unused-function comment dangling-gsl unknown-warning-option c++17-extensions
 LLVMFLAGS = llvm-config-$(LLVMVERSION) --cxxflags
-DEFS = __EVIR_HEADER COMPILING
+DEFS = COMPILING
 CXXFLAGS = -Wall $(addprefix -Wno-,$(MUTE)) $(addprefix -D,$(DEFS)) -fPIC # `$(LLVMFLAGS)`
 LDFLAGS = -shared #`$(LLVMFLAGS) --ldflags --system-libs --libs`
 

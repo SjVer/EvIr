@@ -9,6 +9,7 @@
 #define __EVIR_HEADER
 
 #include "evir/.common.hpp"
+#include "evir/.statics_pch.hpp"
 #include "evir/ir/module.hpp"
 #include "evir/ir/basicblock.hpp"
 #include "evir/ir/instructions/all.hpp"
@@ -60,7 +61,7 @@ public:
 	#pragma endregion
 	#pragma region Types
 	#define GET_TYPE_METHOD(cn, ln, ...) \
-		cn* get_##ln##_type() { return new cn(__VA_ARGS__); }
+		cn* get_##ln##_type() { return (cn*)&static_##ln##_type; }
 
 	GET_TYPE_METHOD(IntegerType, bool, false, 1);
 	GET_TYPE_METHOD(IntegerType, uint8, false, 8);
