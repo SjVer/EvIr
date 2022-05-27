@@ -10,6 +10,7 @@
 
 #include "evir/.common.hpp"
 #include "evir/ir/value/value.hpp"
+#include "evir/ir/user/function.hpp"
 
 namespace evir {
 
@@ -23,11 +24,86 @@ protected:
 	/// @endcond
 public:
 
-	#pragma region Constructors
+	/// @copydoc Value::generate_ir()
+	virtual String generate_ir() = 0;
 
-	
+	// virtual void resolve();
+};
 
-	#pragma endregion
+class BinaryOp : public Operator
+{
+public:
+
+	typedef enum BinOpType
+	{
+		ADD,
+		SUB,
+		MUL,
+		DIV,
+		MOD,
+		SHL,
+		SHR,
+		AND,
+		OR,
+		XOR,
+	};
+
+private:
+
+	Value* lhs;
+	Value* rhs;
+	BinOpType optype;
+
+public:
+
+	BinaryOp(BinOpType type, Value* lhs, Value* rhs):
+		optype(type), lhs(lhs), rhs(rhs) {}
+
+	/// @copydoc Value::generate_ir()
+	String generate_ir();
+};
+
+class ComparisonOp : public Operator
+{
+public:
+
+	typedef enum CmpOpType
+	{
+		EQ,
+		NEQ,
+		LT,
+		LTEQ,
+		GT,
+		GTEQ,
+	};
+
+private:
+
+	Value* lhs;
+	Value* rhs;
+	CmpOpType optype;
+
+public:
+
+	ComparisonOp(CmpOpType type, Value* lhs, Value* rhs):
+		optype(type), lhs(lhs), rhs(rhs) {}
+
+	/// @copydoc Value::generate_ir()
+	String generate_ir();
+};
+
+class CallOp : public Operator
+{
+	Function* callee;
+	Vector<Value*> args;
+
+public:
+
+	CallOp(Function* callee, Vector<Value*> args):
+		callee(callee), args(args) {}
+
+	/// @copydoc Value::generate_ir()
+	String generate_ir();
 };
 
 }

@@ -25,7 +25,12 @@ public:
 	/// Appends a new @link BasicBlock @endlink to the function's body
 	void append_block(BasicBlock* block);
 
+	Type* get_return_type() const { return ((FunctionType*)type)->return_type; }
+	Vector<Type*> get_params() const { return ((FunctionType*)type)->params; }
+	size get_param_count() const { return get_params().size(); }
 	bool is_defined() const { return blocks.size() > 0; };
+
+	
 
 	/// @copydoc User::generate_ir()
 	String generate_ir();

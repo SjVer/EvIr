@@ -95,6 +95,21 @@ public:
 	virtual String generate_ir() = 0;
 };
 
+namespace _comment_inst {
+	class _CommentInst : public Instruction
+	{
+	public:
+		static const InstType inst_type = INST_none;
+
+		String text;
+		_CommentInst(String text): text(text) {}
+
+		void resolve() {}
+		bool is_terminator() const { return false; }
+		String generate_ir();
+	};
+}
+
 }
 
 #endif // EVIR_IR_INSTRUCTIONS_INSTRUCTION_H

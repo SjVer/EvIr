@@ -26,6 +26,7 @@ namespace evir
 
 typedef int64_t				int64;
 typedef uint64_t			uint64;
+typedef size_t				size;
 typedef double				float2;
 typedef std::string 		String;
 typedef std::stringstream 	SStream;

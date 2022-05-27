@@ -116,7 +116,6 @@ Function* Module::get_or_insert_function(FunctionType* type, String name)
 	else return func;
 }
 
-
 // Global* Module::get_or_insert_global(Type* type, String name)
 // {
 // 	for(auto u : users)

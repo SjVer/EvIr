@@ -119,6 +119,15 @@ test: $(APP)
 	@printf ">>> DONE "
 	cat test/out.evir
 
+.PHONY: test
+fib: $(APP)
+	@printf ">>> COMPILING "
+	$(CC) -I$(HEADERDIR) test/fib.cpp -o $(BINDIR)/fib -L$(BINDIR) -levir
+	@printf ">>> RUNNING "
+	bin/fib
+	@printf ">>> DONE "
+	cat test/fib.evir
+
 .PHONY: test-debug
 test-debug: debug $(APP)
 # 	@printf "============ Running \"valgrind $(APP) test/test.evi -o bin/test.ll\" ============\n\n"
@@ -133,10 +142,6 @@ printdebug:
 debug: CXXFLAGS += $(DEBUGDEFS)
 debug: printdebug
 debug: $(APP)
-
-.PHONY: debug-no-fold
-debug-no-fold: CXXFLAGS += -D DEBUG_NO_FOLD
-debug-no-fold: debug
 
 ############################################################################
 

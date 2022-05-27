@@ -150,6 +150,8 @@ public:
 /// A function's type
 class FunctionType : public Type
 {
+	friend class Function;
+
 	static const TypeID type_id = TYPE_FUNCTION;
 	Type* return_type;
 	Vector<Type*> params;

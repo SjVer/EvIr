@@ -44,7 +44,11 @@ public:
 	/// @link BasicBlock @endlink and returns it.
 	Instruction* insert(Instruction* inst);
 
-	#pragma region Instruction creation
+	/// Inserts the given comment at the end of the current
+	/// @link BasicBlock @endlink.
+	void insert_comment(String text);
+
+	#pragma region Simple instruction creation
 	#define CREATE_INST(cn, ln, s, ...) \
 		cn* create_##ln s { return (cn*)insert(new cn(__VA_ARGS__)); }
 
@@ -56,6 +60,44 @@ public:
 	CREATE_INST(DispInst, disp, (Value* expression), expression);
 
 	#undef CREATE_INST
+	#pragma endregion
+
+	#pragma region Simple expression creation
+	#define CREATE_EXPR(ln, cn, s, ...) \
+		Value* create_##ln s { return new cn(__VA_ARGS__); }
+	#define CREATE_BIN_EXPR(ln, cn, en) \
+		CREATE_EXPR(ln, cn, (Value* lhs, Value* rhs), cn::en, lhs, rhs)
+
+	CREATE_BIN_EXPR(add, BinaryOp, ADD);
+	CREATE_BIN_EXPR(sub, BinaryOp, SUB);
+	CREATE_BIN_EXPR(mul, BinaryOp, MUL);
+	CREATE_BIN_EXPR(div, BinaryOp, DIV);
+	CREATE_BIN_EXPR(mod, BinaryOp, MOD);
+	CREATE_BIN_EXPR(shr, BinaryOp, SHR);
+	CREATE_BIN_EXPR(shl, BinaryOp, SHL);
+	CREATE_BIN_EXPR(and, BinaryOp, AND);
+	CREATE_BIN_EXPR(or,  BinaryOp, OR);
+	CREATE_BIN_EXPR(xor, BinaryOp, XOR);
+
+	CREATE_BIN_EXPR(cmpeq,   ComparisonOp, EQ);
+	CREATE_BIN_EXPR(cmpneq,  ComparisonOp, NEQ);
+	CREATE_BIN_EXPR(cmplt,   ComparisonOp, LT);
+	CREATE_BIN_EXPR(cmplteq, ComparisonOp, LTEQ);
+	CREATE_BIN_EXPR(cmpgt,   ComparisonOp, GT);
+	CREATE_BIN_EXPR(cmpgteq, ComparisonOp, GTEQ);
+
+	CREATE_EXPR(call, CallOp, (Function* callee, Vector<Value*> args), callee, args);
+
+	#undef CREATE_BIN_EXPR
+	#undef CREATE_EXPR
+	#pragma endregion
+
+	#pragma region Advanced creation
+
+	/// Creates a return instruction that returns the
+	/// "nullified" variant of the function's return type
+	// RetInst* create_ret_null();
+
 	#pragma endregion
 
 	#pragma endregion
