@@ -2,7 +2,7 @@
 	"HEADER": {
 		"prefix": "HEADER",
 		"body": [
-			"//===--- ${1:file -----}---------- C++ ---===",
+			"//===--- ${1:file -----}---------- Rust ---===",
 			"// This header is part of the EvIr library",
 			"// MIT License - Sjoerd Vermeulen (2022)",
 			"// For more info see https://github.com/SjVer/EvIr",
@@ -20,6 +20,16 @@
 			"}",
 			"",
 			"#endif // EVIR_${2}_H"
+		]
+	},
+	"DOC": {
+		"prefix": "DOC",
+		"body": [
+			"//===--- ${1:file -----}---------- Rust ---===",
+			"// This header is part of the EvIr library",
+			"// MIT License - Sjoerd Vermeulen (2022)",
+			"// For more info see https://github.com/SjVer/EvIr",
+			"//===--------------------------------------------===",
 		]
 	}
 }
