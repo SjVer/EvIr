@@ -11,3 +11,4 @@ path = "lib/lib.rs"
 [alias]
 b = "build"
 br = "build --release"
+t = "test"
