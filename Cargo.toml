@@ -1,0 +1,13 @@
+[package]
+name = "evir"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[lib]
+path = "lib/lib.rs"
+
+[alias]
+b = "build"
+br = "build --release"

@@ -1,9 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classevir_1_1Instruction.html" title=" " alt="" coords="5,107,129,133"/>
-<area shape="rect" id="node2" href="$classevir_1_1BranchInst.html" title=" " alt="" coords="180,69,304,96"/>
-<area shape="rect" id="node6" href="$classevir_1_1StorageInst.html" title=" " alt="" coords="177,132,307,159"/>
-<area shape="rect" id="node3" href="$classevir_1_1BrInst.html" title=" " alt="" coords="371,5,465,32"/>
-<area shape="rect" id="node4" href="$classevir_1_1CondBrInst.html" title=" " alt="" coords="355,56,481,83"/>
-<area shape="rect" id="node5" href="$classevir_1_1RetInst.html" title=" " alt="" coords="367,107,469,133"/>
-<area shape="rect" id="node7" href="$classevir_1_1DispInst.html" title=" " alt="" coords="364,157,472,184"/>
-</map>
