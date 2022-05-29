@@ -15,13 +15,13 @@ static UNRESOLVED: &str = "<unresolved>";
 #[macro_export]
 macro_rules! evir_assert {
 	($cond:expr, $whatwentwrong:expr) => {
-		assert!($cond, format!("EvIr assertion failed: {}", $whatwentwrong))
+		assert!($cond, "EvIr assertion failed: {}", $whatwentwrong)
 	};
 }
 
-// #[macro_export]
-// macro_rules! evir_assert_f {
-// 	($cond:expr, $($arg:tt)*) => {
-// 		assert!($cond, format!("EvIr assertion failed: {}", format!($($arg)*)))
-// 	};
-// }
+#[macro_export]
+macro_rules! evir_assert_f {
+	($cond:expr, $($arg:tt)*) => {
+		assert!($cond, "EvIr assertion failed: {}", format!($($arg)*))
+	};
+}

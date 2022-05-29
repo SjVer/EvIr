@@ -13,6 +13,7 @@ use crate::{
 /// Has the following metadata by default:
 /// - [!module/name][`ir::metadata::BuiltinMDProp::Module_Name`]
 /// - [!debug/generate][`ir::metadata::BuiltinMDProp::Debug_Generate`]
+#[derive(Default)]
 pub struct Module {
 	metadata: Vec<Metadata>,
 	// users: Vec<User>,	
@@ -21,7 +22,7 @@ pub struct Module {
 // misc stuff
 impl Module {
 	pub fn new(name: String) -> Self {
-		let mut this = Self {};
+		let mut this = Self::default();
 		this.add_metadata(Metadata::new(BuiltinMDProp::ModuleName, name));
 		this.add_metadata(Metadata::new(BuiltinMDProp::DebugGenerate, 0));
 
@@ -30,8 +31,8 @@ impl Module {
 
 	pub fn get_name(&self) -> Option<String> {
 		match self.get_metadata(BuiltinMDProp::ModuleName) {
-			Some(md) => match md {
-				MDValue::String(s) => Some(s),
+			Some(md) => match &md.value {
+				MDValue::String(s) => Some(s.clone()),
 				_ => None,
 			}
 			None => None,
@@ -56,7 +57,7 @@ impl Module {
 	}
 
 	pub fn add_metadata(&mut self, md: Metadata) {
-		evir_assert!(!self.has_metadata(md.path), "Module already has metadata with same path");
+		evir_assert!(!self.has_metadata(md.path.clone()), "Module already has metadata with same path");
 		self.metadata.push(md);
 	}
 }

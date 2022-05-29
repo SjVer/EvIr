@@ -15,20 +15,19 @@ pub enum MDPath {
 
 impl ToString for MDPath {
 	fn to_string(&self) -> String {
-		let parts = match self {
+		match self {
 			Self::Builtin(p) => {
 				format!("{:?}", p).to_case(Lower)
 					.split(' ').collect::<Vec<&str>>()
+					.join("/")
 			},
 			Self::Custom(p, r) => {
-				let mut p = format!("{:?}", p).to_case(Lower)
-					.split(' ').collect::<Vec<&str>>();
+				let n = format!("{:?}", p).to_case(Lower);
+				let mut p = n.split(' ').collect::<Vec<&str>>();
 				p.extend(r.iter().map(|p| p.as_str()));
-				p
+				p.join("/")
 			},
-		};
-
-		parts.join("/")
+		}
 	}
 }
 
@@ -96,7 +95,7 @@ pub enum CustomMDProp {
 
 // trait
 
-pub(crate) trait ToMDPath {
+pub trait ToMDPath {
 	fn to_mdpath(self) -> MDPath;
 }
 

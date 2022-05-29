@@ -16,7 +16,7 @@ pub enum MDValue {
 	// IRValue(Value).
 }
 
-pub(crate) trait ToMDValue {
+pub trait ToMDValue {
 	fn to_mdvalue(self) -> MDValue;
 }
 
