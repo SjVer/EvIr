@@ -15,7 +15,8 @@ Instruction* IRBuilder::insert(Instruction* inst)
 
 void IRBuilder::insert_comment(String text)
 {
-	bblock->instructions.push_back(new _comment_inst::_CommentInst(text));
+	for(String s : tools::split_string(text, "\n"))
+		bblock->instructions.push_back(new _comment_inst::_CommentInst(s));
 }
 
 #pragma endregion

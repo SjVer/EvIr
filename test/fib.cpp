@@ -33,6 +33,7 @@ int main()
 	fib->append_block(fret1);
 
 	builder->set_block(fentry);
+	builder->insert_comment("if(x <= 2) return 1;\nreturn fib(x - 1) + fib(x - 2)");
 	Value* cond = builder->create_cmplteq(ZERO, Constant::new_integer(2)); // x <= 2
 	builder->create_condbr(cond, fret1);
 	
@@ -53,7 +54,8 @@ int main()
 	BasicBlock* mentry = new BasicBlock("entry");
 	mainf->append_block(mentry);
 	builder->set_block(mentry);
-	// builder->create_disp(builder->create_call(fib, {Constant::new_integer(5)}));
+	Value* fibval = builder->create_call(fib, {Constant::new_integer(5)});
+	builder->create_disp(builder->create_call(printint, {fibval}));
 
 	
 	module->add_metadata(Metadata::MD_MODULE_ENTRYPOINT, (MDIRValue*)(new Reference(mainf)));

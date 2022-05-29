@@ -230,8 +230,8 @@ String Module::generate_ir()
 	stream << generate_ir_comment("\tby Sjoerd Vermeulen");
 	stream << generate_ir_comment("\tMIT license (2022)");
 
-	// return string
-	return stream.str();
+	// return string (minus last newline)
+	return stream.str().erase(stream.str().length() - 1);
 }
 
 #pragma endregion

@@ -118,6 +118,7 @@ test: $(APP)
 	bin/test
 	@printf ">>> DONE "
 	cat test/out.evir
+	@echo
 
 .PHONY: test
 fib: $(APP)
@@ -127,6 +128,7 @@ fib: $(APP)
 	bin/fib
 	@printf ">>> DONE "
 	cat test/fib.evir
+	@echo
 
 .PHONY: test-debug
 test-debug: debug $(APP)
