@@ -33,7 +33,7 @@ impl ToString for MDPath {
 
 // properties
 
-#[derive(Debug, Clone, PartialEq, PartialOrd)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum BuiltinMDProp {
 	/// metadata property path: `!module/name`
 	ModuleName,

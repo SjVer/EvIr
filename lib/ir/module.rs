@@ -9,7 +9,8 @@ use crate::{
 	ir::{
 		IR,
 		generate_ir_comment,
-		metadata::*
+		metadata::*,
+		User, UserT
 	}
 };
 
@@ -17,16 +18,17 @@ use crate::{
 /// Has the following metadata by default:
 /// - [!module/name][`BuiltinMDProp::ModuleName`]
 /// - [!debug/generate][`BuiltinMDProp::DebugGenerate`]
-pub struct Module {
+pub struct Module<'a> {
 	metadata: Vec<Metadata>,
-	// users: Vec<User>,	
+	users: Vec<User<'a>>,	
 }
 
 // misc stuff
-impl Module {
+impl Module<'_> {
 	pub fn new(name: impl ToString) -> Self {
 		let mut this = Self {
-			metadata: vec![]
+			metadata: vec![],
+			users: vec![],
 		};
 
 		this.set_metadata(Metadata::new(BuiltinMDProp::ModuleName, name.to_string()));
@@ -47,7 +49,7 @@ impl Module {
 }
 
 // metadata stuff
-impl Module {
+impl Module<'_> {
 	/// Attempts to get (a mutable reference to) the 
 	/// metadata value at the given [path][`MDPath`].
 	pub fn get_metadata(&mut self, path: impl ToMDPath) -> Option<&mut MDValue> {
@@ -77,7 +79,7 @@ impl Module {
 }
 
 // ir generation
-impl Module {
+impl Module<'_> {
 	fn generate_metadata_ir(&mut self, before_contents: bool) -> IR {
 		// ===== first gather ir for each part seperatly =====
 		
@@ -86,40 +88,57 @@ impl Module {
 		let mut mp = IR::new(); // !module/producer/...
 		let mut t  = IR::new(); // !target/...
 		let mut d  = IR::new(); // !debug/...
-		// let mut c  = IR::new(); // !...
+		let mut c  = IR::new(); // !...
 
 		macro_rules! do_prop {
-			($what:ident $path:path) => {
-				if let Some(md) = self.get_metadata($path) {
+			($what:ident $path:ident) => {
+				if let Some(md) = self.get_metadata(BuiltinMDProp::$path) {
 					$what += &md.generate_ir();
 				}
 			};
 		}
+		macro_rules! do_cust {
+			($what:ident $path:ident) => {
+				for md in &self.metadata {
+					if let MDPath::Custom(s, ..) = &md.path {
+						if s == &CustomMDProp::$path {
+							$what += &md.generate_ir();
+						}
+					}
+				} 
+			};
+		}
 
-		do_prop!(m BuiltinMDProp::ModuleName);
-		do_prop!(m BuiltinMDProp::ModuleEntrypoint);
-		do_prop!(ms BuiltinMDProp::ModuleSourceFilename);
-		do_prop!(ms BuiltinMDProp::ModuleSourceDirectory);
-		do_prop!(ms BuiltinMDProp::ModuleSourceLanguage);
-		// TODO: !module/source/<custom>
-		do_prop!(mp BuiltinMDProp::ModuleProducerName);
-		do_prop!(mp BuiltinMDProp::ModuleProducerVersion);
-		do_prop!(mp BuiltinMDProp::ModuleProducerType);
-		// TODO: !module/producer/<custom>
-		// TODO: !module/<custom>
-		do_prop!(t BuiltinMDProp::TargetTriple);
-		do_prop!(t BuiltinMDProp::TargetCPU);
-		do_prop!(t BuiltinMDProp::TargetDatalayout);
-		do_prop!(t BuiltinMDProp::TargetOptimization);
-		// TODO: !target/<custom>
-		do_prop!(d BuiltinMDProp::DebugGenerate);
-		do_prop!(d BuiltinMDProp::DebugIncludesource);
-		do_prop!(d BuiltinMDProp::DebugSourcelocation);
-		do_prop!(d BuiltinMDProp::DebugSourcechecksum);
-		do_prop!(d BuiltinMDProp::DebugDwarfversion);
-		do_prop!(d BuiltinMDProp::DebugTypenames);
-		// TODO: !debug/<custom>
-		// TODO: !<custom>
+		do_prop!(m ModuleName);
+		do_prop!(m ModuleEntrypoint);
+
+		do_prop!(ms ModuleSourceFilename);
+		do_prop!(ms ModuleSourceDirectory);
+		do_prop!(ms ModuleSourceLanguage);
+		do_cust!(ms ModuleSource);
+
+		do_prop!(mp ModuleProducerName);
+		do_prop!(mp ModuleProducerVersion);
+		do_prop!(mp ModuleProducerType);
+		do_cust!(mp ModuleProducer);
+
+		do_cust!(m Module);
+
+		do_prop!(t TargetTriple);
+		do_prop!(t TargetCPU);
+		do_prop!(t TargetDatalayout);
+		do_prop!(t TargetOptimization);
+		do_cust!(t Target);
+
+		do_prop!(d DebugGenerate);
+		do_prop!(d DebugIncludesource);
+		do_prop!(d DebugSourcelocation);
+		do_prop!(d DebugSourcechecksum);
+		do_prop!(d DebugDwarfversion);
+		do_prop!(d DebugTypenames);
+		do_cust!(d Debug);
+
+		do_cust!(c Custom);
 		
 		// ===== then generate and join ir if need be =====
 		
@@ -148,6 +167,8 @@ impl Module {
 
 			if !d.is_empty() { ir += &generate_ir_comment("debug info metadata", true); }
 			emit!(d);
+			
+			emit!(c);
 		}
 
 		// return it
@@ -161,6 +182,15 @@ impl Module {
 		// generate metadata ir first
 		ir += &self.generate_metadata_ir(true);
 
+		// generate users' ir
+		ir += &generate_ir_comment("module contents", true);
+		ir.push('\n');
+		for u in &self.users {
+			ir += &u.generate_ir();
+			ir.push('\n');
+		}
+
+		// return the ir
 		ir.trim().to_string()
 	}
 }
