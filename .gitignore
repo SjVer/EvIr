@@ -1,5 +1,7 @@
 target/
 test/target/
+Cargo.lock
+test/Cargo.lock
 
 # Prerequisites
 *.d
