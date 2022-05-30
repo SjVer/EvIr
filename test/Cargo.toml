@@ -1,0 +1,15 @@
+[package]
+name = "tests"
+version = "0.0.1"
+
+[[bin]]
+name = "fib"
+path = "fib.rs"
+
+[alias]
+b = "build"
+br = "build --release"
+t = "test"
+
+[dependencies]
+evir = { path = "../" }

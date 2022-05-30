@@ -1,27 +1,2 @@
 ; ================ module metadata =================
-!module/name "fib"
-!module/entrypoint %main
-
-; ================ module contents =================
-
-; props: declared
-printint v ()
-
-; props: defined
-fib i.s.32 (i.s.32)
-	#entry ->	; if(x <= 2) return 1;
-				; return fib(x - 1) + fib(x - 2)
-				~condbr $cmple 0 2 &ret_1
-				~ret $add $call %fib $sub 0 1 $call %fib $sub 0 2
-
-	; preds: entry
-	#ret_1 ->	~ret 1
-
-; props: defined
-main i.s.32 ()
-	#entry ->	=disp $call %printint $call %fib 5
-
-; module generated with:
-; 	libevir version 0.0.1 dev
-; 	by Sjoerd Vermeulen
-; 	MIT license (2022)
+"fib"

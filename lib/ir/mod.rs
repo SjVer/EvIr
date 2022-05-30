@@ -4,5 +4,12 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-pub mod module;
-pub mod metadata;
+mod metadata;
+mod comment;
+mod module;
+
+pub use metadata::*;
+pub use comment::*;
+pub use module::*;
+
+pub type IR = String;

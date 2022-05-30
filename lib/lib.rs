@@ -8,9 +8,9 @@ pub mod ir;
 
 static ENDL: &str = "\n";
 static TAB: &str = "    ";
-static TAB_LEN: u32 = 4;
+// static TAB_LEN: u32 = 4;
 
-static UNRESOLVED: &str = "<unresolved>";
+// static UNRESOLVED: &str = "<unresolved>";
 
 #[macro_export]
 macro_rules! evir_assert {
