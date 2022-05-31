@@ -12,14 +12,14 @@ use crate::{
 pub(crate) static mut FUNCTION_TMPNAMEGETTER: u32 = 0;
 
 #[derive(Debug, Clone)]
-pub struct Function<'a> {
+pub struct Function {
 	name: Option<String>,
 	ftype: FunctionType,
 	properties: Vec<String>,
-	blocks: Vec<BasicBlock<'a>>,
+	blocks: Vec<BasicBlock>,
 }
 
-impl User for Function<'_> {
+impl User for Function {
 	fn get_properties(&mut self) -> &mut Vec<String> {
 		&mut self.properties
 	}
@@ -30,7 +30,7 @@ impl User for Function<'_> {
 }
 
 // state stuff
-impl Function<'_> {
+impl Function {
 	pub(crate) fn new(name: Option<String>, ftype: FunctionType) -> Self {
 		Self {
 			name,
@@ -62,7 +62,7 @@ impl Function<'_> {
 }
 
 // ir stuff
-impl Function<'_> {
+impl Function {
 	/// Generates the IR for the complete function.
 	pub fn generate_ir(&mut self) -> IR {
 		// props comment

@@ -19,13 +19,13 @@ use crate::{
 /// Has the following metadata by default:
 /// - [!module/name][`BuiltinMDProp::ModuleName`]
 /// - [!debug/generate][`BuiltinMDProp::DebugGenerate`]
-pub struct Module<'a> {
+pub struct Module {
 	metadata: Vec<Metadata>,
-	functions: Vec<Function<'a>>,
+	functions: Vec<Function>,
 }
 
 // misc stuff
-impl Module<'_> {
+impl Module {
 	pub fn new(name: impl ToString) -> Self {
 		let mut this = Self {
 			metadata: vec![],
@@ -50,7 +50,7 @@ impl Module<'_> {
 }
 
 // metadata stuff
-impl Module<'_> {
+impl Module {
 	/// Attempts to get (a mutable reference to) the 
 	/// metadata value at the given [path][`MDPath`].
 	pub fn get_metadata(&mut self, path: impl ToMDPath) -> Option<&mut Metadata> {
@@ -80,7 +80,7 @@ impl Module<'_> {
 }
 
 // state stuff
-impl Module<'_> {
+impl Module {
 	/// Returns the function if it exists, otherwise None.
 	pub fn get_function(&mut self, name: impl ToString) -> Option<&mut Function> {
 		let name = name.to_string();
@@ -122,7 +122,7 @@ impl Module<'_> {
 }
 
 // ir generation
-impl Module<'_> {
+impl Module {
 	fn generate_metadata_ir(&mut self, before_contents: bool) -> IR {
 		// ===== first gather ir for each part seperatly =====
 		

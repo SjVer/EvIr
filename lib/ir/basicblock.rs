@@ -13,14 +13,14 @@ use crate::{
 pub(crate) static mut LABEL_TMPNAMEGETTER: u32 = 0;
 
 #[derive(Debug, Clone)]
-pub struct BasicBlock<'a> {
+pub struct BasicBlock {
 	label: Option<String>,
-	predecessors: Vec<&'a BasicBlock<'a>>,
-	// instructions: Vec<Instruction>,	
+	predecessors: Vec<*const BasicBlock>,
+	// instructions: Vec<Instruction>,
 }
 
 // state
-impl BasicBlock<'_> {
+impl BasicBlock {
 	pub fn new() -> Self {
 		Self {
 			label: None,
@@ -50,7 +50,7 @@ impl BasicBlock<'_> {
 }
 
 // instruction stuff
-impl<'a> BasicBlock<'a> {
+impl BasicBlock {
 	// pub fn is_terminated(&self) -> bool {
 	// 	match self.instructions.last() {
 	// 		Some(i) => i.is_terminator(),
@@ -58,7 +58,7 @@ impl<'a> BasicBlock<'a> {
 	// 	}
 	// }
 
-	pub(crate) fn add_predecessor(&mut self, pred: &'a BasicBlock) {
+	pub(crate) fn add_predecessor(&mut self, pred: *const BasicBlock) {
 		self.predecessors.push(pred);
 	}
 
@@ -67,9 +67,11 @@ impl<'a> BasicBlock<'a> {
 
 		// preds comment
 		if !self.predecessors.is_empty() {
-			let preds: Vec<String> = self.predecessors.iter()
-				.map(|p| p.get_ir_label())
-				.collect();
+			let preds: Vec<String> = unsafe {
+				self.predecessors.as_bb_refs().iter()
+					.map(|p| p.get_ir_label())
+					.collect()
+			};
 			ir += &generate_ir_comment(format!("preds: {}", preds.join(", ")), false);
 		}
 
@@ -93,5 +95,24 @@ impl<'a> BasicBlock<'a> {
 
 		// return
 		ir
+	}
+}
+
+// helper to turn Vec<*const BasicBlock> into Vec<&BasicBlock>
+// eliminating all invalid pointers
+trait _H {
+	unsafe fn as_bb_refs(&self) -> Vec<&BasicBlock>;
+}
+impl _H for Vec<*const BasicBlock> {
+	unsafe fn as_bb_refs(&self) -> Vec<&BasicBlock> {
+		let mut r = vec![];
+		
+		for b in self {
+			if let Some(b) = b.as_ref() {
+				r.push(b);
+			}
+		}
+
+		r
 	}
 }
