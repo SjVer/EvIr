@@ -245,6 +245,8 @@ contexts:
       scope: variable.evir
     - match: '%[0-9]+'
       scope: variable.parameter.evir
+    - match: '\?{{ident}}'
+      scope: variable.function.evir
 
   constant:
     - match: ':{{ident}}'

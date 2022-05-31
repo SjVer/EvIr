@@ -7,6 +7,7 @@
 use crate::{TAB, ir::IR};
 use std::collections::HashMap;
 
+#[derive(Clone)]
 pub enum MDValue {
 	Hex(u128),
 	String(String),

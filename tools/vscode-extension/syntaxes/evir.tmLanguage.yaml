@@ -184,6 +184,8 @@ repository:
       name: variable.evir
     - match: '%[0-9]+'
       name: variable.parameter.evir
+    - match: '\?{{ident}}'
+      name: variable.function.evir
 
   number:
     name: constant.numeric.evir

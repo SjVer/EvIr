@@ -1,2 +1,12 @@
 ; ================ module metadata =================
-"fib"
+!module/name "fib"
+
+; ================ module contents =================
+
+; props: declared
+printint v (i.s.32)
+
+; module generated with:
+; 	evir (rust) version 0.1.0 dev
+; 	by Sjoerd Vermeulen
+; 	MIT license (2022)

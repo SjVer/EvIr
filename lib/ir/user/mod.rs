@@ -8,15 +8,19 @@ mod function;
 
 pub use function::*;
 
-use super::{IR, generate_ir_comment, Module};
+use super::{IR, generate_ir_comment};
 
-/*
-fn generate_properties_comment(&self) -> IR {
-	let mut props = self.properties.clone();
-	props.push(String::from(if self.user.is_defined() { "defined" } else { "declared" }));
-	
-	if !props.is_empty() {
-		generate_ir_comment(format!("props: {}", props.join(", ")), false)
-	} else { IR::new() }
+pub trait User {
+	fn get_properties(&mut self) -> &mut Vec<String>;
+	fn is_defined(&self) -> bool;
+
+	fn generate_properties_comment(&mut self) -> IR {
+		let mut props = self.get_properties().clone();
+
+		props.push(String::from(if self.is_defined() { "defined" } else { "declared" }));
+		
+		if !props.is_empty() {
+			generate_ir_comment(format!("props: {}", props.join(", ")), false)
+		} else { IR::new() }
+	}
 }
-*/

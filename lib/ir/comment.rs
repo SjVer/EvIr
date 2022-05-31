@@ -25,9 +25,9 @@ pub fn generate_ir_comment(text: impl ToString, is_header: bool) -> IR {
 			.unwrap_or(("", &sentence));
 
 		sentences.push(first.to_string());
-		sentence = rest.trim().to_string();
+		sentence = rest.trim_matches(' ').to_string();
 	}
-	sentences.push(sentence.trim().to_string());
+	sentences.push(sentence.trim_matches(' ').to_string());
 
 	// generate comment
 	let mut ir = IR::new();

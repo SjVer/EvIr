@@ -1,6 +1,6 @@
 ; ================ module metadata =================
 !module/name "test"
-!module/entrypoint %main
+!module/entrypoint ?main
 
 !module/source/filename "test.evi"
 !module/source/directory "test/"
@@ -26,7 +26,7 @@ iseven i.u.1 (f.32)
 
 ; props: nonstatic, defined
 main i.s.32 (i.s.32 i.u.8**)
-	#entry ->	@_0 i.u.1 $call %iseven %0
+	#entry ->	@_0 i.u.1 $call ?iseven %0
 				~condbr %_0 &0 &1			; dests: 0, 1
 
 	; preds: entry

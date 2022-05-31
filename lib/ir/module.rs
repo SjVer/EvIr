@@ -5,13 +5,14 @@
 //===--------------------------------------------===
 
 use crate::{
-	ENDL,
+	ENDL, LIB_NAME_INTERNAL, LIB_VERSION,
+	__evir_reset_tmp_name_count,
 	ir::{
-		IR,
-		generate_ir_comment,
+		IR, generate_ir_comment,
 		metadata::*,
-		User, UserT
-	}
+		Function, FUNCTION_TMPNAMEGETTER,
+		FunctionType,
+	},
 };
 
 /// A single stand-alone IR module. \
@@ -20,7 +21,7 @@ use crate::{
 /// - [!debug/generate][`BuiltinMDProp::DebugGenerate`]
 pub struct Module<'a> {
 	metadata: Vec<Metadata>,
-	users: Vec<User<'a>>,	
+	functions: Vec<Function<'a>>,
 }
 
 // misc stuff
@@ -28,18 +29,18 @@ impl Module<'_> {
 	pub fn new(name: impl ToString) -> Self {
 		let mut this = Self {
 			metadata: vec![],
-			users: vec![],
+			functions: vec![],
 		};
 
 		this.set_metadata(Metadata::new(BuiltinMDProp::ModuleName, name.to_string()));
-		this.set_metadata(Metadata::new(BuiltinMDProp::DebugGenerate, 0));
+		// this.set_metadata(Metadata::new(BuiltinMDProp::DebugGenerate, ConstantInt::new(0)));
 
 		this
 	}
 
 	pub fn get_name(&mut self) -> Option<String> {
 		match self.get_metadata(BuiltinMDProp::ModuleName) {
-			Some(v) => match &v {
+			Some(md) => match &md.value {
 				MDValue::String(s) => Some(s.clone()),
 				_ => None,
 			}
@@ -52,11 +53,11 @@ impl Module<'_> {
 impl Module<'_> {
 	/// Attempts to get (a mutable reference to) the 
 	/// metadata value at the given [path][`MDPath`].
-	pub fn get_metadata(&mut self, path: impl ToMDPath) -> Option<&mut MDValue> {
+	pub fn get_metadata(&mut self, path: impl ToMDPath) -> Option<&mut Metadata> {
 		let path = path.to_mdpath();
 
 		for md in &mut self.metadata {
-			if md.path == path { return Some(&mut md.value); }
+			if md.path == path { return Some(md); }
 		}
 
 		None
@@ -72,9 +73,51 @@ impl Module<'_> {
 	/// If a value was already set it is overwritten.
 	pub fn set_metadata(&mut self, md: Metadata) {
 		match self.get_metadata(md.path.clone()) {
-			Some(old) => *old = md.value,
+			Some(old) => old.value = md.value,
 			None => self.metadata.push(md)
 		}
+	}
+}
+
+// state stuff
+impl Module<'_> {
+	/// Returns the function if it exists, otherwise None.
+	pub fn get_function(&mut self, name: impl ToString) -> Option<&mut Function> {
+		let name = name.to_string();
+		
+		for f in &mut self.functions {
+			if let Some(n) = f.get_name() {
+				if n == name {
+					return Some(f);
+				}
+			}
+		}
+
+		None
+	}
+
+	/// Returns the function if it exists, or a new function
+	/// if it doesn't. None is returned if the function exists
+	/// but with a different type, or if a different kind of
+	/// user with the same name exists.
+	pub fn get_or_create_function(&mut self, name: impl ToString, ftype: FunctionType) -> Option<&mut Function> {
+		if let Some(f) = self.get_function(name.to_string()) {
+			// if f.get_type() == &ftype { Some(f) }
+			// else { None }
+			None
+		} else {
+			// Other user with same name? None
+			// else:
+			self.functions.push(Function::new(Some(name.to_string()), ftype));
+			self.functions.last_mut()
+		}
+	}
+
+	/// Creates a new nameless function. (The name of a function 
+	/// is optional. It can be set using [set_name()][`Function::set_name`])
+	pub fn create_nameless_function(&mut self, ftype: FunctionType) -> &mut Function {
+		self.functions.push(Function::new(None, ftype));
+		self.functions.last_mut().unwrap()
 	}
 }
 
@@ -181,14 +224,26 @@ impl Module<'_> {
 
 		// generate metadata ir first
 		ir += &self.generate_metadata_ir(true);
-
+		
 		// generate users' ir
 		ir += &generate_ir_comment("module contents", true);
 		ir.push('\n');
-		for u in &self.users {
+		
+		// functions
+		__evir_reset_tmp_name_count!(FUNCTION_TMPNAMEGETTER);
+		for u in &mut self.functions {
 			ir += &u.generate_ir();
 			ir.push('\n');
 		}
+		
+		// generate metadata after contents
+		ir += &self.generate_metadata_ir(false);
+
+		// credits comment
+		ir += &generate_ir_comment("module generated with:", false);
+		ir += &generate_ir_comment(format!("\t{} version {}", LIB_NAME_INTERNAL, LIB_VERSION), false);
+		ir += &generate_ir_comment("\tby Sjoerd Vermeulen", false);
+		ir += &generate_ir_comment("\tMIT license (2022)", false);
 
 		// return the ir
 		ir.trim().to_string()
