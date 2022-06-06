@@ -4,20 +4,56 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-use crate::{ir::{Value, Constant, Operator, types::*}, evir_assert_f};
+use crate::{
+	Ptr, ENDL,
+	evir_assert_f,
+	ir::{
+		BasicBlock, Instruction,
+		Value, ToValue, Constant, Operator,
+		types::*,
+	},
+};
 
 pub struct IRBuilder {
-
+	insert_block: Ptr<BasicBlock>,
 }
 
 // state stuff
 impl IRBuilder {
 	pub fn new() -> Self {
 		Self {
-
+			insert_block: Ptr::null()
 		}
 	}
 
+	pub fn set_insert_block(&mut self, bb: Ptr<BasicBlock>) {
+		self.insert_block = bb;
+	}
+
+	pub fn last_instruction(&self) -> Option<&Instruction> {
+		self.insert_block.deref().
+	}
+
+	/// Appends the given [`Instruction`] at the end of the
+	/// current [`BasicBlock`].
+	pub fn append(&self, inst: Instruction) {
+		self.insert_block.deref().append(inst);
+	}
+}
+
+// building
+impl IRBuilder {
+	pub fn append_comment(&self, text: impl ToString) {
+		for s in text.to_string().split(ENDL) {
+			// just don't touch `Instruction::__Cx01mnt` pls :)
+			self.append(Instruction::__Cx01mnt(s.to_string()))
+		}
+	}
+
+	pub fn build_disp(&self, value: impl ToValue) -> &Instruction {
+		self.append(Instruction::Disp(value.to_value()));
+		self.insert_block.deref().last_instruction()
+	}
 }
 
 // static stuff

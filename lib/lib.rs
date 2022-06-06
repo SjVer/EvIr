@@ -6,6 +6,8 @@
 
 pub mod ir;
 
+// ============= Statics =============
+
 static ENDL: &str = "\n";
 static TAB: &str = "    ";
 static TAB_LEN: usize = 4;
@@ -18,6 +20,37 @@ static LIB_VERSION: &str = "0.1.0 dev";
 static LIB_VERSION: &str = "0.1.0";
 
 // static UNRESOLVED: &str = "<unresolved>";
+
+// ============= Types ==============
+
+#[derive(Debug, Clone)]
+pub struct Ptr<T> { ptr: *mut T }
+
+impl<T> Ptr<T> {
+	pub fn new(t: &mut T) -> Self {
+		Self {
+			ptr: t
+		}
+	}
+
+	pub fn null() -> Self {
+		Self {
+			ptr: 0 as *mut T
+		}
+	}
+
+	pub fn deref(&self) -> &mut T {
+		match unsafe { self.ptr.as_mut() } {
+			Some(t) => t,
+			None => {
+				evir_assert!(false, "Internal dereference failure.");
+				unreachable!()
+			}
+		}
+	}
+}
+
+// ============= Macros =============
 
 #[macro_export]
 macro_rules! evir_assert {

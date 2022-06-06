@@ -5,6 +5,7 @@
 //===--------------------------------------------===
 
 use crate::{
+	Ptr,
 	__evir_get_next_tmp_name,
 	ir::{IR, User, BasicBlock, IsType, FunctionType},
 };
@@ -63,9 +64,9 @@ impl Function {
 
 // ir stuff
 impl Function {
-	pub fn append_block(&mut self, bb: BasicBlock) -> &mut BasicBlock {
+	pub fn append_block(&mut self, bb: BasicBlock) -> Ptr<BasicBlock> {
 		self.blocks.push(bb);
-		self.blocks.last_mut().unwrap()
+		Ptr::new(self.blocks.last_mut().unwrap())
 	}
 
 	/// Generates the IR for the complete function.
@@ -76,8 +77,13 @@ impl Function {
 		// signature
 		let name = self.get_name().unwrap_or(__evir_get_next_tmp_name!(FUNCTION_TMPNAMEGETTER));
 		ir += &format!("{} {}", name, self.ftype.generate_ir());
-		
 		ir.push('\n');
+		
+		// body
+		for b in &self.blocks {
+			ir += &b.generate_ir();
+			ir.push('\n');
+		}
 
 		// return
 		ir

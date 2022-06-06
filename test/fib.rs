@@ -29,6 +29,7 @@ fn main() {
 	let fret_1 = fib.append_block(BasicBlock::new_labeled("ret_1"));
 
 	builder.set_insert_block(fentry);
+	builder.append_comment("if(x <= 2) return 1;\nreturn fib(x - 1) + fib(x - 2)");
 
 	// write to file
 	write!(File::create("fib.evir").unwrap(), "{}", module.generate_ir()).unwrap();

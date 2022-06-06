@@ -5,6 +5,7 @@
 //===--------------------------------------------===
 
 use crate::{
+	Ptr,
 	ENDL, TAB, TAB_LEN,
 	__evir_get_next_tmp_name, i,
 	ir::{Instruction, IR, generate_ir_comment}
@@ -15,7 +16,7 @@ pub(crate) static mut LABEL_TMPNAMEGETTER: u32 = 0;
 #[derive(Debug, Clone)]
 pub struct BasicBlock {
 	label: Option<String>,
-	predecessors: Vec<*const BasicBlock>,
+	predecessors: Vec<Ptr<BasicBlock>>,
 	instructions: Vec<Instruction>,
 }
 
@@ -65,8 +66,13 @@ impl BasicBlock {
 		}
 	}
 
-	pub(crate) fn _add_predecessor(&mut self, pred: *const BasicBlock) {
-		self.predecessors.push(pred);
+	pub(crate) fn _add_predecessor(&mut self, pred: &mut BasicBlock) {
+		self.predecessors.push(Ptr::new(pred));
+	}
+
+	/// Appends the given [`Instruction`] at the end.
+	pub fn append(&mut self, inst: Instruction) {
+		self.instructions.push(inst);
 	}
 
 	pub fn generate_ir(&self) -> IR {
@@ -74,11 +80,9 @@ impl BasicBlock {
 
 		// preds comment
 		if !self.predecessors.is_empty() {
-			let preds: Vec<String> = unsafe {
-				self.predecessors.as_bb_refs().iter()
-					.map(|p| p.get_ir_label())
-					.collect()
-			};
+			let preds: Vec<String> = self.predecessors.iter()
+					.map(|p| p.deref().get_ir_label())
+					.collect();
 			ir += &generate_ir_comment(format!("preds: {}", preds.join(", ")), false);
 		}
 
@@ -87,9 +91,14 @@ impl BasicBlock {
 		ir += &i!(format!("#{} ->", label));
 
 		// label padding
-		if label.len() < TAB_LEN { ir += &TAB.repeat(2); }
-		else if label.len() >= 2 * TAB_LEN { ir.push(' '); }
-		else { ir += TAB; }
+		if label.len() + 4 >= 3 * TAB_LEN { ir.push(' '); }
+		else {
+			let mut l = label.len() + 4;
+			while l < 3 * TAB_LEN {
+				l += 1;
+				ir.push(' ');
+			}
+		}
 
 		// instructions
 		let mut instrs = vec![];
@@ -102,24 +111,5 @@ impl BasicBlock {
 
 		// return
 		ir
-	}
-}
-
-// helper to turn Vec<*const BasicBlock> into Vec<&BasicBlock>
-// eliminating all invalid pointers
-trait _H {
-	unsafe fn as_bb_refs(&self) -> Vec<&BasicBlock>;
-}
-impl _H for Vec<*const BasicBlock> {
-	unsafe fn as_bb_refs(&self) -> Vec<&BasicBlock> {
-		let mut r = vec![];
-		
-		for b in self {
-			if let Some(b) = b.as_ref() {
-				r.push(b);
-			}
-		}
-
-		r
 	}
 }
