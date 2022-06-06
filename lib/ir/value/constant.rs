@@ -5,7 +5,7 @@
 //===--------------------------------------------===
 
 use std::collections::HashMap;
-use crate::{ir::IR, ENDL, TAB};
+use crate::{ir::{IR, Value, ToValue}, ENDL, TAB};
 
 #[derive(Debug, Clone)]
 pub enum Constant {
@@ -42,5 +42,11 @@ impl Constant {
 			Self::Character(c) => format!("'{}'", IR::from_utf8(vec![c.clone()]).unwrap()),
 			Self::String(s) => format!("\"{}\"", s.escape_default()),
 		}
+	}
+}
+
+impl ToValue for Constant {
+	fn to_value(self) -> super::Value {
+		Value::Constant(self)
 	}
 }

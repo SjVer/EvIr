@@ -68,8 +68,7 @@ contexts:
 
     - include: declaration
     - include: label
-    - include: keyword
-    - include: storage
+    - include: instruction
 
     - include: newline-terminator
 
@@ -141,25 +140,23 @@ contexts:
           pop: true
         - include: invalid
 
-  keyword:
-    - match: ~br
+  instruction:
+    - match: \.br
       scope: keyword.control.flow.goto.evir
       push: terminated-expression
-    - match: ~condbr
+    - match: \.condbr
       scope: keyword.control.conditional.if.evir
       push: terminated-expression
-    - match: ~ret
+    - match: \.ret
       scope: keyword.control.flow.return.evir
       push: terminated-expression
-
-  storage:
-    - match: =disp
+    - match: \.disp
       scope: keyword.evir
       push: terminated-expression
-    - match: =store
+    - match: \.store
       scope: keyword.evir
       push: terminated-expression
-    - match: =malloc
+    - match: \.malloc
       scope: keyword.evir
       push: terminated-expression
 

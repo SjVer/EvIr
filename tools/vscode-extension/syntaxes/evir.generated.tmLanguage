@@ -156,7 +156,7 @@
             <key>name</key>
             <string>meta.declaration.top-level.evir</string>
             <key>begin</key>
-            <string>^\s*[A-Za-z_][A-Za-z_0-9]*\s+(?:((?:i\.(?:s|u)\.[0-9]+|f\.(?:64|32|16)|v)\**)|(\S*))</string>
+            <string>[A-Za-z_][A-Za-z_0-9]*\s+(?:((?:i\.(?:s|u)\.[0-9]+|f\.(?:64|32|16)|v)\**)|(\S*))</string>
             <key>beginCaptures</key>
             <dict>
               <key>0</key>
@@ -259,37 +259,37 @@
         <array>
           <dict>
             <key>match</key>
-            <string>~br</string>
+            <string>\.br</string>
             <key>name</key>
             <string>keyword.control.flow.branch.evir</string>
           </dict>
           <dict>
             <key>match</key>
-            <string>~condbr</string>
+            <string>\.condbr</string>
             <key>name</key>
             <string>keyword.control.flow.conditional-branch.evir</string>
           </dict>
           <dict>
             <key>match</key>
-            <string>~ret</string>
+            <string>\.ret</string>
             <key>name</key>
             <string>keyword.control.flow.return.evir</string>
           </dict>
           <dict>
             <key>match</key>
-            <string>=disp</string>
+            <string>\.disp</string>
             <key>name</key>
             <string>keyword.dispose.evir</string>
           </dict>
           <dict>
             <key>match</key>
-            <string>=store</string>
+            <string>\.store</string>
             <key>name</key>
             <string>keyword.store.evir</string>
           </dict>
           <dict>
             <key>match</key>
-            <string>=malloc</string>
+            <string>\.malloc</string>
             <key>name</key>
             <string>keyword.malloc.evir</string>
           </dict>

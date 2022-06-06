@@ -4,7 +4,7 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-use crate::ir::{IR, Value};
+use crate::ir::{IR, Value, ToValue};
 
 #[derive(Debug, Clone)]
 pub enum Operator {
@@ -14,16 +14,45 @@ pub enum Operator {
 	Call(Call),
 }
 
+macro_rules! __bin_ctor {
+	($name:ident, $variant:ident, $op:ident) => {
+		pub fn $name (l: impl ToValue, r: impl ToValue) -> Self {
+			Self::$variant ( $variant::$op (Box::new(l.to_value()), Box::new(r.to_value()) ) )
+		}
+	};
+}
+
+impl Operator {
+	__bin_ctor!{shl, Easy, SHL}
+	__bin_ctor!{shr, Easy, SHR}
+	__bin_ctor!{or,  Easy, Or}
+	__bin_ctor!{xor, Easy, XOr}
+	__bin_ctor!{and, Easy, And}
+	__bin_ctor!{add, Hard, Add}
+	__bin_ctor!{sub, Hard, Sub}
+	__bin_ctor!{mul, Hard, Mul}
+	__bin_ctor!{div, Hard, Div}
+	__bin_ctor!{modd, Hard, Mod}
+	__bin_ctor!{eq,  Comp, Eq}
+	__bin_ctor!{ne,  Comp, NE}
+	__bin_ctor!{lt,  Comp, LT}
+	__bin_ctor!{le,  Comp, LE}
+	__bin_ctor!{gt,  Comp, GT}
+	__bin_ctor!{ge,  Comp, GE}
+}
+
 type OpV = Box<Value>;
 
 pub trait Op {
-	fn to_operator(self) -> Self;
+	fn to_operator(self) -> Operator;
 	fn is_constant(&self) -> bool { false }
 	fn unpack_operands(&self) -> Vec<&OpV>;
 	fn generate_ir(&self) -> IR;
 }
 
 impl Op for Operator {
+	fn to_operator(self) -> Operator { self }
+
 	fn is_constant(&self) -> bool {
 		match self {
 			Self::Easy(e) => e.is_constant(),
@@ -51,6 +80,11 @@ impl Op for Operator {
 		}
 	}
 }
+impl ToValue for Operator {
+	fn to_value(self) -> Value {
+		Value::Operator(self)
+	}
+}
 
 // ========== Operator types ==========
 
@@ -66,6 +100,10 @@ pub enum Easy {
 }
 
 impl Op for Easy {
+	fn to_operator(self) -> Operator {
+		Operator::Easy(self)
+	}
+
 	fn is_constant(&self) -> bool {
 		match self {
 			Self::SHL(l, r) |
@@ -104,6 +142,11 @@ impl Op for Easy {
 		format!("${} {}", operator, operands.join(" "))
 	}
 }
+impl ToValue for Easy {
+	fn to_value(self) -> Value {
+		Value::Operator(Operator::Easy(self))
+	}
+}
 
 #[derive(Debug, Clone)]
 pub enum Hard {
@@ -115,6 +158,10 @@ pub enum Hard {
 }
 
 impl Op for Hard {
+	fn to_operator(self) -> Operator {
+		Operator::Hard(self)
+	}
+
 	fn is_constant(&self) -> bool {
 		match self {
 			Self::Add(l, r) |
@@ -153,6 +200,11 @@ impl Op for Hard {
 		format!("${} {}", operator, operands.join(" "))
 	}
 }
+impl ToValue for Hard {
+	fn to_value(self) -> Value {
+		Value::Operator(Operator::Hard(self))
+	}
+}
 
 #[derive(Debug, Clone)]
 pub enum Comp {
@@ -165,6 +217,10 @@ pub enum Comp {
 }
 
 impl Op for Comp {
+	fn to_operator(self) -> Operator {
+		Operator::Comp(self)
+	}
+
 	fn is_constant(&self) -> bool {
 		match self {
 			Self::Eq(l, r) |
@@ -206,6 +262,11 @@ impl Op for Comp {
 		format!("$cmp{} {}", operator, operands.join(" "))
 	}
 }
+impl ToValue for Comp {
+	fn to_value(self) -> Value {
+		Value::Operator(Operator::Comp(self))
+	}
+}
 
 #[derive(Debug, Clone)]
 pub struct Call {
@@ -214,6 +275,10 @@ pub struct Call {
 }
 
 impl Op for Call {
+	fn to_operator(self) -> Operator {
+		Operator::Call(self)
+	}
+
 	fn is_constant(&self) -> bool { false }
 
 	fn unpack_operands(&self) -> Vec<&OpV> {
@@ -230,5 +295,10 @@ impl Op for Call {
 			.collect();
 
 		format!("$call %{} {}", self.callee, args.join(" "))
+	}
+}
+impl ToValue for Call {
+	fn to_value(self) -> Value {
+		Value::Operator(Operator::Call(self))
 	}
 }

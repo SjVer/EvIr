@@ -21,8 +21,8 @@ pub enum Value {
 
 // constructors 
 impl Value {
-	pub fn operator() -> Self {
-		
+	pub fn operator(op: impl Op) -> Self {
+		Self::Operator(op.to_operator())
 	}
 }
 
@@ -42,4 +42,15 @@ impl Value {
 			Self::Reference() => IR::new(),
 		}
 	}
+}
+
+
+impl ToValue for Value {
+	fn to_value(self) -> Value {
+		self
+	}
+}
+
+pub trait ToValue {
+	fn to_value(self) -> Value;
 }

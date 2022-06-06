@@ -17,25 +17,25 @@ puts i.u.8 (i.u.8**)
 
 ; props: nonstatic, defined
 iseven i.u.1 (f.32)
-	#entry ->	@_0 i.s.32 $mod %0 2
-				~condbr $cmpnz %_0 &0		; dests: 0
-				~ret 1						; from: iseven
+	#entry ->	_0 i.s.32 $mod %0 2
+				.condbr $cmpnz %_0 &0		; dests: 0
+				.ret 1						; from: iseven
 
 	; preds: entry
-	#0 ->		~ret 0						; from: iseven
+	#0 ->		.ret 0						; from: iseven
 
 ; props: nonstatic, defined
 main i.s.32 (i.s.32 i.u.8**)
-	#entry ->	@_0 i.u.1 $call ?iseven %0
-				~condbr %_0 &0 &1			; dests: 0, 1
+	#entry ->	_0 i.u.1 $call ?iseven %0
+				.condbr %_0 &0 &1			; dests: 0, 1
 
 	; preds: entry
-	#0 ->		=disp $call %puts "even!"
-				~ret 0						; from: main
+	#0 ->		.disp $call %puts "even!"
+				.ret 0						; from: main
 
 	; preds: entry
-	#1 ->		=disp $call %puts "uneven!"
-				~ret 1						; from: main
+	#1 ->		.disp $call %puts "uneven!"
+				.ret 1						; from: main
 
 ; =============== target metadata ===============
 !target/triple "x86_64-pc-linux-gnu"

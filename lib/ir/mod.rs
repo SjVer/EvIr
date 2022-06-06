@@ -6,6 +6,8 @@
 
 mod basicblock;
 mod comment;
+mod instruction;
+mod irbuilder;
 mod metadata;
 mod module;
 mod types;
@@ -14,6 +16,8 @@ mod value;
 
 pub use basicblock::*;
 pub use comment::*;
+pub use instruction::*;
+pub use irbuilder::*;
 pub use metadata::*;
 pub use module::*;
 pub use types::*;

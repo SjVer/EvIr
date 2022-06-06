@@ -1,0 +1,40 @@
+module			: (func_decl | global_decl | metadata)*
+
+func_decl		: IDENT type '(' TYPE* ')' NEWLINE block*
+global_decl		: IDENT type expression
+
+
+block			: label? (local_decl | instruction)*
+label			: '#' (IDENT | INTEGER) '->'
+local_decl		: IDENT type expression
+instruction		: '.br' destination
+				| '.condbr' expression destination destination?
+				| '.ret' expression
+				| '.disp' expression
+				| '.store' reference destination
+				| '.malloc' expression
+
+
+metadata		: '!' IDENT ('/' IDENT)* md_expression
+md_expression	: md_array | md_map | expression
+md_array		: '[' (md_expression (',' md_expression)* )? ']'
+md_map			: '{' (md_map_pair (',' md_map_pair)* )? ']'
+md_map_pair		: md_expression ':' md_expression
+
+
+expression		: operator | atom
+operator		: binary_op expression expression
+				| '$call' reference expression*
+
+binary_op		: '$shl' | '$shr' | '$or' | '$xor' | '$and'
+				| '$add' | '$sub' | '$mul' | '$div' | '$mod'
+				| '$eq' | '$ne' | '$lt' | '$le' | '$gt' | '$ge'
+
+atom			: NUMBER | CHARACTER | STRING
+				| array | reference
+array			: '[' (expression (',' expression)* )? ']'
+reference		: '%' IDENT
+
+
+destination		: '&' (IDENT | INTEGER)
+type			: BASIC_TYPE '*'*

@@ -81,7 +81,7 @@ repository:
     patterns:
     # top level
     - name: meta.declaration.top-level.evir
-      begin: '^\s*{{ident}}\s+(?:({{type}})|(\S*))'
+      begin: '{{ident}}\s+(?:({{type}})|(\S*))'
       beginCaptures:
         '0': { name: entity.name.function.evir }
         '1': { name: storage.type.evir }
@@ -112,17 +112,17 @@ repository:
 
   instruction:
     patterns:
-    - match: ~br
+    - match: \.br
       name: keyword.control.flow.branch.evir
-    - match: ~condbr
+    - match: \.condbr
       name: keyword.control.flow.conditional-branch.evir
-    - match: ~ret
+    - match: \.ret
       name: keyword.control.flow.return.evir
-    - match: =disp
+    - match: \.disp
       name: keyword.dispose.evir
-    - match: =store
+    - match: \.store
       name: keyword.store.evir
-    - match: =malloc
+    - match: \.malloc
       name: keyword.malloc.evir
 
   # EXPRESSION

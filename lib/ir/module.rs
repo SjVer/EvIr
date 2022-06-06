@@ -13,10 +13,9 @@ use crate::{
 		Function, FUNCTION_TMPNAMEGETTER,
 		FunctionType,
 		Constant,
+		Value
 	},
 };
-
-use crate::ir::value::*;
 
 /// A single stand-alone IR module. \
 /// Has the following metadata by default:
@@ -35,17 +34,8 @@ impl Module {
 			functions: vec![],
 		};
 
-		this.set_metadata(Metadata::new(BuiltinMDProp::ModuleName, name.to_string()));
+		this.set_metadata(Metadata::new(BuiltinMDProp::ModuleName, Constant::String(name.to_string())));
 		this.set_metadata(Metadata::new(BuiltinMDProp::DebugGenerate, Constant::Integer(0)));
-
-		this.set_metadata(Metadata::new(CustomMDProp::Custom,
-			Value::operator(
-				operator::shl(
-					Constant::Integer(2),
-					Constant::Integer(3)
-				)
-			)
-		));
 
 		this
 	}
@@ -53,9 +43,9 @@ impl Module {
 	pub fn get_name(&mut self) -> Option<String> {
 		match self.get_metadata(BuiltinMDProp::ModuleName) {
 			Some(md) => match &md.value {
-				MDValue::String(s) => Some(s.clone()),
+				MDValue::IRValue(Value::Constant(Constant::String(s))) => Some(s.clone()),
 				_ => None,
-			}
+			},
 			None => None,
 		}
 	}

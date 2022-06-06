@@ -10,7 +10,6 @@ use std::collections::HashMap;
 #[derive(Clone)]
 pub enum MDValue {
 	Hex(u128),
-	String(String),
 	Array(Vec<MDValue>),
 	Map(HashMap<MDValue, MDValue>),
 	// Option(?),
@@ -22,7 +21,6 @@ impl MDValue {
 	pub fn generate_ir(&self) -> IR {
 		match self {
 			Self::Hex(v) => format!("{:#x}", v),
-			Self::String(s) => format!("{:?}", s), // s.escape_default().to_string(),
 			Self::Array(a) => {
 				let items: Vec<String> = a.iter().map(|v| v.generate_ir()).collect();
 				format!("[{}]", items.join(", "))
@@ -53,12 +51,6 @@ impl ToMDValue for MDValue {
 impl ToMDValue for u128 {
 	fn to_mdvalue(self) -> MDValue {
 		MDValue::Hex(self)
-	}
-}
-
-impl ToMDValue for String {
-	fn to_mdvalue(self) -> MDValue {
-		MDValue::String(self)
 	}
 }
 

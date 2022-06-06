@@ -7,7 +7,7 @@
 use crate::{
 	ENDL, TAB, TAB_LEN,
 	__evir_get_next_tmp_name, i,
-	ir::{IR, generate_ir_comment}
+	ir::{Instruction, IR, generate_ir_comment}
 };
 
 pub(crate) static mut LABEL_TMPNAMEGETTER: u32 = 0;
@@ -16,7 +16,7 @@ pub(crate) static mut LABEL_TMPNAMEGETTER: u32 = 0;
 pub struct BasicBlock {
 	label: Option<String>,
 	predecessors: Vec<*const BasicBlock>,
-	// instructions: Vec<Instruction>,
+	instructions: Vec<Instruction>,
 }
 
 // state
@@ -24,7 +24,8 @@ impl BasicBlock {
 	pub fn new() -> Self {
 		Self {
 			label: None,
-			predecessors: vec![]
+			predecessors: vec![],
+			instructions: vec![],
 		}
 	}
 
@@ -51,14 +52,14 @@ impl BasicBlock {
 
 // instruction stuff
 impl BasicBlock {
-	// pub fn is_terminated(&self) -> bool {
-	// 	match self.instructions.last() {
-	// 		Some(i) => i.is_terminator(),
-	// 		None => false,
-	// 	}
-	// }
+	pub fn is_terminated(&self) -> bool {
+		match self.instructions.last() {
+			Some(i) => i.is_terminator(),
+			None => false,
+		}
+	}
 
-	pub(crate) fn add_predecessor(&mut self, pred: *const BasicBlock) {
+	pub(crate) fn _add_predecessor(&mut self, pred: *const BasicBlock) {
 		self.predecessors.push(pred);
 	}
 
@@ -84,14 +85,14 @@ impl BasicBlock {
 		else if label.len() >= 2 * TAB_LEN { ir.push(' '); }
 		else { ir += TAB; }
 
-		// // instructions
-		// let mut instrs = vec![];
-		// for i in &self.instructions {
-		// 	// i.resolve();
-		// 	instrs.push(i.generate_ir());
-		// }
-		// ir += &instrs.join(TAB.repeat(4));
-		// if self.instructions.is_empty() { ir.push(ENDL); }
+		// instructions
+		let mut instrs = vec![];
+		for i in &self.instructions {
+			// i.resolve();
+			instrs.push(i.generate_ir());
+		}
+		ir += &instrs.join(&TAB.repeat(4));
+		if self.instructions.is_empty() { ir.push_str(ENDL); }
 
 		// return
 		ir
