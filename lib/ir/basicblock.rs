@@ -29,6 +29,12 @@ impl BasicBlock {
 		}
 	}
 
+	pub fn new_labeled(label: impl ToString) -> Self {
+		let mut this = Self::new();
+		this.set_label(label);
+		this
+	}
+
 	pub fn set_label(&mut self, label: impl ToString) {
 		self.label = Some(label.to_string());
 	}

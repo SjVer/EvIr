@@ -4,15 +4,15 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-use std::collections::HashMap;
-use crate::{ir::{IR, Value, ToValue}, ENDL, TAB};
+// use std::collections::HashMap;
+use crate::ir::{IR, Value, ToValue}; //, ENDL, TAB};
 
 #[derive(Debug, Clone)]
 pub enum Constant {
 	Integer(u64),
 	Float(f64),
 	Array(Vec<Self>),
-	Map(HashMap<Self, Self>),
+	// Map(HashMap<Self, Self>),
 
 	Character(u8),
 	String(String),
@@ -27,17 +27,17 @@ impl Constant {
 				let irs: Vec<IR> = v.iter().map(|v| v.generate_ir()).collect();
 				format!("[{}]", irs.join(", "))
 			}
-			Self::Map(m) => {
-				let items: Vec<IR> = m.iter().map(
-					|(k, v)| format!("{}: {}", k.generate_ir(), v.generate_ir())
-				).collect();
-
-				if m.len() <= 1 {
-					format!("{{ {} }}", items.join(", "))
-				} else {
-					format!("{{ {} }}", items.join(&format!(",{}{}", ENDL, TAB)))
-				}
-			}
+			// Self::Map(m) => {
+			// 	let items: Vec<IR> = m.iter().map(
+			// 		|(k, v)| format!("{}: {}", k.generate_ir(), v.generate_ir())
+			// 	).collect();
+			//
+			// 	if m.len() <= 1 {
+			// 		format!("{{ {} }}", items.join(", "))
+			// 	} else {
+			// 		format!("{{ {} }}", items.join(&format!(",{}{}", ENDL, TAB)))
+			// 	}
+			// }
 			
 			Self::Character(c) => format!("'{}'", IR::from_utf8(vec![c.clone()]).unwrap()),
 			Self::String(s) => format!("\"{}\"", s.escape_default()),

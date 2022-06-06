@@ -63,6 +63,11 @@ impl Function {
 
 // ir stuff
 impl Function {
+	pub fn append_block(&mut self, bb: BasicBlock) -> &mut BasicBlock {
+		self.blocks.push(bb);
+		self.blocks.last_mut().unwrap()
+	}
+
 	/// Generates the IR for the complete function.
 	pub fn generate_ir(&mut self) -> IR {
 		// props comment

@@ -21,18 +21,25 @@ macro_rules! __bin_ctor {
 		}
 	};
 }
-
+macro_rules! __una_ctor {
+	($name:ident, $variant:ident, $op:ident) => {
+		pub fn $name (v: impl ToValue) -> Self {
+			Self::$variant ( $variant::$op (Box::new(v.to_value())) )
+		}
+	};
+}
 impl Operator {
 	__bin_ctor!{shl, Easy, SHL}
 	__bin_ctor!{shr, Easy, SHR}
 	__bin_ctor!{or,  Easy, Or}
 	__bin_ctor!{xor, Easy, XOr}
 	__bin_ctor!{and, Easy, And}
+	__una_ctor!{neg, Easy, Neg}
 	__bin_ctor!{add, Hard, Add}
 	__bin_ctor!{sub, Hard, Sub}
 	__bin_ctor!{mul, Hard, Mul}
 	__bin_ctor!{div, Hard, Div}
-	__bin_ctor!{modd, Hard, Mod}
+	__bin_ctor!{rem, Hard, Mod}
 	__bin_ctor!{eq,  Comp, Eq}
 	__bin_ctor!{ne,  Comp, NE}
 	__bin_ctor!{lt,  Comp, LT}
@@ -95,8 +102,7 @@ pub enum Easy {
 	Or (OpV, OpV),
 	XOr(OpV, OpV),
 	And(OpV, OpV),
-	// NEG(OpV),
-	// NZ (OpV),
+	Neg(OpV),
 }
 
 impl Op for Easy {
@@ -112,6 +118,7 @@ impl Op for Easy {
 			Self::XOr(l, r) |
 			Self::And(l, r) =>
 				l.is_constant() && r.is_constant(),
+			Self::Neg(v) => v.is_constant()
 		}
 	}
 
@@ -121,8 +128,8 @@ impl Op for Easy {
 			Self::SHR(l, r) |
 			Self::Or (l, r) |
 			Self::XOr(l, r) |
-			Self::And(l, r) =>
-				vec![l, r],
+			Self::And(l, r) => vec![l, r],
+			Self::Neg(v) => vec![v]
 		}
 	}
 
@@ -137,6 +144,7 @@ impl Op for Easy {
 			Self::Or (..) => "or",
 			Self::XOr(..) => "xor",
 			Self::And(..) => "and",
+			Self::Neg(..) => "neg"
 		};
 
 		format!("${} {}", operator, operands.join(" "))
