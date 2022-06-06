@@ -10,6 +10,7 @@ mod metadata;
 mod module;
 mod types;
 mod user;
+mod value;
 
 pub use basicblock::*;
 pub use comment::*;
@@ -17,6 +18,7 @@ pub use metadata::*;
 pub use module::*;
 pub use types::*;
 pub use user::*;
+pub use value::*;
 
 pub type IR = String;
 

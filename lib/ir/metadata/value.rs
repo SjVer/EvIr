@@ -4,7 +4,7 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-use crate::{TAB, ir::IR};
+use crate::{TAB, ir::{IR, Value, Constant}, evir_assert};
 use std::collections::HashMap;
 
 #[derive(Clone)]
@@ -15,7 +15,7 @@ pub enum MDValue {
 	Map(HashMap<MDValue, MDValue>),
 	// Option(?),
 	// Type(Type),
-	// IRValue(Value).
+	IRValue(Value),
 }
 
 impl MDValue {
@@ -32,7 +32,8 @@ impl MDValue {
 					|(k, v)| format!("{}{}: {}", TAB, k.generate_ir(), v.generate_ir())
 				).collect();
 				format!("{{ {} }}", items.join(",\n"))
-			}
+			},
+			Self::IRValue(v) => v.generate_ir(),
 		}
 	}
 }
@@ -73,4 +74,17 @@ impl ToMDValue for HashMap<MDValue, MDValue> {
 	}
 }
 
-// TODO: impl's for Option, Type & IRValue
+// TODO: impl's for Option & Type
+
+impl ToMDValue for Value {
+	fn to_mdvalue(self) -> MDValue {
+		evir_assert!(self.is_constant(), "cannot convert non-constant ir-value to md-value.");
+		MDValue::IRValue(self)
+	}
+}
+
+impl ToMDValue for Constant {
+	fn to_mdvalue(self) -> MDValue {
+		MDValue::IRValue(Value::Constant(self))
+	}
+}

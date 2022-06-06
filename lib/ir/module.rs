@@ -12,8 +12,11 @@ use crate::{
 		metadata::*,
 		Function, FUNCTION_TMPNAMEGETTER,
 		FunctionType,
+		Constant,
 	},
 };
+
+use crate::ir::value::*;
 
 /// A single stand-alone IR module. \
 /// Has the following metadata by default:
@@ -33,7 +36,16 @@ impl Module {
 		};
 
 		this.set_metadata(Metadata::new(BuiltinMDProp::ModuleName, name.to_string()));
-		// this.set_metadata(Metadata::new(BuiltinMDProp::DebugGenerate, ConstantInt::new(0)));
+		this.set_metadata(Metadata::new(BuiltinMDProp::DebugGenerate, Constant::Integer(0)));
+
+		this.set_metadata(Metadata::new(CustomMDProp::Custom,
+			Value::operator(
+				operator::shl(
+					Constant::Integer(2),
+					Constant::Integer(3)
+				)
+			)
+		));
 
 		this
 	}
