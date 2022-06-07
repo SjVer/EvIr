@@ -6,7 +6,7 @@
 
 use crate::{
 	Ptr,
-	ENDL, TAB, TAB_LEN, i,
+	ENDL, TAB, TAB_LEN, __i,
 	ir::{__Evirmaybetmpstring, Instruction, IR, generate_ir_comment}
 };
 
@@ -91,7 +91,7 @@ impl BasicBlock {
 
 		// label
 		let label = self.get_ir_label();
-		ir += &i!(format!("#{} ->", label));
+		ir += &__i!(format!("#{} ->", label));
 
 		// label padding
 		if label.len() + 4 >= 3 * TAB_LEN { ir.push(' '); }

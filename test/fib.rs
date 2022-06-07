@@ -1,5 +1,11 @@
 extern crate evir;
-use evir::ir::{Module, FunctionType, IRBuilder, BasicBlock, ToRef};
+use evir::{
+	ir::{
+		Module, FunctionType,
+		IRBuilder, BasicBlock,
+		ToRef, BuiltinMDProp::ModuleEntrypoint, Metadata},
+	passes::validate::Validator,
+};
 use std::{io::Write, fs::File};
 
 fn main() {
@@ -34,6 +40,13 @@ fn main() {
 	builder.build_ret(builder.get_int(1));
 
 
-	// write to file
-	write!(File::create("fib.evir").unwrap(), "{}", module.generate_ir()).unwrap();
+	// set entry point
+	module.set_metadata(Metadata::new(ModuleEntrypoint, fib.to_ref()))
+
+	// validate and write to file
+	if let Err(d) = Validator::new().validate_module(&module) {
+		d.dispatch();
+	} else {
+		write!(File::create("fib.evir").unwrap(), "{}", module.generate_ir()).unwrap();
+	}
 }

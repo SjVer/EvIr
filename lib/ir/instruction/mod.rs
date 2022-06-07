@@ -15,6 +15,8 @@ pub enum Instruction {
 	CondBr(Value, Ptr<BasicBlock>, Option<Ptr<BasicBlock>>),
 	Ret(Value),
 	Disp(Value),
+
+	#[doc(hidden)]
 	__Cx01mnt(String),
 }
 

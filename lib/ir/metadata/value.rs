@@ -38,29 +38,30 @@ impl MDValue {
 
 // conversion to mdvalue
 
-pub trait ToMDValue {
+#[doc(hidden)]
+pub trait __Tomdvalue {
 	fn to_mdvalue(self) -> MDValue;
 }
 
-impl ToMDValue for MDValue {
+impl __Tomdvalue for MDValue {
 	fn to_mdvalue(self) -> MDValue {
 		self
 	}
 }
 
-impl ToMDValue for u128 {
+impl __Tomdvalue for u128 {
 	fn to_mdvalue(self) -> MDValue {
 		MDValue::Hex(self)
 	}
 }
 
-impl ToMDValue for Vec<MDValue> {
+impl __Tomdvalue for Vec<MDValue> {
 	fn to_mdvalue(self) -> MDValue {
 		MDValue::Array(self)
 	}
 }
 
-impl ToMDValue for HashMap<MDValue, MDValue> {
+impl __Tomdvalue for HashMap<MDValue, MDValue> {
 	fn to_mdvalue(self) -> MDValue {
 		MDValue::Map(self)
 	}
@@ -68,14 +69,14 @@ impl ToMDValue for HashMap<MDValue, MDValue> {
 
 // TODO: impl's for Option & Type
 
-impl ToMDValue for Value {
+impl __Tomdvalue for Value {
 	fn to_mdvalue(self) -> MDValue {
 		evir_assert!(self.is_constant(), "cannot convert non-constant ir-value to md-value.");
 		MDValue::IRValue(self)
 	}
 }
 
-impl ToMDValue for Constant {
+impl __Tomdvalue for Constant {
 	fn to_mdvalue(self) -> MDValue {
 		MDValue::IRValue(Value::Constant(self))
 	}

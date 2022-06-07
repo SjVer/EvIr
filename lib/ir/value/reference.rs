@@ -44,24 +44,26 @@ impl ToValue for Reference {
 }
 
 
+#[doc(hidden)]
 pub trait ToRef {
 	fn to_ref(&self) -> Reference;
 }
 
-impl ToRef for &Function {
-	fn to_ref(&self) -> Reference {
-		Reference::Function(Ptr::new(self))
-	}
+macro_rules! toref {
+	($cn:ident) => {
+		impl ToRef for & $cn {
+			fn to_ref(&self) -> Reference {
+				Reference::$cn (Ptr::new(self))
+			}
+		}
+		impl ToRef for &mut $cn {
+			fn to_ref(&self) -> Reference {
+				Reference::$cn (Ptr::new(self))
+			}
+		}
+	};
 }
 
-impl ToRef for &Local {
-	fn to_ref(&self) -> Reference {
-		Reference::Local(Ptr::new(self))
-	}
-}
-
-impl ToRef for &Param {
-	fn to_ref(&self) -> Reference {
-		Reference::Param(Ptr::new(self))
-	}
-}
+toref!{Function}
+toref!{Local}
+toref!{Param}

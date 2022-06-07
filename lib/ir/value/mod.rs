@@ -60,6 +60,7 @@ impl ToValue for &Value {
 	}
 }
 
+#[doc(hidden)]
 pub trait ToValue {
 	fn to_value(self) -> Value;
 }

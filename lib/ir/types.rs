@@ -17,7 +17,7 @@ pub enum Type {
 	Pointer(PointerType),
 	Void(VoidType),
 }
-impl IsType for Type {
+impl __Istype for Type {
 	fn generate_ir(&self) -> IR {
 		self._generate_ir()
 	}
@@ -40,12 +40,14 @@ impl Type {
 		}
 	}
 
-	pub fn from(ty: impl IsType) -> Self {
+	pub fn from(ty: impl __Istype) -> Self {
 		ty.to_type()
 	}
 }
 
-pub trait IsType {
+
+#[doc(hidden)]
+pub trait __Istype {
 	fn generate_ir(&self) -> IR;
 	fn to_type(&self) -> Type;
 }
@@ -66,7 +68,7 @@ pub struct IntegerType {
 	is_signed: bool,
 	bitwidth: u8,
 }
-impl IsType for IntegerType {
+impl __Istype for IntegerType {
 	fn generate_ir(&self) -> IR {
 		format!("i.{}.{}", if self.is_signed {'s'} else {'u'}, self.bitwidth)
 	}
@@ -90,7 +92,7 @@ impl IntegerType {
 pub struct FloatType {
 	bitwidth: u8,
 }
-impl IsType for FloatType {
+impl __Istype for FloatType {
 	fn generate_ir(&self) -> IR {
 		format!("f.{}", self.bitwidth)
 	}
@@ -109,7 +111,7 @@ impl FloatType {
 pub struct PointerType {
 	contained_type: Box<Type>,
 }
-impl IsType for PointerType {
+impl __Istype for PointerType {
 	fn generate_ir(&self) -> IR {
 		format!("{}*", self.contained_type.generate_ir())
 	}
@@ -117,7 +119,7 @@ impl IsType for PointerType {
 	to_type!{Pointer}
 }
 impl PointerType {
-	pub fn new(contained_type: impl IsType) -> Self {
+	pub fn new(contained_type: impl __Istype) -> Self {
 		Self { contained_type: Box::new(contained_type.to_type()), }
 	}
 }
@@ -125,7 +127,7 @@ impl PointerType {
 /// Void type
 #[derive(Clone, Debug, PartialEq)]
 pub struct VoidType;
-impl IsType for VoidType {
+impl __Istype for VoidType {
 	fn generate_ir(&self) -> IR {
 		IR::from('v')
 	}
@@ -146,7 +148,7 @@ pub struct FunctionType {
 	parameters: Vec<Type>,
 }
 impl FunctionType {
-	pub fn new(return_type: impl IsType, parameters: Vec<impl IsType>) -> Self {
+	pub fn new(return_type: impl __Istype, parameters: Vec<impl __Istype>) -> Self {
 		Self {
 			return_type: Box::new(return_type.to_type()),
 			parameters: parameters.iter().map(|t| t.to_type()).collect(),

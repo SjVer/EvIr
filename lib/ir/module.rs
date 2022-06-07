@@ -22,8 +22,8 @@ use crate::{
 /// - [!module/name][`BuiltinMDProp::ModuleName`]
 /// - [!debug/generate][`BuiltinMDProp::DebugGenerate`]
 pub struct Module {
-	metadata: Vec<Metadata>,
-	functions: Vec<Function>,
+	pub(crate) metadata: Vec<Metadata>,
+	pub(crate) functions: Vec<Function>,
 }
 
 // misc stuff
@@ -55,7 +55,7 @@ impl Module {
 impl Module {
 	/// Attempts to get (a mutable reference to) the 
 	/// metadata value at the given [path][`MDPath`].
-	pub fn get_metadata(&mut self, path: impl ToMDPath) -> Option<&mut Metadata> {
+	pub fn get_metadata(&mut self, path: impl __Tomdpath) -> Option<&mut Metadata> {
 		let path = path.to_mdpath();
 
 		for md in &mut self.metadata {
@@ -67,7 +67,7 @@ impl Module {
 
 	/// Checks if the module has metadata set at
 	/// the given path.
-	pub fn has_metadata(&mut self, path: impl ToMDPath) -> bool {
+	pub fn has_metadata(&mut self, path: impl __Tomdpath) -> bool {
 		self.get_metadata(path).is_some()
 	}
 

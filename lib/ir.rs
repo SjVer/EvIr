@@ -1,4 +1,4 @@
-//===--- ir/mod.rs --------------------- Rust ---===
+//===--- ir.rs ------------------------- Rust ---===
 // This header is part of the EvIr library
 // MIT License - Sjoerd Vermeulen (2022)
 // For more info see https://github.com/SjVer/EvIr
@@ -26,6 +26,7 @@ pub use value::*;
 
 pub type IR = String;
 
+#[doc(hidden)]
 #[derive(Debug, Clone)]
 pub enum __Evirmaybetmpstring {
 	Unset,
@@ -77,6 +78,7 @@ impl __Evirmaybetmpstring {
 
 pub(crate) static mut TMPNAME_COUNTERS: [u32; 8] = [0; 8];
 
+#[doc(hidden)]
 #[macro_export]
 macro_rules! __evir_reset_tmp_name_count {
 	($getter:expr) => {
@@ -86,6 +88,7 @@ macro_rules! __evir_reset_tmp_name_count {
 	};
 }
 
+#[doc(hidden)]
 #[macro_export]
 macro_rules! __evir_get_next_tmp_name {
 	($getter:expr) => {

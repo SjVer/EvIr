@@ -4,7 +4,9 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
+pub(crate) mod frontend;
 pub mod ir;
+pub mod passes;
 
 // ============= Statics =============
 
@@ -73,9 +75,9 @@ macro_rules! evir_assert_f {
 	};
 }
 
-/// indents once or more using TAB
+#[doc(hidden)]
 #[macro_export]
-macro_rules! i {
+macro_rules! __i {
 	($what:expr) => {
 		format!("{}{}", crate::TAB, $what)
 	};

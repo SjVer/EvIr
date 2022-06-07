@@ -18,7 +18,7 @@ pub struct Metadata {
 }
 
 impl Metadata {
-	pub fn new(path: impl ToMDPath, value: impl ToMDValue) -> Self {
+	pub fn new(path: impl __Tomdpath, value: impl __Tomdvalue) -> Self {
 		Self {
 			path: path.to_mdpath(),
 			value: value.to_mdvalue(),

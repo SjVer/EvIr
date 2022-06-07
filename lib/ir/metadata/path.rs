@@ -95,29 +95,30 @@ pub enum CustomMDProp {
 
 // trait
 
-pub trait ToMDPath {
+#[doc(hidden)]
+pub trait __Tomdpath {
 	fn to_mdpath(self) -> MDPath;
 }
 
-impl ToMDPath for MDPath {
+impl __Tomdpath for MDPath {
 	fn to_mdpath(self) -> MDPath {
 		self
 	}
 }
 
-impl ToMDPath for BuiltinMDProp {
+impl __Tomdpath for BuiltinMDProp {
 	fn to_mdpath(self) -> MDPath {
 		MDPath::Builtin(self)
 	}
 }
 
-impl ToMDPath for CustomMDProp {
+impl __Tomdpath for CustomMDProp {
 	fn to_mdpath(self) -> MDPath {
 		MDPath::Custom(self, vec![])
 	}
 }
 
-impl ToMDPath for Vec<String> {
+impl __Tomdpath for Vec<String> {
 	fn to_mdpath(self) -> MDPath {
 		MDPath::Custom(CustomMDProp::Custom, self)
 	}

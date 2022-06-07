@@ -8,6 +8,7 @@ use crate::ir::{__Evirmaybetmpstring, User, Type};
 
 pub(crate) static LOCAL_TMPNAMECOUNT: usize = 0;
 
+#[doc(hidden)]
 #[derive(Debug, Clone)]
 pub struct __Evirlocal<T> {
 	identifier: T,
