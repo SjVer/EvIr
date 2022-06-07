@@ -15,7 +15,6 @@ pub enum Type {
 	Integer(IntegerType),
 	Float(FloatType),
 	Pointer(PointerType),
-	Function(FunctionType),
 	Void(VoidType),
 }
 impl IsType for Type {
@@ -37,7 +36,6 @@ impl Type {
 			Self::Integer(t) => t.generate_ir(),
 			Self::Float(t) => t.generate_ir(),
 			Self::Pointer(t) => t.generate_ir(),
-			Self::Function(t) => t.generate_ir(),
 			Self::Void(t) => t.generate_ir(),
 		}
 	}
@@ -124,32 +122,6 @@ impl PointerType {
 	}
 }
 
-/// Function type
-#[derive(Clone, Debug, PartialEq)]
-pub struct FunctionType {
-	return_type: Box<Type>,
-	parameters: Vec<Type>,
-}
-impl IsType for FunctionType {
-	fn generate_ir(&self) -> IR {
-		let params: Vec<IR> = self.parameters.iter()
-			.map(|t| t.generate_ir())
-			.collect();
-			
-		format!("{} ({})", self.return_type.generate_ir(), params.join(" "))
-	}
-
-	to_type!{Function}
-}
-impl FunctionType {
-	pub fn new(return_type: impl IsType, parameters: Vec<impl IsType>) -> Self {
-		Self {
-			return_type: Box::new(return_type.to_type()),
-			parameters: parameters.iter().map(|t| t.to_type()).collect(),
-		}
-	}
-}
-
 /// Void type
 #[derive(Clone, Debug, PartialEq)]
 pub struct VoidType;
@@ -163,5 +135,33 @@ impl IsType for VoidType {
 impl VoidType {
 	pub fn new() -> Self {
 		VoidType {}
+	}
+}
+
+
+/// Function type
+#[derive(Clone, Debug, PartialEq)]
+pub struct FunctionType {
+	return_type: Box<Type>,
+	parameters: Vec<Type>,
+}
+impl FunctionType {
+	pub fn new(return_type: impl IsType, parameters: Vec<impl IsType>) -> Self {
+		Self {
+			return_type: Box::new(return_type.to_type()),
+			parameters: parameters.iter().map(|t| t.to_type()).collect(),
+		}
+	}
+
+	pub fn get_parameters(&self) -> &Vec<Type> {
+		&self.parameters
+	}
+
+	pub fn generate_ir(&self) -> IR {
+		let params: Vec<IR> = self.parameters.iter()
+			.map(|t| t.generate_ir())
+			.collect();
+			
+		format!("{} ({})", self.return_type.generate_ir(), params.join(" "))
 	}
 }

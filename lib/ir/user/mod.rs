@@ -5,8 +5,10 @@
 //===--------------------------------------------===
 
 mod function;
+mod local;
 
 pub use function::*;
+pub use local::*;
 
 use super::{IR, generate_ir_comment};
 

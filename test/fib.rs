@@ -1,22 +1,11 @@
 extern crate evir;
-use evir::ir::{Module, FunctionType, IntegerType, VoidType, IRBuilder, BasicBlock};
+use evir::ir::{Module, FunctionType, IRBuilder, BasicBlock, ToRef};
 use std::{io::Write, fs::File};
 
 fn main() {
 	// create module and builder
 	let mut module = Module::new("fib");
 	let mut builder = IRBuilder::new();
-
-	// tmp val
-	let todo = builder.get_false();
-
-
-	// declare function `void printint(int x)`
-	let _printint = {
-		let rettype = VoidType::new();
-		let params = vec![IntegerType::new(true, 32)];
-		module.get_or_create_function("printint", FunctionType::new(rettype, params)).unwrap()
-	};
 
 
 	// declare function `int fib(int x)`
@@ -27,17 +16,18 @@ fn main() {
 	};
 	let fentry = fib.append_block(BasicBlock::new_labeled("entry"));
 	let fret_1 = fib.append_block(BasicBlock::new_labeled("ret_1"));
+	let x = fib.get_param(0).to_ref();
 	
 	// if(x <= 2) return 1;
 	builder.set_insert_block(fentry);
-	builder.append_comment("if(x <= 2) return 1;\nreturn fib(x - 1) + fib(x - 2)");
-	let cond = builder.build_cmple(&todo, builder.get_int(2));
+	builder.append_comment("if(x <= 2) return 1;\nreturn fib(x - 1) + fib(x - 2);");
+	let cond = builder.build_cmple(x.clone(), builder.get_int(2));
 	builder.build_condbr(cond, fret_1.as_ref(), None);
-	
+
 	// return fib(x - 1) + fib(x - 2);
 	let retval = builder.build_add(
-		builder.build_call(fib, vec![builder.build_sub(&todo, builder.get_int(1))]),
-		builder.build_call(fib, vec![builder.build_sub(&todo, builder.get_int(2))]),
+		builder.build_call(fib, vec![builder.build_sub(x.clone(), builder.get_int(1))]),
+		builder.build_call(fib, vec![builder.build_sub(x.clone(), builder.get_int(2))]),
 	);
 	builder.build_ret(retval);
 	builder.set_insert_block(fret_1);

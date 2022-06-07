@@ -4,15 +4,13 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-// use std::collections::HashMap;
-use crate::ir::{IR, Value, ToValue}; //, ENDL, TAB};
+use crate::ir::{IR, Value, ToValue};
 
 #[derive(Debug, Clone)]
 pub enum Constant {
 	Integer(u64),
 	Float(f64),
 	Array(Vec<Self>),
-	// Map(HashMap<Self, Self>),
 
 	Character(u8),
 	String(String),

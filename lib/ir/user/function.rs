@@ -6,7 +6,11 @@
 
 use crate::{
 	Ptr,
-	ir::{__Evirmaybetmpstring, IR, User, BasicBlock, IsType, FunctionType},
+	ir::{
+		__Evirmaybetmpstring, IR,
+		User, Param, BasicBlock,
+		FunctionType
+	}, evir_assert_f,
 };
 
 pub(crate) static FUNCTION_TMPNAMECOUNT: usize = 0;
@@ -15,6 +19,7 @@ pub(crate) static FUNCTION_TMPNAMECOUNT: usize = 0;
 pub struct Function {
 	name: __Evirmaybetmpstring,
 	ftype: FunctionType,
+	parameters: Vec<Param>,
 	properties: Vec<String>,
 	blocks: Vec<BasicBlock>,
 }
@@ -32,9 +37,15 @@ impl User for Function {
 // state stuff
 impl Function {
 	pub(crate) fn new(name: Option<String>, ftype: FunctionType) -> Self {
+		let parameters = ftype.get_parameters()
+			.iter().enumerate()
+			.map(|(i, t)| Param::new(i, t.clone()))
+			.collect();
+
 		Self {
 			name: __Evirmaybetmpstring::from_option(name),
 			ftype,
+			parameters,
 			properties: vec![],
 			blocks: vec![],
 		}
@@ -54,6 +65,19 @@ impl Function {
 
 	pub fn get_type(&mut self) -> &mut FunctionType {
 		&mut self.ftype
+	}
+
+	pub fn get_parameters(&self) -> &Vec<Param> {
+		&self.parameters
+	}
+
+	pub fn get_param(&self, index: usize) -> &Param {
+		evir_assert_f!(
+			index < self.parameters.len(), 
+			"Invalid parameter index {} not in range [0-{}]",
+			index, self.parameters.len() - 1);
+
+		&self.parameters[index]
 	}
 
 	pub fn add_property(&mut self, property: impl ToString) {

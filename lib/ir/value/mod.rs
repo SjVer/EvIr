@@ -6,17 +6,21 @@
 
 mod constant;
 mod operator;
+mod reference;
+
+use std::fmt::Debug;
 
 pub use constant::*;
 pub use operator::*;
+pub use reference::*;
 
-use super::IR;
+use crate::ir::IR;
 
 #[derive(Debug, Clone)]
 pub enum Value {
 	Constant(Constant),
 	Operator(Operator),
-	Reference(),
+	Reference(Reference),
 }
 
 // constructors 
@@ -39,7 +43,7 @@ impl Value {
 		match self {
 			Self::Constant(c) => c.generate_ir(),
 			Self::Operator(op) => op.generate_ir(),
-			Self::Reference() => IR::new(),
+			Self::Reference(r) => r.generate_ir(),
 		}
 	}
 }
