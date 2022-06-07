@@ -19,7 +19,7 @@ static LIB_VERSION: &str = "0.1.0 dev";
 #[cfg(not(debug_assertions))]
 static LIB_VERSION: &str = "0.1.0";
 
-// static UNRESOLVED: &str = "<unresolved>";
+static UNRESOLVED: &str = "<unresolved>";
 
 // ============= Types ==============
 
@@ -27,9 +27,9 @@ static LIB_VERSION: &str = "0.1.0";
 pub struct Ptr<T> { ptr: *mut T }
 
 impl<T> Ptr<T> {
-	pub fn new(t: &mut T) -> Self {
+	pub fn new(t: &T) -> Self {
 		Self {
-			ptr: t
+			ptr: (t as *const T) as *mut T
 		}
 	}
 
@@ -39,7 +39,13 @@ impl<T> Ptr<T> {
 		}
 	}
 
-	pub fn deref(&self) -> &mut T {
+	pub fn is_null(&self) -> bool {
+		unsafe {
+			self.ptr.is_null() || matches!(self.ptr.as_ref(), None)
+		}
+	}
+
+	pub fn as_ref(&self) -> &mut T {
 		match unsafe { self.ptr.as_mut() } {
 			Some(t) => t,
 			None => {

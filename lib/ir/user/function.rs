@@ -6,15 +6,14 @@
 
 use crate::{
 	Ptr,
-	__evir_get_next_tmp_name,
-	ir::{IR, User, BasicBlock, IsType, FunctionType},
+	ir::{__Evirmaybetmpstring, IR, User, BasicBlock, IsType, FunctionType},
 };
 
-pub(crate) static mut FUNCTION_TMPNAMEGETTER: u32 = 0;
+pub(crate) static FUNCTION_TMPNAMECOUNT: usize = 0;
 
 #[derive(Debug, Clone)]
 pub struct Function {
-	name: Option<String>,
+	name: __Evirmaybetmpstring,
 	ftype: FunctionType,
 	properties: Vec<String>,
 	blocks: Vec<BasicBlock>,
@@ -34,7 +33,7 @@ impl User for Function {
 impl Function {
 	pub(crate) fn new(name: Option<String>, ftype: FunctionType) -> Self {
 		Self {
-			name,
+			name: __Evirmaybetmpstring::from_option(name),
 			ftype,
 			properties: vec![],
 			blocks: vec![],
@@ -42,15 +41,15 @@ impl Function {
 	}
 
 	pub fn get_name(&self) -> Option<String> {
-		self.name.clone()
+		self.name.to_option()
 	}
 
 	pub fn set_name(&mut self, name: impl ToString) {
-		self.name = Some(name.to_string());
+		self.name.set(name.to_string());
 	}
 
 	pub fn has_name(&self) -> bool {
-		self.name.is_some()
+		self.name.is_set()
 	}
 
 	pub fn get_type(&mut self) -> &mut FunctionType {
@@ -66,7 +65,11 @@ impl Function {
 impl Function {
 	pub fn append_block(&mut self, bb: BasicBlock) -> Ptr<BasicBlock> {
 		self.blocks.push(bb);
-		Ptr::new(self.blocks.last_mut().unwrap())
+		Ptr::new(self.blocks.last().unwrap())
+	}
+
+	pub(crate) fn get_ir_name(&mut self) -> String {
+		self.name.get(FUNCTION_TMPNAMECOUNT)
 	}
 
 	/// Generates the IR for the complete function.
@@ -75,12 +78,12 @@ impl Function {
 		let mut ir = self.generate_properties_comment();
 
 		// signature
-		let name = self.get_name().unwrap_or(__evir_get_next_tmp_name!(FUNCTION_TMPNAMEGETTER));
+		let name = self.name.get(FUNCTION_TMPNAMECOUNT);
 		ir += &format!("{} {}", name, self.ftype.generate_ir());
 		ir.push('\n');
 		
 		// body
-		for b in &self.blocks {
+		for b in &mut self.blocks {
 			ir += &b.generate_ir();
 			ir.push('\n');
 		}

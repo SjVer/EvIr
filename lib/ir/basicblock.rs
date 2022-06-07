@@ -6,16 +6,15 @@
 
 use crate::{
 	Ptr,
-	ENDL, TAB, TAB_LEN,
-	__evir_get_next_tmp_name, i,
-	ir::{Instruction, IR, generate_ir_comment}
+	ENDL, TAB, TAB_LEN, i,
+	ir::{__Evirmaybetmpstring, Instruction, IR, generate_ir_comment}
 };
 
-pub(crate) static mut LABEL_TMPNAMEGETTER: u32 = 0;
+pub(crate) static LABEL_TMPNAMECOUNT: usize = 1;
 
 #[derive(Debug, Clone)]
 pub struct BasicBlock {
-	label: Option<String>,
+	label: __Evirmaybetmpstring,
 	predecessors: Vec<Ptr<BasicBlock>>,
 	instructions: Vec<Instruction>,
 }
@@ -24,7 +23,7 @@ pub struct BasicBlock {
 impl BasicBlock {
 	pub fn new() -> Self {
 		Self {
-			label: None,
+			label: __Evirmaybetmpstring::Unset,
 			predecessors: vec![],
 			instructions: vec![],
 		}
@@ -37,23 +36,27 @@ impl BasicBlock {
 	}
 
 	pub fn set_label(&mut self, label: impl ToString) {
-		self.label = Some(label.to_string());
+		self.label.set(label.to_string());
 	}
 
 	pub fn get_label(&self) -> Option<String> {
-		self.label.clone()
+		self.label.to_option()
 	}
 
-	pub(crate) fn get_ir_label(&self) -> IR {
-		self.get_label().unwrap_or(__evir_get_next_tmp_name!(LABEL_TMPNAMEGETTER))
+	pub(crate) fn get_ir_label(&mut self) -> IR {
+		self.label.get(LABEL_TMPNAMECOUNT)
 	}
 
 	pub fn has_label(&self) -> bool {
-		self.label.is_some()
+		self.label.is_set()
 	}
 
 	pub fn remove_label(&mut self) {
-		self.label = None;
+		self.label.unset();
+	}
+
+	pub fn get_last(&self) -> Option<&Instruction> {
+		self.instructions.last()
 	}
 }
 
@@ -66,7 +69,7 @@ impl BasicBlock {
 		}
 	}
 
-	pub(crate) fn _add_predecessor(&mut self, pred: &mut BasicBlock) {
+	pub(crate) fn _add_predecessor(&mut self, pred: &BasicBlock) {
 		self.predecessors.push(Ptr::new(pred));
 	}
 
@@ -75,13 +78,13 @@ impl BasicBlock {
 		self.instructions.push(inst);
 	}
 
-	pub fn generate_ir(&self) -> IR {
+	pub fn generate_ir(&mut self) -> IR {
 		let mut ir = IR::new();
 
 		// preds comment
 		if !self.predecessors.is_empty() {
 			let preds: Vec<String> = self.predecessors.iter()
-					.map(|p| p.deref().get_ir_label())
+					.map(|p| p.as_ref().get_ir_label())
 					.collect();
 			ir += &generate_ir_comment(format!("preds: {}", preds.join(", ")), false);
 		}
@@ -104,7 +107,7 @@ impl BasicBlock {
 		let mut instrs = vec![];
 		for i in &self.instructions {
 			// i.resolve();
-			instrs.push(i.generate_ir());
+			instrs.push(i.generate_ir() + ENDL);
 		}
 		ir += &instrs.join(&TAB.repeat(4));
 		if self.instructions.is_empty() { ir.push_str(ENDL); }

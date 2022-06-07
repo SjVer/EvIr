@@ -10,7 +10,7 @@ use crate::{
 	ir::{
 		IR, generate_ir_comment,
 		metadata::*,
-		Function, FUNCTION_TMPNAMEGETTER,
+		Function, FUNCTION_TMPNAMECOUNT,
 		FunctionType,
 		Constant,
 		Value
@@ -232,7 +232,7 @@ impl Module {
 		ir.push('\n');
 		
 		// functions
-		__evir_reset_tmp_name_count!(FUNCTION_TMPNAMEGETTER);
+		__evir_reset_tmp_name_count!(FUNCTION_TMPNAMECOUNT);
 		for u in &mut self.functions {
 			ir += &u.generate_ir();
 			ir.push('\n');

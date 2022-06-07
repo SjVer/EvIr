@@ -4,7 +4,7 @@
 // For more info see https://github.com/SjVer/EvIr
 //===--------------------------------------------===
 
-use crate::ir::{IR, Value, ToValue};
+use crate::{ir::{IR, Value, ToValue, Function}, Ptr};
 
 #[derive(Debug, Clone)]
 pub enum Operator {
@@ -16,8 +16,8 @@ pub enum Operator {
 
 macro_rules! __bin_ctor {
 	($name:ident, $variant:ident, $op:ident) => {
-		pub fn $name (l: impl ToValue, r: impl ToValue) -> Self {
-			Self::$variant ( $variant::$op (Box::new(l.to_value()), Box::new(r.to_value()) ) )
+		pub fn $name (lhs: impl ToValue, rhs: impl ToValue) -> Self {
+			Self::$variant ( $variant::$op (Box::new(lhs.to_value()), Box::new(rhs.to_value()) ) )
 		}
 	};
 }
@@ -40,12 +40,20 @@ impl Operator {
 	__bin_ctor!{mul, Hard, Mul}
 	__bin_ctor!{div, Hard, Div}
 	__bin_ctor!{rem, Hard, Mod}
-	__bin_ctor!{eq,  Comp, Eq}
-	__bin_ctor!{ne,  Comp, NE}
-	__bin_ctor!{lt,  Comp, LT}
-	__bin_ctor!{le,  Comp, LE}
-	__bin_ctor!{gt,  Comp, GT}
-	__bin_ctor!{ge,  Comp, GE}
+	__bin_ctor!{cmpeq,  Comp, Eq}
+	__bin_ctor!{cmpne,  Comp, NE}
+	__bin_ctor!{cmplt,  Comp, LT}
+	__bin_ctor!{cmple,  Comp, LE}
+	__bin_ctor!{cmpgt,  Comp, GT}
+	__bin_ctor!{cmpge,  Comp, GE}
+	pub fn call(callee: &Function, args: Vec<impl ToValue>) -> Self {
+		Self::Call(Call{
+			callee: Ptr::new(callee),
+			arguments: args.into_iter()
+				.map(|v| Box::new(v.to_value()))
+				.collect()
+		})
+	}
 }
 
 type OpV = Box<Value>;
@@ -91,6 +99,28 @@ impl ToValue for Operator {
 	fn to_value(self) -> Value {
 		Value::Operator(self)
 	}
+}
+
+// ============ helper fn =============
+
+fn generate_operands_ir(ops: Vec<&OpV>) -> IR {
+	// recursively count operands
+	fn count_ops(ops: Vec<&Box<Value>>) -> i32 {
+		let mut t = 0;
+		for op in ops {
+			t += 1;
+
+			if let Value::Operator(op) = op.as_ref() {
+				t += count_ops(op.unpack_operands());
+			}
+		}
+		t
+	}
+	let total = count_ops(ops);
+
+	// TODO: more than 4 operands is too much
+
+	IR::new()
 }
 
 // ========== Operator types ==========
@@ -204,7 +234,8 @@ impl Op for Hard {
 			Self::Div(..) => "div",
 			Self::Mod(..) => "mod",
 		};
-
+		
+		generate_operands_ir(self.unpack_operands());
 		format!("${} {}", operator, operands.join(" "))
 	}
 }
@@ -278,8 +309,8 @@ impl ToValue for Comp {
 
 #[derive(Debug, Clone)]
 pub struct Call {
-	callee: String, // &mut Function
-	arguments: Vec<Value>,
+	callee: Ptr<Function>,
+	arguments: Vec<OpV>,
 }
 
 impl Op for Call {
@@ -290,11 +321,9 @@ impl Op for Call {
 	fn is_constant(&self) -> bool { false }
 
 	fn unpack_operands(&self) -> Vec<&OpV> {
-		// self.arguments.clone()
-		// 	.into_iter()
-		// 	.map(|v| &Box::new(v))
-		// 	.collect::<Vec<&OpV>>()
-		vec![]
+		let args: Vec<&OpV> = self.arguments.iter().collect();
+		// args.push(&Box::new(Value::Reference(/* callee */)));
+		args
 	}
 
 	fn generate_ir(&self) -> IR {
@@ -302,7 +331,7 @@ impl Op for Call {
 			.map(|v| v.generate_ir())
 			.collect();
 
-		format!("$call %{} {}", self.callee, args.join(" "))
+		format!("$call %{} {}", self.callee.as_ref().get_ir_name(), args.join(" "))
 	}
 }
 impl ToValue for Call {

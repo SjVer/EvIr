@@ -50,6 +50,11 @@ impl ToValue for Value {
 		self
 	}
 }
+impl ToValue for &Value {
+	fn to_value(self) -> Value {
+		self.clone()
+	}
+}
 
 pub trait ToValue {
 	fn to_value(self) -> Value;
