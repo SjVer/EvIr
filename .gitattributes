@@ -1,3 +1,4 @@
 docs/** linguist-documentation
 tools/** linguist-vendored
 *.evir linguist-language=nasm
+*.evir linguist-vendored
